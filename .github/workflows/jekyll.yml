@@ -42,7 +42,7 @@ jobs:
 
       - run: ruby pokemongo.rb
 
-      - run: curl -X GET "https://status.kovuthehusky.com/projects.json" > _data/projects.json
+      - run: curl -X GET "https://status.kovu.dog/projects.json" > _data/projects.json
 
       - uses: helaili/jekyll-action@v2
         with:
