@@ -32,7 +32,7 @@ layout: default
       <img src="/node_modules/simple-icons/icons/dogecoin.svg" alt="Dogecoin">
       <span>Dogecoin</span>
     </a>
-    <a href="mailto:contact@kovuthehusky.com" style="background-color: #ea4335;" class="more">
+    <a href="mailto:contact@{{ site.hostname }}" style="background-color: #ea4335;" class="more">
       <img src="/node_modules/simple-icons/icons/gmail.svg" alt="Email">
       <span>Email</span>
     </a>
@@ -189,10 +189,10 @@ layout: default
 
   function refresh() {
     if (!shown) {
-      $.getJSON('https://status.kovuthehusky.com/twitch.json', function(data) {
+      $.getJSON('https://status.{{ site.hostname }}/twitch.json', function(data) {
         if (data['type'] == 'live') {
           shown = true;
-          $('#twitch').append('<iframe src="https://player.twitch.tv/?channel=kovuthehusky&parent=kovuthehusky.com" height="624" width="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>');
+          $('#twitch').append('<iframe src="https://player.twitch.tv/?channel=kovuthehusky&parent={{ site.hostname }}" height="624" width="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>');
           $('#twitch').css('margin-bottom', '66px');
           $('#twitch > iframe').height($('#twitch > iframe').width() * 9 / 16);
         }
