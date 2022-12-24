@@ -28,8 +28,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - run: sudo apt install imagemagick
-
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: install
