@@ -311,7 +311,7 @@ function refresh() {
     var join = $(data.Players).not(players).get();
     var part = $(players).not(data.Players).get();
     $.each(join, function(key, value) {
-      $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '"><img src="https://minecraft.{{ site.hostname }}/standalone/markers.php?marker=faces/16x16/' + value + '.png" class="rounded me-1" style="width: 24px; height: 24px; image-rendering: pixelated;">' + value + '</li>');
+      $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '"><img src="https://minecraft.{{ site.hostname }}/standalone/MySQL_markers.php?marker=faces/16x16/' + value + '.png" class="rounded me-1" style="width: 24px; height: 24px; image-rendering: pixelated;">' + value + '</li>');
     });
     $.each(part, function(key, value) {
       $('.player-' + value).remove();
