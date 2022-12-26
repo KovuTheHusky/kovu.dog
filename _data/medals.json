@@ -1,258 +1,298 @@
 {
-  "special": {
-    "pokemon-go-fest-2017.png": {
+  "other": {
+    "pokemon-go-fest-2017.webp": {
       "title": "GO Fest 2017",
       "subtitle": "Chicago, July 22, 2017"
     },
-    "pokemon-go-fest-2018.png": {
+    "pokemon-go-fest-2018.webp": {
       "title": "GO Fest 2018",
       "subtitle": "Chicago, July 14, 2018 - South"
     },
-    "pokemon-go-fest-2020.png": {
+    "pokemon-go-fest-2020.webp": {
       "title": "GO Fest 2020",
       "subtitle": "Global, July 25-26, 2020"
     },
-    "pokemon-go-tour-kanto---green.png": {
+    "kanto-green.webp": {
       "title": "GO Tour Kanto",
       "subtitle": "Global, February 20, 2021"
     },
-    "generic.png#1": {
+    "ticketed-research.webp#1": {
       "title": "A Drive to Investigate",
       "subtitle": "March 20-26, 2020"
     },
-    "generic.png#2": {
+    "ticketed-research.webp#2": {
       "title": "Investigating Illusions",
       "subtitle": "April 25, 2020"
     },
-    "generic.png#3": {
+    "ticketed-research.webp#3": {
       "title": "Tap... Tap... Tappity-Tap...",
       "subtitle": "December 19-20, 2020"
     },
-    "legacy-40.png": {
+    "legacy-40.webp": {
       "title": "Legacy 40",
       "subtitle": "Achieve level 40 by December 31, 2020."
     },
-    "pokemon-go-fest-2021.png": {
+    "pokemon-go-fest-2021.webp": {
       "title": "GO Fest 2021",
       "subtitle": "Global, July 17-18, 2021"
+    },
+    "pokemon-go-fest-2022.webp": {
+      "title": "GO Fest 2022",
+      "subtitle": "Global, June 4-5 & August 27, 2022"
     }
   },
-  "standard": {
-    "jogger.png": {
+  "general": {
+    "jogger.webp": {
       "title": "Jogger",
       "rank": "gold"
     },
-    "kanto.png": {
+    "kanto.webp": {
       "title": "Kanto",
       "rank": "platinum"
     },
-    "collector.png": {
+    "collector.webp": {
       "title": "Collector",
       "rank": "gold"
     },
-    "scientist.png": {
+    "scientist.webp": {
       "title": "Scientist",
       "rank": "gold"
     },
-    "breeder.png": {
+    "breeder.webp": {
       "title": "Breeder",
       "rank": "gold"
     },
-    "backpacker.png": {
+    "backpacker.webp": {
       "title": "Backpacker",
       "rank": "gold"
     },
-    "fisher.png": {
+    "sightseer.webp": {
+      "title": "Sightseer",
+      "rank": "gold"
+    },
+    "fisher.webp": {
       "title": "Fisher",
       "rank": "silver"
     },
-    "battle-girl.png": {
+    "battle-girl.webp": {
       "title": "Battle Girl",
       "rank": "gold"
     },
-    "ace-trainer.png": {
+    "ace-trainer.webp": {
       "title": "Ace Trainer",
       "rank": "bronze"
     },
-    "youngster.png": {
+    "youngster.webp": {
       "title": "Youngster",
       "rank": "silver"
     },
-    "pikachu-fan.png": {
+    "pikachu-fan.webp": {
       "title": "Pikachu Fan",
       "rank": "gold"
     },
-    "unown.png": {
+    "unown.webp": {
       "title": "Unown",
       "rank": "silver"
     },
-    "johto.png": {
+    "johto.webp": {
       "title": "Johto",
       "rank": "platinum"
     },
-    "champion.png": {
+    "champion.webp": {
       "title": "Champion",
       "rank": "silver"
     },
-    "battle-legend.png": {
+    "battle-legend.webp": {
       "title": "Battle Legend",
       "rank": "silver"
     },
-    "berry-master.png": {
+    "berry-master.webp": {
       "title": "Berry Master",
       "rank": "gold"
     },
-    "gym-leader.png": {
+    "gym-leader.webp": {
       "title": "Gym Leader",
       "rank": "gold"
     },
-    "hoenn.png": {
+    "hoenn.webp": {
       "title": "Hoenn",
       "rank": "gold"
     },
-    "pokemon-ranger.png": {
+    "pokemon-ranger.webp": {
       "title": "Pokémon Ranger",
       "rank": "silver"
     },
-    "idol.png": {
+    "idol.webp": {
       "title": "Idol",
       "rank": "gold"
     },
-    "gentleman.png": {
+    "gentleman.webp": {
       "title": "Gentleman",
       "rank": "bronze"
     },
-    "pilot.png": {
+    "pilot.webp": {
       "title": "Pilot",
       "rank": "bronze"
     },
-    "sinnoh.png": {
+    "sinnoh.webp": {
       "title": "Sinnoh",
       "rank": "gold"
     },
-    "great-league-veteran.png": {
+    "great-league-veteran.webp": {
       "title": "Great League Veteran",
       "rank": "bronze"
     },
-    "ultra-league-veteran.png": {
+    "ultra-league-veteran.webp": {
       "title": "Ultra League Veteran",
       "rank": "bronze"
     },
-    "master-league-veteran.png": {
+    "master-league-veteran.webp": {
       "title": "Master League Veteran",
       "rank": "bronze"
     },
-    "cameraman.png": {
+    "cameraman.webp": {
       "title": "Cameraman",
       "rank": "bronze"
     },
-    "unova.png": {
+    "unova.webp": {
       "title": "Unova",
       "rank": "gold"
     },
-    "purifier.png": {
+    "purifier.webp": {
       "title": "Purifier",
       "rank": "bronze"
     },
-    "hero.png": {
+    "hero.webp": {
       "title": "Hero",
       "rank": "silver"
     },
-    "ultra-hero.png": {
+    "ultra-hero.webp": {
       "title": "Ultra Hero",
       "rank": "bronze"
     },
-    "best-buddy.png": {
+    "best-buddy.webp": {
       "title": "Best Buddy",
       "rank": "shadow"
     },
-    "wayfarer.png": {
+    "wayfarer.webp": {
       "title": "Wayfarer",
       "rank": "shadow"
     },
-    "galar.png": {
+    "galar.webp": {
       "title": "Galar",
       "rank": "shadow"
     },
-    "successor.png": {
+    "kalos.webp": {
+      "title": "Kalos",
+      "rank": "bronze"
+    },
+    "alola.webp": {
+      "title": "Alola",
+      "rank": "bronze"
+    },
+    "triathlete.webp": {
+      "title": "Triathlete",
+      "rank": "silver"
+    },
+    "rising-star.webp": {
+      "title": "Rising Star",
+      "rank": "gold"
+    },
+    "rising-star-duo.webp": {
+      "title": "Rising Star Duo",
+      "rank": "bronze"
+    },
+    "picnicker.webp": {
+      "title": "Picnicker",
+      "rank": "bronze"
+    },
+    "successor.webp": {
       "title": "Successor",
+      "rank": "bronze"
+    },
+    "mega-evolution-guru.webp": {
+      "title": "Mega Evolution Guru",
+      "rank": "bronze"
+    },
+    "friend-finder.webp": {
+      "title": "Friend Finder",
       "rank": "shadow"
     },
-    "mega-evolution-guru.png": {
-      "title": "Mega Evolution Guru",
-      "rank": "shadow"
+    "raid-expert.webp": {
+      "title": "Raid Expert",
+      "rank": "bronze"
     }
   },
   "type": {
-    "schoolkid.png": {
+    "schoolkid.webp": {
       "title": "Schoolkid",
-      "rank": "gold"
+      "rank": "platinum"
     },
-    "black-belt.png": {
+    "black-belt.webp": {
       "title": "Black Belt",
       "rank": "gold"
     },
-    "bird-keeper.png": {
+    "bird-keeper.webp": {
       "title": "Bird Keeper",
       "rank": "gold"
     },
-    "punk-girl.png": {
+    "punk-girl.webp": {
       "title": "Punk Girl",
       "rank": "gold"
     },
-    "ruin-maniac.png": {
+    "ruin-maniac.webp": {
       "title": "Ruin Maniac",
       "rank": "gold"
     },
-    "hiker.png": {
+    "hiker.webp": {
       "title": "Hiker",
       "rank": "gold"
     },
-    "bug-catcher.png": {
+    "bug-catcher.webp": {
       "title": "Bug Catcher",
       "rank": "gold"
     },
-    "hex-maniac.png": {
+    "hex-maniac.webp": {
       "title": "Hex Maniac",
       "rank": "gold"
     },
-    "rail-staff.png": {
+    "rail-staff.webp": {
       "title": "Rail Staff",
       "rank": "gold"
     },
-    "kindler.png": {
+    "kindler.webp": {
       "title": "Kindler",
       "rank": "gold"
     },
-    "swimmer.png": {
+    "swimmer.webp": {
       "title": "Swimmer",
-      "rank": "gold"
+      "rank": "platinum"
     },
-    "gardener.png": {
+    "gardener.webp": {
       "title": "Gardener",
       "rank": "gold"
     },
-    "rocker.png": {
+    "rocker.webp": {
       "title": "Rocker",
       "rank": "gold"
     },
-    "psychic.png": {
+    "psychic.webp": {
       "title": "Psychic",
       "rank": "gold"
     },
-    "skier.png": {
+    "skier.webp": {
       "title": "Skier",
       "rank": "gold"
     },
-    "dragon-tamer.png": {
+    "dragon-tamer.webp": {
       "title": "Dragon Tamer",
       "rank": "gold"
     },
-    "delinquent.png": {
+    "delinquent.webp": {
       "title": "Delinquent",
       "rank": "gold"
     },
-    "fairy-tale-girl.png": {
+    "fairy-tale-girl.webp": {
       "title": "Fairy Tale Girl",
       "rank": "gold"
     }
