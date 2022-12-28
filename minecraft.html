@@ -5,7 +5,7 @@ subtitle: "Timeline, connection details, world downloads, maps."
 permalink: /minecraft
 ---
 <div class="container">
-  <div id="jumbotron" class="p-5 mb-4 rounded-3 text-center" style="background-color: #343a40 !important; border: 1px solid #808080 !important;">
+  <div id="jumbotron" class="p-5 mb-4 rounded-3 text-center" style="background-color: #343a40 !important; border: 1px solid #808080 !important; display: none;">
     <div class="container-fluid py-5">
       <h1 id="countdown" class="display-5 fw-bold">&#8987;</h1>
       <p class="fs-4">
@@ -263,7 +263,9 @@ if (days == 0 && hours == 0 && minutes == 0) {
 }
 
 // If the count down is finished, write some text
-if (delta < 0) {
+if (delta >= 0) {
+  $('#jumbotron').show();
+} else {
   clearInterval(timer);
   $('#jumbotron').hide();
 }
