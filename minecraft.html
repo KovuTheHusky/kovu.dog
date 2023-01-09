@@ -5,31 +5,6 @@ subtitle: "Timeline, connection details, world downloads, maps."
 permalink: /minecraft
 ---
 <div class="container">
-  <div id="jumbotron" class="p-5 mb-4 rounded-3 text-center" style="background-color: #343a40 !important; border: 1px solid #808080 !important; display: none;">
-    <div class="container-fluid py-5">
-      <h1 id="countdown" class="display-5 fw-bold">&#8987;</h1>
-      <p class="fs-4">
-        On Saturday, January 7th at 6pm EST we will be launching a new Minecraft server!
-        Join
-        <span style="white-space: nowrap;">
-          <img src="/images/minecraft/KovuTheHusky.webp" alt="KovuTheHusky" class="rounded" style="height: 1.5rem; image-rendering: pixelated;">
-          KovuTheHusky</span>,
-        <span style="white-space: nowrap;">
-          <img src="/images/minecraft/NightWolf1298.webp" alt="NightWolf1298" class="rounded" style="height: 1.5rem; image-rendering: pixelated;">
-          nytewuff
-        </span>
-        &
-        <span style="white-space: nowrap;">
-          <img src="/images/minecraft/campppy.webp" alt="campppy" class="rounded" style="height: 1.5rem; image-rendering: pixelated;">
-          camwuff
-        </span>
-        in-game or live on <a href="https://twitch.tv/kovuthehusky">Twitch</a> as we get started!
-      </p>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modal" class="btn btn-primary btn-lg">Connect</a>
-      <a href="https://minecraft.{{ site.hostname }}" class="btn btn-secondary btn-lg">Live Map</a>
-      <a href="https://discord.gg/w3XaDVBF7K" class="btn btn-secondary btn-lg">Discord</a>
-    </div>
-  </div>
   <div class="card" style="margin-bottom: 66px;">
     <div class="card-body justify-content-center align-items-center">
       <div id="overlay">
@@ -172,10 +147,6 @@ script.onload = function() {
       type: 'date',
       id: 'End'
     });
-    var todayOrJan7 = new Date();
-    if (todayOrJan7.getTime() < (new Date(2023, 0, 7)).getTime()) {
-      todayOrJan7 = new Date(2023, 0, 7);
-    }
     data.addRows([
       ['Online', 'Survival 2011', new Date(2011, 1, 11), new Date(2011, 8, 15)],
       ['Online', 'Survival 2012', new Date(2011, 8, 15), new Date(2012, 2, 1)],
@@ -183,7 +154,7 @@ script.onload = function() {
       ['Online', 'Survival 2013', new Date(2012, 2, 12), new Date(2013, 9, 12)],
       ['Online', 'Survival 2022', new Date(2013, 11, 3), new Date(2022, 4, 9)],
       ['Online', 'Forge 2015', new Date(2015, 11, 29), new Date(2016, 5, 17)],
-      ['Online', 'Survival LIVE', new Date(2023, 0, 7), todayOrJan7]
+      ['Online', 'Survival LIVE', new Date(2023, 0, 7), new Date()]
     ]);
     options = {
       backgroundColor: '#121212',
@@ -211,68 +182,6 @@ script.onload = function() {
   $(document).ready(function() {
     $.ajaxSetup({ cache: false });
   });
-</script>
-
-<script>
-var launch = new Date("Jan 7, 2023 18:00:00").getTime();
-
-// Update the count down every 1 second
-function refreshTimer() {
-
-var now = new Date().getTime();
-
-var delta = launch - now;
-
-// Time calculations for days, hours, minutes and seconds
-var days = Math.floor(delta / (1000 * 60 * 60 * 24));
-var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((delta % (1000 * 60)) / 1000);
-
-var str = '';
-if (days > 0) {
-  str = str.concat(days + ' ');
-  if (days == 1) {
-    str = str.concat('day ');
-  } else {
-    str = str.concat('days ');
-  }
-} else {
-  if (hours > 0) {
-    str = str.concat(hours + ':');
-  }
-  if (minutes > 0 || hours > 0) {
-    if (hours > 0) {
-      minutes = ('0' + minutes).slice(-2);
-    }
-    str = str.concat(minutes + ':');
-  }
-  if (seconds > 0 || minutes > 0 || hours > 0) {
-    if (minutes > 0) {
-      seconds = ('0' + seconds).slice(-2);
-    }
-    str = str.concat(seconds);
-  }
-}
-$('#countdown').text(str);
-
-if (days == 0 && hours == 0 && minutes == 0) {
-  $('#countdown').css('font-size', '6rem');
-} else {
-  $('#countdown').css('font-size', '3rem');
-}
-
-// If the count down is finished, write some text
-if (delta >= 0) {
-  $('#jumbotron').show();
-} else {
-  clearInterval(timer);
-  $('#jumbotron').hide();
-}
-}
-
-refreshTimer();
-var timer = setInterval(refreshTimer, 1000);
 </script>
 
 <script>
