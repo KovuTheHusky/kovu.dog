@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Timeline, connection details, world downloads, maps.">
+    <meta name="msapplication-TileColor" content="#5dde95">
+    <meta name="theme-color" content="#5dde95">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:description" content="Timeline, connection details, world downloads, maps.">
+    <meta property="og:image" content="https://kovu.dog/og.png">
+    <meta property="og:site_name" content="KovuTheHusky">
+    <meta property="og:title" content="Minecraft">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kovu.dog/minecraft">
+    <title>Minecraft - KovuTheHusky</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="KovuTheHusky" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+    <script src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js" defer></script>
+    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js" defer></script>
+    <script src="/node_modules/twemoji/dist/twemoji.min.js" defer></script>
+
+    <script>$(document).ready(function () { document.body = twemoji.parse(document.body, {folder: 'svg', ext: '.svg'}); });</script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-transparent">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/avatar.webp" alt="KovuTheHusky" class="h-100 rounded-circle">
+      </a>
+      <div class="dropdown">
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="dropdown" aria-label="Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <a class="dropdown-item" href="/">About</a>
+          <a class="dropdown-item" href="/places">Places</a>
+          <a class="dropdown-item" href="/posts">Posts</a>
+          <a class="dropdown-item" href="/projects">Projects</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Furry</h6>
+          <a class="dropdown-item" href="/fursona">Fursona</a>
+          <a class="dropdown-item" href="/fursuit">Fursuit</a>
+          <a class="dropdown-item" href="/conventions">Conventions</a>
+          <a class="dropdown-item" href="/parties">Parties</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Gamer</h6>
+          <a class="dropdown-item active" href="/minecraft">Minecraft</a>
+          <a class="dropdown-item" href="/terraria">Terraria</a>
+          <a class="dropdown-item" href="/counter-strike">Counter-Strike</a>
+          <a class="dropdown-item" href="/pokemon-go">Pokémon GO</a>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+<div class="text-center gmb">
+  <h1>Minecraft</h1>
+  <p class="mb-0">Timeline, connection details, world downloads, maps.</p>
+</div>
+<div class="page gpb">
+<div class="container">
+  <div class="card" style="margin-bottom: 66px;">
+    <div class="card-body justify-content-center align-items-center">
+      <div id="overlay">
+        <div class="w-100 d-flex justify-content-center align-items-center h-100">
+          <div class="spinner-border text-primary" role="status" style="margin: auto; display: flex; position: absolute; width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading&mldr;</span>
+          </div>
+        </div>
+      </div>
+      <h5 class="card-title">
+        Survival
+        <span id="status" class="badge" style="visibility: hidden;">Loading&mldr;</span>
+      </h5>
+      <p class="card-text align-middle">A world started in version 1.19.3. No world download is available at this time, but a live map is.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-left">
+        <ul id="live" class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between">Version<span id="version"></span></li>
+          <li class="list-group-item d-flex justify-content-between">Day<span id="day"></span></li>
+          <li class="list-group-item d-flex justify-content-between">Time<span id="time"></span></li>
+          <li class="list-group-item d-flex justify-content-between">Weather<span id="weather"></span></li>
+          <li class="list-group-item d-flex justify-content-between" style="border-bottom: 0;">Tickrate<span id="tickrate"></span></li>
+          <li class="list-group-item" style="border-top: 0; padding-top: 0;">
+            <canvas id="tickrate-chart" height="30"></canvas>
+          </li>
+          <li class="list-group-item d-flex justify-content-between" style="border-bottom: 0;">Memory<span id="memory"></span></li>
+          <li class="list-group-item" style="border-top: 0; padding-top: 0;">
+            <canvas id="memory-chart" height="30"></canvas>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-right">
+        <ul id="live-playerlist" class="list-group list-group-flush">
+          <li id="playercount" class="list-group-item d-flex justify-content-between">Players<span id="players"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body" style="border-top: 1px solid #808080;">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#modal" class="btn btn-primary disabled remote">Connect</a>
+      <a href="https://minecraft.kovu.dog" class="btn btn-secondary">Live Map</a>
+      <a href="https://discord.gg/w3XaDVBF7K" class="btn btn-secondary">Discord</a>
+    </div>
+  </div>
+</div>
+<div id="timeline" class="gmb" style="height: 337px;">
+</div>
+<div class="container">
+  <div id="masonry" class="row" data-masonry='{"percentPosition": true }'>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2022
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">The longest lasting world started in version 1.7.2 and retired in version 1.19.3. Included many players.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2022.zip" class="btn btn-primary">Download</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Forge 2015
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">A world using the Biomes O' Plenty mod from version 1.8-1.9.4. No map is available due to compatibility issues.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/forge-2015.zip" class="btn btn-primary">Download</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2013
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">The second long lasting world started in version 1.2.3 and retired in version 1.6.4. Included many players.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2013.zip" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2013/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Creative 2012
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">An experimental creative mode world used for versions 1.8β-1.1. Only substantial build is by <img src="/images/minecraft/NightWolf1298.webp" alt="NightWolf1298" class="rounded" style="image-rendering: pixelated;"> nytewuff.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/creative-2012.zip" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/minecraft/creative-2012/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2012
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">An interim world used for versions 1.8β-1.1. Only builds are by <img src="/images/minecraft/KovuTheHusky.webp" alt="KovuTheHusky" class="rounded" style="image-rendering: pixelated;"> KovuTheHusky, <img src="/images/minecraft/NightWolf1298.webp" alt="NightWolf1298" class="rounded" style="image-rendering: pixelated;"> nytewuff, and <img src="/images/minecraft/Cujo27.webp" alt="Cujo27" class="rounded" style="image-rendering: pixelated;"> Cujo27.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2012.zip" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2012/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2011
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">The first world created in version 1.2_02β and retired in version 1.7.3β. Players consisted mostly of family.</p>
+          
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2011.zip" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/minecraft/survival-2011/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Connect</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-3">To connect to the server, log into Minecraft, select Multiplayer from the main menu, click the Add Server button, and enter the server address below.</p>
+          <div class="input-group">
+            <span class="input-group-text" style="min-width: 80px;">Server</span>
+            <input type="text" class="form-control" onclick="this.select();" value="kovu.dog" readonly>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/node_modules/chart.js/dist/chart.umd.js"></script>
+
+<script>
+let script = document.createElement('script');
+
+script.src = "https://www.gstatic.com/charts/loader.js"
+document.head.append(script);
+
+script.onload = function() {
+  google.charts.load('current', {'packages':['timeline']});
+  google.setOnLoadCallback(drawChart);
+  var chart;
+  var data;
+  var options;
+
+  function drawChart() {
+    var container = document.getElementById('timeline');
+    chart = new google.visualization.Timeline(container);
+    data = new google.visualization.DataTable();
+    data.addColumn({
+      type: 'string',
+      id: 'Order'
+    });
+    data.addColumn({
+      type: 'string',
+      id: 'Name'
+    });
+    data.addColumn({
+      type: 'date',
+      id: 'Start'
+    });
+    data.addColumn({
+      type: 'date',
+      id: 'End'
+    });
+    data.addRows([
+      ['Online', 'Survival 2011', new Date(2011, 1, 11), new Date(2011, 8, 15)],
+      ['Online', 'Survival 2012', new Date(2011, 8, 15), new Date(2012, 2, 1)],
+      ['Online', 'Creative 2012', new Date(2011, 8, 15), new Date(2012, 2, 1)],
+      ['Online', 'Survival 2013', new Date(2012, 2, 12), new Date(2013, 9, 12)],
+      ['Online', 'Survival 2022', new Date(2013, 11, 3), new Date(2022, 4, 9)],
+      ['Online', 'Forge 2015', new Date(2015, 11, 29), new Date(2016, 5, 17)],
+      ['Online', 'Survival LIVE', new Date(2023, 0, 7), new Date()]
+    ]);
+    options = {
+      backgroundColor: '#121212',
+      timeline: {
+        showRowLabels: false,
+        groupByRowLabel: false
+      }
+    };
+    chart.draw(data, options);
+  }
+  var previousWidth = $('#timeline').width();
+
+  function checkOrientation() {
+    if ($('#timeline').width() !== previousWidth) {
+      previousWidth = $('#timeline').width();
+      chart.draw(data, options);
+    }
+  }
+  window.addEventListener("resize", checkOrientation, false);
+  window.addEventListener("orientationchange", checkOrientation, false);
+};
+</script>
+
+<script>
+  $(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+  });
+</script>
+
+<script>
+
+var players = [];
+  
+  var charttickrate = null;
+  var chartmemory = null;
+
+function refresh() {
+  $.getJSON('https://status.kovu.dog/minecraft.json', function(data) {
+    $('#overlay').hide();
+    $('#status').text('Online');
+    $('#status').css('visibility', 'visible');
+    $('.remote').removeClass('disabled');
+    $('#status').addClass('bg-success');
+    $('#status').removeClass('bg-danger');
+    $('#version').text(data['Info']['Version']);
+    var day = data['Day'];
+    $('#day').text(Number(day).toLocaleString());
+    var period = 'am';
+    var hour = Math.floor((data['Time'] / 1000 + 6) % 24);
+    if (hour > 12) {
+      period = 'pm';
+      hour = hour - 12;
+    } else if (hour == 0) {
+      hour = 12;
+    }
+    var minute = Math.floor(data['Time'] % 1000 / (16 + 2 / 3));
+    if (minute < 10) {
+      minute = '0' + minute;
+    }
+    $('#time').text(hour + ':' + minute + period);
+    $('#weather').text(data['Weather'].charAt(0).toUpperCase() + data['Weather'].slice(1));
+    $('#tickrate').text(data.Tickrate[data.Tickrate.length - 1].toFixed(2) + '/s');
+    $('#memory').text(data.Memory[data.Memory.length - 1].toFixed(2) + '%');
+    $('#players').text(data['Info']['Players'] + ' / ' + data['Info']['MaxPlayers']);
+    var join = $(data.Players).not(players).get();
+    var part = $(players).not(data.Players).get();
+    $.each(join, function(key, value) {
+      $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '"><img src="https://minecraft.kovu.dog/standalone/MySQL_markers.php?marker=faces/16x16/' + value + '.png" class="rounded me-1" style="width: 24px; height: 24px; image-rendering: pixelated;">' + value + '</li>');
+    });
+    $.each(part, function(key, value) {
+      $('.player-' + value).remove();
+    });
+    players = data.Players;
+
+    var availabilityOptions = {
+      animation: {
+        duration: 0
+      },
+      elements: {
+        line: {
+          borderWidth: 2
+        },
+        point: {
+          radius: 0,
+          hitRadius: 0
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        x: {
+          display: false
+        },
+        y: {
+          display: false,
+          min: -10,
+          max: 110
+        }
+      },
+      tooltips: {
+        enabled: true
+      }
+    };
+
+    var tickrateOptions = {
+      animation: {
+        duration: 0
+      },
+      elements: {
+        line: {
+          borderWidth: 2
+        },
+        point: {
+          radius: 0,
+          hitRadius: 0
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        x: {
+          display: false
+        },
+        y: {
+          display: false,
+          min: -2,
+          max: 22
+        }
+      },
+      tooltips: {
+        enabled: true
+      }
+    };
+
+    var labels = [];
+    for (var i = 0; i < data.Memory.length; i++) {
+      labels[i] = i;
+    }
+    
+    if (charttickrate != null) {
+      charttickrate.destroy();
+    }
+
+    charttickrate = new Chart(document.getElementById("tickrate-chart"), {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+            data: data.Tickrate,
+            borderColor: "#ffffff",
+            fill: false
+          }
+        ]
+      },
+      options: tickrateOptions
+    });
+    
+    if (chartmemory != null) {
+      chartmemory.destroy();
+    }
+
+    chartmemory = new Chart(document.getElementById("memory-chart"), {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+            data: data.Memory,
+            borderColor: "#ffffff",
+            fill: false
+          }
+        ]
+      },
+      options: availabilityOptions
+    });
+  }).fail(function() {
+    $('#overlay').hide();
+    $('#status').text('Offline');
+    $('#status').css('visibility', 'visible');
+    $('.remote').addClass('disabled');
+    $('#status').addClass('bg-danger');
+    $('#status').removeClass('bg-success');
+    $('#version').text('Offline');
+    $('#day').text('Offline');
+    $('#time').text('Offline');
+    $('#weather').text('Offline');
+    $('#tickrate').text('Offline');
+    $('#memory').text('Offline');
+    $('#players').text('Offline');
+    $('.player-').remove();
+  });
+}
+
+refresh();
+setInterval(refresh, 1000);
+
+</script>
+
+<script>
+  $(document).ready(function () {
+    var image_url='https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay';
+    $.get(image_url).done(function() { 
+      $("img[src|='/images/minecraft/campppy.webp']").attr('src', 'https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay');
+    }).fail(function() {
+    })
+    var image_url='https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay';
+    $.get(image_url).done(function() { 
+      $("img[src|='/images/minecraft/Cujo27.webp']").attr('src', 'https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay');
+    }).fail(function() {
+    })
+    var image_url='https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay';
+    $.get(image_url).done(function() { 
+      $("img[src|='/images/minecraft/KovuTheHusky.webp']").attr('src', 'https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay');
+    }).fail(function() {
+    })
+    var image_url='https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay';
+    $.get(image_url).done(function() { 
+      $("img[src|='/images/minecraft/NightWolf1298.webp']").attr('src', 'https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay');
+    }).fail(function() {
+    })
+  });
+</script>
+
+</div>
+
+  </body>
+</html>

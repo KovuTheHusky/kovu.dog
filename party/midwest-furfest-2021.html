@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Midwest FurFest 2021">
+    <meta name="msapplication-TileColor" content="#5dde95">
+    <meta name="theme-color" content="#5dde95">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:description" content="Midwest FurFest 2021">
+    <meta property="og:image" content="https://kovu.dog/og.png">
+    <meta property="og:site_name" content="KovuTheHusky">
+    <meta property="og:title" content="Two Musky Huskies">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kovu.dog/party/midwest-furfest-2021">
+    <title>Two Musky Huskies - KovuTheHusky</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="KovuTheHusky" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+    <script src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js" defer></script>
+    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js" defer></script>
+    <script src="/node_modules/twemoji/dist/twemoji.min.js" defer></script>
+
+    <script>$(document).ready(function () { document.body = twemoji.parse(document.body, {folder: 'svg', ext: '.svg'}); });</script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-transparent">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/avatar.webp" alt="KovuTheHusky" class="h-100 rounded-circle">
+      </a>
+      <div class="dropdown">
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="dropdown" aria-label="Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <a class="dropdown-item" href="/">About</a>
+          <a class="dropdown-item" href="/places">Places</a>
+          <a class="dropdown-item" href="/posts">Posts</a>
+          <a class="dropdown-item" href="/projects">Projects</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Furry</h6>
+          <a class="dropdown-item" href="/fursona">Fursona</a>
+          <a class="dropdown-item" href="/fursuit">Fursuit</a>
+          <a class="dropdown-item" href="/conventions">Conventions</a>
+          <a class="dropdown-item active" href="/parties">Parties</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Gamer</h6>
+          <a class="dropdown-item" href="/minecraft">Minecraft</a>
+          <a class="dropdown-item" href="/terraria">Terraria</a>
+          <a class="dropdown-item" href="/counter-strike">Counter-Strike</a>
+          <a class="dropdown-item" href="/pokemon-go">Pokémon GO</a>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+<div class="pre-content text-center gmb">
+  <h1 id="title">Two Musky Huskies</h1>
+  <p id="subtitle" class="mb-0">Midwest FurFest 2021</p>
+</div>
+<div class="page gpb">
+<ul class="nav nav-pills justify-content-center gmb" id="list-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="invite-list" data-bs-toggle="list" href="#invite" role="tab">Invite</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" id="drinks-list" data-bs-toggle="list" href="#drinks" role="tab">Drinks</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" id="gallery-list" data-bs-toggle="list" href="#gallery" role="tab">Gallery</a>
+  </li>
+</ul>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="invite" role="tabpanel">
+    <div class="container text-center">
+      <a href="/images/parties/mff-2021/poster.webp" data-fancybox><img src="/images/parties/mff-2021/poster.webp" class="w-100 rounded" alt=""></a>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="drinks" role="tabpanel">
+  </div>
+  <div class="tab-pane fade" id="gallery" role="tabpanel">
+  </div>
+</div>
+<script>
+  $(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-pills a').click(function (e) {
+      $(this).tab('show');
+      var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
+    });
+  });
+</script>
+
+</div>
+
+  </body>
+</html>

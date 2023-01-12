@@ -1,0 +1,1885 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Applications, extensions, websites &amp; more.">
+    <meta name="msapplication-TileColor" content="#5dde95">
+    <meta name="theme-color" content="#5dde95">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:description" content="Applications, extensions, websites &amp; more.">
+    <meta property="og:image" content="https://kovu.dog/og.png">
+    <meta property="og:site_name" content="KovuTheHusky">
+    <meta property="og:title" content="Projects">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kovu.dog/projects">
+    <title>Projects - KovuTheHusky</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="KovuTheHusky" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+    <script src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js" defer></script>
+    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js" defer></script>
+    <script src="/node_modules/twemoji/dist/twemoji.min.js" defer></script>
+
+    <script>$(document).ready(function () { document.body = twemoji.parse(document.body, {folder: 'svg', ext: '.svg'}); });</script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-transparent">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/avatar.webp" alt="KovuTheHusky" class="h-100 rounded-circle">
+      </a>
+      <div class="dropdown">
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="dropdown" aria-label="Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <a class="dropdown-item" href="/">About</a>
+          <a class="dropdown-item" href="/places">Places</a>
+          <a class="dropdown-item" href="/posts">Posts</a>
+          <a class="dropdown-item active" href="/projects">Projects</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Furry</h6>
+          <a class="dropdown-item" href="/fursona">Fursona</a>
+          <a class="dropdown-item" href="/fursuit">Fursuit</a>
+          <a class="dropdown-item" href="/conventions">Conventions</a>
+          <a class="dropdown-item" href="/parties">Parties</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Gamer</h6>
+          <a class="dropdown-item" href="/minecraft">Minecraft</a>
+          <a class="dropdown-item" href="/terraria">Terraria</a>
+          <a class="dropdown-item" href="/counter-strike">Counter-Strike</a>
+          <a class="dropdown-item" href="/pokemon-go">Pokémon GO</a>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+<div class="text-center gmb">
+  <h1>Projects</h1>
+  <p class="mb-0">Applications, extensions, websites &amp; more.</p>
+</div>
+<div class="page gpb">
+<div class="container">
+  <div class="text-center mb-4">
+    Filter by
+    <div class="dropdown" style="display: inline-block !important;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="filter-label" data-bs-toggle="dropdown" aria-expanded="false">
+        status
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark" id="filter" aria-labelledby="filter-label">
+        <li><a class="dropdown-item" href="#" id="active" onclick="event.preventDefault(); $('#active').toggleClass('active'); self.hash();">active</a></li>
+        <li><a class="dropdown-item" href="#" id="inactive" onclick="event.preventDefault(); $('#inactive').toggleClass('active'); self.hash();">inactive</a></li>
+        <li><a class="dropdown-item" href="#" id="unsupported" onclick="event.preventDefault(); $('#unsupported').toggleClass('active'); self.hash();">unsupported</a></li>
+        <li><a class="dropdown-item" href="#" id="suspended" onclick="event.preventDefault(); $('#suspended').toggleClass('active'); self.hash();">suspended</a></li>
+        <li><a class="dropdown-item" href="#" id="abandoned" onclick="event.preventDefault(); $('#abandoned').toggleClass('active'); self.hash();">abandoned</a></li>
+        <li><a class="dropdown-item" href="#" id="wip" onclick="event.preventDefault(); $('#wip').toggleClass('active'); self.hash();">wip</a></li>
+        <li><a class="dropdown-item" href="#" id="concept" onclick="event.preventDefault(); $('#concept').toggleClass('active'); self.hash();">concept</a></li>
+        <li><a class="dropdown-item" href="#" id="unknown" onclick="event.preventDefault(); $('#unknown').toggleClass('active'); self.hash();">unknown</a></li>
+      </ul>
+    </div>
+    of project.
+  </div>
+
+  <div id="masonry" class="row" data-masonry='{"percentPosition": true }'>
+    <div class="col-sm-6"></div>
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/buttfumbleorg.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              buttfumble.org
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/buttfumbleorg.svg" alt="buttfumble.org" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A website for the Buttfumble fantasy football league.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://buttfumble.org" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/buttfumble.org" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              camwuff.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">A personal website for camwuff.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://camwuff.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/camwuff.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/csgoclarity.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              CS:GO Clarity
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/csgoclarity.webp" alt="CS:GO Clarity" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Simplifies chat text and friends list statuses for Counter-Strike: Global Offensive.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/CSGO-Clarity" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/CSGO-Clarity" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/CSGO-Clarity/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  5
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/dynmapstructures.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              dynmap-structures
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/dynmapstructures.svg" alt="dynmap-structures" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A Bukkit plugin that shows your world's structures (such as Villages, Strongholds, and Pyramids) on Dynmap.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/dynmap-structures/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/dynmap-structures" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/dynmap-structures/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  14
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/dynmap-structures/network/members" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/repo-forked-24.svg" alt="Forks" class="emoji octicons">
+                  12
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/incarceratedwombatscom.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              incarceratedwombats.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/incarceratedwombatscom.svg" alt="incarceratedwombats.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A website for the Incarcerated Wombats band.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://incarceratedwombats.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/incarceratedwombats.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/kovudog.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              kovu.dog
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/kovudog.webp" alt="kovu.dog" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A personal website for KovuTheHusky.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://kovu.dog" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/kovu.dog" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/kovuthehuskycom.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              kovuthehusky.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/kovuthehuskycom.svg" alt="kovuthehusky.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A personal website for KovuTheHusky.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://kovuthehusky.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/kovuthehusky.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              nytewuff.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">A personal website for nytewuff.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://nytewuff.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/nytewuff.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/nytewuff.com/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  1
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/pokemonmedals.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              pokemon-medals
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/pokemonmedals.webp" alt="pokemon-medals" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Generates icons for Pokémon GO medals from official assets.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://kovuthehusky.github.io/pokemon-medals" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/pokemon-medals" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/pokemon-medals/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  1
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/pokemon-medals/network/members" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/repo-forked-24.svg" alt="Forks" class="emoji octicons">
+                  1
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              status.kovuthehusky.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Status for KovuTheHusky's service(s).</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://status.kovuthehusky.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/status.kovuthehusky.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-active-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/thecliffstrackercom.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              thecliffstracker.com
+              
+              <span class="badge repo-status-active">Active</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/thecliffstrackercom.svg" alt="thecliffstracker.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Occupancy tracker script and website for The Cliffs climbing and fitness gyms (DUMBO, Gowanus, Harlem, LIC, Valhalla, and Callowhill).</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://thecliffstracker.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/thecliffstracker.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-inactive-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              FixChat
+              
+              <span class="badge repo-status-inactive">Inactive</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/fixchat.svg" alt="FixChat" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Simple plugin for Bukkit that makes chatting with your friends in game, and on Dynmap much easier.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/FixChat/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/FixChat" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+                <a href="https://github.com/KovuTheHusky/FixChat/network/members" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/repo-forked-24.svg" alt="Forks" class="emoji octicons">
+                  1
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-inactive-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              NBT
+              
+              <span class="badge repo-status-inactive">Inactive</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/nbt.svg" alt="NBT" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">An easy to use and easy to build upon library for reading and writing NBT files used by Minecraft.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/NBT/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/NBT" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/NBT/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  3
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-inactive-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              SimplyUHC
+              
+              <span class="badge repo-status-inactive">Inactive</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/simplyuhc.svg" alt="SimplyUHC" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A plugin for Bukkit servers that is a lightweight, easy way to play Minecraft Ultra Hardcore with friends.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/SimplyUHC/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/SimplyUHC" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/SimplyUHC/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  2
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/SimplyUHC/network/members" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/repo-forked-24.svg" alt="Forks" class="emoji octicons">
+                  1
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-unsupported-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              1337Player
+              
+              <span class="badge repo-status-unsupported">Unsupported</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Allows you to place the elite, rare elite, rare, or normal graphic around your character portrait in World of Warcraft.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/1337Player" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/1337Player" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unsupported-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              d.kovuthehusky.com
+              
+              <span class="badge repo-status-unsupported">Unsupported</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Dynamic components for KovuTheHusky's personal website.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/d.kovuthehusky.com" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/d.kovuthehusky.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unsupported-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              ShareTube
+              
+              <span class="badge repo-status-unsupported">Unsupported</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Adds a download button beneath videos on YouTube pages.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/ShareTube/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/ShareTube" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-suspended-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Countdown
+              
+              <span class="badge repo-status-suspended">Suspended</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Counts down to a list of user-specified events.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Countdown" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Countdown" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-suspended-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Huskish
+              
+              <span class="badge repo-status-suspended">Suspended</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Jokey encoder with options for cipher and adding garbage.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Huskish" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Huskish" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-suspended-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              P1ngP0ng
+              
+              <span class="badge repo-status-suspended">Suspended</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Pings the specified address repeatedly.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/P1ngP0ng" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/P1ngP0ng" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-suspended-filter">
+        <div class="card">
+          
+          <video class="card-img-top" autoplay loop muted playsinline>
+            <source src="/videos/projects/previews/sortvisualization.mp4" type="video/mp4">
+          </video>
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              SortVisualization
+              
+              <span class="badge repo-status-suspended">Suspended</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/sortvisualization.webp" alt="SortVisualization" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">An application that lets you watch, listen to, and learn about computer sciences' complex sorting algorithms.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/SortVisualization/releases/latest" class="btn btn-primary">Download</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/SortVisualization" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/SortVisualization/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  1
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-suspended-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Speedtest
+              
+              <span class="badge repo-status-suspended">Suspended</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Collects speed test data and displays graphs of that data.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Speedtest" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Speedtest" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-abandoned-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              AirPlay-Chrome
+              
+              <span class="badge repo-status-abandoned">Abandoned</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Adds an AirPlay button beneath videos on YouTube pages.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/AirPlay-Chrome" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/AirPlay-Chrome" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+                <a href="https://github.com/KovuTheHusky/AirPlay-Chrome/network/members" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/repo-forked-24.svg" alt="Forks" class="emoji octicons">
+                  2
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-abandoned-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Steam Link Fixer
+              
+              <span class="badge repo-status-abandoned">Abandoned</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Replace onclick attributes with actual links on Steam pages.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Steam-Link-Fixer" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Steam-Link-Fixer" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/Steam-Link-Fixer/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  1
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-abandoned-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/webstats.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Webstats
+              
+              <span class="badge repo-status-abandoned">Abandoned</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/webstats.svg" alt="Webstats" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Collects statistics about players and blocks and shows them on the web.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Webstats" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Webstats" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-abandoned-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Wifimote
+              
+              <span class="badge repo-status-abandoned">Abandoned</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Wifi connected remote control software.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Wifimote" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Wifimote" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              developer.myfursona.com
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/developermyfursonacom.svg" alt="developer.myfursona.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Documentation for the MyFursona API.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://developer.myfursona.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/MyFursona/developer.myfursona.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <img src="/images/projects/previews/modusawperandicom.webp" class="card-img-top" alt="">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              modusawperandi.com
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/modusawperandicom.svg" alt="modusawperandi.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A website for the Modus Awperandi esports team.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://modusawperandi.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/modusawperandi.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              MyFursona
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/myfursona.svg" alt="MyFursona" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Meta project for all discussion, documentation, and issues.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://myfursona.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/MyFursona/MyFursona" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              myfursona.com
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/myfursonacom.svg" alt="myfursona.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">A social networking website for furries. Go furpile!</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://myfursona.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/myfursona.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                <a href="https://github.com/KovuTheHusky/myfursona.com/stargazers" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/star-24.svg" alt="Stars" class="emoji octicons">
+                  1
+                </a>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              status.myfursona.com
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+              <img class="float-right" src="/images/projects/icons/statusmyfursonacom.svg" alt="status.myfursona.com" style="width: 24px; height: 24px; vertical-align: top;">
+              
+            </h5>
+            <p class="card-text">Status for the MyFursona service(s).</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://status.myfursona.com" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/MyFursona/status.myfursona.com" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-wip-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              telegram-gifv
+              
+              <span class="badge repo-status-wip">WIP</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Creates videos that will appear as GIFs in Telegram.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/telegram-gifv" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/telegram-gifv" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
+    
+  
+
+    
+  
+
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              BaseTime
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that explores class inheritance.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/BaseTime" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/BaseTime" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Challenge
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that converts input to different bases.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Challenge" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Challenge" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              CountLetters
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that counts letters in a text file.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/CountLetters" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/CountLetters" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              DiskQueue
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that explores a disk request queue algorithm.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/DiskQueue" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/DiskQueue" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              FindFile
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that finds a file in a directory.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/FindFile" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/FindFile" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Furcationland
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">Maine's furry convention!</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                <a href="https://furcationland.org" class="btn btn-primary">Visit</a>
+                
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/Furcationland/Furcationland" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              fwa-nerd-party
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/fwa-nerd-party" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/fwa-nerd-party" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Justify
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that wraps text from a text file on the command line.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Justify" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Justify" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              KovuTheHusky
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/KovuTheHusky" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/KovuTheHusky" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Longwood Robotics
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">High school project that was a website for the FIRST robotics team.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Longwood-Robotics" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Longwood-Robotics" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Longwood Webmasters
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">High school project that was a website for extracurricular activities.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Longwood-Webmasters" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Longwood-Webmasters" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Morse
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that converts input to morse code.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Morse" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Morse" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 mb-4 repo-status-unknown-filter">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span>
+              Spiral
+              
+              <span class="badge repo-status-unknown">Unknown</span>
+              
+              </span>
+              
+            </h5>
+            <p class="card-text">College project that draws a spiral.</p>
+            <div class="d-flex justify-content-between">
+              <div style="display: inline-block;">
+                
+                
+                <a href="https://github.com/KovuTheHusky/Spiral" class="btn btn-secondary">Source</a>
+                
+              </div>
+              <div style="display: inline-block;">
+                
+                <a href="https://github.com/KovuTheHusky/Spiral" class="btn btn-secondary">
+                  <img src="/node_modules/@primer/octicons/build/svg/code-24.svg" alt="Source" class="emoji octicons">
+                </a>
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+  </div>
+
+</div>
+<script>
+  $('#filter a').click(function(e) {
+      e.stopPropagation();
+  });
+
+  window.addEventListener('hashchange', fn, false);
+
+  window.onload = fn;
+
+  const statuses = [
+    'active',
+    'inactive',
+    'unsupported',
+    'suspended',
+    'abandoned',
+    'concept',
+    'wip',
+    'unknown'
+  ];
+
+  function fn() {
+    var args = window.location.hash.replace('#', '');
+    if (args == '') {
+      window.location.hash = 'active/inactive/wip';
+    }
+    filter(args);
+  }
+
+  function filter(args) {
+    args = args.split('/');
+    statuses.forEach(e => {
+      if (args.includes(e)) {
+        $('#' + e).addClass('active');
+        $('.repo-status-' + e + '-filter').show();
+      } else {
+        $('#' + e).removeClass('active');
+        $('.repo-status-' + e + '-filter').hide();
+      }
+      $('#masonry').masonry();
+    });
+  }
+
+  function hash() {
+    var arr = [];
+    statuses.forEach(e => {
+      if ($('#' + e).hasClass('active')) {
+        arr.push(e);
+      }
+    });
+    var hash = arr.join('/');
+    window.location.hash = hash;
+  }
+</script>
+
+</div>
+
+  </body>
+</html>

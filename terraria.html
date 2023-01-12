@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Timeline, connection details, world downloads, maps.">
+    <meta name="msapplication-TileColor" content="#5dde95">
+    <meta name="theme-color" content="#5dde95">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:description" content="Timeline, connection details, world downloads, maps.">
+    <meta property="og:image" content="https://kovu.dog/og.png">
+    <meta property="og:site_name" content="KovuTheHusky">
+    <meta property="og:title" content="Terraria">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kovu.dog/terraria">
+    <title>Terraria - KovuTheHusky</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="KovuTheHusky" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+    <script src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js" defer></script>
+    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js" defer></script>
+    <script src="/node_modules/twemoji/dist/twemoji.min.js" defer></script>
+
+    <script>$(document).ready(function () { document.body = twemoji.parse(document.body, {folder: 'svg', ext: '.svg'}); });</script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-transparent">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/avatar.webp" alt="KovuTheHusky" class="h-100 rounded-circle">
+      </a>
+      <div class="dropdown">
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="dropdown" aria-label="Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <a class="dropdown-item" href="/">About</a>
+          <a class="dropdown-item" href="/places">Places</a>
+          <a class="dropdown-item" href="/posts">Posts</a>
+          <a class="dropdown-item" href="/projects">Projects</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Furry</h6>
+          <a class="dropdown-item" href="/fursona">Fursona</a>
+          <a class="dropdown-item" href="/fursuit">Fursuit</a>
+          <a class="dropdown-item" href="/conventions">Conventions</a>
+          <a class="dropdown-item" href="/parties">Parties</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Gamer</h6>
+          <a class="dropdown-item" href="/minecraft">Minecraft</a>
+          <a class="dropdown-item active" href="/terraria">Terraria</a>
+          <a class="dropdown-item" href="/counter-strike">Counter-Strike</a>
+          <a class="dropdown-item" href="/pokemon-go">Pokémon GO</a>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+<div class="text-center gmb">
+  <h1>Terraria</h1>
+  <p class="mb-0">Timeline, connection details, world downloads, maps.</p>
+</div>
+<div class="page gpb">
+<div class="container">
+  <div class="card" style="margin-bottom: 66px;">
+    <div class="card-body">
+      <h5 class="card-title">
+        Survival
+        <span id="status" class="badge bg-danger">Offline</span>
+      </h5>
+      <p class="card-text align-middle">A world started in version 1.4.3.2. No world download is available at this time, but a live map is.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-left">
+        <ul id="live" class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between">Version<span id="version">Offline</span></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-right">
+        <ul id="live-playerlist" class="list-group list-group-flush">
+          <li id="playercount" class="list-group-item d-flex justify-content-between">Players<span id="players">Offline</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body" style="border-top: 1px solid #808080;">
+      <a href="steam://rungameid/105600//-j%2040.75.7.193" class="btn btn-primary disabled remote">Connect</a>
+      <a href="https://terraria.kovu.dog" class="btn btn-secondary">Live Map</a>
+      <a href="https://discord.gg/MAsddFy6hv" class="btn btn-secondary">Discord</a>
+    </div>
+  </div>
+</div>
+<div id="timeline" class="gmb" style="height: 255px;">
+</div>
+<div class="container">
+  <div id="masonry" class="row" data-masonry='{"percentPosition": true }'>
+    
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2015
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">An expert mode world created for version 1.3.x. Played through to the end-game by KovuTheHusky, nytewuff, and Kuperfox.</p>
+          
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2015.wld" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2015/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2014
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">Another world created for version 1.2.x shortly after the previous one. It ran for a very short period of time.</p>
+          
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2014.wld" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2014/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2013
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">A world created for version 1.2.x and retired after a short period of time. The first world with hard mode enabled.</p>
+          
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2013.wld" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2013/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 mb-4">
+      <div class="card">
+      
+        <div class="card-body">
+          <h5 class="card-title">
+            Survival 2011
+            
+            <span class="badge bg-secondary">Archived</span>
+            
+            
+          </h5>
+          <p class="card-text align-middle">The original world created in version 1.0.x and retired sometime afterward. Created around the release of Terraria.</p>
+          
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2011.wld" class="btn btn-primary">Download</a>
+          
+          <a href="https://archive.kovu.dog/terraria/survival-2011/" class="btn btn-secondary">Map</a>
+          
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+<script>
+let script = document.createElement('script');
+
+script.src = "https://www.gstatic.com/charts/loader.js"
+document.head.append(script);
+
+script.onload = function() {
+  google.charts.load('current', {'packages':['timeline']});
+  google.setOnLoadCallback(drawChart);
+  var chart;
+  var data;
+  var options;
+
+  function drawChart() {
+    var container = document.getElementById('timeline');
+    chart = new google.visualization.Timeline(container);
+    data = new google.visualization.DataTable();
+    data.addColumn({
+      type: 'string',
+      id: 'Order'
+    });
+    data.addColumn({
+      type: 'string',
+      id: 'Name'
+    });
+    data.addColumn({
+      type: 'date',
+      id: 'Start'
+    });
+    data.addColumn({
+      type: 'date',
+      id: 'End'
+    });
+    data.addRows([
+      ['Online', 'Survival 2011', new Date(2011, 4, 16), new Date(2013, 8, 30)],
+      ['Online', 'Survival 2013', new Date(2013, 8, 30), new Date(2013, 11, 30)],
+      ['Online', 'Survival 2014', new Date(2013, 11, 30), new Date(2014, 2, 30)],
+      ['Online', 'Survival 2015', new Date(2015, 5, 30), new Date(2015, 11, 31)],
+      ['Online', 'Survival LIVE', new Date(2021, 0, 1), new Date()]
+    ]);
+    options = {
+      backgroundColor: '#121212',
+      timeline: {
+        showRowLabels: false,
+        groupByRowLabel: false
+      }
+    };
+    chart.draw(data, options);
+  }
+  var previousWidth = $('#timeline').width();
+
+  function checkOrientation() {
+    if ($('#timeline').width() !== previousWidth) {
+      previousWidth = $('#timeline').width();
+      chart.draw(data, options);
+    }
+  }
+  window.addEventListener("resize", checkOrientation, false);
+  window.addEventListener("orientationchange", checkOrientation, false);
+};
+</script>
+
+<script>
+  $(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+  });
+</script>
+
+<script>
+
+  var players = [];
+  
+  function refresh() {
+    $.getJSON('https://status.kovu.dog/terraria.json', function(data) {
+      $('#status').text('Online');
+      $('.remote').removeClass('disabled');
+      $('#status').addClass('bg-success');
+      $('#status').removeClass('bg-danger');
+      $('#version').text(data['serverversion'].substring(1));
+      $('#players').text(data['playercount'] + ' / ' + data['maxplayers']);
+      var playernames = [];
+      $.each(data.players, function (key, value) {
+        playernames.push(value.nickname);
+      });
+      var join = $(playernames).not(players).get();
+      var part = $(players).not(playernames).get();
+      $.each(join, function(key, value) {
+        $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '">' + value + '</li>');
+      });
+      $.each(part, function(key, value) {
+        $('.player-' + value).remove();
+      });
+      if (data['playercount'] > 0) {
+        $('#playercount').css('border-bottom', 'none');
+      } else {
+        $('#playercount').css('border-bottom', '1px solid rgba(0,0,0,.125)');
+      }
+      players = playernames;
+    }).fail(function() {
+      $('#status').text('Offline');
+      $('.remote').addClass('disabled');
+      $('#status').addClass('bg-danger');
+      $('#status').removeClass('bg-success');
+      $('#version').text('Offline');
+      $('#players').text('Offline');
+      $('.player-').remove();
+    });
+  }
+  
+  refresh();
+  setInterval(refresh, 1000);
+  
+  </script>
+
+</div>
+
+  </body>
+</html>
