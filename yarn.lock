@@ -8,9 +8,9 @@
   integrity sha512-rcEtu8t+WnmqIDV/Wfm1yvy/nDdwc7YV25j9HLxGC2/WOsUhk9rcWg2nB8g1BrjRt9zaoADdjHTU6ILYTJzBBg==
 
 "@kurkle/color@^0.3.0":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.1.tgz#ef72bc8022ccf77cdd2715097f062ee591ec145c"
-  integrity sha512-hW0GwZj06z/ZFUW2Espl7toVDjghJN+EKqyXzPSV8NV89d5BYp5rRMBJoc+aUN0x5OXDMeRQHazejr2Xmqj2tw==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.2.tgz#5acd38242e8bde4f9986e7913c8fdf49d3aa199f"
+  integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
 
 "@mapbox/geojson-rewind@^0.5.2":
   version "0.5.2"
@@ -330,7 +330,6 @@ tinyqueue@^2.0.3:
 
 twemoji-git@twitter/twemoji:
   version "14.0.2"
-  uid d94f4cf793e6d5ca592aa00f58a88f6a4229ad43
   resolved "https://codeload.github.com/twitter/twemoji/tar.gz/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43"
   dependencies:
     fs-extra "^8.0.1"
