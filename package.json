@@ -3,7 +3,7 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "@popperjs/core": "^2.11.7",
-    "@primer/octicons": "^18.3.0",
+    "@primer/octicons": "^19.1.0",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.3.0",
     "clipboard": "^2.0.11",
