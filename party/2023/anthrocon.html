@@ -1,0 +1,130 @@
+---
+layout: party
+title: "Kaiju Kerfluffle"
+subtitle: "Anthrocon 2023"
+permalink: /party/anthrocon-2023
+redirect_from:
+  - /party/2023/ac
+  - /party/ac-2023
+---
+<style>
+  @font-face {
+    font-family: 'Kaiju';
+    src: url('/fonts/kaiju.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Godzilla';
+    src: url('/fonts/godzilla.ttf') format('truetype');
+  }
+  .content .col-sm-6 {
+    margin-bottom: 50px !important;
+  }
+  a {
+    color: #fff;
+  }
+  h1 {
+    font-family: 'Godzilla';
+    color: #0f0;
+  }
+  h3 {
+    font-family: 'Godzilla';
+    line-height: 2em;
+    margin-bottom: 0;
+  }
+  div.pre-content {
+    font-family: 'Kaiju';
+    text-transform: uppercase;
+  }
+  div.content {
+    padding: 10px;
+    overflow-x: hidden;
+    z-index: 2;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 10px solid #0f0;
+    background-color: #121212;
+  }
+  .dot {
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+<ul class="nav nav-pills justify-content-center gmb" id="list-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="invite-list" data-bs-toggle="list" href="#invite" role="tab">Invite</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="drink-list" data-bs-toggle="list" href="#drink" role="tab">Drink</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" id="gallery-list" data-bs-toggle="list" href="#gallery" role="tab">Gallery</a>
+  </li>
+</ul>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade" id="invite" role="tabpanel">
+    <div class="container text-center">
+      <a href="/images/parties/ac-2023/poster.webp" style="z-index: 2; position: relative; top: 0; left: 0; right: 0;" data-fancybox><img src="/images/parties/ac-2023/poster.webp" class="w-100 rounded" alt=""></a>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="drink" role="tabpanel">
+    <div class="container text-center" style="padding: 0; position: relative;">
+      <div class="content container text-center rounded">
+        <h1 class="d-inline-block" style="padding-top: 50px; font-size: 5em;">Drink</h1>
+        <div style="font-size: 0.75em;"><abbr title="bring your own">b.y.o.</abbr> beer &amp; wine</div>
+        <div style="margin-top: 25px;">Stickers by <a href="https://t.me/dingerfox">@dingerfox</a>&mldr;</div>
+        <a href="https://t.me/addstickers/ac2023kaijukerfluffle">Add sticker pack</a> on Telegram!
+        <hr class="rounded" style="height: 10px; background-color: #0f0; opacity: 1; border: none; margin-top: 50px; margin-bottom: 50px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dot" style="background-color: #0f0;"></div>
+              <br>
+              <h3>Toxic Waste</h3>
+              ???
+            </div>
+            <div class="col-sm-6">
+              <div class="dot" style="background-color: #00f;"></div>
+              <br>
+              <h3>Blue Monster</h3>
+              ???
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dot" style="background-color: #f00;"></div>
+              <br>
+              <h3>Blood Dragon</h3>
+              ???
+            </div>
+            <div class="col-sm-6">
+              <div class="dot" style="background-color: #ff0;"></div>
+              <br>
+              <h3>???</h3>
+              ???
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="gallery" role="tabpanel">
+  </div>
+</div>
+<script>
+  $(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-pills a').click(function (e) {
+      $(this).tab('show');
+      var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
+    });
+  });
+</script>
