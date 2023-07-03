@@ -307,10 +307,10 @@ select@^1.1.2:
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
   integrity sha512-OwpTSOfy6xSs1+pwcNrv0RBMOzI39Lp3qQKUTPVVPRjCdNa5JH/oPRiqsesIskK8TVgmRiHwO4KXlV2Li9dANA==
 
-simple-icons@^9.3.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-9.3.0.tgz#99abcb189819c1745e26a21ba9d120c26138360a"
-  integrity sha512-T6x3teIpPdMc8nibYvE56Va1eF+l8Puk//1YYtCxQP4wbGRzYxgwZTl18YCjoFLnu/0exehwyR2hMEFZV3lflg==
+simple-icons@^9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-9.4.0.tgz#0b7315a05bb690b57457a7a7d3e1ac59bd579e58"
+  integrity sha512-rpDJGJN7txOtlP2q1eXqti8oIHR6/qCkDl+Vf+bxfCT6qVJmkb7D4ctW932eNVejn6JL2NcNQF84/PqEgXCvXQ==
 
 supercluster@^8.0.0:
   version "8.0.1"
