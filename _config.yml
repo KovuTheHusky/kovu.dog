@@ -12,17 +12,22 @@ defaults:
 
 include: 
   - .nojekyll
-  - _icons
-  - node_modules
 
 markdown: kramdown
 
 plugins:
   - jekyll-feed
   - jekyll-file-size
+  - jekyll-node-module
   - jekyll-redirect-from
   - jekyll-seo-tag
   - jekyll-sitemap
+
+node_modules:
+  modules_dir: node_modules
+  copy:
+  - source: .
+    target: node_modules
 
 sass:
   load_paths:

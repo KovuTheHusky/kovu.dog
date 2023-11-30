@@ -20,5 +20,6 @@ end
 
 gem "wdm", "~> 0.1", :install_if => Gem.win_platform?
 
+gem 'jekyll-node-module'
 gem "nokogiri", "~> 1.15"
 gem "webrick", "~> 1.8"
