@@ -35,6 +35,10 @@ jobs:
       - run: ruby pokemongo.rb
       - run: curl -X GET "https://status.kovu.dog/projects.json" > _data/projects.json
       - run: bundle exec jekyll build
+      - run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
       - uses: actions/upload-pages-artifact@v2
   deploy:
     runs-on: ubuntu-latest
