@@ -30,8 +30,8 @@ dependencies:
     specifier: ^3.7.1
     version: 3.7.1
   mapbox-gl:
-    specifier: ^3.1.0
-    version: 3.1.0
+    specifier: ^3.1.1
+    version: 3.1.1
   masonry-layout:
     specifier: ^4.2.2
     version: 4.2.2
@@ -242,8 +242,8 @@ packages:
     resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
     dev: false
 
-  /mapbox-gl@3.1.0:
-    resolution: {integrity: sha512-X6gaQ7WCNwMK6MnQn+rlq6ugzRItdE775TSzmyGPy0wN6hs/8PONi/G+hioeGV5ZyQ0a0BmvmF+gCUH0FBvavw==}
+  /mapbox-gl@3.1.1:
+    resolution: {integrity: sha512-sjtKnddDKrPUHYP6lhFYrit+qJkfPC+PVmbGF0VFhHHKCPy4iOFEMCdFgOv2F7AfA1CHK66Kx2Cjau6q8uTTEg==}
     dependencies:
       '@mapbox/geojson-rewind': 0.5.2
       '@mapbox/jsonlint-lines-primitives': 2.0.2
