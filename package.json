@@ -11,10 +11,10 @@
     "jquery": "^3.7.1",
     "mapbox-gl": "^3.1.2",
     "masonry-layout": "^4.2.2",
-    "pokemon-icons": "TheArtificial/pokemon-icons#gh-pages",
-    "pokemon-medals": "KovuTheHusky/pokemon-medals#gh-pages",
+    "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
+    "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
     "simple-icons": "^11.3.0",
     "twemoji": "^14.0.2",
-    "twemoji-git": "twitter/twemoji"
+    "twemoji-git": "github:twitter/twemoji"
   }
 }

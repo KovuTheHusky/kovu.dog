@@ -36,10 +36,10 @@ dependencies:
     specifier: ^4.2.2
     version: 4.2.2
   pokemon-icons:
-    specifier: TheArtificial/pokemon-icons#gh-pages
+    specifier: github:TheArtificial/pokemon-icons#gh-pages
     version: github.com/TheArtificial/pokemon-icons/33e644cf6193a0f109267b19704cc4ce7e83165e
   pokemon-medals:
-    specifier: KovuTheHusky/pokemon-medals#gh-pages
+    specifier: github:KovuTheHusky/pokemon-medals#gh-pages
     version: github.com/KovuTheHusky/pokemon-medals/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
   simple-icons:
     specifier: ^11.3.0
@@ -48,7 +48,7 @@ dependencies:
     specifier: ^14.0.2
     version: 14.0.2
   twemoji-git:
-    specifier: twitter/twemoji
+    specifier: github:twitter/twemoji
     version: github.com/twitter/twemoji/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43
 
 packages:
