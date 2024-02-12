@@ -13,7 +13,7 @@
     "masonry-layout": "^4.2.2",
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
-    "simple-icons": "^11.3.0",
+    "simple-icons": "^11.4.0",
     "twemoji": "^14.0.2",
     "twemoji-git": "github:twitter/twemoji"
   }
