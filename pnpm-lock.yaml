@@ -42,8 +42,8 @@ dependencies:
     specifier: github:KovuTheHusky/pokemon-medals#gh-pages
     version: github.com/KovuTheHusky/pokemon-medals/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
   simple-icons:
-    specifier: ^11.3.0
-    version: 11.3.0
+    specifier: ^11.4.0
+    version: 11.4.0
   twemoji:
     specifier: ^14.0.2
     version: 14.0.2
@@ -332,8 +332,8 @@ packages:
     resolution: {integrity: sha512-OwpTSOfy6xSs1+pwcNrv0RBMOzI39Lp3qQKUTPVVPRjCdNa5JH/oPRiqsesIskK8TVgmRiHwO4KXlV2Li9dANA==}
     dev: false
 
-  /simple-icons@11.3.0:
-    resolution: {integrity: sha512-dr178hpEoy8ZtPKEQvmFcQbbOfqMHGDQ0Mt8BOqZ8lqIvbQ8X7kHdznIIwDVn4yKRPtP8wXGPpMJ/2/1xjjhVA==}
+  /simple-icons@11.4.0:
+    resolution: {integrity: sha512-f6Y/+qZk8/+qn8NMdOV80MIFYoW0ulaTmtUunZZXB6Ix/01NKoB7yopMzxeZUWtygCr+l75KKSRQo24Db2h0Ug==}
     engines: {node: '>=0.12.18'}
     dev: false
 
