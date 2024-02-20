@@ -15,8 +15,8 @@ dependencies:
     specifier: ^19.8.0
     version: 19.8.0
   bootstrap:
-    specifier: ^5.3.2
-    version: 5.3.2(@popperjs/core@2.11.8)
+    specifier: ^5.3.3
+    version: 5.3.3(@popperjs/core@2.11.8)
   chart.js:
     specifier: ^4.4.1
     version: 4.4.1
@@ -115,8 +115,8 @@ packages:
       object-assign: 4.1.1
     dev: false
 
-  /bootstrap@5.3.2(@popperjs/core@2.11.8):
-    resolution: {integrity: sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==}
+  /bootstrap@5.3.3(@popperjs/core@2.11.8):
+    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
     dependencies:
