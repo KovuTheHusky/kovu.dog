@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.11.8
     version: 2.11.8
   '@primer/octicons':
-    specifier: ^19.8.0
-    version: 19.8.0
+    specifier: ^19.9.0
+    version: 19.9.0
   bootstrap:
     specifier: ^5.3.3
     version: 5.3.3(@popperjs/core@2.11.8)
@@ -109,8 +109,8 @@ packages:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
 
-  /@primer/octicons@19.8.0:
-    resolution: {integrity: sha512-Imze/fyW41Io5fN+27T5EAeXJrgBjMbz6nzU+wYbRylXvIAjLPUvaJPVoStiFlgSU+TjTUJqg5A9rgMDzTyMCg==}
+  /@primer/octicons@19.9.0:
+    resolution: {integrity: sha512-uAZa9cMgWkzbEsZnYWB7tg0vt7QprubD7ljtprz2fBJ8CjyqoxFRRsFvH4UiJdjK/3o87ODgDkhiflyJXDh+Lg==}
     dependencies:
       object-assign: 4.1.1
     dev: false
