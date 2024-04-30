@@ -4,6 +4,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@popperjs/core": "^2.11.8",
     "@primer/octicons": "^19.9.0",
+    "@twemoji/api": "^15.1.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.2",
     "chartjs-plugin-annotation": "^3.0.1",
@@ -13,8 +14,6 @@
     "masonry-layout": "^4.2.2",
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
-    "simple-icons": "^11.14.0",
-    "twemoji": "^14.0.2",
-    "twemoji-git": "github:twitter/twemoji"
+    "simple-icons": "^11.14.0"
   }
 }
