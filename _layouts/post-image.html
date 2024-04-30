@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="text-center gmb">
+  <h1>{{ page.title }}</h1>
+  <p class="mb-0">{{ page.date | date: '%A, %d %B %Y' }}</p>
+</div>
+<div class="post container gpb">
+  <div class="clearfix">
+    <div class="col-md-4 col-6 float-end text-center ps-1 pe-1 ms-1 me-1">
+      <img src="/images/{{ page.image }}.webp" alt="{{ page.image }}" class="w-100 rounded">
+    </div>
+    {{ content }}
+  </div>
+</div>
