@@ -10,37 +10,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          version: 8
+      - run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - uses: actions/cache@v2
+            ${{ runner.os }}-pnpm-store-
+      - run: pnpm install
+      - uses: actions/cache@v3
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: install
-
       - uses: ruby/setup-ruby@v1
-
       - run: gem install bundler
-
       - run: bundle install
-
       - run: ./icons.sh
-
       - run: ruby pokemongo.rb
-
       - run: curl -X GET "https://status.kovu.dog/projects.json" > _data/projects.json
+      - run: bundle exec jekyll build
+      - run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
