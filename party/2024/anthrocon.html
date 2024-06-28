@@ -1,0 +1,151 @@
+---
+layout: party
+title: "AnthroCoaster"
+subtitle: "Anthrocon 2024"
+permalink: /party/anthrocon-2024
+redirect_from:
+  - /party/2024/ac
+  - /party/ac-2024
+---
+<style>
+  @font-face {
+    font-family: 'Good Dog Cool';
+    src: url('/fonts/good-dog-cool.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Roller Coaster';
+    src: url('/fonts/roller-coaster.ttf') format('truetype');
+  }
+  .content .col-sm-6 {
+    margin-bottom: 50px !important;
+  }
+  a {
+    color: #fff;
+  }
+  h1 {
+    font-family: 'Roller Coaster';
+    background-image: linear-gradient(to bottom, #db3030 50%, #db8b3a 50%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
+    
+  }
+  h3 {
+    font-family: 'Roller Coaster';
+    line-height: 2em;
+    margin-bottom: 0;
+  }
+  div.pre-content {
+    font-family: 'Good Dog Cool';
+  }
+  div.content {
+    padding: 10px;
+    overflow-x: hidden;
+    z-index: 2;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 10px solid #d8523a;
+    background-color: #121212;
+  }
+  div.dot {
+    height: 257px;
+    width: 257px;
+    background-color: #eee;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+<ul class="nav nav-pills justify-content-center gmb" id="list-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="invite-list" data-bs-toggle="list" href="#invite" role="tab">Invite</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="drink-list" data-bs-toggle="list" href="#drink" role="tab">Drink</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" id="gallery-list" data-bs-toggle="list" href="#gallery" role="tab">Gallery</a>
+  </li>
+</ul>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade" id="invite" role="tabpanel">
+    <div class="container text-center">
+      <a href="/images/parties/ac-2024/poster.webp" style="z-index: 2; position: relative; top: 0; left: 0; right: 0;" data-fancybox><img src="/images/parties/ac-2024/poster.webp" class="w-100 rounded" alt=""></a>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="drink" role="tabpanel">
+    <div class="container text-center" style="padding: 0; position: relative;">
+      <div class="content container text-center rounded">
+        <h1 class="d-inline-block" style="margin-top: 50px; font-size: 5em;">Drink</h1>
+        <div style="font-size: 0.75em;"><abbr title="bring your own">b.y.o.</abbr> beer &amp; wine</div>
+        <div style="margin-top: 25px;">Stickers by <a href="https://t.me/maymoobb">@maymoobb</a>&mldr;</div>
+        <a href="https://t.me/addstickers/ac2024anthrocoaster">Add sticker pack</a> on Telegram!
+        <hr class="rounded" style="height: 10px; background-color: #d8523a; opacity: 1; border: none; margin-top: 50px; margin-bottom: 50px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+              <img src="/images/parties/ac-2024/hawaiian-rollercoaster.webp" alt="Hawaiian Rollercoaster" style="width: 50%;">
+              <br>
+              <h3>Hawaiian Rollercoaster</h3>
+              tbd
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <img src="/images/parties/ac-2024/the-corkscrew.webp" alt="The Corkscrew" style="width: 50%;">
+              <br>
+              <h3>The Corkscrew</h3>
+              tbd
+            </div>
+            <div class="col-sm-6">
+              <!-- <img src="/images/parties/ac-2024/banana-barrel-roll.webp" alt="Banana Barrel Roll" style="width: 50%;"> -->
+              <div class="dot" style="background-color: yellow;"></div>
+              <br>
+              <h3>Banana Barrel Roll</h3>
+              tbd
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- <img src="/images/parties/ac-2024/plummet-punch.webp" alt="PLUMmet Punch" style="width: 50%;"> -->
+               <div class="dot" style="background-color: purple;"></div>
+              <br>
+              <h3><u>PLUM</u>met Punch</h3>
+              tbd
+            </div>
+            <div class="col-sm-6">
+              <!-- <img src="/images/parties/ac-2024/cotton-candy-carousel.webp" alt="Cotton Candy Carousel" style="width: 50%;"> -->
+              <div class="dot" style="background-color: hotpink;"></div>
+              <br>
+              <h3>Cotton Candy Carousel</h3>
+              tbd
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="gallery" role="tabpanel">
+  </div>
+</div>
+<script>
+  $(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-pills a').click(function (e) {
+      $(this).tab('show');
+      var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
+    });
+  });
+</script>
