@@ -48,8 +48,8 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       simple-icons:
-        specifier: ^12.4.0
-        version: 12.4.0
+        specifier: ^13.0.0
+        version: 13.0.0
 
 packages:
 
@@ -227,8 +227,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@12.4.0:
-    resolution: {integrity: sha512-2uL8PHFDyBLQGhZsAvYcaHqm5KjNzIepPshTLZky9Dc6HgPFI83SAVC8of3KYtr+7O8zJggrGYTxyUu/9hyYgA==}
+  simple-icons@13.0.0:
+    resolution: {integrity: sha512-emybHoFXO9IorOH8Uy8GwavS1oOQk6bVMxrIAXztNn/EcRc17yHmJM6XpUUd1CcDpax0dHAbpqvGp4hqWlQapg==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -244,8 +244,8 @@ packages:
   tinyqueue@2.0.3:
     resolution: {integrity: sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==}
 
-  tweakpane@4.0.3:
-    resolution: {integrity: sha512-BlcWOAe8oe4c+k9pmLBARGdWB6MVZMszayekkixQXTgkxTaYoTUpHpwVEp+3HkoamZkomodpbBf0CkguIHTgLg==}
+  tweakpane@4.0.4:
+    resolution: {integrity: sha512-RkWD54zDlEbnN01wQPk0ANHGbdCvlJx/E8A1QxhTfCbX+ROWos1Ws2MnhOm39aUGMOh+36TjUwpDmLfmwTr1Fg==}
 
   universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
@@ -394,7 +394,7 @@ snapshots:
       supercluster: 8.0.1
       tiny-lru: 11.2.6
       tinyqueue: 2.0.3
-      tweakpane: 4.0.3
+      tweakpane: 4.0.4
       vt-pbf: 3.1.3
 
   masonry-layout@4.2.2:
@@ -437,7 +437,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@12.4.0: {}
+  simple-icons@13.0.0: {}
 
   supercluster@8.0.1:
     dependencies:
@@ -449,7 +449,7 @@ snapshots:
 
   tinyqueue@2.0.3: {}
 
-  tweakpane@4.0.3: {}
+  tweakpane@4.0.4: {}
 
   universalify@0.1.2: {}
 
