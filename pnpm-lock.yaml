@@ -36,17 +36,17 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       mapbox-gl:
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.5.1
+        version: 3.5.1
       masonry-layout:
         specifier: ^4.2.2
         version: 4.2.2
       pokemon-icons:
         specifier: github:TheArtificial/pokemon-icons#gh-pages
-        version: pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e
+        version: pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e
       pokemon-medals:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
-        version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
+        version: pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       simple-icons:
         specifier: ^13.0.0
         version: 13.0.0
@@ -110,8 +110,8 @@ packages:
     peerDependencies:
       chart.js: '>=4.0.0'
 
-  cheap-ruler@3.0.2:
-    resolution: {integrity: sha512-02T332h1/HTN6cDSufLP8x4JzDs2+VC+8qZ/N0kWIVPyc2xUkWwWh3B2fJxR7raXkL4Mq7k554mfuM9ofv/vGg==}
+  cheap-ruler@4.0.0:
+    resolution: {integrity: sha512-0BJa8f4t141BYKQyn9NSQt1PguFQXMXwZiA5shfoaBYHAb2fFk2RAX+tiWMoQU+Agtzt3mdt0JtuyshAXqZ+Vw==}
 
   clipboard@2.0.11:
     resolution: {integrity: sha512-C+0bbOqkezLIsmWSvlsXS0Q0bmkugu7jcfMIACB+RDEntIzQIkdr148we28AfSloQLRdZlYL/QYyrq05j/3Faw==}
@@ -125,8 +125,8 @@ packages:
   desandro-matches-selector@2.0.2:
     resolution: {integrity: sha512-+1q0nXhdzg1IpIJdMKalUwvvskeKnYyEe3shPRwedNcWtnhEKT3ZxvFjzywHDeGcKViIxTCAoOYQWP1qD7VNyg==}
 
-  earcut@2.2.4:
-    resolution: {integrity: sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==}
+  earcut@3.0.0:
+    resolution: {integrity: sha512-41Fs7Q/PLq1SDbqjsgcY7GA42T0jvaCNGXgGtsNdvg+Yv8eIu06bxv4/PoREkZ9nMDNwnUSG9OFB9+yv8eKhDg==}
 
   ev-emitter@1.1.1:
     resolution: {integrity: sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q==}
@@ -141,8 +141,8 @@ packages:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
     engines: {node: '>=6 <7 || >=8'}
 
-  geojson-vt@3.2.1:
-    resolution: {integrity: sha512-EvGQQi/zPrDA6zr6BnJD/YhwAkBP8nnJ9emh3EnHQKVMfg/MRVtPbMYdgVy/IaEmn4UfagD2a6fafPDL5hbtwg==}
+  geojson-vt@4.0.2:
+    resolution: {integrity: sha512-AV9ROqlNqoZEIJGfm1ncNjEXfkz2hdFlZf0qkVfmkwdKa8vj7H16YUOT81rJw1rdFhyEDlN2Tds91p/glzbl5A==}
 
   get-size@2.0.3:
     resolution: {integrity: sha512-lXNzT/h/dTjTxRbm9BXb+SGxxzkm97h/PCIKtlN/CBCxxmkkIVV21udumMS93MuVTDX583gqc94v3RjuHmI+2Q==}
@@ -177,8 +177,8 @@ packages:
   lodash.clonedeep@4.5.0:
     resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
-  mapbox-gl@3.4.0:
-    resolution: {integrity: sha512-QWgL28zg/zuIOHeF8DXPvHy1UHTgO5p4Oy6ifCAHwI9/hoI9/Fruya0yI4HkDtX1OgzTLO6SHO13A781BGJvyw==}
+  mapbox-gl@3.5.1:
+    resolution: {integrity: sha512-sf4N18vl5FHS8lPRWZjTZShgIziDqSxan3MazHClvYYXezsAPn6hApRvAS2HEMTq7MXzRcvvt4sYgQWLubwnBw==}
 
   masonry-layout@4.2.2:
     resolution: {integrity: sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==}
@@ -197,12 +197,12 @@ packages:
     resolution: {integrity: sha512-ClrV7pNOn7rtmoQVF4TS1vyU0WhYRnP92fzbfF75jAIwpnzdJXf8iTd4CMEqO4yUenH6NDqLiwjqlh6QgZzgLQ==}
     hasBin: true
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e:
-    resolution: {tarball: https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e:
+    resolution: {commit: 33e644cf6193a0f109267b19704cc4ce7e83165e, repo: git@github.com:TheArtificial/pokemon-icons.git, type: git}
     version: 0.0.0
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
-    resolution: {tarball: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
+    resolution: {commit: 7340bdc7a612783c7575d640bb3cba0bc1c1bc87, repo: git@github.com:KovuTheHusky/pokemon-medals.git, type: git}
     version: 0.0.0
 
   potpack@2.0.0:
@@ -305,7 +305,7 @@ snapshots:
     dependencies:
       chart.js: 4.4.3
 
-  cheap-ruler@3.0.2: {}
+  cheap-ruler@4.0.0: {}
 
   clipboard@2.0.11:
     dependencies:
@@ -319,7 +319,7 @@ snapshots:
 
   desandro-matches-selector@2.0.2: {}
 
-  earcut@2.2.4: {}
+  earcut@3.0.0: {}
 
   ev-emitter@1.1.1: {}
 
@@ -335,7 +335,7 @@ snapshots:
       jsonfile: 4.0.0
       universalify: 0.1.2
 
-  geojson-vt@3.2.1: {}
+  geojson-vt@4.0.2: {}
 
   get-size@2.0.3: {}
 
@@ -367,7 +367,7 @@ snapshots:
 
   lodash.clonedeep@4.5.0: {}
 
-  mapbox-gl@3.4.0:
+  mapbox-gl@3.5.1:
     dependencies:
       '@mapbox/jsonlint-lines-primitives': 2.0.2
       '@mapbox/mapbox-gl-supported': 3.0.0
@@ -376,11 +376,11 @@ snapshots:
       '@mapbox/unitbezier': 0.0.1
       '@mapbox/vector-tile': 1.3.1
       '@mapbox/whoots-js': 3.1.0
-      cheap-ruler: 3.0.2
+      cheap-ruler: 4.0.0
       csscolorparser: 1.0.3
-      earcut: 2.2.4
+      earcut: 3.0.0
       fflate: 0.8.2
-      geojson-vt: 3.2.1
+      geojson-vt: 4.0.2
       gl-matrix: 3.4.3
       grid-index: 1.1.0
       kdbush: 4.0.2
@@ -417,9 +417,9 @@ snapshots:
       ieee754: 1.2.1
       resolve-protobuf-schema: 2.1.0
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e: {}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e: {}
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
 
   potpack@2.0.0: {}
 
