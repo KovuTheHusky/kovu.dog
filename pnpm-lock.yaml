@@ -43,13 +43,13 @@ importers:
         version: 4.2.2
       pokemon-icons:
         specifier: github:TheArtificial/pokemon-icons#gh-pages
-        version: pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e
+        version: pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e
       pokemon-medals:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
-        version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
+        version: pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       simple-icons:
-        specifier: ^13.5.0
-        version: 13.5.0
+        specifier: ^13.6.0
+        version: 13.6.0
 
 packages:
 
@@ -206,12 +206,12 @@ packages:
     resolution: {integrity: sha512-XDF38WCH3z5OV/OVa8GKUNtLAyneuzbCisx7QUCF8Q6Nutx0WnJrQe5O+kOtBlLfRNUws98Y58Lblp+NJG5T4Q==}
     hasBin: true
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e:
-    resolution: {tarball: https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e:
+    resolution: {commit: 33e644cf6193a0f109267b19704cc4ce7e83165e, repo: git@github.com:TheArtificial/pokemon-icons.git, type: git}
     version: 0.0.0
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
-    resolution: {tarball: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
+    resolution: {commit: 7340bdc7a612783c7575d640bb3cba0bc1c1bc87, repo: git@github.com:KovuTheHusky/pokemon-medals.git, type: git}
     version: 0.0.0
 
   potpack@2.0.0:
@@ -236,8 +236,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.5.0:
-    resolution: {integrity: sha512-6VrM4xSty8EesmQbjI++Lk8FkV+gl3Ve+DnTQVc7ovZryKpc9JZSuZA8NNc7lC3Mqbh0GLlX3WXdITZlDu7bSQ==}
+  simple-icons@13.6.0:
+    resolution: {integrity: sha512-hKhxwp9SDjMjEE+aFL3gzh2XZBQSN5xlIygpsKgiMcn+65BtWoUIS0nmIkmDQ15Ge+2AXGfHCrjn5vE55UdjDg==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -432,9 +432,9 @@ snapshots:
       ieee754: 1.2.1
       resolve-protobuf-schema: 2.1.0
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e: {}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e: {}
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
 
   potpack@2.0.0: {}
 
@@ -452,7 +452,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.5.0: {}
+  simple-icons@13.6.0: {}
 
   supercluster@8.0.1:
     dependencies:
