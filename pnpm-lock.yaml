@@ -23,6 +23,9 @@ importers:
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
+      brand-icons:
+        specifier: github:Meow/brand-icons
+        version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
       chart.js:
         specifier: ^4.4.4
         version: 4.4.4
@@ -32,6 +35,9 @@ importers:
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
+      imagesloaded:
+        specifier: ^5.0.0
+        version: 5.0.0
       jquery:
         specifier: ^3.7.1
         version: 3.7.1
@@ -113,6 +119,10 @@ packages:
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
+  brand-icons@https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592:
+    resolution: {tarball: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592}
+    version: 0.0.0
+
   chart.js@4.4.4:
     resolution: {integrity: sha512-emICKGBABnxhMjUjlYRR12PmOXhJ2eJjEHL2/dZlWjxRAZT1D8xplLFq5M0tMQK8ja+wBS/tuVEJB5C6r7VxJA==}
     engines: {pnpm: '>=8'}
@@ -142,6 +152,9 @@ packages:
 
   ev-emitter@1.1.1:
     resolution: {integrity: sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q==}
+
+  ev-emitter@2.1.2:
+    resolution: {integrity: sha512-jQ5Ql18hdCQ4qS+RCrbLfz1n+Pags27q5TwMKvZyhp5hh2UULUYZUy1keqj6k6SYsdqIYjnmz7xyyEY0V67B8Q==}
 
   fflate@0.8.2:
     resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
@@ -173,6 +186,9 @@ packages:
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
+
+  imagesloaded@5.0.0:
+    resolution: {integrity: sha512-/0JGSubc1MTCoDKVmonLHgbifBWHdyLkun+R/151E1c5n79hiSxcd7cB7mPXFgojYu8xnRZv7GYxzKoxW8BetQ==}
 
   jquery@3.7.1:
     resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
@@ -314,6 +330,8 @@ snapshots:
     dependencies:
       '@popperjs/core': 2.11.8
 
+  brand-icons@https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592: {}
+
   chart.js@4.4.4:
     dependencies:
       '@kurkle/color': 0.3.2
@@ -339,6 +357,8 @@ snapshots:
   earcut@3.0.0: {}
 
   ev-emitter@1.1.1: {}
+
+  ev-emitter@2.1.2: {}
 
   fflate@0.8.2: {}
 
@@ -367,6 +387,10 @@ snapshots:
   grid-index@1.1.0: {}
 
   ieee754@1.2.1: {}
+
+  imagesloaded@5.0.0:
+    dependencies:
+      ev-emitter: 2.1.2
 
   jquery@3.7.1: {}
 
