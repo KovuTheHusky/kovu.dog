@@ -54,8 +54,8 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       simple-icons:
-        specifier: ^13.8.0
-        version: 13.8.0
+        specifier: ^13.9.0
+        version: 13.9.0
 
 packages:
 
@@ -252,8 +252,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.8.0:
-    resolution: {integrity: sha512-z5l9A6X0BNEQbNS9pQ/X5eVHL4vYM0s0K/5Hl8mIG4zZB1ofTzDl5fsMzjTgpmfplgmx2pFW0mDUMFguXgfy+w==}
+  simple-icons@13.9.0:
+    resolution: {integrity: sha512-RqloEwtqs5bd2mLVwEoSNJfHExsCn22YtPblE2G6ObuSbfHFbze9gb2T/BXQwdtVExCoI9HJPsdpvsIX5h/ynw==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -476,7 +476,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.8.0: {}
+  simple-icons@13.9.0: {}
 
   supercluster@8.0.1:
     dependencies:
