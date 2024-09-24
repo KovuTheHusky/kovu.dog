@@ -1,0 +1,97 @@
+---
+layout: page
+title: QR
+subtitle: "Generate QR codes..."
+permalink: /qr
+---
+<script type="text/javascript" src="node_modules/qr-code-styling/lib/qr-code-styling.js"></script>
+<div class="container text-center">
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">URL</label>
+      <input type="text" class="form-control" id="url" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">uwu</div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-6">
+      <div id="canvas-light"></div>
+      <button class="btn btn-primary btn-lg" onclick="qrCodeLight.download({ name: 'qr', extension: 'svg' });">Download</button>
+    </div>
+    <div class="col-6">
+      <div id="canvas-dark"></div>
+      <button class="btn btn-primary btn-lg" onclick="qrCodeDark.download({ name: 'qr', extension: 'svg' });">Download</button>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+      $("form :input").on("change input", function() {
+        console.log("Input changed!");
+        generate();
+      });
+    });
+
+    var qrCodeLight;
+    var qrCodeDark;
+
+    function generate() {
+
+      qrCodeLight = new QRCodeStyling({
+          width: 300,
+          height: 300,
+          type: "svg",
+          data: $('#url').val(),
+          image: "/images/logos/fp-2024-dark.svg",
+          dotsOptions: {
+              color: "#000",
+              type: "dots"
+          },
+          backgroundOptions: {
+              color: "#fff",
+          },
+          cornersSquareOptions: {
+              type: "extra-rounded"
+          },
+          cornersDotOptions: {
+              type: "dot"
+          },
+          imageOptions: {
+              crossOrigin: "anonymous",
+              margin: 10
+          }
+      });
+
+      qrCodeDark = new QRCodeStyling({
+          width: 300,
+          height: 300,
+          type: "svg",
+          data: $('#url').val(),
+          image: "/images/logos/fp-2024-light.svg",
+          dotsOptions: {
+              color: "#fff",
+              type: "dots"
+          },
+          backgroundOptions: {
+              color: "#000",
+          },
+          cornersSquareOptions: {
+              type: "extra-rounded"
+          },
+          cornersDotOptions: {
+              type: "dot"
+          },
+          imageOptions: {
+              crossOrigin: "anonymous",
+              margin: 10
+          }
+      });
+
+      $("#canvas-light").empty();
+      qrCodeLight.append(document.getElementById("canvas-light"));
+      $("#canvas-dark").empty();
+      qrCodeDark.append(document.getElementById("canvas-dark"));
+  }
+</script>

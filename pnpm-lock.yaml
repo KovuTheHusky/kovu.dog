@@ -11,6 +11,9 @@ importers:
       '@fancyapps/fancybox':
         specifier: ^3.5.7
         version: 3.5.7(jquery@3.7.1)
+      '@fortawesome/fontawesome-free':
+        specifier: ^6.6.0
+        version: 6.6.0
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -66,6 +69,10 @@ packages:
     resolution: {integrity: sha512-rcEtu8t+WnmqIDV/Wfm1yvy/nDdwc7YV25j9HLxGC2/WOsUhk9rcWg2nB8g1BrjRt9zaoADdjHTU6ILYTJzBBg==}
     peerDependencies:
       jquery: '>=1.9.0'
+
+  '@fortawesome/fontawesome-free@6.6.0':
+    resolution: {integrity: sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==}
+    engines: {node: '>=6'}
 
   '@kurkle/color@0.3.2':
     resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
@@ -289,6 +296,8 @@ snapshots:
   '@fancyapps/fancybox@3.5.7(jquery@3.7.1)':
     dependencies:
       jquery: 3.7.1
+
+  '@fortawesome/fontawesome-free@6.6.0': {}
 
   '@kurkle/color@0.3.2': {}
 
