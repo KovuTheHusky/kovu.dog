@@ -16,6 +16,7 @@
     "masonry-layout": "^4.2.2",
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
+    "qr-code-styling": "1.6.0-rc.1",
     "simple-icons": "^13.11.0"
   }
 }
