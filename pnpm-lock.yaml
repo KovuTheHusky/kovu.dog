@@ -57,11 +57,11 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
-        specifier: 1.6.0-rc.1
-        version: 1.6.0-rc.1
+        specifier: 1.7.0
+        version: 1.7.0
       simple-icons:
-        specifier: ^13.13.0
-        version: 13.13.0
+        specifier: ^13.14.0
+        version: 13.14.0
 
 packages:
 
@@ -249,8 +249,8 @@ packages:
   protocol-buffers-schema@3.6.0:
     resolution: {integrity: sha512-TdDRD+/QNdrCGCE7v8340QyuXd4kIWIgapsE2+n/SaGiSSbomYl4TjHlvIoCWRpE7wFt02EpB35VVA2ImcBVqw==}
 
-  qr-code-styling@1.6.0-rc.1:
-    resolution: {integrity: sha512-ModRIiW6oUnsP18QzrRYZSc/CFKFKIdj7pUs57AEVH20ajlglRpN3HukjHk0UbNMTlKGuaYl7Gt6/O5Gg2NU2Q==}
+  qr-code-styling@1.7.0:
+    resolution: {integrity: sha512-TIgp5y1qyKnUodfWpSqmlmKZdDUE53Mu9tzvbMRO62DZJSDIJywIjftaXwRkqeEm9kJx4d7cnRjeT3fbX0BLZg==}
 
   qrcode-generator@1.4.4:
     resolution: {integrity: sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==}
@@ -268,8 +268,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.13.0:
-    resolution: {integrity: sha512-lHit5FeMG4Uga9M81Hf6UKugVTC9xnuSYM+AqZ4UMIoaRnkraq2T1RvvgRGk2T1CjONim3NfwzLx26hbDhvZlg==}
+  simple-icons@13.14.0:
+    resolution: {integrity: sha512-eUl/xnY9/BN/UPthZYi5tPQtHFxbqxO0lS/nMaG2QJAXRzXqLWnQHoJZdrV4+TZ2tb7JO3qqFCkg8UVVgTuKOQ==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -486,7 +486,7 @@ snapshots:
 
   protocol-buffers-schema@3.6.0: {}
 
-  qr-code-styling@1.6.0-rc.1:
+  qr-code-styling@1.7.0:
     dependencies:
       qrcode-generator: 1.4.4
 
@@ -502,7 +502,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.13.0: {}
+  simple-icons@13.14.0: {}
 
   supercluster@8.0.1:
     dependencies:
