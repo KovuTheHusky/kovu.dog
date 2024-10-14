@@ -18,8 +18,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@primer/octicons':
-        specifier: ^19.11.0
-        version: 19.11.0
+        specifier: ^19.12.0
+        version: 19.12.0
       '@twemoji/api':
         specifier: ^15.1.0
         version: 15.1.0
@@ -57,8 +57,8 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
-        specifier: 1.7.0
-        version: 1.7.0
+        specifier: 1.7.2
+        version: 1.7.2
       simple-icons:
         specifier: ^13.14.0
         version: 13.14.0
@@ -103,8 +103,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons@19.11.0':
-    resolution: {integrity: sha512-dJfi3I7zF4JyqHyHpxaUliUa//w4AmTYAo0i5KgKbz92ZQ0IizRU1rlW+eVdYk5nitAebpUX7gnKceZBDGW3XQ==}
+  '@primer/octicons@19.12.0':
+    resolution: {integrity: sha512-VX2/Iu43ZfQaX9OoCNJrzrLBF5BicG3hVY/Nx6slP/YJVZlVwWUiZzjF9hg9lNlLfii5gjl/gAGf/5YZ3Yz78A==}
 
   '@twemoji/api@15.1.0':
     resolution: {integrity: sha512-CySXR4/e6vY0z9lC2tW9EVjsH6zzz2/LQvLRMwwpHsDI4xcaweSIP+LcESf1Mq7w2/zcrrhG4ozniMvpSsEXag==}
@@ -249,8 +249,9 @@ packages:
   protocol-buffers-schema@3.6.0:
     resolution: {integrity: sha512-TdDRD+/QNdrCGCE7v8340QyuXd4kIWIgapsE2+n/SaGiSSbomYl4TjHlvIoCWRpE7wFt02EpB35VVA2ImcBVqw==}
 
-  qr-code-styling@1.7.0:
-    resolution: {integrity: sha512-TIgp5y1qyKnUodfWpSqmlmKZdDUE53Mu9tzvbMRO62DZJSDIJywIjftaXwRkqeEm9kJx4d7cnRjeT3fbX0BLZg==}
+  qr-code-styling@1.7.2:
+    resolution: {integrity: sha512-/D1nzJHOlALJ0ePYg25oO/yEAb4FaWOfW/R05It2h4nxojND0bc3dUNOGFT+bI6vlzR7mtqcS3i/ycc6w1MyAA==}
+    engines: {node: '>=18.18.0'}
 
   qrcode-generator@1.4.4:
     resolution: {integrity: sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==}
@@ -316,7 +317,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons@19.11.0':
+  '@primer/octicons@19.12.0':
     dependencies:
       object-assign: 4.1.1
 
@@ -486,7 +487,7 @@ snapshots:
 
   protocol-buffers-schema@3.6.0: {}
 
-  qr-code-styling@1.7.0:
+  qr-code-styling@1.7.2:
     dependencies:
       qrcode-generator: 1.4.4
 
