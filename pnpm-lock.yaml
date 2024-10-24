@@ -57,11 +57,11 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
-        specifier: 1.8.1
-        version: 1.8.1
+        specifier: 1.8.4
+        version: 1.8.4
       simple-icons:
-        specifier: ^13.14.0
-        version: 13.14.0
+        specifier: ^13.14.1
+        version: 13.14.1
 
 packages:
 
@@ -249,8 +249,8 @@ packages:
   protocol-buffers-schema@3.6.0:
     resolution: {integrity: sha512-TdDRD+/QNdrCGCE7v8340QyuXd4kIWIgapsE2+n/SaGiSSbomYl4TjHlvIoCWRpE7wFt02EpB35VVA2ImcBVqw==}
 
-  qr-code-styling@1.8.1:
-    resolution: {integrity: sha512-Fn2vaLdFktgAvThRxAHuQ4Qj+8F63ZjX1ooQJ38S2jPr3R+p0fs8XbjQzAPYqQ350+FCgKXhXn/ckzX8sB0UTw==}
+  qr-code-styling@1.8.4:
+    resolution: {integrity: sha512-uxykNuvXaPDK/jGDERDIdDvvocefbHu1oxVYi6K87FUdPPAezkBdcIeFJ8XVX2HSsyLFINile5uzfOMYpGu5ZA==}
     engines: {node: '>=18.18.0'}
 
   qrcode-generator@1.4.4:
@@ -269,8 +269,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.14.0:
-    resolution: {integrity: sha512-eUl/xnY9/BN/UPthZYi5tPQtHFxbqxO0lS/nMaG2QJAXRzXqLWnQHoJZdrV4+TZ2tb7JO3qqFCkg8UVVgTuKOQ==}
+  simple-icons@13.14.1:
+    resolution: {integrity: sha512-Syxm5ZpLgfePbZ8TXoOgiazaUqutE48eXhY8Mix2vK0uPji2rl+A2XG/sEyPBwIVj0tZeXuWolyTtMURASswTg==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -487,7 +487,7 @@ snapshots:
 
   protocol-buffers-schema@3.6.0: {}
 
-  qr-code-styling@1.8.1:
+  qr-code-styling@1.8.4:
     dependencies:
       qrcode-generator: 1.4.4
 
@@ -503,7 +503,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.14.0: {}
+  simple-icons@13.14.1: {}
 
   supercluster@8.0.1:
     dependencies:
