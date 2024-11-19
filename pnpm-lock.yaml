@@ -23,6 +23,9 @@ importers:
       '@twemoji/api':
         specifier: ^15.1.0
         version: 15.1.0
+      balloons-js:
+        specifier: ^0.0.2
+        version: 0.0.2
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
@@ -129,6 +132,10 @@ packages:
 
   '@types/supercluster@7.1.3':
     resolution: {integrity: sha512-Z0pOY34GDFl3Q6hUFYf3HkTwKEE02e7QgtJppBt+beEAxnyOpJua+voGFvxINBHa06GwLFFym7gRPY2SiKIfIA==}
+
+  balloons-js@0.0.2:
+    resolution: {integrity: sha512-IwLji0PbMABiLzE9i3HM2uChKS6sucer8CBc8L7BT2N4RSeKpTgbYF33HgbuMEa+WuAUp5TmWe47E0BKX3azVA==}
+    engines: {node: '>=12.0.0'}
 
   bootstrap@5.3.3:
     resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
@@ -349,6 +356,8 @@ snapshots:
   '@types/supercluster@7.1.3':
     dependencies:
       '@types/geojson': 7946.0.14
+
+  balloons-js@0.0.2: {}
 
   bootstrap@5.3.3(@popperjs/core@2.11.8):
     dependencies:
