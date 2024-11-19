@@ -12,8 +12,8 @@ importers:
         specifier: ^3.5.7
         version: 3.5.7(jquery@3.7.1)
       '@fortawesome/fontawesome-free':
-        specifier: ^6.6.0
-        version: 6.6.0
+        specifier: ^6.7.0
+        version: 6.7.0
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -70,8 +70,8 @@ packages:
     peerDependencies:
       jquery: '>=1.9.0'
 
-  '@fortawesome/fontawesome-free@6.6.0':
-    resolution: {integrity: sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==}
+  '@fortawesome/fontawesome-free@6.7.0':
+    resolution: {integrity: sha512-lXTP8oiLGM97Aqjn47nod9awKe574HRfCngFizr7FiHTadKTiPkoVn0Mzg+tZBLD1XpE4CRvcF7/UM3g1jyVYw==}
     engines: {node: '>=6'}
 
   '@kurkle/color@0.3.2':
@@ -295,7 +295,7 @@ snapshots:
     dependencies:
       jquery: 3.7.1
 
-  '@fortawesome/fontawesome-free@6.6.0': {}
+  '@fortawesome/fontawesome-free@6.7.0': {}
 
   '@kurkle/color@0.3.2': {}
 
