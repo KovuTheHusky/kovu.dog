@@ -12,8 +12,8 @@ importers:
         specifier: ^3.5.7
         version: 3.5.7(jquery@3.7.1)
       '@fortawesome/fontawesome-free':
-        specifier: ^6.7.0
-        version: 6.7.0
+        specifier: ^6.7.1
+        version: 6.7.1
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -31,7 +31,7 @@ importers:
         version: 5.3.3(@popperjs/core@2.11.8)
       brand-icons:
         specifier: github:Meow/brand-icons
-        version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
+        version: git+https://git@github.com:Meow/brand-icons.git#e15d1fe98d755bb27eab02bd562a161568bfc592
       chart.js:
         specifier: ^4.4.6
         version: 4.4.6
@@ -55,10 +55,10 @@ importers:
         version: 4.2.2
       pokemon-icons:
         specifier: github:TheArtificial/pokemon-icons#gh-pages
-        version: pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e
+        version: pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e
       pokemon-medals:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
-        version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
+        version: pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
         specifier: 1.8.4
         version: 1.8.4
@@ -73,8 +73,8 @@ packages:
     peerDependencies:
       jquery: '>=1.9.0'
 
-  '@fortawesome/fontawesome-free@6.7.0':
-    resolution: {integrity: sha512-lXTP8oiLGM97Aqjn47nod9awKe574HRfCngFizr7FiHTadKTiPkoVn0Mzg+tZBLD1XpE4CRvcF7/UM3g1jyVYw==}
+  '@fortawesome/fontawesome-free@6.7.1':
+    resolution: {integrity: sha512-ALIk/MOh5gYe1TG/ieS5mVUsk7VUIJTJKPMK9rFFqOgfp0Q3d5QiBXbcOMwUvs37fyZVCz46YjOE6IFeOAXCHA==}
     engines: {node: '>=6'}
 
   '@kurkle/color@0.3.4':
@@ -142,8 +142,8 @@ packages:
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
-  brand-icons@https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592:
-    resolution: {tarball: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592}
+  brand-icons@git+https://git@github.com:Meow/brand-icons.git#e15d1fe98d755bb27eab02bd562a161568bfc592:
+    resolution: {commit: e15d1fe98d755bb27eab02bd562a161568bfc592, repo: git@github.com:Meow/brand-icons.git, type: git}
     version: 0.0.0
 
   chart.js@4.4.6:
@@ -242,12 +242,12 @@ packages:
     resolution: {integrity: sha512-XDF38WCH3z5OV/OVa8GKUNtLAyneuzbCisx7QUCF8Q6Nutx0WnJrQe5O+kOtBlLfRNUws98Y58Lblp+NJG5T4Q==}
     hasBin: true
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e:
-    resolution: {tarball: https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e:
+    resolution: {commit: 33e644cf6193a0f109267b19704cc4ce7e83165e, repo: git@github.com:TheArtificial/pokemon-icons.git, type: git}
     version: 0.0.0
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
-    resolution: {tarball: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
+    resolution: {commit: 7340bdc7a612783c7575d640bb3cba0bc1c1bc87, repo: git@github.com:KovuTheHusky/pokemon-medals.git, type: git}
     version: 0.0.0
 
   potpack@2.0.0:
@@ -302,7 +302,7 @@ snapshots:
     dependencies:
       jquery: 3.7.1
 
-  '@fortawesome/fontawesome-free@6.7.0': {}
+  '@fortawesome/fontawesome-free@6.7.1': {}
 
   '@kurkle/color@0.3.4': {}
 
@@ -363,7 +363,7 @@ snapshots:
     dependencies:
       '@popperjs/core': 2.11.8
 
-  brand-icons@https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592: {}
+  brand-icons@git+https://git@github.com:Meow/brand-icons.git#e15d1fe98d755bb27eab02bd562a161568bfc592: {}
 
   chart.js@4.4.6:
     dependencies:
@@ -488,9 +488,9 @@ snapshots:
       ieee754: 1.2.1
       resolve-protobuf-schema: 2.1.0
 
-  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e: {}
+  pokemon-icons#gh-pages@git+https://git@github.com:TheArtificial/pokemon-icons.git#33e644cf6193a0f109267b19704cc4ce7e83165e: {}
 
-  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
+  pokemon-medals#gh-pages@git+https://git@github.com:KovuTheHusky/pokemon-medals.git#7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
 
   potpack@2.0.0: {}
 
