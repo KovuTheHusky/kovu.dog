@@ -12,8 +12,8 @@ importers:
         specifier: ^3.5.7
         version: 3.5.7(jquery@3.7.1)
       '@fortawesome/fontawesome-free':
-        specifier: ^6.7.0
-        version: 6.7.0
+        specifier: ^6.7.1
+        version: 6.7.1
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -63,8 +63,8 @@ importers:
         specifier: 1.8.4
         version: 1.8.4
       simple-icons:
-        specifier: ^13.17.0
-        version: 13.17.0
+        specifier: ^13.18.0
+        version: 13.18.0
 
 packages:
 
@@ -73,8 +73,8 @@ packages:
     peerDependencies:
       jquery: '>=1.9.0'
 
-  '@fortawesome/fontawesome-free@6.7.0':
-    resolution: {integrity: sha512-lXTP8oiLGM97Aqjn47nod9awKe574HRfCngFizr7FiHTadKTiPkoVn0Mzg+tZBLD1XpE4CRvcF7/UM3g1jyVYw==}
+  '@fortawesome/fontawesome-free@6.7.1':
+    resolution: {integrity: sha512-ALIk/MOh5gYe1TG/ieS5mVUsk7VUIJTJKPMK9rFFqOgfp0Q3d5QiBXbcOMwUvs37fyZVCz46YjOE6IFeOAXCHA==}
     engines: {node: '>=6'}
 
   '@kurkle/color@0.3.4':
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.17.0:
-    resolution: {integrity: sha512-pn37igWUYFeTBLckTGjFpwvEYbZuIXc9AB2lza+bzxc/h/sxlNn323dxGlXKglxqMNgLkbnpX75hT6kgsgb5CQ==}
+  simple-icons@13.18.0:
+    resolution: {integrity: sha512-nxG6XOUKWgt0K7eochrIn46tLBvOcUhcSpVUwWpo8WRkS4RHxreRIRosScDm4KmmTeDuNbW114GjviHlOSWyTg==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -302,7 +302,7 @@ snapshots:
     dependencies:
       jquery: 3.7.1
 
-  '@fortawesome/fontawesome-free@6.7.0': {}
+  '@fortawesome/fontawesome-free@6.7.1': {}
 
   '@kurkle/color@0.3.4': {}
 
@@ -512,7 +512,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.17.0: {}
+  simple-icons@13.18.0: {}
 
   supercluster@8.0.1:
     dependencies:
