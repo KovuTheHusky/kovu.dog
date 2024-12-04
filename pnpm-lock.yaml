@@ -18,8 +18,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@primer/octicons':
-        specifier: ^19.12.0
-        version: 19.12.0
+        specifier: ^19.13.0
+        version: 19.13.0
       '@twemoji/api':
         specifier: ^15.1.0
         version: 15.1.0
@@ -33,11 +33,11 @@ importers:
         specifier: github:Meow/brand-icons
         version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
       chart.js:
-        specifier: ^4.4.6
-        version: 4.4.6
+        specifier: ^4.4.7
+        version: 4.4.7
       chartjs-plugin-annotation:
         specifier: ^3.1.0
-        version: 3.1.0(chart.js@4.4.6)
+        version: 3.1.0(chart.js@4.4.7)
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
@@ -63,8 +63,8 @@ importers:
         specifier: 1.8.4
         version: 1.8.4
       simple-icons:
-        specifier: ^13.18.0
-        version: 13.18.0
+        specifier: ^13.19.0
+        version: 13.19.0
 
 packages:
 
@@ -106,8 +106,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons@19.12.0':
-    resolution: {integrity: sha512-VX2/Iu43ZfQaX9OoCNJrzrLBF5BicG3hVY/Nx6slP/YJVZlVwWUiZzjF9hg9lNlLfii5gjl/gAGf/5YZ3Yz78A==}
+  '@primer/octicons@19.13.0':
+    resolution: {integrity: sha512-U5g7Bv89At8qFXUy9MQlOUs4iPXR5XR4QPnSZWhmOn2oCgwf4LjdvfC+8OzhUFx2wC8k9TbRRAMVuCkqFLPlfQ==}
 
   '@twemoji/api@15.1.0':
     resolution: {integrity: sha512-CySXR4/e6vY0z9lC2tW9EVjsH6zzz2/LQvLRMwwpHsDI4xcaweSIP+LcESf1Mq7w2/zcrrhG4ozniMvpSsEXag==}
@@ -146,8 +146,8 @@ packages:
     resolution: {tarball: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592}
     version: 0.0.0
 
-  chart.js@4.4.6:
-    resolution: {integrity: sha512-8Y406zevUPbbIBA/HRk33khEmQPk5+cxeflWE/2rx1NJsjVWMPw/9mSP9rxHP5eqi6LNoPBVMfZHxbwLSgldYA==}
+  chart.js@4.4.7:
+    resolution: {integrity: sha512-pwkcKfdzTMAU/+jNosKhNL2bHtJc/sSmYgVbuGTEDhzkrhmyihmP7vUc/5ZK9WopidMDHNe3Wm7jOd/WhuHWuw==}
     engines: {pnpm: '>=8'}
 
   chartjs-plugin-annotation@3.1.0:
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@13.18.0:
-    resolution: {integrity: sha512-nxG6XOUKWgt0K7eochrIn46tLBvOcUhcSpVUwWpo8WRkS4RHxreRIRosScDm4KmmTeDuNbW114GjviHlOSWyTg==}
+  simple-icons@13.19.0:
+    resolution: {integrity: sha512-N4mUzqRGm1/V3IRyxibGZXwPO1QdwIZmZADn7O6oam2Rz/vnf8TaysvwMy3gIobObthROroa9/oXN31E9gI3zA==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -324,7 +324,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons@19.12.0':
+  '@primer/octicons@19.13.0':
     dependencies:
       object-assign: 4.1.1
 
@@ -365,13 +365,13 @@ snapshots:
 
   brand-icons@https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592: {}
 
-  chart.js@4.4.6:
+  chart.js@4.4.7:
     dependencies:
       '@kurkle/color': 0.3.4
 
-  chartjs-plugin-annotation@3.1.0(chart.js@4.4.6):
+  chartjs-plugin-annotation@3.1.0(chart.js@4.4.7):
     dependencies:
-      chart.js: 4.4.6
+      chart.js: 4.4.7
 
   cheap-ruler@4.0.0: {}
 
@@ -512,7 +512,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@13.18.0: {}
+  simple-icons@13.19.0: {}
 
   supercluster@8.0.1:
     dependencies:
