@@ -48,8 +48,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       mapbox-gl:
-        specifier: ^3.9.2
-        version: 3.9.2
+        specifier: ^3.9.3
+        version: 3.9.3
       masonry-layout:
         specifier: ^4.2.2
         version: 4.2.2
@@ -60,11 +60,11 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
-        specifier: 1.9.0
-        version: 1.9.0
+        specifier: 1.9.1
+        version: 1.9.1
       simple-icons:
-        specifier: ^14.1.0
-        version: 14.1.0
+        specifier: ^14.3.0
+        version: 14.3.0
 
 packages:
 
@@ -222,8 +222,8 @@ packages:
   kdbush@4.0.2:
     resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
 
-  mapbox-gl@3.9.2:
-    resolution: {integrity: sha512-ADGW4rJOylwcy9+yGf8HM2sLXLh3An+9PZVQzdpXrSbSNt0dI7e49a6NY35Yf2wbd4hoVyR5M3hy7cQ9sFrC2w==}
+  mapbox-gl@3.9.3:
+    resolution: {integrity: sha512-31mh95f35srpBMxAP32F9dKQXz7pT5VxQA5r6bFY6Aa5G6Z6NC/SVOTyWR+G/wY8wXWTHAnOaAAf5UkD5++/Kg==}
 
   masonry-layout@4.2.2:
     resolution: {integrity: sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==}
@@ -256,8 +256,8 @@ packages:
   protocol-buffers-schema@3.6.0:
     resolution: {integrity: sha512-TdDRD+/QNdrCGCE7v8340QyuXd4kIWIgapsE2+n/SaGiSSbomYl4TjHlvIoCWRpE7wFt02EpB35VVA2ImcBVqw==}
 
-  qr-code-styling@1.9.0:
-    resolution: {integrity: sha512-YwPf9iCQ4XESEDfErIqHtmGOE3EwFm7SMpRzwmjDnanH+JjaxMhAmWERJeJola20Bq4+zwWPid97qFtb+Ct5dw==}
+  qr-code-styling@1.9.1:
+    resolution: {integrity: sha512-T/VxQchuZkQwYhIcyyMUmtXHPeDT6lJBYHfqGD5CBDyIjswxS7JZKf443q+SXO1K/9SUswi6JpXEUQ5AoMCpyg==}
     engines: {node: '>=18.18.0'}
 
   qrcode-generator@1.4.4:
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@14.1.0:
-    resolution: {integrity: sha512-4/jkVUqhNpsyx0nqYe4QvBkg6NSxdnOnfs6AfFC5IiFsIqrE7YQveLPrbdEh40PZjEQZ20RG8HKbRjEcigJbPg==}
+  simple-icons@14.3.0:
+    resolution: {integrity: sha512-GXWVF/UBkR04Hg3qcoEOHzI9ZNedXPhcphWraWRCJAenkG6Vsf5ycmVFDX90OK+5oeg86M5tYqBNS4npgG7/5g==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -437,7 +437,7 @@ snapshots:
 
   kdbush@4.0.2: {}
 
-  mapbox-gl@3.9.2:
+  mapbox-gl@3.9.3:
     dependencies:
       '@mapbox/jsonlint-lines-primitives': 2.0.2
       '@mapbox/mapbox-gl-supported': 3.0.0
@@ -496,7 +496,7 @@ snapshots:
 
   protocol-buffers-schema@3.6.0: {}
 
-  qr-code-styling@1.9.0:
+  qr-code-styling@1.9.1:
     dependencies:
       qrcode-generator: 1.4.4
 
@@ -512,7 +512,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@14.1.0: {}
+  simple-icons@14.3.0: {}
 
   supercluster@8.0.1:
     dependencies:
