@@ -96,7 +96,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 4.3)
+  jekyll (~> 4.4)
   jekyll-feed (~> 0.17)
   jekyll-file-size (~> 0.0.7)
   jekyll-node-module
