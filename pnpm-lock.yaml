@@ -48,8 +48,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       mapbox-gl:
-        specifier: ^3.9.4
-        version: 3.9.4
+        specifier: ^3.10.0
+        version: 3.10.0
       masonry-layout:
         specifier: ^4.2.2
         version: 4.2.2
@@ -63,8 +63,8 @@ importers:
         specifier: 1.9.1
         version: 1.9.1
       simple-icons:
-        specifier: ^14.6.0
-        version: 14.6.0
+        specifier: ^14.7.0
+        version: 14.7.0
 
 packages:
 
@@ -222,8 +222,8 @@ packages:
   kdbush@4.0.2:
     resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
 
-  mapbox-gl@3.9.4:
-    resolution: {integrity: sha512-IxfpdyNzjCMzkqj/q5OUamlF1QcS+IFEARteygEgao2B8l8+UF2ahpNRgHT2EpMSE8ma1bq4LKvr+EuJ6gqniw==}
+  mapbox-gl@3.10.0:
+    resolution: {integrity: sha512-YnQxjlthuv/tidcxGYU2C8nRDVXMlAHa3qFhuOJeX4AfRP72OMRBf9ApL+M+k5VWcAXi2fcNOUVgphknjLumjA==}
 
   masonry-layout@4.2.2:
     resolution: {integrity: sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==}
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@14.6.0:
-    resolution: {integrity: sha512-s2C9qwZJpM2gkDpCeVxlN5/XpvCTM444pPX9JvLWRiFL7npZIjQISHR7EYUe7IgGEFyznmoRmM8VdJm5LQih+g==}
+  simple-icons@14.7.0:
+    resolution: {integrity: sha512-RTOYkdf1K38opKBgf3Vn3ztry+aUlS5DbLd+imbZhLr8ZgN7zyk4EalR8aWnxBtlBJJDo3qOLbpTnxhFIV8PZw==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -437,7 +437,7 @@ snapshots:
 
   kdbush@4.0.2: {}
 
-  mapbox-gl@3.9.4:
+  mapbox-gl@3.10.0:
     dependencies:
       '@mapbox/jsonlint-lines-primitives': 2.0.2
       '@mapbox/mapbox-gl-supported': 3.0.0
@@ -512,7 +512,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@14.6.0: {}
+  simple-icons@14.7.0: {}
 
   supercluster@8.0.1:
     dependencies:
