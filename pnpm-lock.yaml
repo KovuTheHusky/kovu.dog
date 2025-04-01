@@ -24,8 +24,8 @@ importers:
         specifier: ^15.1.0
         version: 15.1.0
       balloons-js:
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.3
+        version: 0.0.3
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
@@ -133,8 +133,8 @@ packages:
   '@types/supercluster@7.1.3':
     resolution: {integrity: sha512-Z0pOY34GDFl3Q6hUFYf3HkTwKEE02e7QgtJppBt+beEAxnyOpJua+voGFvxINBHa06GwLFFym7gRPY2SiKIfIA==}
 
-  balloons-js@0.0.2:
-    resolution: {integrity: sha512-IwLji0PbMABiLzE9i3HM2uChKS6sucer8CBc8L7BT2N4RSeKpTgbYF33HgbuMEa+WuAUp5TmWe47E0BKX3azVA==}
+  balloons-js@0.0.3:
+    resolution: {integrity: sha512-5Mfy2VH2lC0WhX9jUvlkeKac+47reQq6naaNys+xFM2l+n+4jXoxGwwfnCyAdeXJh2IcRK+2LdD0cpOtyxEZzA==}
     engines: {node: '>=12.0.0'}
 
   bootstrap@5.3.3:
@@ -357,7 +357,7 @@ snapshots:
     dependencies:
       '@types/geojson': 7946.0.16
 
-  balloons-js@0.0.2: {}
+  balloons-js@0.0.3: {}
 
   bootstrap@5.3.3(@popperjs/core@2.11.8):
     dependencies:
