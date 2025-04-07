@@ -27,8 +27,8 @@ importers:
         specifier: ^0.0.2
         version: 0.0.2
       bootstrap:
-        specifier: ^5.3.3
-        version: 5.3.3(@popperjs/core@2.11.8)
+        specifier: ^5.3.5
+        version: 5.3.5(@popperjs/core@2.11.8)
       brand-icons:
         specifier: github:Meow/brand-icons
         version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
@@ -137,8 +137,8 @@ packages:
     resolution: {integrity: sha512-IwLji0PbMABiLzE9i3HM2uChKS6sucer8CBc8L7BT2N4RSeKpTgbYF33HgbuMEa+WuAUp5TmWe47E0BKX3azVA==}
     engines: {node: '>=12.0.0'}
 
-  bootstrap@5.3.3:
-    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
+  bootstrap@5.3.5:
+    resolution: {integrity: sha512-ct1CHKtiobRimyGzmsSldEtM03E8fcEX4Tb3dGXz1V8faRwM50+vfHwTzOxB3IlKO7m+9vTH3s/3C6T2EAPeTA==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -359,7 +359,7 @@ snapshots:
 
   balloons-js@0.0.2: {}
 
-  bootstrap@5.3.3(@popperjs/core@2.11.8):
+  bootstrap@5.3.5(@popperjs/core@2.11.8):
     dependencies:
       '@popperjs/core': 2.11.8
 

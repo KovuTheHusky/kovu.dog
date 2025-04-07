@@ -7,7 +7,7 @@
     "@primer/octicons": "^19.15.1",
     "@twemoji/api": "^15.1.0",
     "balloons-js": "^0.0.2",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.5",
     "brand-icons": "github:Meow/brand-icons",
     "chart.js": "^4.4.8",
     "chartjs-plugin-annotation": "^3.1.0",
