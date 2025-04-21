@@ -63,8 +63,8 @@ importers:
         specifier: 1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^14.12.2
-        version: 14.12.2
+        specifier: ^14.12.3
+        version: 14.12.3
 
 packages:
 
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@14.12.2:
-    resolution: {integrity: sha512-8lPw9eWujv+zoSJWOuO3ZGTCV/n6KAGchj05+f83YPFg1rDjixziq39QvgUQJtiqiuDbY+d2sqaBf4R+Pygh9g==}
+  simple-icons@14.12.3:
+    resolution: {integrity: sha512-P85Pqak4picfTzdujmGL7+pFfsd32K/tDjHPQ8vvJcr2Xk380A9kBVIW5QH86qWqa+YJgFa5huLcUuwmW+YBPQ==}
     engines: {node: '>=0.12.18'}
 
   supercluster@8.0.1:
@@ -512,7 +512,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@14.12.2: {}
+  simple-icons@14.12.3: {}
 
   supercluster@8.0.1:
     dependencies:
