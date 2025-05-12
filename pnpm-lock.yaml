@@ -63,8 +63,8 @@ importers:
         specifier: 1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^14.12.3
-        version: 14.12.3
+        specifier: ^14.13.0
+        version: 14.13.0
 
 packages:
 
@@ -282,8 +282,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@14.12.3:
-    resolution: {integrity: sha512-P85Pqak4picfTzdujmGL7+pFfsd32K/tDjHPQ8vvJcr2Xk380A9kBVIW5QH86qWqa+YJgFa5huLcUuwmW+YBPQ==}
+  simple-icons@14.13.0:
+    resolution: {integrity: sha512-RUe7J0SDDBAh9Py1ANOA8LkDKJSL+TleDB3+FIaihqf2cNsjeM+V6Pkr3hXX4ug0ZQXToWikdjMMKSFIN2Tc/g==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -533,7 +533,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@14.12.3: {}
+  simple-icons@14.13.0: {}
 
   splaytree@0.1.4: {}
 
