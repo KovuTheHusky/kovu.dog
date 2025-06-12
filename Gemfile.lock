@@ -14,11 +14,15 @@ GEM
     eventmachine (1.2.7)
     ffi (1.17.2)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
     forwardable-extended (2.6.0)
     google-protobuf (4.31.1)
       bigdecimal
       rake (>= 13)
     google-protobuf (4.31.1-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-darwin)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
