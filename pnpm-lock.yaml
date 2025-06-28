@@ -18,8 +18,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@primer/octicons':
-        specifier: ^19.15.2
-        version: 19.15.2
+        specifier: ^19.15.3
+        version: 19.15.3
       '@twemoji/api':
         specifier: ^16.0.1
         version: 16.0.1
@@ -106,8 +106,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons@19.15.2':
-    resolution: {integrity: sha512-B80KFaujnmYTB339nPsQm3epqVHz4NaaoD6PoOvPSEsJ5vdfCpM94NX99eq2La84aBm44BKE0uVTzQ8qjk34Kg==}
+  '@primer/octicons@19.15.3':
+    resolution: {integrity: sha512-SVD0JbTzabLqLx4d5Cl3cyY+i0u3j5/lI6P3FyNkkJb9Z4VAQ+mBvl7WgK0ZFEXBsLc2gxnoYXvC3TkNSEz1NQ==}
 
   '@twemoji/api@16.0.1':
     resolution: {integrity: sha512-qe7QHeJKVLGNciwAMbu1S872PX5bt1RY0+0xqvN7gNQ+zd3MyRJ5n7dZowEJWYRAgTN5bAUGshD1YAmkFkyAkA==}
@@ -263,8 +263,8 @@ packages:
     resolution: {integrity: sha512-RgJaZJ1/RrXJ6N0j7a+pdw3zMBmzZU4VN2dtAZf8ZggCfRB5stEQ3IoDNGaNhYY3nnZKYlYSLl5YkfWN5dPutg==}
     engines: {node: '>=18.18.0'}
 
-  qrcode-generator@1.5.0:
-    resolution: {integrity: sha512-sqo7otiDq5rA4djRkFI7IjLQqxRrLpIou0d3rqr03JJLUGf5raPh91xCio+lFFbQf0SlcVckStz0EmDEX3EeZA==}
+  qrcode-generator@1.5.2:
+    resolution: {integrity: sha512-pItrW0Z9HnDBnFmgiNrY1uxRdri32Uh9EjNYLPVC2zZ3ZRIIEqBoDgm4DkvDwNNDHTK7FNkmr8zAa77BYc9xNw==}
 
   quickselect@3.0.0:
     resolution: {integrity: sha512-XdjUArbK4Bm5fLLvlm5KpTFOiOThgfWWI4axAZDWg4E/0mKdZyI9tNEfds27qCi1ze/vwTR16kvmmGhRra3c2g==}
@@ -336,7 +336,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons@19.15.2':
+  '@primer/octicons@19.15.3':
     dependencies:
       object-assign: 4.1.1
 
@@ -517,9 +517,9 @@ snapshots:
 
   qr-code-styling@1.9.2:
     dependencies:
-      qrcode-generator: 1.5.0
+      qrcode-generator: 1.5.2
 
-  qrcode-generator@1.5.0: {}
+  qrcode-generator@1.5.2: {}
 
   quickselect@3.0.0: {}
 
