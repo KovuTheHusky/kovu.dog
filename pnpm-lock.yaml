@@ -55,16 +55,16 @@ importers:
         version: 4.2.2
       pokemon-icons:
         specifier: github:TheArtificial/pokemon-icons#gh-pages
-        version: https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e
+        version: pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e
       pokemon-medals:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
-        version: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
+        version: pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
         specifier: 1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^15.11.0
-        version: 15.11.0
+        specifier: ^15.12.0
+        version: 15.12.0
 
 packages:
 
@@ -239,11 +239,11 @@ packages:
     resolution: {integrity: sha512-SuLdBvS42z33m8ejRbInMapQe8n0D3vN/Xd5fmWM3tufNgRQFBpaW2YVJxQZV4iPNqb0vEFvssMEo5w9c6BTIA==}
     hasBin: true
 
-  pokemon-icons@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e:
+  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e:
     resolution: {tarball: https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e}
     version: 0.0.0
 
-  pokemon-medals@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
+  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87:
     resolution: {tarball: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87}
     version: 0.0.0
 
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@15.11.0:
-    resolution: {integrity: sha512-hHgDvNcbIdE5e6thY19Ao1VEI4CectXDNB0+nXOLCBf3ApuzeMm4tAhWzeR9qZdt/GoeQs1nm9JTVzCVBuX1nA==}
+  simple-icons@15.12.0:
+    resolution: {integrity: sha512-C5hMZsJ7naKwjbpzodQE9qjuExnZ1z1lb5rV52FKUdBJvCEc082WgyTGNCazmoGDUae2LVckqSv0zC+zcS8jxA==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -489,9 +489,9 @@ snapshots:
     dependencies:
       resolve-protobuf-schema: 2.1.0
 
-  pokemon-icons@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e: {}
+  pokemon-icons#gh-pages@https://codeload.github.com/TheArtificial/pokemon-icons/tar.gz/33e644cf6193a0f109267b19704cc4ce7e83165e: {}
 
-  pokemon-medals@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
+  pokemon-medals#gh-pages@https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87: {}
 
   potpack@2.1.0: {}
 
@@ -515,7 +515,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@15.11.0: {}
+  simple-icons@15.12.0: {}
 
   splaytree@0.1.4: {}
 
