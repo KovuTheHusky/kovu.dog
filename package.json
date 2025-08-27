@@ -4,10 +4,10 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^7.0.0",
     "@popperjs/core": "^2.11.8",
-    "@primer/octicons": "^19.15.5",
+    "@primer/octicons": "^19.16.0",
     "@twemoji/api": "^16.0.1",
     "balloons-js": "^0.0.3",
-    "bootstrap": "^5.3.7",
+    "bootstrap": "^5.3.8",
     "brand-icons": "github:Meow/brand-icons",
     "chart.js": "^4.5.0",
     "chartjs-plugin-annotation": "^3.1.0",
@@ -19,6 +19,6 @@
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
     "qr-code-styling": "1.9.2",
-    "simple-icons": "^15.11.0"
+    "simple-icons": "^15.12.0"
   }
 }

@@ -18,8 +18,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@primer/octicons':
-        specifier: ^19.15.5
-        version: 19.15.5
+        specifier: ^19.16.0
+        version: 19.16.0
       '@twemoji/api':
         specifier: ^16.0.1
         version: 16.0.1
@@ -27,8 +27,8 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3
       bootstrap:
-        specifier: ^5.3.7
-        version: 5.3.7(@popperjs/core@2.11.8)
+        specifier: ^5.3.8
+        version: 5.3.8(@popperjs/core@2.11.8)
       brand-icons:
         specifier: github:Meow/brand-icons
         version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
@@ -63,8 +63,8 @@ importers:
         specifier: 1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^15.11.0
-        version: 15.11.0
+        specifier: ^15.12.0
+        version: 15.12.0
 
 packages:
 
@@ -106,8 +106,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons@19.15.5':
-    resolution: {integrity: sha512-FCXPTlXlHvAS3rRBd1C/xVBYSYzPPwS8tNcUxnvUYK6L4/d+zUy2KExLtzW+L9xKo2z8J9uY+c1VCsNRf+b4MQ==}
+  '@primer/octicons@19.16.0':
+    resolution: {integrity: sha512-oqXYMl6Vxnd8oEP6Xw6XsVutILnnoAo2MAV28mQYJbkHzBxlnubJK13/7J1AVV/ZABVkm/Fdmv1TkjM6oVYoPw==}
 
   '@twemoji/api@16.0.1':
     resolution: {integrity: sha512-qe7QHeJKVLGNciwAMbu1S872PX5bt1RY0+0xqvN7gNQ+zd3MyRJ5n7dZowEJWYRAgTN5bAUGshD1YAmkFkyAkA==}
@@ -134,8 +134,8 @@ packages:
     resolution: {integrity: sha512-5Mfy2VH2lC0WhX9jUvlkeKac+47reQq6naaNys+xFM2l+n+4jXoxGwwfnCyAdeXJh2IcRK+2LdD0cpOtyxEZzA==}
     engines: {node: '>=12.0.0'}
 
-  bootstrap@5.3.7:
-    resolution: {integrity: sha512-7KgiD8UHjfcPBHEpDNg+zGz8L3LqR3GVwqZiBRFX04a1BCArZOz1r2kjly2HQ0WokqTO0v1nF+QAt8dsW4lKlw==}
+  bootstrap@5.3.8:
+    resolution: {integrity: sha512-HP1SZDqaLDPwsNiqRqi5NcP0SSXciX2s9E+RyqJIIqGo+vJeN5AJVM98CXmW/Wux0nQ5L7jeWUdplCEf0Ee+tg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -276,8 +276,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@15.11.0:
-    resolution: {integrity: sha512-hHgDvNcbIdE5e6thY19Ao1VEI4CectXDNB0+nXOLCBf3ApuzeMm4tAhWzeR9qZdt/GoeQs1nm9JTVzCVBuX1nA==}
+  simple-icons@15.12.0:
+    resolution: {integrity: sha512-C5hMZsJ7naKwjbpzodQE9qjuExnZ1z1lb5rV52FKUdBJvCEc082WgyTGNCazmoGDUae2LVckqSv0zC+zcS8jxA==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -329,7 +329,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons@19.15.5':
+  '@primer/octicons@19.16.0':
     dependencies:
       object-assign: 4.1.1
 
@@ -358,7 +358,7 @@ snapshots:
 
   balloons-js@0.0.3: {}
 
-  bootstrap@5.3.7(@popperjs/core@2.11.8):
+  bootstrap@5.3.8(@popperjs/core@2.11.8):
     dependencies:
       '@popperjs/core': 2.11.8
 
@@ -515,7 +515,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@15.11.0: {}
+  simple-icons@15.12.0: {}
 
   splaytree@0.1.4: {}
 
