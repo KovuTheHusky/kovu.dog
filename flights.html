@@ -1,0 +1,181 @@
+---
+layout: default
+title: Flights
+permalink: /flights
+---
+<style>
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+</style>
+<link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet">
+<script src="/node_modules/mapbox-gl/dist/mapbox-gl.js"></script>
+<div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw';
+  var map = new mapboxgl.Map({
+    attributionControl: false,
+    center: [-74.0059662, 40.7127848],
+    container: 'map',
+    hash: true,
+    projection: 'globe',
+    style: 'mapbox://styles/mapbox/dark-v11',
+    zoom: 2
+  });
+  map.dragRotate.disable();
+  map.touchZoomRotate.disableRotation();
+  map.addControl(new mapboxgl.AttributionControl({
+    compact: true
+  }), 'bottom-right');
+
+  // Array of origin-destination pairs (airport codes)
+  const flightRoutes = [
+    { origin: 'SFO', destination: 'JFK' },
+    { origin: 'SEA', destination: 'SJC' },
+    { origin: 'JFK', destination: 'SEA' },
+    { origin: 'CHS', destination: 'HPN' },
+    { origin: 'LAX', destination: 'JFK' },
+    { origin: 'JFK', destination: 'SFO' },
+    { origin: 'SFO', destination: 'JFK' },
+    { origin: 'DFW', destination: 'LGA' },
+    { origin: 'LGA', destination: 'DFW' },
+    { origin: 'LAS', destination: 'JFK' },
+    { origin: 'JFK', destination: 'LAS' },
+    { origin: 'SFO', destination: 'JFK' },
+    { origin: 'JFK', destination: 'SFO' },
+    { origin: 'MSP', destination: 'LGA' },
+    { origin: 'LGA', destination: 'MSP' },
+    { origin: 'DFW', destination: 'LGA' },
+    { origin: 'LGA', destination: 'DFW' },
+    { origin: 'ORD', destination: 'LGA' },
+    { origin: 'LGA', destination: 'ORD' },
+    { origin: 'ORD', destination: 'JFK' },
+    { origin: 'JFK', destination: 'ORD' },
+    { origin: 'JFK', destination: 'YYZ' },
+    { origin: 'YYZ', destination: 'JFK' },
+    { origin: 'MCO', destination: 'ISP' },
+    { origin: 'ISP', destination: 'MCO' },
+    { origin: 'SLC', destination: 'JFK' },
+    { origin: 'LAX', destination: 'SLC' },
+    { origin: 'CNS', destination: 'LAX' },
+    { origin: 'LAX', destination: 'SYD' },
+    { origin: 'JFK', destination: 'LAX' },
+    { origin: 'CDG', destination: 'JFK' },
+    { origin: 'JFK', destination: 'FCO' },
+  ];
+
+  // Function to load the airport database
+  async function loadAirportDatabase() {
+    const response = await fetch('/airports.json');
+    const airports = await response.json();
+    return airports;
+  }
+
+  // Function to lookup coordinates in the airport database
+  function getAirportCoordinates(airportCode, airportDatabase) {
+    const airport = airportDatabase.find(a => a.code === airportCode);
+    if (airport) {
+      return [airport.lat, airport.lon];
+    } else {
+      console.error(`Could not find coordinates for airport: ${airportCode}`);
+      return null;
+    }
+  }
+
+  // Function to normalize longitude to the range (-180, 180]
+  function normalizeLongitude(longitude) {
+    return (longitude + 540) % 360 - 180;
+  }
+
+  // Function to split a line at the antimeridian
+  function splitLineAtAntimeridian(originCoords, destinationCoords) {
+    // Normalize longitudes to handle crossing the antimeridian
+    const normalizedOriginLng = normalizeLongitude(originCoords[1]);
+    const normalizedDestLng = normalizeLongitude(destinationCoords[1]);
+
+    // Check if the line crosses the antimeridian
+    if (Math.abs(normalizedOriginLng - normalizedDestLng) > 180) {
+      const midpointLat =
+        originCoords[0] +
+        ((destinationCoords[0] - originCoords[0]) *
+          (180 - normalizedOriginLng)) /
+          (normalizedDestLng - normalizedOriginLng);
+
+      if (normalizedOriginLng < 0) {
+        // Origin is in the western hemisphere
+        return [
+          [originCoords, [originCoords[0], -180]],
+          [[midpointLat, 180], destinationCoords],
+        ];
+      } else {
+        // Origin is in the eastern hemisphere
+        return [
+          [originCoords, [originCoords[0], 180]],
+          [[midpointLat, -180], destinationCoords],
+        ];
+      }
+    } else {
+      // No need to split
+      return [[originCoords, destinationCoords]];
+    }
+  }
+
+  // Function to draw routes on the map
+  async function drawRoutes(routes, airportDatabase) {
+    let routeId = 0; // Counter for unique route IDs
+
+    for (const route of routes) {
+      const originCoords = getAirportCoordinates(route.origin, airportDatabase);
+      const destinationCoords = getAirportCoordinates(
+        route.destination,
+        airportDatabase
+      );
+
+      if (originCoords && destinationCoords) {
+        const segments = splitLineAtAntimeridian(
+          originCoords,
+          destinationCoords
+        );
+
+        segments.forEach((segment, index) => {
+          const routeFeature = {
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: segment,
+            },
+            properties: {
+              color: segments.length > 1 && index === 0 ? "#FF0000" : segments.length > 1 && index === 1 ? "#00FF00" : "#007cbf",
+            },
+          };
+
+          // Create unique source and layer IDs for each segment
+          const routeSourceId = `route-source-${routeId}-${index}`;
+          const routeLayerId = `route-layer-${routeId}-${index}`;
+
+          map.addSource(routeSourceId, {
+            type: "geojson",
+            data: routeFeature,
+          });
+
+          map.addLayer({
+            id: routeLayerId,
+            source: routeSourceId,
+            type: "line",
+            paint: {
+              "line-width": 2,
+              "line-color": ["get", "color"], // Use the 'color' property for line color
+            },
+          });
+        });
+
+        routeId++;
+      }
+    }
+  }
+
+  map.on("load", async () => {
+    const airportDatabase = await loadAirportDatabase();
+    await drawRoutes(flightRoutes, airportDatabase);
+  });
+</script>
