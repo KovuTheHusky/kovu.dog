@@ -28,54 +28,45 @@ permalink: /flights
     compact: true
   }), 'bottom-right');
 
-  const flightRoutes = [
-    { origin: 'MCO', destination: 'ISP' },
-    { origin: 'ISP', destination: 'MCO' },
-    { origin: 'BWI', destination: 'ISP' },
-    { origin: 'PWM', destination: 'BWI' },
-    { origin: 'JFK', destination: 'PWM' },
-    { origin: 'VRB', destination: 'ISP' },
-    { origin: 'ISP', destination: 'VRB' },
-    { origin: 'BWI', destination: 'PWM' },
-    { origin: 'LAX', destination: 'BWI' },
-    { origin: 'SEA', destination: 'LAX' },
-    { origin: 'OAK', destination: 'SEA' },
-    { origin: 'ONT', destination: 'OAK' },
-    { origin: 'MDW', destination: 'ONT' },
-    { origin: 'DCA', destination: 'MDW' },
-    { origin: 'SFO', destination: 'JFK' },
-    { origin: 'SEA', destination: 'SJC' },
-    { origin: 'JFK', destination: 'SEA' },
-    { origin: 'CHS', destination: 'HPN' },
-    { origin: 'LAX', destination: 'JFK' },
-    { origin: 'JFK', destination: 'SFO' },
-    { origin: 'SFO', destination: 'JFK' },
-    { origin: 'DFW', destination: 'LGA' },
-    { origin: 'LGA', destination: 'DFW' },
-    { origin: 'LAS', destination: 'JFK' },
-    { origin: 'JFK', destination: 'LAS' },
-    { origin: 'SFO', destination: 'JFK' },
-    { origin: 'JFK', destination: 'SFO' },
-    { origin: 'MSP', destination: 'LGA' },
-    { origin: 'LGA', destination: 'MSP' },
-    { origin: 'DFW', destination: 'LGA' },
-    { origin: 'LGA', destination: 'DFW' },
-    { origin: 'ORD', destination: 'LGA' },
-    { origin: 'LGA', destination: 'ORD' },
-    { origin: 'ORD', destination: 'JFK' },
-    { origin: 'JFK', destination: 'ORD' },
-    { origin: 'JFK', destination: 'YYZ' },
-    { origin: 'YYZ', destination: 'JFK' },
-    { origin: 'MCO', destination: 'ISP' },
-    { origin: 'ISP', destination: 'MCO' },
-    { origin: 'SLC', destination: 'JFK' },
-    { origin: 'LAX', destination: 'SLC' },
-    { origin: 'CNS', destination: 'LAX' },
-    { origin: 'LAX', destination: 'SYD' },
-    { origin: 'JFK', destination: 'LAX' },
-    { origin: 'CDG', destination: 'JFK' },
-    { origin: 'JFK', destination: 'FCO' },
-  ];
+  // The hardcoded `flightRoutes` array has been removed.
+
+  // NEW: Function to fetch and parse the Flighty CSV data
+  async function loadFlightRoutesFromCSV(url) {
+    try {
+      const response = await fetch(url);
+      const csvText = await response.text();
+      
+      const routes = [];
+      const lines = csvText.trim().split('\n');
+      
+      // Get header to find column indices dynamically
+      const header = lines[0].split(',');
+      const fromIndex = header.indexOf('From');
+      const toIndex = header.indexOf('To');
+      const canceledIndex = header.indexOf('Canceled');
+
+      // Start from 1 to skip header row
+      for (let i = 1; i < lines.length; i++) {
+        const columns = lines[i].split(',');
+        
+        // Ensure row has enough columns
+        if (columns.length > Math.max(fromIndex, toIndex, canceledIndex)) {
+          const from = columns[fromIndex]?.trim();
+          const to = columns[toIndex]?.trim();
+          const isCanceled = columns[canceledIndex] === 'true';
+
+          // Add the route if it's valid and not canceled
+          if (from && to && !isCanceled) {
+            routes.push({ origin: from, destination: to });
+          }
+        }
+      }
+      return routes;
+    } catch (error) {
+      console.error('Error loading or parsing flight data:', error);
+      return []; // Return an empty array on failure
+    }
+  }
 
   async function getAirportDatabase() {
     const response = await fetch('/airports.json');
@@ -128,7 +119,10 @@ permalink: /flights
   }
 
   map.on('load', async () => {
-    const airportDb = await getAirportDatabase();
+    const [airportDb, flightRoutes] = await Promise.all([
+        getAirportDatabase(),
+        loadFlightRoutesFromCSV('/flights.csv')
+    ]);
 
     const uniqueRouteKeys = new Set();
     const uniqueFlightRoutes = [];
