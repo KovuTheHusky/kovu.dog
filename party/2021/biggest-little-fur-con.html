@@ -7,38 +7,67 @@ redirect_from:
   - /party/2021/blfc
   - /party/blfc-2021
 ---
-<ul class="nav nav-pills justify-content-center gmb" id="list-tab" role="tablist">
+
+<ul
+  class="nav nav-pills justify-content-center gmb"
+  id="list-tab"
+  role="tablist"
+>
   <li class="nav-item">
-    <a class="nav-link active" id="invite-list" data-bs-toggle="list" href="#invite" role="tab">Invite</a>
+    <a
+      class="nav-link active"
+      id="invite-list"
+      data-bs-toggle="list"
+      href="#invite"
+      role="tab"
+      >Invite</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" id="drinks-list" data-bs-toggle="list" href="#drinks" role="tab">Drinks</a>
+    <a
+      class="nav-link disabled"
+      id="drinks-list"
+      data-bs-toggle="list"
+      href="#drinks"
+      role="tab"
+      >Drinks</a
+    >
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" id="gallery-list" data-bs-toggle="list" href="#gallery" role="tab">Gallery</a>
+    <a
+      class="nav-link disabled"
+      id="gallery-list"
+      data-bs-toggle="list"
+      href="#gallery"
+      role="tab"
+      >Gallery</a
+    >
   </li>
 </ul>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="invite" role="tabpanel">
     <div class="container text-center">
-      <a href="/images/parties/blfc-2021/poster.webp" data-fancybox><img src="/images/parties/blfc-2021/poster.webp" class="w-100 rounded" alt=""></a>
+      <a href="/images/parties/blfc-2021/poster.webp" data-fancybox
+        ><img
+          src="/images/parties/blfc-2021/poster.webp"
+          class="w-100 rounded"
+          alt=""
+      /></a>
     </div>
   </div>
-  <div class="tab-pane fade" id="drinks" role="tabpanel">
-  </div>
-  <div class="tab-pane fade" id="gallery" role="tabpanel">
-  </div>
+  <div class="tab-pane fade" id="drinks" role="tabpanel"></div>
+  <div class="tab-pane fade" id="gallery" role="tabpanel"></div>
 </div>
 <script>
-  $(function(){
+  $(function () {
     var hash = window.location.hash;
-    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+    hash && $('ul.nav a[href="' + hash + '"]').tab("show");
 
-    $('.nav-pills a').click(function (e) {
-      $(this).tab('show');
-      var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+    $(".nav-pills a").click(function (e) {
+      $(this).tab("show");
+      var scrollmem = $("body").scrollTop() || $("html").scrollTop();
       window.location.hash = this.hash;
-      $('html,body').scrollTop(scrollmem);
+      $("html,body").scrollTop(scrollmem);
     });
   });
 </script>

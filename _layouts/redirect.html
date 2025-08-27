@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en" style="background: #121212; color: #fff;">
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
-  <meta name="robots" content="noindex">
+<html lang="en" style="background: #121212; color: #fff">
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}" />
+  <meta name="robots" content="noindex" />
   <title>Redirecting | {{ site.title }}</title>
-  <link rel="canonical" href="{{ page.redirect.to }}">
-  <link rel="stylesheet" href="/assets/main.css">
-  <script>location="{{ page.redirect.to }}"</script>
+  <link rel="canonical" href="{{ page.redirect.to }}" />
+  <link rel="stylesheet" href="/assets/main.css" />
+  <script>
+    location = "{{ page.redirect.to }}";
+  </script>
   <body>
     <h1>Redirecting</h1>
     <a href="{{ page.redirect.to }}">Click here if you are not redirected.</a>

@@ -1,37 +1,86 @@
 ---
 layout: page
 title: Fursona
-subtitle: "Reference, description &amp; colors. Art by <a href=\"https://neonslushie.com\">Neon Slushie</a>."
+subtitle: 'Reference, description &amp; colors. Art by <a href="https://neonslushie.com">Neon Slushie</a>.'
 permalink: /fursona
 redirect_from:
   - /sona
   - /ref
   - /reference
 ---
+
 <div class="colors container text-center gmb">
   <p>Green & aqua male husky, 5'7", thin, he/him.</p>
-  <button type="button" class="btn text-dark" style="background-color: #44d262 !important;" data-clipboard-text="44d262">#44d262 fur</button>
-  <button type="button" class="btn text-dark" style="background-color: #76e9c8 !important;" data-clipboard-text="76e9c8">#76e9c8 fur &amp; eyes</button>
-  <button type="button" class="btn text-dark" style="background-color: #fcd3f1 !important;" data-clipboard-text="fcd3f1">#fcd3f1 tongue</button>
-  <button type="button" class="btn text-dark" style="background-color: #ffd700 !important;" data-clipboard-text="ffd700">#ffd700 earring</button>
-  <button type="button" class="btn" style="background-color: #343434 !important;" data-clipboard-text="343434">#343434 paw pads &amp; nose</button>
-  <button type="button" class="btn text-dark" style="background-color: #ffffff !important;" data-clipboard-text="ffffff">#ffffff teeth &amp; claws</button>
-  <p class="small m-0">Click buttons above to copy hex code or <a href="/images/fursona.png" download>download raster file ({{ './images/fursona.png' | file_size | divided_by: 1024.0 | divided_by: 1024.0 | round: 2 }}MB)</a>.</p>
+  <button
+    type="button"
+    class="btn text-dark"
+    style="background-color: #44d262 !important"
+    data-clipboard-text="44d262"
+  >
+    #44d262 fur
+  </button>
+  <button
+    type="button"
+    class="btn text-dark"
+    style="background-color: #76e9c8 !important"
+    data-clipboard-text="76e9c8"
+  >
+    #76e9c8 fur &amp; eyes
+  </button>
+  <button
+    type="button"
+    class="btn text-dark"
+    style="background-color: #fcd3f1 !important"
+    data-clipboard-text="fcd3f1"
+  >
+    #fcd3f1 tongue
+  </button>
+  <button
+    type="button"
+    class="btn text-dark"
+    style="background-color: #ffd700 !important"
+    data-clipboard-text="ffd700"
+  >
+    #ffd700 earring
+  </button>
+  <button
+    type="button"
+    class="btn"
+    style="background-color: #343434 !important"
+    data-clipboard-text="343434"
+  >
+    #343434 paw pads &amp; nose
+  </button>
+  <button
+    type="button"
+    class="btn text-dark"
+    style="background-color: #ffffff !important"
+    data-clipboard-text="ffffff"
+  >
+    #ffffff teeth &amp; claws
+  </button>
+  <p class="small m-0">
+    Click buttons above to copy hex code or
+    <a href="/images/fursona.png" download
+      >download raster file ({{ './images/fursona.png' | file_size | divided_by:
+      1024.0 | divided_by: 1024.0 | round: 2 }}MB)</a
+    >.
+  </p>
 </div>
 <div class="reference container">
   <div class="row text-center m-0">
     <div class="col-sm-4">
-      <img src="/images/neonslushie-front.svg" alt="Front">
+      <img src="/images/neonslushie-front.svg" alt="Front" />
     </div>
     <div class="col-sm-4">
-      <img src="/images/neonslushie-side.svg" alt="Side">
+      <img src="/images/neonslushie-side.svg" alt="Side" />
     </div>
     <div class="col-sm-4">
-      <img src="/images/neonslushie-back.svg" alt="Back">
+      <img src="/images/neonslushie-back.svg" alt="Back" />
     </div>
   </div>
 </div>
 <script src="/node_modules/clipboard/dist/clipboard.min.js"></script>
 <script>
-  new ClipboardJS('.btn');
+  new ClipboardJS(".btn");
 </script>

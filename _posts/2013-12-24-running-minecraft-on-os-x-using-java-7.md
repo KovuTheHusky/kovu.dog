@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Running Minecraft on OS X using Java 7+"
-date:   2013-12-24 02:32:00 -0000
+title: "Running Minecraft on OS X using Java 7+"
+date: 2013-12-24 02:32:00 -0000
 ---
+
 **Update: Mojang has finally released a [new launcher](https://minecraft.net/download) that not only includes support for modern versions of Java, but also ditches support for deprecated versions like Java 6.**
 
 **Update: I have created a shell script that does all of this automatically. All you need to do is make sure you have ant installed and run [this script](https://gist.github.com/KovuTheHusky/c70af0623aab4625ccebef1140fc5d11). Alternatively, you can still follow the directions below if you want to.**

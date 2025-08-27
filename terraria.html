@@ -4,184 +4,252 @@ title: Terraria
 subtitle: "Timeline, connection details, world downloads, maps."
 permalink: /terraria
 ---
+
 <div class="container">
-  <div class="card" style="margin-bottom: 66px;">
+  <div class="card" style="margin-bottom: 66px">
     <div class="card-body">
       <h5 class="card-title">
         Survival
         <span id="status" class="badge bg-danger">Offline</span>
       </h5>
-      <p class="card-text align-middle">A world started in version 1.4.3.2. No world download is available at this time, but a live map is.</p>
+      <p class="card-text align-middle">
+        A world started in version 1.4.3.2. No world download is available at
+        this time, but a live map is.
+      </p>
     </div>
     <div class="row">
       <div class="col-sm-6 col-left">
         <ul id="live" class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Version<span id="version">Offline</span></li>
+          <li class="list-group-item d-flex justify-content-between">
+            Version<span id="version">Offline</span>
+          </li>
         </ul>
       </div>
       <div class="col-sm-6 col-right">
         <ul id="live-playerlist" class="list-group list-group-flush">
-          <li id="playercount" class="list-group-item d-flex justify-content-between">Players<span id="players">Offline</span></li>
+          <li
+            id="playercount"
+            class="list-group-item d-flex justify-content-between"
+          >
+            Players<span id="players">Offline</span>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="card-body" style="border-top: 1px solid #808080;">
-      <a href="steam://rungameid/105600//-j%2040.75.7.193" class="btn btn-primary disabled remote">Connect</a>
-      <a href="https://terraria.{{ site.hostname }}" class="btn btn-secondary">Live Map</a>
-      <a href="https://discord.gg/MAsddFy6hv" class="btn btn-secondary">Discord</a>
+    <div class="card-body" style="border-top: 1px solid #808080">
+      <a
+        href="steam://rungameid/105600//-j%2040.75.7.193"
+        class="btn btn-primary disabled remote"
+        >Connect</a
+      >
+      <a href="https://terraria.{{ site.hostname }}" class="btn btn-secondary"
+        >Live Map</a
+      >
+      <a href="https://discord.gg/MAsddFy6hv" class="btn btn-secondary"
+        >Discord</a
+      >
     </div>
   </div>
 </div>
-<div id="timeline" class="gmb" style="height: 255px;">
-</div>
+<div id="timeline" class="gmb" style="height: 255px"></div>
 <div class="container">
   <div id="masonry" class="row" data-masonry='{"percentPosition": true }'>
     {% for world in site.data.terraria %}
     <div class="col-sm-6 mb-4">
       <div class="card">
-      {% if world.image %}
-        <img src="/images/{{ world.image }}" class="card-img-top" alt="">
-      {% endif %}
+        {% if world.image %}
+        <img src="/images/{{ world.image }}" class="card-img-top" alt="" />
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">
-            {{ world.title }}
-            {% if world.badge %}
-            <span class="badge bg-{{ world.badge.color }}">{{ world.badge.label }}</span>
-            {% endif %}
-            {% if world.icon %}
-            <img class="float-right" src="/images/{{ world.icon }}" alt="{{ world.title }}" style="width: 24px; height: 24px; vertical-align: top;">
+            {{ world.title }} {% if world.badge %}
+            <span class="badge bg-{{ world.badge.color }}"
+              >{{ world.badge.label }}</span
+            >
+            {% endif %} {% if world.icon %}
+            <img
+              class="float-right"
+              src="/images/{{ world.icon }}"
+              alt="{{ world.title }}"
+              style="width: 24px; height: 24px; vertical-align: top"
+            />
             {% endif %}
           </h5>
           <p class="card-text align-middle">{{ world.description }}</p>
           {% if world.list %}
         </div>
-          <ul id="live" class="list-group list-group-flush">
-            {% for item in world.list %}
-            <li class="list-group-item d-flex justify-content-between">{{ item.label }}<span id="{{ item.id }}" {% if item.popover %} data-bs-toggle="popover" data-content="{{ item.popover }}" data-html="true" {% endif %}>{{ item.text }}</span></li>
-            {% endfor %}
-          </ul>
-          <div class="card-body">
-          {% endif %}
-          {% for button in world.buttons %}
-          <a href="{{ button.link }}" class="btn {% if button.primary %}btn-primary{% else %}btn-secondary{% endif %}">{{ button.label }}</a>
+        <ul id="live" class="list-group list-group-flush">
+          {% for item in world.list %}
+          <li class="list-group-item d-flex justify-content-between">
+            {{ item.label }}<span
+              id="{{ item.id }}"
+              {%
+              if
+              item.popover
+              %}
+              data-bs-toggle="popover"
+              data-content="{{ item.popover }}"
+              data-html="true"
+              {%
+              endif
+              %}
+              >{{ item.text }}</span
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="card-body">
+          {% endif %} {% for button in world.buttons %}
+          <a
+            href="{{ button.link }}"
+            class="btn {% if button.primary %}btn-primary{% else %}btn-secondary{% endif %}"
+            >{{ button.label }}</a
+          >
           {% endfor %}
         </div>
       </div>
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 </div>
 
 <script>
-let script = document.createElement('script');
+  let script = document.createElement("script");
 
-script.src = "https://www.gstatic.com/charts/loader.js"
-document.head.append(script);
+  script.src = "https://www.gstatic.com/charts/loader.js";
+  document.head.append(script);
 
-script.onload = function() {
-  google.charts.load('current', {'packages':['timeline']});
-  google.setOnLoadCallback(drawChart);
-  var chart;
-  var data;
-  var options;
+  script.onload = function () {
+    google.charts.load("current", { packages: ["timeline"] });
+    google.setOnLoadCallback(drawChart);
+    var chart;
+    var data;
+    var options;
 
-  function drawChart() {
-    var container = document.getElementById('timeline');
-    chart = new google.visualization.Timeline(container);
-    data = new google.visualization.DataTable();
-    data.addColumn({
-      type: 'string',
-      id: 'Order'
-    });
-    data.addColumn({
-      type: 'string',
-      id: 'Name'
-    });
-    data.addColumn({
-      type: 'date',
-      id: 'Start'
-    });
-    data.addColumn({
-      type: 'date',
-      id: 'End'
-    });
-    data.addRows([
-      ['Online', 'Survival 2011', new Date(2011, 4, 16), new Date(2013, 8, 30)],
-      ['Online', 'Survival 2013', new Date(2013, 8, 30), new Date(2013, 11, 30)],
-      ['Online', 'Survival 2014', new Date(2013, 11, 30), new Date(2014, 2, 30)],
-      ['Online', 'Survival 2015', new Date(2015, 5, 30), new Date(2015, 11, 31)],
-      ['Online', 'Survival LIVE', new Date(2021, 0, 1), new Date()]
-    ]);
-    options = {
-      backgroundColor: '#121212',
-      timeline: {
-        showRowLabels: false,
-        groupByRowLabel: false
-      }
-    };
-    chart.draw(data, options);
-  }
-  var previousWidth = $('#timeline').width();
-
-  function checkOrientation() {
-    if ($('#timeline').width() !== previousWidth) {
-      previousWidth = $('#timeline').width();
+    function drawChart() {
+      var container = document.getElementById("timeline");
+      chart = new google.visualization.Timeline(container);
+      data = new google.visualization.DataTable();
+      data.addColumn({
+        type: "string",
+        id: "Order",
+      });
+      data.addColumn({
+        type: "string",
+        id: "Name",
+      });
+      data.addColumn({
+        type: "date",
+        id: "Start",
+      });
+      data.addColumn({
+        type: "date",
+        id: "End",
+      });
+      data.addRows([
+        [
+          "Online",
+          "Survival 2011",
+          new Date(2011, 4, 16),
+          new Date(2013, 8, 30),
+        ],
+        [
+          "Online",
+          "Survival 2013",
+          new Date(2013, 8, 30),
+          new Date(2013, 11, 30),
+        ],
+        [
+          "Online",
+          "Survival 2014",
+          new Date(2013, 11, 30),
+          new Date(2014, 2, 30),
+        ],
+        [
+          "Online",
+          "Survival 2015",
+          new Date(2015, 5, 30),
+          new Date(2015, 11, 31),
+        ],
+        ["Online", "Survival LIVE", new Date(2021, 0, 1), new Date()],
+      ]);
+      options = {
+        backgroundColor: "#121212",
+        timeline: {
+          showRowLabels: false,
+          groupByRowLabel: false,
+        },
+      };
       chart.draw(data, options);
     }
-  }
-  window.addEventListener("resize", checkOrientation, false);
-  window.addEventListener("orientationchange", checkOrientation, false);
-};
+    var previousWidth = $("#timeline").width();
+
+    function checkOrientation() {
+      if ($("#timeline").width() !== previousWidth) {
+        previousWidth = $("#timeline").width();
+        chart.draw(data, options);
+      }
+    }
+    window.addEventListener("resize", checkOrientation, false);
+    window.addEventListener("orientationchange", checkOrientation, false);
+  };
 </script>
 
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $.ajaxSetup({ cache: false });
   });
 </script>
 
 <script>
-
   var players = [];
-  
+
   function refresh() {
-    $.getJSON('https://status.{{ site.hostname }}/terraria.json', function(data) {
-      $('#status').text('Online');
-      $('.remote').removeClass('disabled');
-      $('#status').addClass('bg-success');
-      $('#status').removeClass('bg-danger');
-      $('#version').text(data['serverversion'].substring(1));
-      $('#players').text(data['playercount'] + ' / ' + data['maxplayers']);
-      var playernames = [];
-      $.each(data.players, function (key, value) {
-        playernames.push(value.nickname);
-      });
-      var join = $(playernames).not(players).get();
-      var part = $(players).not(playernames).get();
-      $.each(join, function(key, value) {
-        $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '">' + value + '</li>');
-      });
-      $.each(part, function(key, value) {
-        $('.player-' + value).remove();
-      });
-      if (data['playercount'] > 0) {
-        $('#playercount').css('border-bottom', 'none');
-      } else {
-        $('#playercount').css('border-bottom', '1px solid rgba(0,0,0,.125)');
-      }
-      players = playernames;
-    }).fail(function() {
-      $('#status').text('Offline');
-      $('.remote').addClass('disabled');
-      $('#status').addClass('bg-danger');
-      $('#status').removeClass('bg-success');
-      $('#version').text('Offline');
-      $('#players').text('Offline');
-      $('.player-').remove();
+    $.getJSON(
+      "https://status.{{ site.hostname }}/terraria.json",
+      function (data) {
+        $("#status").text("Online");
+        $(".remote").removeClass("disabled");
+        $("#status").addClass("bg-success");
+        $("#status").removeClass("bg-danger");
+        $("#version").text(data["serverversion"].substring(1));
+        $("#players").text(data["playercount"] + " / " + data["maxplayers"]);
+        var playernames = [];
+        $.each(data.players, function (key, value) {
+          playernames.push(value.nickname);
+        });
+        var join = $(playernames).not(players).get();
+        var part = $(players).not(playernames).get();
+        $.each(join, function (key, value) {
+          $("#live-playerlist").append(
+            '<li class="list-group-item d-flex align-items-center justify-content-end player player-' +
+              value +
+              '">' +
+              value +
+              "</li>",
+          );
+        });
+        $.each(part, function (key, value) {
+          $(".player-" + value).remove();
+        });
+        if (data["playercount"] > 0) {
+          $("#playercount").css("border-bottom", "none");
+        } else {
+          $("#playercount").css("border-bottom", "1px solid rgba(0,0,0,.125)");
+        }
+        players = playernames;
+      },
+    ).fail(function () {
+      $("#status").text("Offline");
+      $(".remote").addClass("disabled");
+      $("#status").addClass("bg-danger");
+      $("#status").removeClass("bg-success");
+      $("#version").text("Offline");
+      $("#players").text("Offline");
+      $(".player-").remove();
     });
   }
-  
+
   refresh();
   setInterval(refresh, 1000);
-  
-  </script>
+</script>

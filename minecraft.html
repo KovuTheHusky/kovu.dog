@@ -4,381 +4,539 @@ title: Minecraft
 subtitle: "Timeline, connection details, world downloads, maps."
 permalink: /minecraft
 ---
+
 <div class="container">
-  <div class="card" style="margin-bottom: 66px;">
+  <div class="card" style="margin-bottom: 66px">
     <div class="card-body justify-content-center align-items-center">
       <div id="overlay">
-        <div class="w-100 d-flex justify-content-center align-items-center h-100">
-          <div class="spinner-border text-primary" role="status" style="margin: auto; display: flex; position: absolute; width: 3rem; height: 3rem;">
+        <div
+          class="w-100 d-flex justify-content-center align-items-center h-100"
+        >
+          <div
+            class="spinner-border text-primary"
+            role="status"
+            style="
+              margin: auto;
+              display: flex;
+              position: absolute;
+              width: 3rem;
+              height: 3rem;
+            "
+          >
             <span class="visually-hidden">Loading&mldr;</span>
           </div>
         </div>
       </div>
       <h5 class="card-title">
         Survival
-        <span id="status" class="badge" style="visibility: hidden;">Loading&mldr;</span>
+        <span id="status" class="badge" style="visibility: hidden"
+          >Loading&mldr;</span
+        >
       </h5>
-      <p class="card-text align-middle">A world started in version 1.19.3. No world download is available at this time, but a live map is.</p>
+      <p class="card-text align-middle">
+        A world started in version 1.19.3. No world download is available at
+        this time, but a live map is.
+      </p>
     </div>
     <div class="row">
       <div class="col-sm-6 col-left">
         <ul id="live" class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Version<span id="version"></span></li>
-          <li class="list-group-item d-flex justify-content-between">Day<span id="day"></span></li>
-          <li class="list-group-item d-flex justify-content-between">Time<span id="time"></span></li>
-          <li class="list-group-item d-flex justify-content-between">Weather<span id="weather"></span></li>
-          <li class="list-group-item d-flex justify-content-between" style="border-bottom: 0;">Tickrate<span id="tickrate"></span></li>
-          <li class="list-group-item" style="border-top: 0; padding-top: 0;">
+          <li class="list-group-item d-flex justify-content-between">
+            Version<span id="version"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            Day<span id="day"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            Time<span id="time"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            Weather<span id="weather"></span>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between"
+            style="border-bottom: 0"
+          >
+            Tickrate<span id="tickrate"></span>
+          </li>
+          <li class="list-group-item" style="border-top: 0; padding-top: 0">
             <canvas id="tickrate-chart" height="30"></canvas>
           </li>
-          <li class="list-group-item d-flex justify-content-between" style="border-bottom: 0;">Memory<span id="memory"></span></li>
-          <li class="list-group-item" style="border-top: 0; padding-top: 0;">
+          <li
+            class="list-group-item d-flex justify-content-between"
+            style="border-bottom: 0"
+          >
+            Memory<span id="memory"></span>
+          </li>
+          <li class="list-group-item" style="border-top: 0; padding-top: 0">
             <canvas id="memory-chart" height="30"></canvas>
           </li>
         </ul>
       </div>
       <div class="col-sm-6 col-right">
         <ul id="live-playerlist" class="list-group list-group-flush">
-          <li id="playercount" class="list-group-item d-flex justify-content-between">Players<span id="players"></span></li>
+          <li
+            id="playercount"
+            class="list-group-item d-flex justify-content-between"
+          >
+            Players<span id="players"></span>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="card-body" style="border-top: 1px solid #808080;">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modal" class="btn btn-primary disabled remote">Connect</a>
-      <a href="https://minecraft.{{ site.hostname }}" class="btn btn-secondary">Live Map</a>
-      <a href="https://discord.gg/w3XaDVBF7K" class="btn btn-secondary">Discord</a>
+    <div class="card-body" style="border-top: 1px solid #808080">
+      <a
+        href="#"
+        data-bs-toggle="modal"
+        data-bs-target="#modal"
+        class="btn btn-primary disabled remote"
+        >Connect</a
+      >
+      <a href="https://minecraft.{{ site.hostname }}" class="btn btn-secondary"
+        >Live Map</a
+      >
+      <a href="https://discord.gg/w3XaDVBF7K" class="btn btn-secondary"
+        >Discord</a
+      >
     </div>
   </div>
 </div>
-<div id="timeline" class="gmb" style="height: 337px;">
-</div>
+<div id="timeline" class="gmb" style="height: 337px"></div>
 <div class="container">
   <div id="masonry" class="row" data-masonry='{"percentPosition": true }'>
-  {% for world in site.data.minecraft %}
+    {% for world in site.data.minecraft %}
     <div class="col-sm-6 mb-4">
       <div class="card">
-      {% if world.image %}
-        <img src="/images/{{ world.image }}" class="card-img-top" alt="">
-      {% endif %}
+        {% if world.image %}
+        <img src="/images/{{ world.image }}" class="card-img-top" alt="" />
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">
-            {{ world.title }}
-            {% if world.badge %}
-            <span class="badge bg-{{ world.badge.color }}">{{ world.badge.label }}</span>
-            {% endif %}
-            {% if world.icon %}
-            <img class="float-right" src="/images/{{ world.icon }}" alt="{{ world.title }}" style="width: 24px; height: 24px; vertical-align: top;">
+            {{ world.title }} {% if world.badge %}
+            <span class="badge bg-{{ world.badge.color }}"
+              >{{ world.badge.label }}</span
+            >
+            {% endif %} {% if world.icon %}
+            <img
+              class="float-right"
+              src="/images/{{ world.icon }}"
+              alt="{{ world.title }}"
+              style="width: 24px; height: 24px; vertical-align: top"
+            />
             {% endif %}
           </h5>
           <p class="card-text align-middle">{{ world.description }}</p>
           {% if world.list %}
         </div>
-          <ul id="live" class="list-group list-group-flush">
-            {% for item in world.list %}
-            <li class="list-group-item d-flex justify-content-between">{{ item.label }}<span id="{{ item.id }}" {% if item.popover %} data-bs-toggle="popover" data-content="{{ item.popover }}" data-html="true" {% endif %}>{{ item.text }}</span></li>
-            {% endfor %}
-          </ul>
-          <div class="card-body">
-          {% endif %}
-          {% for button in world.buttons %}
-          <a href="{{ button.link }}" class="btn {% if button.primary %}btn-primary{% else %}btn-secondary{% endif %}">{{ button.label }}</a>
+        <ul id="live" class="list-group list-group-flush">
+          {% for item in world.list %}
+          <li class="list-group-item d-flex justify-content-between">
+            {{ item.label }}<span
+              id="{{ item.id }}"
+              {%
+              if
+              item.popover
+              %}
+              data-bs-toggle="popover"
+              data-content="{{ item.popover }}"
+              data-html="true"
+              {%
+              endif
+              %}
+              >{{ item.text }}</span
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="card-body">
+          {% endif %} {% for button in world.buttons %}
+          <a
+            href="{{ button.link }}"
+            class="btn {% if button.primary %}btn-primary{% else %}btn-secondary{% endif %}"
+            >{{ button.label }}</a
+          >
           {% endfor %}
         </div>
       </div>
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
-
 </div>
 
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Connect</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Connect</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3">
+          To connect to the server, log into Minecraft, select Multiplayer from
+          the main menu, click the Add Server button, and enter the server
+          address below.
+        </p>
+        <div class="input-group">
+          <span class="input-group-text" style="min-width: 80px">Server</span>
+          <input
+            type="text"
+            class="form-control"
+            onclick="this.select();"
+            value="{{ site.hostname }}"
+            readonly
+          />
         </div>
-        <div class="modal-body">
-          <p class="mb-3">To connect to the server, log into Minecraft, select Multiplayer from the main menu, click the Add Server button, and enter the server address below.</p>
-          <div class="input-group">
-            <span class="input-group-text" style="min-width: 80px;">Server</span>
-            <input type="text" class="form-control" onclick="this.select();" value="{{ site.hostname }}" readonly>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
+</div>
 
 <script src="/node_modules/chart.js/dist/chart.umd.js"></script>
 
 <script>
-let script = document.createElement('script');
+  let script = document.createElement("script");
 
-script.src = "https://www.gstatic.com/charts/loader.js"
-document.head.append(script);
+  script.src = "https://www.gstatic.com/charts/loader.js";
+  document.head.append(script);
 
-script.onload = function() {
-  google.charts.load('current', {'packages':['timeline']});
-  google.setOnLoadCallback(drawChart);
-  var chart;
-  var data;
-  var options;
+  script.onload = function () {
+    google.charts.load("current", { packages: ["timeline"] });
+    google.setOnLoadCallback(drawChart);
+    var chart;
+    var data;
+    var options;
 
-  function drawChart() {
-    var container = document.getElementById('timeline');
-    chart = new google.visualization.Timeline(container);
-    data = new google.visualization.DataTable();
-    data.addColumn({
-      type: 'string',
-      id: 'Order'
-    });
-    data.addColumn({
-      type: 'string',
-      id: 'Name'
-    });
-    data.addColumn({
-      type: 'date',
-      id: 'Start'
-    });
-    data.addColumn({
-      type: 'date',
-      id: 'End'
-    });
-    data.addRows([
-      ['Online', 'Survival 2011', new Date(2011, 1, 11), new Date(2011, 8, 15)],
-      ['Online', 'Survival 2012', new Date(2011, 8, 15), new Date(2012, 2, 1)],
-      ['Online', 'Creative 2012', new Date(2011, 8, 15), new Date(2012, 2, 1)],
-      ['Online', 'Survival 2013', new Date(2012, 2, 12), new Date(2013, 9, 12)],
-      ['Online', 'Survival 2022', new Date(2013, 11, 3), new Date(2022, 4, 9)],
-      ['Online', 'Forge 2015', new Date(2015, 11, 29), new Date(2016, 5, 17)],
-      ['Online', 'Survival LIVE', new Date(2023, 0, 7), new Date()]
-    ]);
-    options = {
-      backgroundColor: '#121212',
-      timeline: {
-        showRowLabels: false,
-        groupByRowLabel: false
-      }
-    };
-    chart.draw(data, options);
-  }
-  var previousWidth = $('#timeline').width();
-
-  function checkOrientation() {
-    if ($('#timeline').width() !== previousWidth) {
-      previousWidth = $('#timeline').width();
+    function drawChart() {
+      var container = document.getElementById("timeline");
+      chart = new google.visualization.Timeline(container);
+      data = new google.visualization.DataTable();
+      data.addColumn({
+        type: "string",
+        id: "Order",
+      });
+      data.addColumn({
+        type: "string",
+        id: "Name",
+      });
+      data.addColumn({
+        type: "date",
+        id: "Start",
+      });
+      data.addColumn({
+        type: "date",
+        id: "End",
+      });
+      data.addRows([
+        [
+          "Online",
+          "Survival 2011",
+          new Date(2011, 1, 11),
+          new Date(2011, 8, 15),
+        ],
+        [
+          "Online",
+          "Survival 2012",
+          new Date(2011, 8, 15),
+          new Date(2012, 2, 1),
+        ],
+        [
+          "Online",
+          "Creative 2012",
+          new Date(2011, 8, 15),
+          new Date(2012, 2, 1),
+        ],
+        [
+          "Online",
+          "Survival 2013",
+          new Date(2012, 2, 12),
+          new Date(2013, 9, 12),
+        ],
+        [
+          "Online",
+          "Survival 2022",
+          new Date(2013, 11, 3),
+          new Date(2022, 4, 9),
+        ],
+        ["Online", "Forge 2015", new Date(2015, 11, 29), new Date(2016, 5, 17)],
+        ["Online", "Survival LIVE", new Date(2023, 0, 7), new Date()],
+      ]);
+      options = {
+        backgroundColor: "#121212",
+        timeline: {
+          showRowLabels: false,
+          groupByRowLabel: false,
+        },
+      };
       chart.draw(data, options);
     }
-  }
-  window.addEventListener("resize", checkOrientation, false);
-  window.addEventListener("orientationchange", checkOrientation, false);
-};
+    var previousWidth = $("#timeline").width();
+
+    function checkOrientation() {
+      if ($("#timeline").width() !== previousWidth) {
+        previousWidth = $("#timeline").width();
+        chart.draw(data, options);
+      }
+    }
+    window.addEventListener("resize", checkOrientation, false);
+    window.addEventListener("orientationchange", checkOrientation, false);
+  };
 </script>
 
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $.ajaxSetup({ cache: false });
   });
 </script>
 
 <script>
+  var players = [];
 
-var players = [];
-  
   var charttickrate = null;
   var chartmemory = null;
 
-function refresh() {
-  $.getJSON('https://status.{{ site.hostname }}/minecraft.json', function(data) {
-    $('#overlay').hide();
-    $('#status').text('Online');
-    $('#status').css('visibility', 'visible');
-    $('.remote').removeClass('disabled');
-    $('#status').addClass('bg-success');
-    $('#status').removeClass('bg-danger');
-    $('#version').text(data['Info']['Version']);
-    var day = data['Day'];
-    $('#day').text(Number(day).toLocaleString());
-    var period = 'am';
-    var hour = Math.floor((data['Time'] / 1000 + 6) % 24);
-    if (hour > 12) {
-      period = 'pm';
-      hour = hour - 12;
-    } else if (hour == 0) {
-      hour = 12;
-    }
-    var minute = Math.floor(data['Time'] % 1000 / (16 + 2 / 3));
-    if (minute < 10) {
-      minute = '0' + minute;
-    }
-    $('#time').text(hour + ':' + minute + period);
-    $('#weather').text(data['Weather'].charAt(0).toUpperCase() + data['Weather'].slice(1));
-    $('#tickrate').text(data.Tickrate[data.Tickrate.length - 1].toFixed(2) + '/s');
-    $('#memory').text(data.Memory[data.Memory.length - 1].toFixed(2) + '%');
-    $('#players').text(data['Info']['Players'] + ' / ' + data['Info']['MaxPlayers']);
-    var join = $(data.Players).not(players).get();
-    var part = $(players).not(data.Players).get();
-    $.each(join, function(key, value) {
-      $('#live-playerlist').append('<li class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '"><img src="https://minecraft.{{ site.hostname }}/standalone/MySQL_markers.php?marker=faces/16x16/' + value + '.png" class="rounded me-1" style="width: 24px; height: 24px; image-rendering: pixelated;">' + value + '</li>');
+  function refresh() {
+    $.getJSON(
+      "https://status.{{ site.hostname }}/minecraft.json",
+      function (data) {
+        $("#overlay").hide();
+        $("#status").text("Online");
+        $("#status").css("visibility", "visible");
+        $(".remote").removeClass("disabled");
+        $("#status").addClass("bg-success");
+        $("#status").removeClass("bg-danger");
+        $("#version").text(data["Info"]["Version"]);
+        var day = data["Day"];
+        $("#day").text(Number(day).toLocaleString());
+        var period = "am";
+        var hour = Math.floor((data["Time"] / 1000 + 6) % 24);
+        if (hour > 12) {
+          period = "pm";
+          hour = hour - 12;
+        } else if (hour == 0) {
+          hour = 12;
+        }
+        var minute = Math.floor((data["Time"] % 1000) / (16 + 2 / 3));
+        if (minute < 10) {
+          minute = "0" + minute;
+        }
+        $("#time").text(hour + ":" + minute + period);
+        $("#weather").text(
+          data["Weather"].charAt(0).toUpperCase() + data["Weather"].slice(1),
+        );
+        $("#tickrate").text(
+          data.Tickrate[data.Tickrate.length - 1].toFixed(2) + "/s",
+        );
+        $("#memory").text(data.Memory[data.Memory.length - 1].toFixed(2) + "%");
+        $("#players").text(
+          data["Info"]["Players"] + " / " + data["Info"]["MaxPlayers"],
+        );
+        var join = $(data.Players).not(players).get();
+        var part = $(players).not(data.Players).get();
+        $.each(join, function (key, value) {
+          $("#live-playerlist").append(
+            '<li class="list-group-item d-flex align-items-center justify-content-end player player-' +
+              value +
+              '"><img src="https://minecraft.{{ site.hostname }}/standalone/MySQL_markers.php?marker=faces/16x16/' +
+              value +
+              '.png" class="rounded me-1" style="width: 24px; height: 24px; image-rendering: pixelated;">' +
+              value +
+              "</li>",
+          );
+        });
+        $.each(part, function (key, value) {
+          $(".player-" + value).remove();
+        });
+        players = data.Players;
+
+        var availabilityOptions = {
+          animation: {
+            duration: 0,
+          },
+          elements: {
+            line: {
+              borderWidth: 2,
+            },
+            point: {
+              radius: 0,
+              hitRadius: 0,
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            x: {
+              display: false,
+            },
+            y: {
+              display: false,
+              min: -10,
+              max: 110,
+            },
+          },
+          tooltips: {
+            enabled: true,
+          },
+        };
+
+        var tickrateOptions = {
+          animation: {
+            duration: 0,
+          },
+          elements: {
+            line: {
+              borderWidth: 2,
+            },
+            point: {
+              radius: 0,
+              hitRadius: 0,
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            x: {
+              display: false,
+            },
+            y: {
+              display: false,
+              min: -2,
+              max: 22,
+            },
+          },
+          tooltips: {
+            enabled: true,
+          },
+        };
+
+        var labels = [];
+        for (var i = 0; i < data.Memory.length; i++) {
+          labels[i] = i;
+        }
+
+        if (charttickrate != null) {
+          charttickrate.destroy();
+        }
+
+        charttickrate = new Chart(document.getElementById("tickrate-chart"), {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data.Tickrate,
+                borderColor: "#ffffff",
+                fill: false,
+              },
+            ],
+          },
+          options: tickrateOptions,
+        });
+
+        if (chartmemory != null) {
+          chartmemory.destroy();
+        }
+
+        chartmemory = new Chart(document.getElementById("memory-chart"), {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data.Memory,
+                borderColor: "#ffffff",
+                fill: false,
+              },
+            ],
+          },
+          options: availabilityOptions,
+        });
+      },
+    ).fail(function () {
+      $("#overlay").hide();
+      $("#status").text("Offline");
+      $("#status").css("visibility", "visible");
+      $(".remote").addClass("disabled");
+      $("#status").addClass("bg-danger");
+      $("#status").removeClass("bg-success");
+      $("#version").text("Offline");
+      $("#day").text("Offline");
+      $("#time").text("Offline");
+      $("#weather").text("Offline");
+      $("#tickrate").text("Offline");
+      $("#memory").text("Offline");
+      $("#players").text("Offline");
+      $(".player-").remove();
     });
-    $.each(part, function(key, value) {
-      $('.player-' + value).remove();
-    });
-    players = data.Players;
+  }
 
-    var availabilityOptions = {
-      animation: {
-        duration: 0
-      },
-      elements: {
-        line: {
-          borderWidth: 2
-        },
-        point: {
-          radius: 0,
-          hitRadius: 0
-        }
-      },
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        x: {
-          display: false
-        },
-        y: {
-          display: false,
-          min: -10,
-          max: 110
-        }
-      },
-      tooltips: {
-        enabled: true
-      }
-    };
-
-    var tickrateOptions = {
-      animation: {
-        duration: 0
-      },
-      elements: {
-        line: {
-          borderWidth: 2
-        },
-        point: {
-          radius: 0,
-          hitRadius: 0
-        }
-      },
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        x: {
-          display: false
-        },
-        y: {
-          display: false,
-          min: -2,
-          max: 22
-        }
-      },
-      tooltips: {
-        enabled: true
-      }
-    };
-
-    var labels = [];
-    for (var i = 0; i < data.Memory.length; i++) {
-      labels[i] = i;
-    }
-    
-    if (charttickrate != null) {
-      charttickrate.destroy();
-    }
-
-    charttickrate = new Chart(document.getElementById("tickrate-chart"), {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-            data: data.Tickrate,
-            borderColor: "#ffffff",
-            fill: false
-          }
-        ]
-      },
-      options: tickrateOptions
-    });
-    
-    if (chartmemory != null) {
-      chartmemory.destroy();
-    }
-
-    chartmemory = new Chart(document.getElementById("memory-chart"), {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-            data: data.Memory,
-            borderColor: "#ffffff",
-            fill: false
-          }
-        ]
-      },
-      options: availabilityOptions
-    });
-  }).fail(function() {
-    $('#overlay').hide();
-    $('#status').text('Offline');
-    $('#status').css('visibility', 'visible');
-    $('.remote').addClass('disabled');
-    $('#status').addClass('bg-danger');
-    $('#status').removeClass('bg-success');
-    $('#version').text('Offline');
-    $('#day').text('Offline');
-    $('#time').text('Offline');
-    $('#weather').text('Offline');
-    $('#tickrate').text('Offline');
-    $('#memory').text('Offline');
-    $('#players').text('Offline');
-    $('.player-').remove();
-  });
-}
-
-refresh();
-setInterval(refresh, 1000);
-
+  refresh();
+  setInterval(refresh, 1000);
 </script>
 
 <script>
   $(document).ready(function () {
-    var image_url='https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay';
-    $.get(image_url).done(function() { 
-      $("img[src|='/images/minecraft/campppy.webp']").attr('src', 'https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay');
-    }).fail(function() {
-    })
-    var image_url='https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay';
-    $.get(image_url).done(function() { 
-      $("img[src|='/images/minecraft/Cujo27.webp']").attr('src', 'https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay');
-    }).fail(function() {
-    })
-    var image_url='https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay';
-    $.get(image_url).done(function() { 
-      $("img[src|='/images/minecraft/KovuTheHusky.webp']").attr('src', 'https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay');
-    }).fail(function() {
-    })
-    var image_url='https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay';
-    $.get(image_url).done(function() { 
-      $("img[src|='/images/minecraft/NightWolf1298.webp']").attr('src', 'https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay');
-    }).fail(function() {
-    })
+    var image_url =
+      "https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay";
+    $.get(image_url)
+      .done(function () {
+        $("img[src|='/images/minecraft/campppy.webp']").attr(
+          "src",
+          "https://crafatar.com/avatars/1df71bbb2d0b49c5b6bf6ca2d0cf30da?size=16&overlay",
+        );
+      })
+      .fail(function () {});
+    var image_url =
+      "https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay";
+    $.get(image_url)
+      .done(function () {
+        $("img[src|='/images/minecraft/Cujo27.webp']").attr(
+          "src",
+          "https://crafatar.com/avatars/78f39b2acfa843c3b9b9bce19f840cf0?size=16&overlay",
+        );
+      })
+      .fail(function () {});
+    var image_url =
+      "https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay";
+    $.get(image_url)
+      .done(function () {
+        $("img[src|='/images/minecraft/KovuTheHusky.webp']").attr(
+          "src",
+          "https://crafatar.com/avatars/23583b2b7a8742bbbf2b36d5070fdcb5?size=16&overlay",
+        );
+      })
+      .fail(function () {});
+    var image_url =
+      "https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay";
+    $.get(image_url)
+      .done(function () {
+        $("img[src|='/images/minecraft/NightWolf1298.webp']").attr(
+          "src",
+          "https://crafatar.com/avatars/08bb1b6b8d904692a2dc56e032f3b331?size=16&overlay",
+        );
+      })
+      .fail(function () {});
   });
 </script>

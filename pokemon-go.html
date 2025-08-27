@@ -5,33 +5,110 @@ subtitle: "Pokédex, medals &amp; more."
 permalink: /pokemon-go
 xp: 21100000
 ---
-{% assign xp = page.xp | times: 100 | divided_by: 176000000 | round %}
-{% assign dex = site.data.pokemongo.caught | times: 100 | divided_by: site.data.pokemongo.total | round %}
+
+{% assign xp = page.xp | times: 100 | divided_by: 176000000 | round %} {% assign
+dex = site.data.pokemongo.caught | times: 100 | divided_by:
+site.data.pokemongo.total | round %}
 <div class="container">
-  <div class="progress" style="height: 38px; margin-bottom: 12px;">
-    <div class="progress-bar" role="progressbar" style="width: {{ xp }}%;" aria-valuenow="{{ xp }}" aria-valuemin="0" aria-valuemax="100">XP - {{ xp }}% (40/50)</div>
+  <div class="progress" style="height: 38px; margin-bottom: 12px">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      style="width: {{ xp }}%;"
+      aria-valuenow="{{ xp }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      XP - {{ xp }}% (40/50)
+    </div>
   </div>
-  <div class="progress" style="height: 38px;">
-    <div class="progress-bar" role="progressbar" style="width: {{ dex }}%;" aria-valuenow="{{ dex }}" aria-valuemin="0" aria-valuemax="100">Pokédex - {{ dex }}% ({{ site.data.pokemongo.caught }}/{{ site.data.pokemongo.total }})</div>
+  <div class="progress" style="height: 38px">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      style="width: {{ dex }}%;"
+      aria-valuenow="{{ dex }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      Pokédex - {{ dex }}% ({{ site.data.pokemongo.caught }}/{{
+      site.data.pokemongo.total }})
+    </div>
   </div>
-  <div class="text-center gmt" style="margin-bottom: 12px;">
-    <label style="height: 38px; line-height: 38px; vertical-align: middle; margin: 0;">Show </label>
-    <div class="dropdown" style="display: inline-block !important;">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="filter-caught" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> all </button>
-      <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="filter-caught">
-        <a class="dropdown-item" href="#" onclick="window.location.hash = 'all/' + $('#filter-type').html().trim(); return false;">all</a>
-        <a class="dropdown-item" href="#" onclick="window.location.hash = 'caught/' + $('#filter-type').html().trim(); return false;">caught</a>
-        <a class="dropdown-item" href="#" onclick="window.location.hash = 'non-caught/' + $('#filter-type').html().trim(); return false;">non-caught</a>
+  <div class="text-center gmt" style="margin-bottom: 12px">
+    <label
+      style="height: 38px; line-height: 38px; vertical-align: middle; margin: 0"
+      >Show
+    </label>
+    <div class="dropdown" style="display: inline-block !important">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="filter-caught"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        all
+      </button>
+      <div
+        class="dropdown-menu dropdown-menu-dark"
+        aria-labelledby="filter-caught"
+      >
+        <a
+          class="dropdown-item"
+          href="#"
+          onclick="window.location.hash = 'all/' + $('#filter-type').html().trim(); return false;"
+          >all</a
+        >
+        <a
+          class="dropdown-item"
+          href="#"
+          onclick="window.location.hash = 'caught/' + $('#filter-type').html().trim(); return false;"
+          >caught</a
+        >
+        <a
+          class="dropdown-item"
+          href="#"
+          onclick="window.location.hash = 'non-caught/' + $('#filter-type').html().trim(); return false;"
+          >non-caught</a
+        >
       </div>
     </div>
-    <div class="dropdown" style="display: inline-block !important;">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="filter-type" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> normal </button>
-      <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="filter-type">
-        <a class="dropdown-item" href="#" onclick="window.location.hash = $('#filter-caught').html().trim() + '/normal'; return false;">normal</a>
-        <a class="dropdown-item" href="#" onclick="window.location.hash = $('#filter-caught').html().trim() + '/shiny'; return false;">shiny</a>
+    <div class="dropdown" style="display: inline-block !important">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="filter-type"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        normal
+      </button>
+      <div
+        class="dropdown-menu dropdown-menu-dark"
+        aria-labelledby="filter-type"
+      >
+        <a
+          class="dropdown-item"
+          href="#"
+          onclick="window.location.hash = $('#filter-caught').html().trim() + '/normal'; return false;"
+          >normal</a
+        >
+        <a
+          class="dropdown-item"
+          href="#"
+          onclick="window.location.hash = $('#filter-caught').html().trim() + '/shiny'; return false;"
+          >shiny</a
+        >
       </div>
     </div>
-    <label style="height: 38px; line-height: 38px; vertical-align: middle; margin: 0;"> pokémon.</label>
+    <label
+      style="height: 38px; line-height: 38px; vertical-align: middle; margin: 0"
+    >
+      pokémon.</label
+    >
   </div>
   {% for type in site.data.pokedex %}
   <div class="pokemon pokemon-{{ type[0] }}">
@@ -40,8 +117,12 @@ xp: 21100000
     <div class="grid grid-pokemon">
       {% for pokemon in region[1] %}
       <div class="{% if pokemon[1].caught == 0 %}n{% else %}c{% endif %}">
-        <svg viewBox="0 0 32 32"><use xlink:href="/node_modules/pokemon-icons/assets/icon-symbols.svg#{{ pokemon[0] }}"></use></svg>
-        <span>{{ pokemon[1].name }}<br>#{{ pokemon[1].number }}</span>
+        <svg viewBox="0 0 32 32">
+          <use
+            xlink:href="/node_modules/pokemon-icons/assets/icon-symbols.svg#{{ pokemon[0] }}"
+          ></use>
+        </svg>
+        <span>{{ pokemon[1].name }}<br />#{{ pokemon[1].number }}</span>
       </div>
       {% endfor %}
     </div>
@@ -51,33 +132,41 @@ xp: 21100000
   <div class="pokemon pokemon-medals gmt">
     <h3>Medals</h3>
     <div class="grid grid-pokemon">
-      {% for medals in site.data.medals %}
-      {% for medal in medals[1] %}
+      {% for medals in site.data.medals %} {% for medal in medals[1] %}
       <div>
         {% if medal[1].rank %}
-        <img src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[1].rank }}/{{ medal[0] }}" alt="{{ medal[1].title }}">
+        <img
+          src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[1].rank }}/{{ medal[0] }}"
+          alt="{{ medal[1].title }}"
+        />
         {% else %}
-        <img src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[0] }}" alt="{{ medal[1].title }}">
+        <img
+          src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[0] }}"
+          alt="{{ medal[1].title }}"
+        />
         {% endif %}
         <span>{{ medal[1].title }}</span>
       </div>
-      {% endfor %}
-      {% endfor %}
+      {% endfor %} {% endfor %}
     </div>
   </div>
 </div>
 <div class="container gmt text-center">
-  <small>Icons by <a href="https://theartificial.github.io/pokemon-icons">The Artificial</a>.</small>
+  <small
+    >Icons by
+    <a href="https://theartificial.github.io/pokemon-icons">The Artificial</a
+    >.</small
+  >
 </div>
 <script>
-  window.addEventListener('hashchange', fn, false);
+  window.addEventListener("hashchange", fn, false);
 
   window.onload = fn;
 
   function fn() {
-    var args = window.location.hash.replace('#', '').split('/');
+    var args = window.location.hash.replace("#", "").split("/");
     if (args.length < 2) {
-      window.location.hash = 'all/normal';
+      window.location.hash = "all/normal";
     } else {
       filter_caught(args[0]);
       filter_type(args[1]);
@@ -85,34 +174,34 @@ xp: 21100000
   }
 
   function filter_caught(str) {
-    if (str == 'all') {
-      $('#filter-caught').html(' all ');
-      $('.c').show();
-      $('.n').show();
-    } else if (str == 'caught') {
-      $('#filter-caught').html(' caught ');
-      $('.c').show();
-      $('.n').hide();
-    } else if (str == 'non-caught') {
-      $('#filter-caught').html(' non-caught ');
-      $('.c').hide();
-      $('.n').show();
+    if (str == "all") {
+      $("#filter-caught").html(" all ");
+      $(".c").show();
+      $(".n").show();
+    } else if (str == "caught") {
+      $("#filter-caught").html(" caught ");
+      $(".c").show();
+      $(".n").hide();
+    } else if (str == "non-caught") {
+      $("#filter-caught").html(" non-caught ");
+      $(".c").hide();
+      $(".n").show();
     } else {
-      window.location.hash = 'all/normal';
+      window.location.hash = "all/normal";
     }
   }
 
   function filter_type(str) {
-    if (str == 'normal') {
-      $('#filter-type').html(' normal ');
-      $('.pokemon-normal').show();
-      $('.pokemon-shiny').hide();
-    } else if (str == 'shiny') {
-      $('#filter-type').html(' shiny ');
-      $('.pokemon-normal').hide();
-      $('.pokemon-shiny').show();
+    if (str == "normal") {
+      $("#filter-type").html(" normal ");
+      $(".pokemon-normal").show();
+      $(".pokemon-shiny").hide();
+    } else if (str == "shiny") {
+      $("#filter-type").html(" shiny ");
+      $(".pokemon-normal").hide();
+      $(".pokemon-shiny").show();
     } else {
-      window.location.hash = 'all/normal';
+      window.location.hash = "all/normal";
     }
   }
 </script>

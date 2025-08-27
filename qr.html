@@ -4,18 +4,28 @@ title: QR
 subtitle: "Generate QR codes..."
 permalink: /qr
 ---
+
 <style>
-  #canvas-light svg, #canvas-dark svg {
+  #canvas-light svg,
+  #canvas-dark svg {
     width: 100% !important;
     height: auto !important;
   }
 </style>
-<script type="text/javascript" src="node_modules/qr-code-styling/lib/qr-code-styling.js"></script>
+<script
+  type="text/javascript"
+  src="node_modules/qr-code-styling/lib/qr-code-styling.js"
+></script>
 <div class="container text-center">
   <form>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">URL</label>
-      <input type="text" class="form-control" id="url" aria-describedby="emailHelp">
+      <input
+        type="text"
+        class="form-control"
+        id="url"
+        aria-describedby="emailHelp"
+      />
       <div id="emailHelp" class="form-text">uwu</div>
     </div>
   </form>
@@ -25,91 +35,119 @@ permalink: /qr
       <div id="canvas-light" class="mb-3"></div>
       <div class="input-group">
         <span class="input-group-text">Download</span>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeLight.download({ name: 'qr', extension: 'svg' });">SVG</button>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeLight.download({ name: 'qr', extension: 'webp' });">WEBP</button>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeLight.download({ name: 'qr', extension: 'png' });">PNG</button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeLight.download({ name: 'qr', extension: 'svg' });"
+        >
+          SVG
+        </button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeLight.download({ name: 'qr', extension: 'webp' });"
+        >
+          WEBP
+        </button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeLight.download({ name: 'qr', extension: 'png' });"
+        >
+          PNG
+        </button>
       </div>
     </div>
     <div class="col-6">
       <div id="canvas-dark" class="mb-3"></div>
       <div class="input-group">
         <span class="input-group-text">Download</span>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeDark.download({ name: 'qr', extension: 'svg' });">SVG</button>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeDark.download({ name: 'qr', extension: 'webp' });">WEBP</button>
-        <button class="btn btn-lg btn-primary" onclick="qrCodeDark.download({ name: 'qr', extension: 'png' });">PNG</button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeDark.download({ name: 'qr', extension: 'svg' });"
+        >
+          SVG
+        </button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeDark.download({ name: 'qr', extension: 'webp' });"
+        >
+          WEBP
+        </button>
+        <button
+          class="btn btn-lg btn-primary"
+          onclick="qrCodeDark.download({ name: 'qr', extension: 'png' });"
+        >
+          PNG
+        </button>
       </div>
     </div>
   </div>
 </div>
 <script type="text/javascript">
+  $(document).ready(function () {
+    $("form :input").on("change input", function () {
+      console.log("Input changed!");
+      generate();
+    });
+  });
 
-    $(document).ready(function() {
-      $("form :input").on("change input", function() {
-        console.log("Input changed!");
-        generate();
-      });
+  var qrCodeLight;
+  var qrCodeDark;
+
+  function generate() {
+    qrCodeLight = new QRCodeStyling({
+      width: 1000,
+      height: 1000,
+      type: "svg",
+      data: $("#url").val(),
+      image: "/images/logos/fp-2024-dark.svg",
+      dotsOptions: {
+        color: "#000",
+        type: "dots",
+      },
+      backgroundOptions: {
+        color: "#fff",
+      },
+      cornersSquareOptions: {
+        type: "extra-rounded",
+      },
+      cornersDotOptions: {
+        type: "dot",
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 10,
+        saveAsBlob: true,
+      },
     });
 
-    var qrCodeLight;
-    var qrCodeDark;
+    qrCodeDark = new QRCodeStyling({
+      width: 1000,
+      height: 1000,
+      type: "svg",
+      data: $("#url").val(),
+      image: "/images/logos/fp-2024-light.svg",
+      dotsOptions: {
+        color: "#fff",
+        type: "dots",
+      },
+      backgroundOptions: {
+        color: "#000",
+      },
+      cornersSquareOptions: {
+        type: "extra-rounded",
+      },
+      cornersDotOptions: {
+        type: "dot",
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 10,
+        saveAsBlob: true,
+      },
+    });
 
-    function generate() {
-
-      qrCodeLight = new QRCodeStyling({
-          width: 1000,
-          height: 1000,
-          type: "svg",
-          data: $('#url').val(),
-          image: "/images/logos/fp-2024-dark.svg",
-          dotsOptions: {
-              color: "#000",
-              type: "dots"
-          },
-          backgroundOptions: {
-              color: "#fff",
-          },
-          cornersSquareOptions: {
-              type: "extra-rounded"
-          },
-          cornersDotOptions: {
-              type: "dot"
-          },
-          imageOptions: {
-              crossOrigin: "anonymous",
-              margin: 10,
-              saveAsBlob: true
-          }
-      });
-
-      qrCodeDark = new QRCodeStyling({
-          width: 1000,
-          height: 1000,
-          type: "svg",
-          data: $('#url').val(),
-          image: "/images/logos/fp-2024-light.svg",
-          dotsOptions: {
-              color: "#fff",
-              type: "dots"
-          },
-          backgroundOptions: {
-              color: "#000",
-          },
-          cornersSquareOptions: {
-              type: "extra-rounded"
-          },
-          cornersDotOptions: {
-              type: "dot"
-          },
-          imageOptions: {
-              crossOrigin: "anonymous",
-              margin: 10,
-              saveAsBlob: true
-          }
-      });
-
-      $("#canvas-light").empty();
-      qrCodeLight.append(document.getElementById("canvas-light"));
-      $("#canvas-dark").empty();
-      qrCodeDark.append(document.getElementById("canvas-dark"));
+    $("#canvas-light").empty();
+    qrCodeLight.append(document.getElementById("canvas-light"));
+    $("#canvas-dark").empty();
+    qrCodeDark.append(document.getElementById("canvas-dark"));
   }
 </script>

@@ -1,67 +1,170 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="color-scheme" content="only dark">
-    <meta name="description" content="{% if page.subtitle %}{{ page.subtitle | strip_html }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="msapplication-TileColor" content="#5dde95">
-    <meta name="theme-color" content="#5dde95">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:description" content="{% if page.subtitle %}{{ page.subtitle | strip_html }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:image" content="https://{{ site.hostname }}/og.png">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title | strip_html }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://{{ site.hostname }}{% if page.permalink %}{{ page.permalink }}{% endif %}">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="/assets/main.css">
-    <link rel="stylesheet" href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="only dark" />
+    <meta
+      name="description"
+      content="{% if page.subtitle %}{{ page.subtitle | strip_html }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <meta name="msapplication-TileColor" content="#5dde95" />
+    <meta name="theme-color" content="#5dde95" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      property="og:description"
+      content="{% if page.subtitle %}{{ page.subtitle | strip_html }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <meta property="og:image" content="https://{{ site.hostname }}/og.png" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta
+      property="og:title"
+      content="{% if page.title %}{{ page.title | strip_html }}{% else %}{{ site.title }}{% endif %}"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://{{ site.hostname }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+    />
+    <title>
+      {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
+    </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.webp" sizes="any" type="image/webp" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/main.css" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
     {% feed_meta %}
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js" defer></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
-    <script src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js" defer></script>
-    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js" defer></script>
+    <script
+      src="/node_modules/@popperjs/core/dist/umd/popper.min.js"
+      defer
+    ></script>
+    <script
+      src="/node_modules/bootstrap/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+    <script
+      src="/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"
+      defer
+    ></script>
+    <script
+      src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js"
+      defer
+    ></script>
     <script src="/node_modules/@twemoji/api/dist/twemoji.min.js" defer></script>
     <script src="/node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script>var exports = {};</script>
+    <script>
+      var exports = {};
+    </script>
     <script src="/node_modules/balloons-js/dist/index.js"></script>
-{% if page.url != '/pokemon-go' %}
-    <script>$(document).ready(function () { document.body = twemoji.parse(document.body, {folder: 'svg', ext: '.svg'}); });</script>
-{% endif %}
+    {% if page.url != '/pokemon-go' %}
+    <script>
+      $(document).ready(function () {
+        document.body = twemoji.parse(document.body, {
+          folder: "svg",
+          ext: ".svg",
+        });
+      });
+    </script>
+    {% endif %}
   </head>
   <body>
     <nav class="navbar navbar-dark bg-transparent">
       <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="/images/avatar.webp" alt="{{ site.title }}" class="h-100 rounded-circle">
-      </a>
-      <div class="dropdown">
-        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="dropdown" aria-label="Navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-          <a class="dropdown-item{% if page.url == '/' %} active{% endif %}" href="/">About</a>
-          <a class="dropdown-item{% if page.url == '/places' %} active{% endif %}" href="/places">Places</a>
-          <a class="dropdown-item{% if page.url == '/posts' or page.layout == 'post' or page.layout == 'post-image' %} active{% endif %}" href="/posts">Posts</a>
-          <a class="dropdown-item{% if page.url == '/projects' %} active{% endif %}" href="/projects">Projects</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Furry</h6>
-          <a class="dropdown-item{% if page.url == '/fursona' %} active{% endif %}" href="/fursona">Fursona</a>
-          <a class="dropdown-item{% if page.url == '/fursuit' %} active{% endif %}" href="/fursuit">Fursuit</a>
-          <a class="dropdown-item{% if page.url == '/conventions' %} active{% endif %}" href="/conventions">Conventions</a>
-          <a class="dropdown-item{% if page.url == '/parties' or page.layout == 'party' %} active{% endif %}" href="/parties">Parties</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Gamer</h6>
-          <a class="dropdown-item{% if page.url == '/minecraft' %} active{% endif %}" href="/minecraft">Minecraft</a>
-          <a class="dropdown-item{% if page.url == '/terraria' %} active{% endif %}" href="/terraria">Terraria</a>
-          <a class="dropdown-item{% if page.url == '/counter-strike' %} active{% endif %}" href="/counter-strike">Counter-Strike</a>
-          <a class="dropdown-item{% if page.url == '/pokemon-go' %} active{% endif %}" href="/pokemon-go">Pokémon GO</a>
+        <a class="navbar-brand" href="/">
+          <img
+            src="/images/avatar.webp"
+            alt="{{ site.title }}"
+            class="h-100 rounded-circle"
+          />
+        </a>
+        <div class="dropdown">
+          <button
+            class="navbar-toggler bg-dark"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-label="Navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+            <a
+              class="dropdown-item{% if page.url == '/' %} active{% endif %}"
+              href="/"
+              >About</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/places' %} active{% endif %}"
+              href="/places"
+              >Places</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/posts' or page.layout == 'post' or page.layout == 'post-image' %} active{% endif %}"
+              href="/posts"
+              >Posts</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/projects' %} active{% endif %}"
+              href="/projects"
+              >Projects</a
+            >
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Furry</h6>
+            <a
+              class="dropdown-item{% if page.url == '/fursona' %} active{% endif %}"
+              href="/fursona"
+              >Fursona</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/fursuit' %} active{% endif %}"
+              href="/fursuit"
+              >Fursuit</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/conventions' %} active{% endif %}"
+              href="/conventions"
+              >Conventions</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/parties' or page.layout == 'party' %} active{% endif %}"
+              href="/parties"
+              >Parties</a
+            >
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Gamer</h6>
+            <a
+              class="dropdown-item{% if page.url == '/minecraft' %} active{% endif %}"
+              href="/minecraft"
+              >Minecraft</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/terraria' %} active{% endif %}"
+              href="/terraria"
+              >Terraria</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/counter-strike' %} active{% endif %}"
+              href="/counter-strike"
+              >Counter-Strike</a
+            >
+            <a
+              class="dropdown-item{% if page.url == '/pokemon-go' %} active{% endif %}"
+              href="/pokemon-go"
+              >Pokémon GO</a
+            >
+          </div>
         </div>
       </div>
-    </div>
     </nav>
+  </body>
+</html>

@@ -4,7 +4,7 @@ A personal website for KovuTheHusky.
 
 ## Links
 
-* Website: <https://kovu.dog>
-* Issues: <https://github.com/KovuTheHusky/kovu.dog/issues>
-* Source: <https://github.com/KovuTheHusky/kovu.dog>
-* Builds: <https://github.com/KovuTheHusky/kovu.dog/actions>
+- Website: <https://kovu.dog>
+- Issues: <https://github.com/KovuTheHusky/kovu.dog/issues>
+- Source: <https://github.com/KovuTheHusky/kovu.dog>
+- Builds: <https://github.com/KovuTheHusky/kovu.dog/actions>

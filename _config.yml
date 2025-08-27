@@ -4,13 +4,12 @@ permalink: /post/:year/:month/:day/:title
 hostname: "kovu.dog"
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "node_modules/**"
     values:
       sitemap: false
 
-include: 
+include:
   - .nojekyll
 
 markdown: kramdown
@@ -26,8 +25,8 @@ plugins:
 node_modules:
   modules_dir: node_modules
   copy:
-  - source: .
-    target: node_modules
+    - source: .
+      target: node_modules
 
 sass:
   load_paths:

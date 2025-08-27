@@ -4,15 +4,16 @@ title: Posts
 subtitle: "Thoughts, guides, updates &amp; more."
 permalink: /posts
 ---
+
 <div class="container">
   <ul class="list-group">
-{% for post in site.posts %}
+    {% for post in site.posts %}
     <li class="list-group-item">
       <a href="{{ post.url }}" class="d-flex justify-content-between">
         <span>{{ post.title }}</span>
         <span class="float-right">{{ post.date | date: '%A, %d %B %Y' }}</span>
       </a>
     </li>
-{% endfor %}
+    {% endfor %}
   </ul>
 </div>

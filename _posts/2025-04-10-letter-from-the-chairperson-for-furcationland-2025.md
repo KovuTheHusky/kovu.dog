@@ -1,9 +1,10 @@
 ---
 layout: post-image
-title:  "Letter from the Chairperson for Furcationland 2025"
-date:   2025-04-10 12:00:00 -0000
+title: "Letter from the Chairperson for Furcationland 2025"
+date: 2025-04-10 12:00:00 -0000
 image: letter-from-the-chairperson-for-furcationland-2025-1
 ---
+
 This past year has been hard for me. It wouldn’t be fair to start this letter any other way. I write this not because I want to bring you down but because I want to remind you of the person underneath that fur, behind those starry eyes, hiding beneath that goofy grin.
 
 There's something uniquely fascinating about this fandom. It allows us to explore the very idea of self, offering a space where we intentionally craft and present different facets of who we are. Yet, within this community, these explorations feel incredibly valid and real. For me, Kovu is my truer self, and those who know me as Kovu understand me in a way that others may not. It’s in this open and accepting environment, this space for self-discovery, that I've drawn strength and felt genuinely supported throughout this past year.

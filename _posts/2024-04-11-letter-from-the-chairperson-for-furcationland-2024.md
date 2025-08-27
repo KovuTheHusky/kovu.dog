@@ -1,9 +1,10 @@
 ---
 layout: post-image
-title:  "Letter from the Chairperson for Furcationland 2024"
-date:   2024-04-11 12:00:00 -0000
+title: "Letter from the Chairperson for Furcationland 2024"
+date: 2024-04-11 12:00:00 -0000
 image: letter-from-the-chairperson-for-furcationland-2024
 ---
+
 I guess we did alright last year. We all worked our tails off, crossed our fingers, and hoped at least a few hundred furry friends would walk through those doors. Then eight hundred of you rushed Portland like it was doorbusters on Black Friday.
 
 That weekend was an emotional rollercoaster, culminating at Closing Ceremonies when I couldn't hold it in anymore. The nice thing about a fursuit is nobody can tell when you're crying, even under a spotlight. Pouring myself into Furcationland last year was one of the most rewarding experiences in my life.

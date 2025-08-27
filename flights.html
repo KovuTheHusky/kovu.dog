@@ -3,30 +3,38 @@ layout: default
 title: Flights
 permalink: /flights
 ---
+
 <style>
-::-webkit-scrollbar {
-  width: 0 !important;
-}
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
 </style>
-<link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet">
+<link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet" />
 <script src="/node_modules/mapbox-gl/dist/mapbox-gl.js"></script>
-<div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+<div
+  id="map"
+  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+></div>
 <script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw';
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw";
   const map = new mapboxgl.Map({
     attributionControl: false,
     center: [-74.0059662, 40.7127848],
-    container: 'map',
+    container: "map",
     hash: true,
-    projection: 'globe',
-    style: 'mapbox://styles/mapbox/dark-v11',
-    zoom: 2
+    projection: "globe",
+    style: "mapbox://styles/mapbox/dark-v11",
+    zoom: 2,
   });
   map.dragRotate.disable();
   map.touchZoomRotate.disableRotation();
-  map.addControl(new mapboxgl.AttributionControl({
-    compact: true
-  }), 'bottom-right');
+  map.addControl(
+    new mapboxgl.AttributionControl({
+      compact: true,
+    }),
+    "bottom-right",
+  );
 
   // The hardcoded `flightRoutes` array has been removed.
 
@@ -35,25 +43,25 @@ permalink: /flights
     try {
       const response = await fetch(url);
       const csvText = await response.text();
-      
+
       const routes = [];
-      const lines = csvText.trim().split('\n');
-      
+      const lines = csvText.trim().split("\n");
+
       // Get header to find column indices dynamically
-      const header = lines[0].split(',');
-      const fromIndex = header.indexOf('From');
-      const toIndex = header.indexOf('To');
-      const canceledIndex = header.indexOf('Canceled');
+      const header = lines[0].split(",");
+      const fromIndex = header.indexOf("From");
+      const toIndex = header.indexOf("To");
+      const canceledIndex = header.indexOf("Canceled");
 
       // Start from 1 to skip header row
       for (let i = 1; i < lines.length; i++) {
-        const columns = lines[i].split(',');
-        
+        const columns = lines[i].split(",");
+
         // Ensure row has enough columns
         if (columns.length > Math.max(fromIndex, toIndex, canceledIndex)) {
           const from = columns[fromIndex]?.trim();
           const to = columns[toIndex]?.trim();
-          const isCanceled = columns[canceledIndex] === 'true';
+          const isCanceled = columns[canceledIndex] === "true";
 
           // Add the route if it's valid and not canceled
           if (from && to && !isCanceled) {
@@ -63,15 +71,17 @@ permalink: /flights
       }
       return routes;
     } catch (error) {
-      console.error('Error loading or parsing flight data:', error);
+      console.error("Error loading or parsing flight data:", error);
       return []; // Return an empty array on failure
     }
   }
 
   async function getAirportDatabase() {
-    const response = await fetch('/airports.json');
+    const response = await fetch("/airports.json");
     const airports = await response.json();
-    return new Map(airports.map(airport => [airport.code, [airport.lat, airport.lon]]));
+    return new Map(
+      airports.map((airport) => [airport.code, [airport.lat, airport.lon]]),
+    );
   }
 
   function createRouteFeatures(routes, db) {
@@ -81,23 +91,29 @@ permalink: /flights
       const destCoords = db.get(route.destination);
 
       if (!originCoords || !destCoords) continue;
-      
+
       const originLng = originCoords[0];
       let destLng = destCoords[0];
 
       const diff = destLng - originLng;
-      if (diff > 180) { destLng -= 360; } 
-      else if (diff < -180) { destLng += 360; }
-      
+      if (diff > 180) {
+        destLng -= 360;
+      } else if (diff < -180) {
+        destLng += 360;
+      }
+
       const adjustedDestCoords = [destLng, destCoords[1]];
 
       features.push({
-        type: 'Feature',
-        geometry: { type: 'LineString', coordinates: [originCoords, adjustedDestCoords] },
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [originCoords, adjustedDestCoords],
+        },
         properties: {
           origin: route.origin,
-          destination: route.destination
-        }
+          destination: route.destination,
+        },
       });
     }
     return features;
@@ -109,25 +125,25 @@ permalink: /flights
       const coords = db.get(code);
       if (coords) {
         features.push({
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: coords },
-          properties: { code: code }
+          type: "Feature",
+          geometry: { type: "Point", coordinates: coords },
+          properties: { code: code },
         });
       }
     }
     return features;
   }
 
-  map.on('load', async () => {
+  map.on("load", async () => {
     const [airportDb, flightRoutes] = await Promise.all([
-        getAirportDatabase(),
-        loadFlightRoutesFromCSV('/flights.csv')
+      getAirportDatabase(),
+      loadFlightRoutesFromCSV("/flights.csv"),
     ]);
 
     const uniqueRouteKeys = new Set();
     const uniqueFlightRoutes = [];
-    flightRoutes.forEach(route => {
-      const key = [route.origin, route.destination].sort().join('-');
+    flightRoutes.forEach((route) => {
+      const key = [route.origin, route.destination].sort().join("-");
       if (!uniqueRouteKeys.has(key)) {
         uniqueRouteKeys.add(key);
         uniqueFlightRoutes.push(route);
@@ -135,67 +151,65 @@ permalink: /flights
     });
 
     const routeFeatures = createRouteFeatures(uniqueFlightRoutes, airportDb);
-    map.addSource('flight-routes', {
-      'type': 'geojson',
-      data: { type: 'FeatureCollection', features: routeFeatures }
+    map.addSource("flight-routes", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: routeFeatures },
     });
     map.addLayer({
-      'id': 'route-lines',
-      'type': 'line',
-      'source': 'flight-routes',
-      'paint': {
-        'line-color': '#5dde95'
-      }
+      id: "route-lines",
+      type: "line",
+      source: "flight-routes",
+      paint: {
+        "line-color": "#5dde95",
+      },
     });
 
     const visitedAirports = new Set();
-    flightRoutes.forEach(route => {
+    flightRoutes.forEach((route) => {
       visitedAirports.add(route.origin);
       visitedAirports.add(route.destination);
     });
 
     const airportFeatures = createAirportFeatures(visitedAirports, airportDb);
 
-    map.addSource('airport-nodes', {
-      'type': 'geojson',
-      data: { type: 'FeatureCollection', features: airportFeatures }
+    map.addSource("airport-nodes", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: airportFeatures },
     });
 
     map.addLayer({
-      'id': 'airport-points',
-      'type': 'circle',
-      'source': 'airport-nodes',
-      'paint': {
-        'circle-radius': 5,
-        'circle-color': 'white',
-        'circle-stroke-color': '#5dde95'
-      }
+      id: "airport-points",
+      type: "circle",
+      source: "airport-nodes",
+      paint: {
+        "circle-radius": 5,
+        "circle-color": "#5dde95",
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25,
+      },
     });
   });
 
-  map.on('click', 'airport-points', function (e) {
+  map.on("click", "airport-points", function (e) {
     const code = e.features[0].properties.code;
     const coordinates = e.features[0].geometry.coordinates.slice();
 
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
 
     var str = '<div class="text-center" style="color: #000;">';
-    str = str.concat('<h6 class="mb-0">' + code + '</h6>');
-    str = str.concat('</div>');
-    
-    new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML(str)
-      .addTo(map);
+    str = str.concat('<h6 class="mb-0">' + code + "</h6>");
+    str = str.concat("</div>");
+
+    new mapboxgl.Popup().setLngLat(coordinates).setHTML(str).addTo(map);
   });
 
-  map.on('mouseenter', ['airport-points'], function () {
-    map.getCanvas().style.cursor = 'pointer';
+  map.on("mouseenter", ["airport-points"], function () {
+    map.getCanvas().style.cursor = "pointer";
   });
 
-  map.on('mouseleave', ['airport-points'], function () {
-    map.getCanvas().style.cursor = '';
+  map.on("mouseleave", ["airport-points"], function () {
+    map.getCanvas().style.cursor = "";
   });
 </script>

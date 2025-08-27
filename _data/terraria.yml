@@ -4,11 +4,11 @@
     label: "Archived"
   description: "An expert mode world created for version 1.3.x. Played through to the end-game by KovuTheHusky, nytewuff, and Kuperfox."
   buttons:
-  - label: "Download"
-    link: "https://archive.kovu.dog/terraria/survival-2015.wld"
-    primary: true
-  - label: "Map"
-    link: "https://archive.kovu.dog/terraria/survival-2015/"
+    - label: "Download"
+      link: "https://archive.kovu.dog/terraria/survival-2015.wld"
+      primary: true
+    - label: "Map"
+      link: "https://archive.kovu.dog/terraria/survival-2015/"
 
 - title: "Survival 2014"
   badge:
@@ -16,11 +16,11 @@
     label: "Archived"
   description: "Another world created for version 1.2.x shortly after the previous one. It ran for a very short period of time."
   buttons:
-  - label: "Download"
-    link: "https://archive.kovu.dog/terraria/survival-2014.wld"
-    primary: true
-  - label: "Map"
-    link: "https://archive.kovu.dog/terraria/survival-2014/"
+    - label: "Download"
+      link: "https://archive.kovu.dog/terraria/survival-2014.wld"
+      primary: true
+    - label: "Map"
+      link: "https://archive.kovu.dog/terraria/survival-2014/"
 
 - title: "Survival 2013"
   badge:
@@ -28,11 +28,11 @@
     label: "Archived"
   description: "A world created for version 1.2.x and retired after a short period of time. The first world with hard mode enabled."
   buttons:
-  - label: "Download"
-    link: "https://archive.kovu.dog/terraria/survival-2013.wld"
-    primary: true
-  - label: "Map"
-    link: "https://archive.kovu.dog/terraria/survival-2013/"
+    - label: "Download"
+      link: "https://archive.kovu.dog/terraria/survival-2013.wld"
+      primary: true
+    - label: "Map"
+      link: "https://archive.kovu.dog/terraria/survival-2013/"
 
 - title: "Survival 2011"
   badge:
@@ -40,8 +40,8 @@
     label: "Archived"
   description: "The original world created in version 1.0.x and retired sometime afterward. Created around the release of Terraria."
   buttons:
-  - label: "Download"
-    link: "https://archive.kovu.dog/terraria/survival-2011.wld"
-    primary: true
-  - label: "Map"
-    link: "https://archive.kovu.dog/terraria/survival-2011/"
+    - label: "Download"
+      link: "https://archive.kovu.dog/terraria/survival-2011.wld"
+      primary: true
+    - label: "Map"
+      link: "https://archive.kovu.dog/terraria/survival-2011/"

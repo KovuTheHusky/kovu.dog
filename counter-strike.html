@@ -4,6 +4,7 @@ title: Counter-Strike
 subtitle: "Connection details &amp; server status."
 permalink: /counter-strike
 ---
+
 <div class="container">
   <div class="card">
     <div class="card-body">
@@ -11,90 +12,137 @@ permalink: /counter-strike
         10man
         <span id="status" class="badge bg-danger">Offline</span>
       </h5>
-      <p class="card-text align-middle">A server that runs get5 for playing 10man scrimmage matches.</p>
+      <p class="card-text align-middle">
+        A server that runs get5 for playing 10man scrimmage matches.
+      </p>
     </div>
     <div class="row">
       <div class="col-sm-6 col-left">
         <ul id="live" class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Version<span id="version">Offline</span></li>
-          <li class="list-group-item d-flex justify-content-between" style="border-bottom: 0;">Map<span id="map">Offline</span></li>
-          <li id="map-image-container" class="list-group-item" style="border-top: 0; padding-top: 0; display: none;">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="" id="map-image" class="rounded" style="width: 100%;">
+          <li class="list-group-item d-flex justify-content-between">
+            Version<span id="version">Offline</span>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between"
+            style="border-bottom: 0"
+          >
+            Map<span id="map">Offline</span>
+          </li>
+          <li
+            id="map-image-container"
+            class="list-group-item"
+            style="border-top: 0; padding-top: 0; display: none"
+          >
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              alt=""
+              id="map-image"
+              class="rounded"
+              style="width: 100%"
+            />
           </li>
         </ul>
       </div>
       <div class="col-sm-6 col-right">
         <ul id="live-playerlist" class="list-group list-group-flush">
-          <li id="playercount" class="list-group-item d-flex justify-content-between">Players<span id="players">Offline</span></li>
+          <li
+            id="playercount"
+            class="list-group-item d-flex justify-content-between"
+          >
+            Players<span id="players">Offline</span>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="card-body" style="border-top: 1px solid #808080;">
-      <a href="steam://connect/40.75.7.193:27015/derp" class="btn btn-primary disabled remote">Connect</a>
-      <a href="https://discord.gg/6s92ew7gsy" class="btn btn-secondary">Discord</a>
+    <div class="card-body" style="border-top: 1px solid #808080">
+      <a
+        href="steam://connect/40.75.7.193:27015/derp"
+        class="btn btn-primary disabled remote"
+        >Connect</a
+      >
+      <a href="https://discord.gg/6s92ew7gsy" class="btn btn-secondary"
+        >Discord</a
+      >
     </div>
   </div>
 </div>
 
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $.ajaxSetup({ cache: false });
   });
 </script>
 
 <script>
-
   var players = [];
-  
+
   function refresh() {
-    $.getJSON('https://status.{{ site.hostname }}/counter-strike.json', function(data) {
-      $('#status').text('Online');
-      $('.remote').removeClass('disabled');
-      $('#status').addClass('bg-success');
-      $('#status').removeClass('bg-danger');
-      $('#version').text(data['Info']['Version']);
-      if (data['Info']['Map'].startsWith('workshop/')) {
-        $('#map').text(data['Info']['Map'].substring(data['Info']['Map'].lastIndexOf('/') + 1));
-      } else {
-        $('#map').text(data['Info']['Map']);
-      }
-      $('#map-image').attr('src', data['Info']['MapImage']);
-      $('#map-image').attr('alt', data['Info']['Map']);
-      $('#map-image-container').show();
-      $('#players').text(data['Info']['Players'] + ' / ' + data['Info']['MaxPlayers']);
-      var playernames = [];
-      $.each(data.Players, function (key, value) {
-        playernames.push(key);
-      });
-      var join = $(playernames).not(players).get();
-      var part = $(players).not(playernames).get();
-      $.each(join, function(key, value) {
-        $('#live-playerlist').append('<a href="' + data['Players'][value]['url'] + '" class="list-group-item d-flex align-items-center justify-content-end player player-' + value + '"><img src="' + data['Players'][value]['avatar'] + '" class="rounded me-1" style="width: 24px; height: 24px;">' + data['Players'][value]['name'] + '</a>');
-      });
-      $.each(part, function(key, value) {
-        $('.player-' + value).remove();
-      });
-      if (data['Info']['Players'] > 0) {
-        $('#playercount').css('border-bottom', 'none');
-      } else {
-        $('#playercount').css('border-bottom', '1px solid rgba(0,0,0,.125)');
-      }
-      players = playernames;
-    }).fail(function() {
-      $('#status').text('Offline');
-      $('.remote').addClass('disabled');
-      $('#status').addClass('bg-danger');
-      $('#status').removeClass('bg-success');
-      $('#version').text('Offline');
-      $('#map').text('Offline');
-      $('#map-image-container').hide();
-      $('#map-image').attr('alt', '');
-      $('#players').text('Offline');
-      $('.player-').remove();
+    $.getJSON(
+      "https://status.{{ site.hostname }}/counter-strike.json",
+      function (data) {
+        $("#status").text("Online");
+        $(".remote").removeClass("disabled");
+        $("#status").addClass("bg-success");
+        $("#status").removeClass("bg-danger");
+        $("#version").text(data["Info"]["Version"]);
+        if (data["Info"]["Map"].startsWith("workshop/")) {
+          $("#map").text(
+            data["Info"]["Map"].substring(
+              data["Info"]["Map"].lastIndexOf("/") + 1,
+            ),
+          );
+        } else {
+          $("#map").text(data["Info"]["Map"]);
+        }
+        $("#map-image").attr("src", data["Info"]["MapImage"]);
+        $("#map-image").attr("alt", data["Info"]["Map"]);
+        $("#map-image-container").show();
+        $("#players").text(
+          data["Info"]["Players"] + " / " + data["Info"]["MaxPlayers"],
+        );
+        var playernames = [];
+        $.each(data.Players, function (key, value) {
+          playernames.push(key);
+        });
+        var join = $(playernames).not(players).get();
+        var part = $(players).not(playernames).get();
+        $.each(join, function (key, value) {
+          $("#live-playerlist").append(
+            '<a href="' +
+              data["Players"][value]["url"] +
+              '" class="list-group-item d-flex align-items-center justify-content-end player player-' +
+              value +
+              '"><img src="' +
+              data["Players"][value]["avatar"] +
+              '" class="rounded me-1" style="width: 24px; height: 24px;">' +
+              data["Players"][value]["name"] +
+              "</a>",
+          );
+        });
+        $.each(part, function (key, value) {
+          $(".player-" + value).remove();
+        });
+        if (data["Info"]["Players"] > 0) {
+          $("#playercount").css("border-bottom", "none");
+        } else {
+          $("#playercount").css("border-bottom", "1px solid rgba(0,0,0,.125)");
+        }
+        players = playernames;
+      },
+    ).fail(function () {
+      $("#status").text("Offline");
+      $(".remote").addClass("disabled");
+      $("#status").addClass("bg-danger");
+      $("#status").removeClass("bg-success");
+      $("#version").text("Offline");
+      $("#map").text("Offline");
+      $("#map-image-container").hide();
+      $("#map-image").attr("alt", "");
+      $("#players").text("Offline");
+      $(".player-").remove();
     });
   }
-  
+
   refresh();
   setInterval(refresh, 1000);
-  
-  </script>
+</script>

@@ -1,9 +1,10 @@
 ---
 layout: post-image
-title:  "Letter from the Chairperson for Furcationland 2023"
-date:   2023-04-13 12:00:00 -0000
+title: "Letter from the Chairperson for Furcationland 2023"
+date: 2023-04-13 12:00:00 -0000
 image: letter-from-the-chairperson-for-furcationland-2023
 ---
+
 It is my pleasure to welcome you to Furcationland 2023: Spring Into Maine!
 
 It was four years and one pandemic ago when I first got involved in this thing. What a long, sweet trip it’s been!

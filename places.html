@@ -3,76 +3,130 @@ layout: default
 title: Places
 permalink: /places
 ---
+
 <style>
-::-webkit-scrollbar {
-  width: 0 !important;
-}
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
 </style>
-<link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet">
+<link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet" />
 <script src="/node_modules/mapbox-gl/dist/mapbox-gl.js"></script>
-<div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+<div
+  id="map"
+  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+></div>
 <script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw';
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw";
   var map = new mapboxgl.Map({
     attributionControl: false,
     center: [-74.0059662, 40.7127848],
-    container: 'map',
+    container: "map",
     hash: true,
-    projection: 'globe',
-    style: 'mapbox://styles/mapbox/dark-v11',
-    zoom: 2
+    projection: "globe",
+    style: "mapbox://styles/mapbox/dark-v11",
+    zoom: 2,
   });
   map.dragRotate.disable();
   map.touchZoomRotate.disableRotation();
-  map.addControl(new mapboxgl.AttributionControl({
-    compact: true
-  }), 'bottom-right');
-  map.on('load', function () {
-    map.addSource('places', {
-      "type": "geojson",
-      "data": "https://status.{{ site.hostname }}/places.geojson"
+  map.addControl(
+    new mapboxgl.AttributionControl({
+      compact: true,
+    }),
+    "bottom-right",
+  );
+  map.on("load", function () {
+    map.addSource("places", {
+      type: "geojson",
+      data: "https://status.{{ site.hostname }}/places.geojson",
     });
-    map.addLayer({
-      "id": "places",
-      "type": "circle",
-      "source": "places",
-      "paint": {
-        "circle-color": "#5dde95",
-        "circle-opacity": 1,
-        "circle-radius": ["interpolate",
-          ["linear"],
-          ["zoom"],
-          10, 2.5,
-          12, 5
-        ],
-        "circle-stroke-color": "white",
-        "circle-stroke-opacity": ["interpolate",
-          ["linear"],
-          ["zoom"],
-          10, 0,
-          12, 1
-        ],
-        "circle-stroke-width": ["interpolate",
-          ["linear"],
-          ["zoom"],
-          10, 0,
-          12, 1
-        ]
-      }
-    }, 'waterway-label');
+    map.addLayer(
+      {
+        id: "places",
+        type: "circle",
+        source: "places",
+        paint: {
+          "circle-color": "#5dde95",
+          "circle-opacity": 1,
+          "circle-radius": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            10,
+            2.5,
+            12,
+            5,
+          ],
+          "circle-stroke-color": "white",
+          "circle-stroke-opacity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            10,
+            0,
+            12,
+            1,
+          ],
+          "circle-stroke-width": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            10,
+            0,
+            12,
+            1.25,
+          ],
+        },
+      },
+      "waterway-label",
+    );
   });
-  map.on('click', 'places', function (e) {
+  map.on("click", "places", function (e) {
     var str = '<div class="text-center" style="color: #000;">';
-    str = str.concat('<h6 class="mb-1">' + e.features[0].properties.name + '</h6>');
-    if (e.features[0].properties.address && e.features[0].properties.name != e.features[0].properties.address) str = str.concat('<p class="mb-1" style="line-height: 1.25em;">' + JSON.parse(e.features[0].properties.address).join('<br>') + '</p>');
-    if (e.features[0].properties.id) str = str.concat(' <a href="https://foursquare.com/v/' + e.features[0].properties.id + '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #ffa633;"><img src="/node_modules/simple-icons/icons/swarm.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a>');
-    str = str.concat(' <a href="https://maps.apple.com/?sll=' + e.features[0].geometry.coordinates[1] + ',' + e.features[0].geometry.coordinates[0] + '&q=' + e.features[0].properties.name + '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #999999;"><img src="/node_modules/simple-icons/icons/apple.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ');
-    str = str.concat(' <a href="https://www.google.com/maps/search/?api=1&query=' + e.features[0].geometry.coordinates[1] + ',' + e.features[0].geometry.coordinates[0] + '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #4285f4;"><img src="/node_modules/simple-icons/icons/googlemaps.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> '); str = str.concat('</div>'); new mapboxgl.Popup().setLngLat(e.features[0].geometry.coordinates).setHTML(str).addTo(map);
+    str = str.concat(
+      '<h6 class="mb-1">' + e.features[0].properties.name + "</h6>",
+    );
+    if (
+      e.features[0].properties.address &&
+      e.features[0].properties.name != e.features[0].properties.address
+    )
+      str = str.concat(
+        '<p class="mb-1" style="line-height: 1.25em;">' +
+          JSON.parse(e.features[0].properties.address).join("<br>") +
+          "</p>",
+      );
+    if (e.features[0].properties.id)
+      str = str.concat(
+        ' <a href="https://foursquare.com/v/' +
+          e.features[0].properties.id +
+          '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #ffa633;"><img src="/node_modules/simple-icons/icons/swarm.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a>',
+      );
+    str = str.concat(
+      ' <a href="https://maps.apple.com/?sll=' +
+        e.features[0].geometry.coordinates[1] +
+        "," +
+        e.features[0].geometry.coordinates[0] +
+        "&q=" +
+        e.features[0].properties.name +
+        '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #999999;"><img src="/node_modules/simple-icons/icons/apple.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ',
+    );
+    str = str.concat(
+      ' <a href="https://www.google.com/maps/search/?api=1&query=' +
+        e.features[0].geometry.coordinates[1] +
+        "," +
+        e.features[0].geometry.coordinates[0] +
+        '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #4285f4;"><img src="/node_modules/simple-icons/icons/googlemaps.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ',
+    );
+    str = str.concat("</div>");
+    new mapboxgl.Popup()
+      .setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(str)
+      .addTo(map);
   });
-  map.on('mouseenter', 'places', function () {
-    map.getCanvas().style.cursor = 'pointer';
+  map.on("mouseenter", "places", function () {
+    map.getCanvas().style.cursor = "pointer";
   });
-  map.on('mouseleave', 'places', function () {
-    map.getCanvas().style.cursor = '';
+  map.on("mouseleave", "places", function () {
+    map.getCanvas().style.cursor = "";
   });
 </script>

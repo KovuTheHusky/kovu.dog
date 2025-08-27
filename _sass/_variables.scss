@@ -361,7 +361,9 @@ a.disabled {
   background-color: #e05d44;
 }
 
-.badge a, .badge .a:link, .badge a:hover {
+.badge a,
+.badge .a:link,
+.badge a:hover {
   color: inherit;
   text-decoration: inherit;
 }
@@ -387,7 +389,17 @@ a.disabled {
 .rainbow {
   --angle: 0deg;
   border: 2px solid;
-  border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+  border-image: conic-gradient(
+      from var(--angle),
+      red,
+      yellow,
+      lime,
+      aqua,
+      blue,
+      magenta,
+      red
+    )
+    1;
   animation: 10s rotate linear infinite;
 }
 
@@ -398,7 +410,7 @@ a.disabled {
 }
 
 @property --angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
@@ -413,7 +425,7 @@ a.disabled {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
 }
