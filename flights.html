@@ -89,10 +89,7 @@ permalink: /flights
       const originCoords = db.get(route.origin);
       const destCoords = db.get(route.destination);
 
-      if (!originCoords || !destCoords) {
-        console.warn(`Could not find coordinates for route: ${route.origin} to ${route.destination}`);
-        continue;
-      }
+      if (!originCoords || !destCoords) continue;
       
       const originLng = originCoords[0];
       let destLng = destCoords[0];
@@ -106,7 +103,10 @@ permalink: /flights
       features.push({
         type: 'Feature',
         geometry: { type: 'LineString', coordinates: [originCoords, adjustedDestCoords] },
-        properties: {}
+        properties: {
+          origin: route.origin,
+          destination: route.destination
+        }
       });
     }
     return features;
@@ -156,15 +156,42 @@ permalink: /flights
       'type': 'geojson',
       data: { type: 'FeatureCollection', features: airportFeatures }
     });
-    
+
     map.addLayer({
       'id': 'airport-points',
       'type': 'circle',
       'source': 'airport-nodes',
       'paint': {
-        'circle-color': '#FFFFFF',
+        'circle-radius': 5,
+        'circle-color': 'white',
         'circle-stroke-color': '#5dde95'
       }
     });
+  });
+
+  map.on('click', 'airport-points', function (e) {
+    const code = e.features[0].properties.code;
+    const coordinates = e.features[0].geometry.coordinates.slice();
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    var str = '<div class="text-center" style="color: #000;">';
+    str = str.concat('<h6 class="mb-0">' + code + '</h6>');
+    str = str.concat('</div>');
+    
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML(str)
+      .addTo(map);
+  });
+
+  map.on('mouseenter', ['airport-points'], function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', ['airport-points'], function () {
+    map.getCanvas().style.cursor = '';
   });
 </script>
