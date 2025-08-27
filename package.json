@@ -1,5 +1,8 @@
 {
   "license": "UNLICENSED",
+  "scripts": {
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^7.0.0",
@@ -20,5 +23,9 @@
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
     "qr-code-styling": "1.9.2",
     "simple-icons": "^15.12.0"
+  },
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.9.4",
+    "prettier": "^3.6.2"
   }
 }
