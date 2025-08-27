@@ -130,7 +130,17 @@ permalink: /flights
   map.on('load', async () => {
     const airportDb = await getAirportDatabase();
 
-    const routeFeatures = createRouteFeatures(flightRoutes, airportDb);
+    const uniqueRouteKeys = new Set();
+    const uniqueFlightRoutes = [];
+    flightRoutes.forEach(route => {
+      const key = [route.origin, route.destination].sort().join('-');
+      if (!uniqueRouteKeys.has(key)) {
+        uniqueRouteKeys.add(key);
+        uniqueFlightRoutes.push(route);
+      }
+    });
+
+    const routeFeatures = createRouteFeatures(uniqueFlightRoutes, airportDb);
     map.addSource('flight-routes', {
       'type': 'geojson',
       data: { type: 'FeatureCollection', features: routeFeatures }
