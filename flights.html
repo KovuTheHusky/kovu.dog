@@ -87,7 +87,7 @@ permalink: /flights
     const features = [];
     for (const route of routes) {
       const originCoords = db.get(route.origin);
-      let destCoords = db.get(route.destination);
+      const destCoords = db.get(route.destination);
 
       if (!originCoords || !destCoords) {
         console.warn(`Could not find coordinates for route: ${route.origin} to ${route.destination}`);
@@ -98,52 +98,76 @@ permalink: /flights
       let destLng = destCoords[0];
 
       const diff = destLng - originLng;
-      if (diff > 180) {
-        destLng -= 360;
-      } else if (diff < -180) {
-        destLng += 360;
-      }
+      if (diff > 180) { destLng -= 360; } 
+      else if (diff < -180) { destLng += 360; }
       
       const adjustedDestCoords = [destLng, destCoords[1]];
 
-      const routeFeature = {
+      features.push({
         type: 'Feature',
-        geometry: {
-          type: 'LineString',
-          coordinates: [originCoords, adjustedDestCoords]
-        },
+        geometry: { type: 'LineString', coordinates: [originCoords, adjustedDestCoords] },
         properties: {}
-      };
-      
-      features.push(routeFeature);
+      });
+    }
+    return features;
+  }
+
+  function createAirportFeatures(uniqueAirports, db) {
+    const features = [];
+    for (const code of uniqueAirports) {
+      const coords = db.get(code);
+      if (coords) {
+        features.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: coords },
+          properties: { code: code }
+        });
+      }
     }
     return features;
   }
 
   map.on('load', async () => {
     const airportDb = await getAirportDatabase();
-    const routeFeatures = createRouteFeatures(flightRoutes, airportDb);
 
+    const routeFeatures = createRouteFeatures(flightRoutes, airportDb);
     map.addSource('flight-routes', {
       'type': 'geojson',
-      'data': {
-        'type': 'FeatureCollection',
-        'features': routeFeatures
-      }
+      data: { type: 'FeatureCollection', features: routeFeatures }
     });
-
     map.addLayer({
       'id': 'route-lines',
       'type': 'line',
       'source': 'flight-routes',
-      'layout': {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
       'paint': {
         'line-color': '#00A3FF',
         'line-width': 1.5,
-        'line-opacity': 0.8
+        'line-opacity': 0.7
+      }
+    });
+
+    const visitedAirports = new Set();
+    flightRoutes.forEach(route => {
+      visitedAirports.add(route.origin);
+      visitedAirports.add(route.destination);
+    });
+
+    const airportFeatures = createAirportFeatures(visitedAirports, airportDb);
+
+    map.addSource('airport-nodes', {
+      'type': 'geojson',
+      data: { type: 'FeatureCollection', features: airportFeatures }
+    });
+    
+    map.addLayer({
+      'id': 'airport-points',
+      'type': 'circle',
+      'source': 'airport-nodes',
+      'paint': {
+        'circle-radius': 3.5,
+        'circle-color': '#FFFFFF',
+        'circle-stroke-width': 1,
+        'circle-stroke-color': '#00A3FF'
       }
     });
   });
