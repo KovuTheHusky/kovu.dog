@@ -13,7 +13,7 @@ permalink: /flights
 <div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw';
-  var map = new mapboxgl.Map({
+  const map = new mapboxgl.Map({
     attributionControl: false,
     center: [-74.0059662, 40.7127848],
     container: 'map',
@@ -28,8 +28,21 @@ permalink: /flights
     compact: true
   }), 'bottom-right');
 
-  // Array of origin-destination pairs (airport codes)
   const flightRoutes = [
+    { origin: 'MCO', destination: 'ISP' },
+    { origin: 'ISP', destination: 'MCO' },
+    { origin: 'BWI', destination: 'ISP' },
+    { origin: 'PWM', destination: 'BWI' },
+    { origin: 'JFK', destination: 'PWM' },
+    { origin: 'VRB', destination: 'ISP' },
+    { origin: 'ISP', destination: 'VRB' },
+    { origin: 'BWI', destination: 'PWM' },
+    { origin: 'LAX', destination: 'BWI' },
+    { origin: 'SEA', destination: 'LAX' },
+    { origin: 'OAK', destination: 'SEA' },
+    { origin: 'ONT', destination: 'OAK' },
+    { origin: 'MDW', destination: 'ONT' },
+    { origin: 'DCA', destination: 'MDW' },
     { origin: 'SFO', destination: 'JFK' },
     { origin: 'SEA', destination: 'SJC' },
     { origin: 'JFK', destination: 'SEA' },
@@ -64,118 +77,74 @@ permalink: /flights
     { origin: 'JFK', destination: 'FCO' },
   ];
 
-  // Function to load the airport database
-  async function loadAirportDatabase() {
+  async function getAirportDatabase() {
     const response = await fetch('/airports.json');
     const airports = await response.json();
-    return airports;
+    return new Map(airports.map(airport => [airport.code, [airport.lat, airport.lon]]));
   }
 
-  // Function to lookup coordinates in the airport database
-  function getAirportCoordinates(airportCode, airportDatabase) {
-    const airport = airportDatabase.find(a => a.code === airportCode);
-    if (airport) {
-      return [airport.lat, airport.lon];
-    } else {
-      console.error(`Could not find coordinates for airport: ${airportCode}`);
-      return null;
-    }
-  }
-
-  // Function to normalize longitude to the range (-180, 180]
-  function normalizeLongitude(longitude) {
-    return (longitude + 540) % 360 - 180;
-  }
-
-  // Function to split a line at the antimeridian
-  function splitLineAtAntimeridian(originCoords, destinationCoords) {
-    // Normalize longitudes to handle crossing the antimeridian
-    const normalizedOriginLng = normalizeLongitude(originCoords[1]);
-    const normalizedDestLng = normalizeLongitude(destinationCoords[1]);
-
-    // Check if the line crosses the antimeridian
-    if (Math.abs(normalizedOriginLng - normalizedDestLng) > 180) {
-      const midpointLat =
-        originCoords[0] +
-        ((destinationCoords[0] - originCoords[0]) *
-          (180 - normalizedOriginLng)) /
-          (normalizedDestLng - normalizedOriginLng);
-
-      if (normalizedOriginLng < 0) {
-        // Origin is in the western hemisphere
-        return [
-          [originCoords, [originCoords[0], -180]],
-          [[midpointLat, 180], destinationCoords],
-        ];
-      } else {
-        // Origin is in the eastern hemisphere
-        return [
-          [originCoords, [originCoords[0], 180]],
-          [[midpointLat, -180], destinationCoords],
-        ];
-      }
-    } else {
-      // No need to split
-      return [[originCoords, destinationCoords]];
-    }
-  }
-
-  // Function to draw routes on the map
-  async function drawRoutes(routes, airportDatabase) {
-    let routeId = 0; // Counter for unique route IDs
-
+  function createRouteFeatures(routes, db) {
+    const features = [];
     for (const route of routes) {
-      const originCoords = getAirportCoordinates(route.origin, airportDatabase);
-      const destinationCoords = getAirportCoordinates(
-        route.destination,
-        airportDatabase
-      );
+      const originCoords = db.get(route.origin);
+      let destCoords = db.get(route.destination);
 
-      if (originCoords && destinationCoords) {
-        const segments = splitLineAtAntimeridian(
-          originCoords,
-          destinationCoords
-        );
-
-        segments.forEach((segment, index) => {
-          const routeFeature = {
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: segment,
-            },
-            properties: {
-              color: segments.length > 1 && index === 0 ? "#FF0000" : segments.length > 1 && index === 1 ? "#00FF00" : "#007cbf",
-            },
-          };
-
-          // Create unique source and layer IDs for each segment
-          const routeSourceId = `route-source-${routeId}-${index}`;
-          const routeLayerId = `route-layer-${routeId}-${index}`;
-
-          map.addSource(routeSourceId, {
-            type: "geojson",
-            data: routeFeature,
-          });
-
-          map.addLayer({
-            id: routeLayerId,
-            source: routeSourceId,
-            type: "line",
-            paint: {
-              "line-width": 2,
-              "line-color": ["get", "color"], // Use the 'color' property for line color
-            },
-          });
-        });
-
-        routeId++;
+      if (!originCoords || !destCoords) {
+        console.warn(`Could not find coordinates for route: ${route.origin} to ${route.destination}`);
+        continue;
       }
+      
+      const originLng = originCoords[0];
+      let destLng = destCoords[0];
+
+      const diff = destLng - originLng;
+      if (diff > 180) {
+        destLng -= 360;
+      } else if (diff < -180) {
+        destLng += 360;
+      }
+      
+      const adjustedDestCoords = [destLng, destCoords[1]];
+
+      const routeFeature = {
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: [originCoords, adjustedDestCoords]
+        },
+        properties: {}
+      };
+      
+      features.push(routeFeature);
     }
+    return features;
   }
 
-  map.on("load", async () => {
-    const airportDatabase = await loadAirportDatabase();
-    await drawRoutes(flightRoutes, airportDatabase);
+  map.on('load', async () => {
+    const airportDb = await getAirportDatabase();
+    const routeFeatures = createRouteFeatures(flightRoutes, airportDb);
+
+    map.addSource('flight-routes', {
+      'type': 'geojson',
+      'data': {
+        'type': 'FeatureCollection',
+        'features': routeFeatures
+      }
+    });
+
+    map.addLayer({
+      'id': 'route-lines',
+      'type': 'line',
+      'source': 'flight-routes',
+      'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+        'line-color': '#00A3FF',
+        'line-width': 1.5,
+        'line-opacity': 0.8
+      }
+    });
   });
 </script>
