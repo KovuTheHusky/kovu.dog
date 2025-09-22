@@ -22,7 +22,7 @@
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
     "qr-code-styling": "1.9.2",
-    "simple-icons": "^15.15.0"
+    "simple-icons": "^15.16.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.0",
