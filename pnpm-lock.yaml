@@ -60,7 +60,7 @@ importers:
         specifier: github:KovuTheHusky/pokemon-medals#gh-pages
         version: https://codeload.github.com/KovuTheHusky/pokemon-medals/tar.gz/7340bdc7a612783c7575d640bb3cba0bc1c1bc87
       qr-code-styling:
-        specifier: 1.9.2
+        specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
         specifier: ^15.16.0
