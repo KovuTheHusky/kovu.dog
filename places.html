@@ -117,12 +117,12 @@ permalink: /places
               "interpolate",
               ["linear"],
               ["zoom"],
-              8,
-              2.5, // START: At zoom 8, radius is 2.5px
               11,
-              11.25, // MIDPOINT: An intermediate step for smooth scaling
-              14,
-              20, // END: At zoom 14, radius is 20px (double the old max)
+              2.5,
+              13.75,
+              11.25,
+              16.5,
+              20,
             ],
             "circle-stroke-color": "white",
             "circle-stroke-opacity": [
@@ -153,19 +153,19 @@ permalink: /places
         id: "places-icons",
         type: "symbol",
         source: "places",
-        minzoom: 8,
+        minzoom: 11,
         layout: {
           "icon-image": ["get", "icon"],
           "icon-size": [
             "interpolate",
             ["linear"],
             ["zoom"],
-            8,
-            0.008, // START: Icon is 4px wide in a 5px circle
             11,
-            0.035, // MIDPOINT: Icon is 18px wide in a 22.5px circle
-            14,
-            0.0625, // END: Icon is 32px wide in a 40px circle
+            0.008,
+            13.75,
+            0.035,
+            16.5,
+            0.0625,
           ],
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
