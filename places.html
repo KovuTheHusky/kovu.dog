@@ -96,25 +96,81 @@ permalink: /places
         map.listImages().filter((img) => loadedIcons.has(img)),
       );
 
-      // STEP 4: Add the source and layer to the map
-      console.log("Adding GeoJSON source and symbol layer to the map.");
+      // STEP 4: Add the source and the two layers to the map
+      console.log("Adding GeoJSON source and layers to the map.");
       map.addSource("places", {
         type: "geojson",
         data: geojsonData, // Pass the object we already have
       });
 
+      // LAYER 1: The background circle (copied from your original style)
+      map.addLayer(
+        {
+          id: "places-circles", // New, unique ID
+          type: "circle",
+          source: "places",
+          paint: {
+            "circle-color": "#5dde95",
+            "circle-opacity": 1,
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              10,
+              2.5,
+              12,
+              5,
+            ],
+            "circle-stroke-color": "white",
+            "circle-stroke-opacity": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              10,
+              0,
+              12,
+              1,
+            ],
+            "circle-stroke-width": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              10,
+              0,
+              12,
+              1.25,
+            ],
+          },
+        },
+        "waterway-label", // Optional: ensures circles are drawn below waterway labels
+      );
+
+      // LAYER 2: The foreground icon
       map.addLayer({
-        id: "places",
+        id: "places-icons", // New, unique ID
         type: "symbol",
         source: "places",
         layout: {
           "icon-image": ["get", "icon"],
-          "icon-size": ["interpolate", ["linear"], ["zoom"], 7, 0.25, 12, 0.75],
+          // --- THIS IS THE KEY CHANGE ---
+          // The icon-size is a multiplier of the original image size.
+          // Since your icons are 512px, we need a very small multiplier
+          // to make them fit inside the small circles.
+          "icon-size": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            10, // At zoom 10...
+            0.015, // ...the icon is scaled to 1.5% of its original size
+            12, // At zoom 12...
+            0.03, // ...the icon is scaled to 3%
+          ],
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
         },
       });
-      console.log("Layer added successfully!");
+
+      console.log("Layers added successfully!");
     } catch (error) {
       console.error(
         "A critical error occurred in the map setup process:",
@@ -122,7 +178,8 @@ permalink: /places
       );
     }
   });
-  map.on("click", "places", function (e) {
+
+  map.on("click", "places-icons", function (e) {
     var str = '<div class="text-center" style="color: #000;">';
     str = str.concat(
       '<h6 class="mb-1">' + e.features[0].properties.name + "</h6>",
@@ -164,10 +221,10 @@ permalink: /places
       .setHTML(str)
       .addTo(map);
   });
-  map.on("mouseenter", "places", function () {
+  map.on("mouseenter", "places-icons", function () {
     map.getCanvas().style.cursor = "pointer";
   });
-  map.on("mouseleave", "places", function () {
+  map.on("mouseleave", "places-icons", function () {
     map.getCanvas().style.cursor = "";
   });
 </script>
