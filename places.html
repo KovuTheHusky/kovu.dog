@@ -103,24 +103,33 @@ permalink: /places
         data: geojsonData, // Pass the object we already have
       });
 
-      // LAYER 1: The background circle (copied from your original style)
+      // LAYER 1: The background circle (Using a 'let' expression)
       map.addLayer(
         {
-          id: "places-circles", // New, unique ID
+          id: "places-circles",
           type: "circle",
           source: "places",
           paint: {
             "circle-color": "#5dde95",
             "circle-opacity": 1,
             "circle-radius": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              10,
-              2.5,
-              12,
-              5,
+              "let", // Use the 'let' expression to define a variable
+              "base_size", // Give our variable a name: 'base_size'
+              [
+                // Define the value of 'base_size' using our scaling logic
+                "interpolate",
+                ["linear"],
+                ["zoom"],
+                9,
+                5, // At zoom 9, base size (diameter) is 5px
+                11,
+                10, // At zoom 11, base size is 10px
+                13,
+                20, // At zoom 13, base size is 20px
+              ],
+              ["/", ["var", "base_size"], 2], // The radius is the base size / 2
             ],
+            // ... your other paint properties for stroke etc. are fine
             "circle-stroke-color": "white",
             "circle-stroke-opacity": [
               "interpolate",
@@ -142,28 +151,23 @@ permalink: /places
             ],
           },
         },
-        "waterway-label", // Optional: ensures circles are drawn below waterway labels
+        "waterway-label",
       );
 
-      // LAYER 2: The foreground icon
+      // LAYER 2: The foreground icon (Using the exact same 'let' expression)
       map.addLayer({
-        id: "places-icons", // New, unique ID
+        id: "places-icons",
         type: "symbol",
         source: "places",
+        minzoom: 9,
         layout: {
           "icon-image": ["get", "icon"],
-          // --- THIS IS THE KEY CHANGE ---
-          // The icon-size is a multiplier of the original image size.
-          // Since your icons are 512px, we need a very small multiplier
-          // to make them fit inside the small circles.
           "icon-size": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            10, // At zoom 10...
-            0.015, // ...the icon is scaled to 1.5% of its original size
-            12, // At zoom 12...
-            0.03, // ...the icon is scaled to 3%
+            "let",
+            "base_size",
+            ["interpolate", ["linear"], ["zoom"], 9, 5, 11, 10, 13, 20],
+            // Formula: (base_size * 0.8) / 512
+            ["/", ["*", ["var", "base_size"], 0.8], 512],
           ],
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
