@@ -117,31 +117,31 @@ permalink: /places
               "interpolate",
               ["linear"],
               ["zoom"],
-              9,
-              2.5, // At zoom 9, radius is 2.5px (5px diameter)
+              8,
+              2.5, // START: At zoom 8, radius is 2.5px
               11,
-              5, // At zoom 11, radius is 5px (10px diameter)
-              13,
-              10, // At zoom 13, radius is 10px (20px diameter)
+              11.25, // MIDPOINT: An intermediate step for smooth scaling
+              14,
+              20, // END: At zoom 14, radius is 20px (double the old max)
             ],
             "circle-stroke-color": "white",
             "circle-stroke-opacity": [
               "interpolate",
               ["linear"],
               ["zoom"],
-              10,
+              8,
               0,
-              12,
+              14,
               1,
             ],
             "circle-stroke-width": [
               "interpolate",
               ["linear"],
               ["zoom"],
-              10,
+              8,
               0,
-              12,
-              1.25,
+              14,
+              1.5,
             ],
           },
         },
@@ -153,20 +153,19 @@ permalink: /places
         id: "places-icons",
         type: "symbol",
         source: "places",
-        minzoom: 9,
+        minzoom: 8,
         layout: {
           "icon-image": ["get", "icon"],
           "icon-size": [
             "interpolate",
             ["linear"],
             ["zoom"],
-            // Manually calculated values to match the circle size
-            9,
-            0.008, // Makes icon 4px wide, fitting inside the 5px circle
+            8,
+            0.008, // START: Icon is 4px wide in a 5px circle
             11,
-            0.016, // Makes icon 8px wide, fitting inside the 10px circle
-            13,
-            0.032, // Makes icon 16px wide, fitting inside the 20px circle
+            0.035, // MIDPOINT: Icon is 18px wide in a 22.5px circle
+            14,
+            0.0625, // END: Icon is 32px wide in a 40px circle
           ],
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
