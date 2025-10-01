@@ -35,85 +35,90 @@ permalink: /places
     }),
     "bottom-right",
   );
-  map.on("load", function () {
-    map.addSource("places", {
-      type: "geojson",
-      data: "https://status.{{ site.hostname }}/places.geojson",
-    });
+  map.on("load", async function () {
+    console.log("Map loaded. Starting custom data fetch process...");
 
-    const imageLoadPromises = [];
-    const loadedIcons = new Set();
-
-    // We must wait for the source data to be loaded before we can inspect it.
-    map.once("data", function (e) {
-      if (e.sourceId === "places" && e.isSourceLoaded) {
-        const features = map.querySourceFeatures("places");
-
-        // Loop through every feature to find all unique icon names
-        features.forEach((feature) => {
-          const iconName = feature.properties.icon;
-          // If we have an icon name and haven't tried to load it yet...
-          if (iconName && !loadedIcons.has(iconName)) {
-            loadedIcons.add(iconName);
-
-            // Create a "Promise" for loading this one image
-            const promise = new Promise((resolve, reject) => {
-              map.loadImage(
-                // IMPORTANT: This URL must point to your directory of PNGs
-                "https://status.{{ site.hostname }}/places/" +
-                  iconName +
-                  ".png",
-                (error, image) => {
-                  if (error) {
-                    console.warn(
-                      `Warning: Could not load image ${iconName}.`,
-                      error,
-                    );
-                    resolve(); // Resolve anyway so one missing icon doesn't break everything
-                    return;
-                  }
-                  // Add the loaded image to the map's style
-                  if (!map.hasImage(iconName)) {
-                    map.addImage(iconName, image);
-                  }
-                  resolve();
-                },
-              );
-            });
-            imageLoadPromises.push(promise);
-          }
-        });
-
-        // Wait for all the individual image loading promises to complete
-        Promise.all(imageLoadPromises).then(() => {
-          // Now that all images are loaded, we can safely add the layer
-          addSymbolLayer();
-        });
+    try {
+      // STEP 1: Fetch the GeoJSON data ourselves
+      const geojsonUrl = "https://status.{{ site.hostname }}/places.geojson";
+      console.log(`Fetching GeoJSON from: ${geojsonUrl}`);
+      const response = await fetch(geojsonUrl);
+      if (!response.ok) {
+        throw new Error(
+          `HTTP error! Status: ${response.status} while fetching GeoJSON.`,
+        );
       }
-    });
+      const geojsonData = await response.json();
+      console.log(
+        `Successfully fetched and parsed GeoJSON. Found ${geojsonData.features.length} features.`,
+      );
 
-    function addSymbolLayer() {
-      map.addLayer(
-        {
-          id: "places",
-          type: "symbol",
-          source: "places",
-          layout: {
-            "icon-image": ["get", "icon"],
-            "icon-size": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              7,
-              0.25,
-              12,
-              0.75,
-            ],
-            "icon-allow-overlap": true,
-            "icon-ignore-placement": true,
-          },
+      if (geojsonData.features.length === 0) {
+        console.warn("GeoJSON file has no features. Stopping.");
+        return;
+      }
+
+      // STEP 2: Loop through our data to find unique icons
+      const imageLoadPromises = [];
+      const loadedIcons = new Set();
+
+      geojsonData.features.forEach((feature) => {
+        const iconName = feature.properties.icon;
+        if (iconName && !loadedIcons.has(iconName)) {
+          loadedIcons.add(iconName);
+          const imageUrl = `https://status.{{ site.hostname }}/places/${iconName}.png`;
+          const promise = new Promise((resolve) => {
+            map.loadImage(imageUrl, (error, image) => {
+              if (error) {
+                console.error(`FAILED to load image: ${imageUrl}`, error);
+                resolve(); // Resolve even on failure
+                return;
+              }
+              if (!map.hasImage(iconName)) {
+                map.addImage(iconName, image);
+                console.log(`SUCCESS: Loaded image '${iconName}'`);
+              }
+              resolve();
+            });
+          });
+          imageLoadPromises.push(promise);
+        }
+      });
+
+      // STEP 3: Wait for all images to finish loading (or failing)
+      console.log(
+        `Attempting to load ${imageLoadPromises.length} unique icon images...`,
+      );
+      await Promise.all(imageLoadPromises);
+      console.log("All image loading attempts are complete.");
+      console.log(
+        "Map's current list of custom images:",
+        map.listImages().filter((img) => loadedIcons.has(img)),
+      );
+
+      // STEP 4: Add the source and layer to the map
+      console.log("Adding GeoJSON source and symbol layer to the map.");
+      map.addSource("places", {
+        type: "geojson",
+        data: geojsonData, // Pass the object we already have
+      });
+
+      map.addLayer({
+        id: "places",
+        type: "symbol",
+        source: "places",
+        layout: {
+          "icon-image": ["get", "icon"],
+          "icon-size": ["interpolate", ["linear"], ["zoom"], 7, 0.25, 12, 0.75],
+          "icon-allow-overlap": true,
+          "icon-ignore-placement": true,
         },
-        "waterway-label",
+      });
+      console.log("Layer added successfully!");
+    } catch (error) {
+      console.error(
+        "A critical error occurred in the map setup process:",
+        error,
       );
     }
   });
