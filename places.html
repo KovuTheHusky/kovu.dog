@@ -103,7 +103,7 @@ permalink: /places
         data: geojsonData, // Pass the object we already have
       });
 
-      // LAYER 1: The background circle (Using a 'let' expression)
+      // LAYER 1: The background circle (Using your desired scaling)
       map.addLayer(
         {
           id: "places-circles",
@@ -112,24 +112,18 @@ permalink: /places
           paint: {
             "circle-color": "#5dde95",
             "circle-opacity": 1,
+            // This expression is correct and defines our target sizes
             "circle-radius": [
-              "let", // Use the 'let' expression to define a variable
-              "base_size", // Give our variable a name: 'base_size'
-              [
-                // Define the value of 'base_size' using our scaling logic
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                9,
-                5, // At zoom 9, base size (diameter) is 5px
-                11,
-                10, // At zoom 11, base size is 10px
-                13,
-                20, // At zoom 13, base size is 20px
-              ],
-              ["/", ["var", "base_size"], 2], // The radius is the base size / 2
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              9,
+              2.5, // At zoom 9, radius is 2.5px (5px diameter)
+              11,
+              5, // At zoom 11, radius is 5px (10px diameter)
+              13,
+              10, // At zoom 13, radius is 10px (20px diameter)
             ],
-            // ... your other paint properties for stroke etc. are fine
             "circle-stroke-color": "white",
             "circle-stroke-opacity": [
               "interpolate",
@@ -154,7 +148,7 @@ permalink: /places
         "waterway-label",
       );
 
-      // LAYER 2: The foreground icon (Using the exact same 'let' expression)
+      // LAYER 2: The foreground icon (With correctly calculated multipliers)
       map.addLayer({
         id: "places-icons",
         type: "symbol",
@@ -163,11 +157,16 @@ permalink: /places
         layout: {
           "icon-image": ["get", "icon"],
           "icon-size": [
-            "let",
-            "base_size",
-            ["interpolate", ["linear"], ["zoom"], 9, 5, 11, 10, 13, 20],
-            // Formula: (base_size * 0.8) / 512
-            ["/", ["*", ["var", "base_size"], 0.8], 512],
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            // Manually calculated values to match the circle size
+            9,
+            0.008, // Makes icon 4px wide, fitting inside the 5px circle
+            11,
+            0.016, // Makes icon 8px wide, fitting inside the 10px circle
+            13,
+            0.032, // Makes icon 16px wide, fitting inside the 20px circle
           ],
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
