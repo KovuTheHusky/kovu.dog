@@ -114,16 +114,37 @@ permalink: /qr
 </div>
 <script type="text/javascript">
   $(document).ready(function () {
-    $("form :input").on("change input", function () {
+    $("#url").on("input", function () {
       console.log("Input changed!");
       generate();
     });
   });
 
+  let isSquare = false;
+
+  window.onload = () => {
+    document
+      .querySelector("#toggle-square-qr")
+      .addEventListener("change", (e) => {
+        isSquare = e.target.checked;
+        if ($("#url").val() !== "") generate();
+      });
+  };
+
   var qrCodeLight;
   var qrCodeDark;
 
   function generate() {
+    let dots = "dots";
+    let corners = "extra-rounded";
+    let cornersDot = "dot";
+
+    if (isSquare) {
+      dots = "square";
+      corners = "square";
+      cornersDot = "square";
+    }
+
     qrCodeLight = new QRCodeStyling({
       width: 1000,
       height: 1000,
@@ -132,20 +153,21 @@ permalink: /qr
       image: "/images/logos/fp-2025-dark.svg",
       dotsOptions: {
         color: "#000",
-        type: "dots",
+        type: dots,
       },
       backgroundOptions: {
         color: "#fff",
       },
       cornersSquareOptions: {
-        type: "extra-rounded",
+        type: corners,
       },
       cornersDotOptions: {
-        type: "dot",
+        type: cornersDot,
       },
       imageOptions: {
         crossOrigin: "anonymous",
         margin: 10,
+        hideDotsBehindImage: !isSquare,
         saveAsBlob: true,
       },
     });
@@ -158,20 +180,21 @@ permalink: /qr
       image: "/images/logos/fp-2025-light.svg",
       dotsOptions: {
         color: "#fff",
-        type: "dots",
+        type: dots,
       },
       backgroundOptions: {
         color: "#000",
       },
       cornersSquareOptions: {
-        type: "extra-rounded",
+        type: corners,
       },
       cornersDotOptions: {
-        type: "dot",
+        type: cornersDot,
       },
       imageOptions: {
         crossOrigin: "anonymous",
         margin: 10,
+        hideDotsBehindImage: true,
         saveAsBlob: true,
       },
     });
