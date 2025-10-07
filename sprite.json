@@ -1,0 +1,2452 @@
+{
+  "travel-travelagency": {
+    "x": 0,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-trainstation": {
+    "x": 512,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-touristinformation": {
+    "x": 0,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-taxi": {
+    "x": 512,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-subway": {
+    "x": 1024,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-restarea": {
+    "x": 1024,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-resort": {
+    "x": 0,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-movingtarget": {
+    "x": 512,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-lightrail": {
+    "x": 1024,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-hotel_roofdeck": {
+    "x": 1536,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-hotel_bar": {
+    "x": 1536,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-hotel": {
+    "x": 1536,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-hostel": {
+    "x": 0,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-highway": {
+    "x": 512,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-ferry_pier": {
+    "x": 1024,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-embassy": {
+    "x": 1536,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-default": {
+    "x": 2048,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-busstation": {
+    "x": 2048,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-boat": {
+    "x": 2048,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-bedandbreakfast": {
+    "x": 2048,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-airport_tram": {
+    "x": 0,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-airport_gate": {
+    "x": 512,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "travel-airport": {
+    "x": 1024,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-videogames": {
+    "x": 1536,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-video": {
+    "x": 2048,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-toys": {
+    "x": 2560,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-tobacco": {
+    "x": 2560,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-technology": {
+    "x": 2560,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-tattoos": {
+    "x": 2560,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-tanning_salon": {
+    "x": 2560,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-storage": {
+    "x": 0,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-sports_outdoors": {
+    "x": 512,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-spa": {
+    "x": 1024,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-salon_barber": {
+    "x": 1536,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-recycling": {
+    "x": 2048,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-record_shop": {
+    "x": 2560,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-realestate": {
+    "x": 3072,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-piercing": {
+    "x": 3072,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-photographylab": {
+    "x": 3072,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-pharmacy": {
+    "x": 3072,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-pet_store": {
+    "x": 3072,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-papergoods": {
+    "x": 3072,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-newsstand": {
+    "x": 0,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-nailsalon": {
+    "x": 512,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-music_instruments": {
+    "x": 1024,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-motorcycle": {
+    "x": 1536,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-mobilephoneshop": {
+    "x": 2048,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-market": {
+    "x": 2560,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-mall": {
+    "x": 3072,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-laundry": {
+    "x": 3584,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-jewelry": {
+    "x": 3584,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-internetcafe": {
+    "x": 3584,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-hobbyshop": {
+    "x": 3584,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-hardware": {
+    "x": 3584,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-gym_yogastudio": {
+    "x": 3584,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-gym_martialarts": {
+    "x": 3584,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-giftshop": {
+    "x": 0,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-gas": {
+    "x": 512,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-gamingcafe": {
+    "x": 1024,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-furniture": {
+    "x": 1536,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-foodanddrink": {
+    "x": 2048,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_wineshop": {
+    "x": 2560,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_liquor": {
+    "x": 3072,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_grocery": {
+    "x": 3584,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_gourmet": {
+    "x": 4096,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_foodcourt": {
+    "x": 4096,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_fishmarket": {
+    "x": 4096,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_farmersmarket": {
+    "x": 4096,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_cheese": {
+    "x": 4096,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-food_butcher": {
+    "x": 4096,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-flowershop": {
+    "x": 4096,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-fleamarket": {
+    "x": 4096,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-financial": {
+    "x": 0,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-drycleaner": {
+    "x": 512,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-dispensary": {
+    "x": 1024,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-discountstore": {
+    "x": 1536,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-design": {
+    "x": 2048,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-departmentstore": {
+    "x": 2560,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-default": {
+    "x": 3072,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-daycare": {
+    "x": 3584,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-conveniencestore": {
+    "x": 4096,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-comic": {
+    "x": 4608,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-carwash": {
+    "x": 4608,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-candystore": {
+    "x": 4608,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-camerastore": {
+    "x": 4608,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-bridal": {
+    "x": 4608,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-bookstore": {
+    "x": 4608,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-bikeshop": {
+    "x": 4608,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-beauty_cosmetic": {
+    "x": 4608,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-automotive": {
+    "x": 4608,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-artstore": {
+    "x": 0,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_women": {
+    "x": 512,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_shoestore": {
+    "x": 1024,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_men": {
+    "x": 1536,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_lingerie": {
+    "x": 2048,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_kids": {
+    "x": 2560,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_boutique": {
+    "x": 3072,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel_accessories": {
+    "x": 3584,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-apparel": {
+    "x": 4096,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-antique": {
+    "x": 4608,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "shops-airport_rentalcar": {
+    "x": 5120,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-well": {
+    "x": 5120,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-volleyballcourt": {
+    "x": 5120,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-vineyard": {
+    "x": 5120,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-surfspot": {
+    "x": 5120,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-stable": {
+    "x": 5120,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_trail": {
+    "x": 5120,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_snowboard": {
+    "x": 5120,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_lodge": {
+    "x": 5120,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_chalet": {
+    "x": 5120,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_chairlift": {
+    "x": 0,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-ski_apresskibar": {
+    "x": 512,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-skatingrink": {
+    "x": 1024,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-skate_park": {
+    "x": 1536,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-sculpture": {
+    "x": 2048,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-sceniclookout": {
+    "x": 2560,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-rockclimbing": {
+    "x": 3072,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-river": {
+    "x": 3584,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-rafting": {
+    "x": 4096,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-pool": {
+    "x": 4608,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-plaza": {
+    "x": 5120,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-playground": {
+    "x": 5632,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-park": {
+    "x": 5632,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-outdoors": {
+    "x": 5632,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-neighborhood": {
+    "x": 5632,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-naturepreserve": {
+    "x": 5632,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-mountain": {
+    "x": 5632,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-lighthouse": {
+    "x": 5632,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-lake": {
+    "x": 5632,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-hotspring": {
+    "x": 5632,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-hikingtrail": {
+    "x": 5632,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-harbor": {
+    "x": 5632,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-gun": {
+    "x": 0,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-golfcourse": {
+    "x": 512,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-gardencenter": {
+    "x": 1024,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-garden": {
+    "x": 1536,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-field": {
+    "x": 2048,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-farm": {
+    "x": 2560,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-dogrun": {
+    "x": 3072,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-divespot": {
+    "x": 3584,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-default": {
+    "x": 4096,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-cemetery": {
+    "x": 4608,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-campground": {
+    "x": 5120,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-bridge": {
+    "x": 5632,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-botanicalgarden": {
+    "x": 6144,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-beach": {
+    "x": 6144,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-basketballcourt": {
+    "x": 6144,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "parks_outdoors-baseballfield": {
+    "x": 6144,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-whiskey": {
+    "x": 6144,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-stripclub": {
+    "x": 6144,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-sportsbar": {
+    "x": 6144,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-secretbar": {
+    "x": 6144,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-sake": {
+    "x": 6144,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-pub": {
+    "x": 6144,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-nightclub": {
+    "x": 6144,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-karaoke": {
+    "x": 6144,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-hookahbar": {
+    "x": 0,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-gaybar": {
+    "x": 512,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-divebar": {
+    "x": 1024,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-default": {
+    "x": 1536,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-cocktails": {
+    "x": 2048,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "nightlife-beergarden": {
+    "x": 2560,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-wings": {
+    "x": 3072,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-winery": {
+    "x": 3584,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-vietnamese": {
+    "x": 4096,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-vegetarian": {
+    "x": 4608,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-turkish": {
+    "x": 5120,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-tibetan": {
+    "x": 5632,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-thai": {
+    "x": 6144,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-tearoom": {
+    "x": 6656,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-tapas": {
+    "x": 6656,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-taco": {
+    "x": 6656,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-swiss": {
+    "x": 6656,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-sushi": {
+    "x": 6656,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-streetfood": {
+    "x": 6656,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-steakhouse": {
+    "x": 6656,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-spanish": {
+    "x": 6656,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-souvlaki": {
+    "x": 6656,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-southern": {
+    "x": 6656,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-soup": {
+    "x": 6656,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-snacks": {
+    "x": 6656,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-seafood": {
+    "x": 6656,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-scandinavian": {
+    "x": 0,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-salad": {
+    "x": 512,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-russian": {
+    "x": 1024,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-ramen": {
+    "x": 1536,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-portuguese": {
+    "x": 2048,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-pizza": {
+    "x": 2560,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-pieshop": {
+    "x": 3072,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-peruvian": {
+    "x": 3584,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-paella": {
+    "x": 4096,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-newamerican": {
+    "x": 4608,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-moroccan": {
+    "x": 5120,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-mongolian": {
+    "x": 5632,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-moleculargastronomy": {
+    "x": 6144,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-middleeastern": {
+    "x": 6656,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-mexican": {
+    "x": 7168,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-mediterranean": {
+    "x": 7168,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-malaysian": {
+    "x": 7168,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-macandcheese": {
+    "x": 7168,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-latinamerican": {
+    "x": 7168,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-korean": {
+    "x": 7168,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-juicebar": {
+    "x": 7168,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-japanese": {
+    "x": 7168,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-italian": {
+    "x": 7168,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-indonesian": {
+    "x": 7168,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-indian": {
+    "x": 7168,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-icecream": {
+    "x": 7168,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-hotdog": {
+    "x": 7168,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-halal": {
+    "x": 7168,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-greek": {
+    "x": 0,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-glutenfree": {
+    "x": 512,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-german": {
+    "x": 1024,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-gastropub": {
+    "x": 1536,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-frozenyogurt": {
+    "x": 2048,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-friedchicken": {
+    "x": 2560,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-french": {
+    "x": 3072,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-fishandchips": {
+    "x": 3584,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-filipino": {
+    "x": 4096,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-fastfood": {
+    "x": 4608,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-falafel": {
+    "x": 5120,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-ethiopian": {
+    "x": 5632,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-dumplings": {
+    "x": 6144,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-donuts": {
+    "x": 6656,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-diner": {
+    "x": 7168,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-dimsum": {
+    "x": 7680,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-dessert": {
+    "x": 7680,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-deli": {
+    "x": 7680,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-default": {
+    "x": 7680,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-cupcakes": {
+    "x": 7680,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-cuban": {
+    "x": 7680,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-creperie": {
+    "x": 7680,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-coffeeshop": {
+    "x": 7680,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-caucasian": {
+    "x": 7680,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-caribbean": {
+    "x": 7680,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-cajun": {
+    "x": 7680,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-cafe": {
+    "x": 7680,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-burrito": {
+    "x": 7680,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-burger": {
+    "x": 7680,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-bubble": {
+    "x": 7680,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-brewery": {
+    "x": 0,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-breakfast": {
+    "x": 512,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-bbqalt": {
+    "x": 1024,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-bakery": {
+    "x": 1536,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-bagels": {
+    "x": 2048,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-austrian": {
+    "x": 2560,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-australian": {
+    "x": 3072,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-asian": {
+    "x": 3584,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-argentinian": {
+    "x": 4096,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-arepas": {
+    "x": 4608,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-african": {
+    "x": 5120,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "food-afghan": {
+    "x": 5632,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "event-default": {
+    "x": 6144,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-tradeschool": {
+    "x": 6656,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-studentcenter": {
+    "x": 7168,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-residencehall": {
+    "x": 7680,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-reccenter": {
+    "x": 8192,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-quad": {
+    "x": 8192,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-lawschool": {
+    "x": 8192,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-lab": {
+    "x": 8192,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-frathouse": {
+    "x": 8192,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-default": {
+    "x": 8192,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-communitycollege": {
+    "x": 8192,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_technology": {
+    "x": 8192,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_science": {
+    "x": 8192,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_math": {
+    "x": 8192,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_history": {
+    "x": 8192,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_engineering": {
+    "x": 8192,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-collegeacademicbuildings_communications": {
+    "x": 8192,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-classroom": {
+    "x": 8192,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-cafeteria": {
+    "x": 8192,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-administrativebuilding": {
+    "x": 8192,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "education-academicbuilding": {
+    "x": 0,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-votingbooth": {
+    "x": 512,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-school_music": {
+    "x": 1024,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-school": {
+    "x": 1536,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious_temple": {
+    "x": 2048,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious_synagogue": {
+    "x": 2560,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious_shrine": {
+    "x": 3072,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious_mosque": {
+    "x": 3584,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious_church": {
+    "x": 4096,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-religious": {
+    "x": 4608,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-postoffice": {
+    "x": 5120,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-parking": {
+    "x": 5632,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-office_coworkingspace": {
+    "x": 6144,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-office_conferenceroom": {
+    "x": 6656,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-militarybase": {
+    "x": 7168,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical_veterinarian": {
+    "x": 7680,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical_opticalshop": {
+    "x": 8192,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical_ems": {
+    "x": 8704,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical_doctorsoffice": {
+    "x": 8704,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical_dentist": {
+    "x": 8704,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-medical": {
+    "x": 8704,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-library": {
+    "x": 8704,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-housingdevelopment": {
+    "x": 8704,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-home": {
+    "x": 8704,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-gym": {
+    "x": 8704,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government_policestation": {
+    "x": 8704,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government_monument": {
+    "x": 8704,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government_firestation": {
+    "x": 8704,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government_courthouse": {
+    "x": 8704,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government_capitolbuilding": {
+    "x": 8704,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-government": {
+    "x": 8704,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-funeralhome": {
+    "x": 8704,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-fair": {
+    "x": 8704,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-factory": {
+    "x": 8704,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-eventspace": {
+    "x": 0,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-default": {
+    "x": 512,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-conventioncenter_meetingroom": {
+    "x": 1024,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-conventioncenter": {
+    "x": 1536,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-cityhall": {
+    "x": 2048,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-auditorium": {
+    "x": 2560,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-apartment": {
+    "x": 3072,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-animalshelter": {
+    "x": 3584,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-zoo": {
+    "x": 4096,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-waterpark": {
+    "x": 4608,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-themepark": {
+    "x": 5120,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_track": {
+    "x": 5632,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_tennis": {
+    "x": 6144,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_soccer": {
+    "x": 6656,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_hockey": {
+    "x": 7168,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_football": {
+    "x": 7680,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_cricket": {
+    "x": 8192,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_basketball": {
+    "x": 8704,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium_baseball": {
+    "x": 9216,
+    "y": 0,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-stadium": {
+    "x": 9216,
+    "y": 512,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-racetrack": {
+    "x": 9216,
+    "y": 1024,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-performingarts_theater": {
+    "x": 9216,
+    "y": 1536,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-performingarts_operahouse": {
+    "x": 9216,
+    "y": 2048,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-performingarts_dancestudio": {
+    "x": 9216,
+    "y": 2560,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-performingarts": {
+    "x": 9216,
+    "y": 3072,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-musicvenue_rockclub": {
+    "x": 9216,
+    "y": 3584,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-musicvenue_pianobar": {
+    "x": 9216,
+    "y": 4096,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-musicvenue_jazzclub": {
+    "x": 9216,
+    "y": 4608,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-musicvenue": {
+    "x": 9216,
+    "y": 5120,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-museum_science": {
+    "x": 9216,
+    "y": 5632,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-museum_planetarium": {
+    "x": 9216,
+    "y": 6144,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-museum_history": {
+    "x": 9216,
+    "y": 6656,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-museum_art": {
+    "x": 9216,
+    "y": 7168,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-museum": {
+    "x": 9216,
+    "y": 7680,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-movietheater": {
+    "x": 9216,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-historicsite": {
+    "x": 9216,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-default": {
+    "x": 0,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-comedyclub": {
+    "x": 512,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-casino": {
+    "x": 1024,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-bowling": {
+    "x": 1536,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-billiards": {
+    "x": 2048,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-artgallery": {
+    "x": 2560,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-arcade": {
+    "x": 3072,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-aquarium": {
+    "x": 3584,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  }
+}

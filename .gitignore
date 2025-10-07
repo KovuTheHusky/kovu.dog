@@ -3,5 +3,6 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+images/markers
 node_modules
 vendor

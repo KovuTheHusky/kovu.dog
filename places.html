@@ -33,7 +33,7 @@ permalink: /places
           tileSize: 256,
         },
       },
-      sprite: "https://status.{{ site.hostname }}/sprite",
+      sprite: "/sprite",
       layers: [
         {
           id: "mapbox-dark-layer",
@@ -56,7 +56,7 @@ permalink: /places
   map.on("load", function () {
     map.addSource("places", {
       type: "geojson",
-      data: "https://status.{{ site.hostname }}/places.geojson",
+      data: "/places.geojson",
     });
 
     map.addLayer({
