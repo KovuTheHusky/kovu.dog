@@ -66,20 +66,40 @@ permalink: /places
     });
 
     map.addLayer({
-      id: "places",
+      id: "places-dots", // New ID for the dot layer
+      type: "circle",
+      source: "places",
+      maxzoom: 10, // <-- This layer is ONLY visible BELOW zoom 10
+      paint: {
+        "circle-radius": 2.5,
+        "circle-color": "#5dde95",
+        "circle-stroke-width": 0, // No stroke for the simple dots
+      },
+    });
+
+    map.addLayer({
+      id: "places-icons",
       type: "symbol",
       source: "places",
-      minzoom: 8,
+      minzoom: 10,
       layout: {
         "icon-image": ["get", "icon"],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 8, 0.1, 14, 0.25],
+        "icon-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10, // At zoom 10...
+          0.025, // ...marker is 5px wide (matching the original 2.5px radius)
+          12, // At zoom 12...
+          0.05, // ...marker is 10px wide (matching the original 5px radius)
+        ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
       },
     });
   });
 
-  map.on("click", "places", function (e) {
+  map.on("click", ["places-dots", "places-icons"], function (e) {
     var str = '<div class="text-center" style="color: #000;">';
     str = str.concat(
       '<h6 class="mb-1">' + e.features[0].properties.name + "</h6>",
@@ -121,10 +141,10 @@ permalink: /places
       .setHTML(str)
       .addTo(map);
   });
-  map.on("mouseenter", "places", function () {
+  map.on("mouseenter", ["places-dots", "places-icons"], function () {
     map.getCanvas().style.cursor = "pointer";
   });
-  map.on("mouseleave", "places", function () {
+  map.on("mouseleave", ["places-dots", "places-icons"], function () {
     map.getCanvas().style.cursor = "";
   });
 </script>
