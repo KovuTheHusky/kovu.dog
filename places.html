@@ -69,7 +69,7 @@ permalink: /places
       id: "places-dots", // New ID for the dot layer
       type: "circle",
       source: "places",
-      // maxzoom: 10, // <-- This layer is ONLY visible BELOW zoom 10
+      maxzoom: 12,
       paint: {
         "circle-radius": 2.5,
         "circle-color": "#5dde95",
@@ -81,22 +81,18 @@ permalink: /places
       id: "places-icons",
       type: "symbol",
       source: "places",
-      // minzoom: 10,
+      minzoom: 10,
       layout: {
         "icon-image": ["get", "icon"],
         "icon-size": [
           "interpolate",
           ["linear"],
           ["zoom"],
-          0,
-          0.00001,
-          9,
-          0.00001,
           10,
           0.0125,
-          11, // At zoom 10...
+          11,
           0.025, // ...marker is 5px wide (matching the original 2.5px radius)
-          12, // At zoom 12...
+          12,
           0.05, // ...marker is 10px wide (matching the original 5px radius)
         ],
         "icon-allow-overlap": true,
