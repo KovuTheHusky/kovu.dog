@@ -36,8 +36,13 @@ async function buildSprite() {
 
     // 4. Write the sprite image and the JSON file
     await fs.writeFile(`${outputFile}.png`, result.image);
+    await fs.writeFile(`${outputFile}@2x.png`, result.image);
     await fs.writeFile(
       `${outputFile}.json`,
+      JSON.stringify(mapboxJson, null, 2),
+    );
+    await fs.writeFile(
+      `${outputFile}@2x.json`,
       JSON.stringify(mapboxJson, null, 2),
     );
 
