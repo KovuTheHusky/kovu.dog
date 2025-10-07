@@ -17,9 +17,13 @@ OUTPUT_DIR = 'images/markers'.freeze
 # Creates a clean icon name from the Foursquare icon object.
 def get_icon_name(foursquare_icon)
   prefix = foursquare_icon['prefix']
-  name = prefix.gsub('https://ss3.4sqi.net/img/categories_v2/', '')
+  # Be more specific about what's being removed
+  name = prefix.delete_prefix('https://ss3.4sqi.net/img/categories_v2/')
   name = name.gsub('/', '-')
-  name.chomp('_').chomp('-')
+  # Chomp can remove multiple characters from the end, which is safer
+  name.chomp!('_')
+  name.chomp!('-')
+  return name
 end
 
 # Creates a composite marker image (circle + icon) and saves it.
@@ -98,6 +102,12 @@ end
 puts 'Parsing categories and generating marker images...'
 processed_icons = Set.new
 parse_categories(response['response']['categories'], processed_icons)
+
+puts "Generating the special 'default' marker..."
+# We use Foursquare's generic "none" icon for this.
+default_icon_prefix = 'https://ss3.4sqi.net/img/categories_v2/none_'
+default_icon_suffix = '.png'
+create_marker_image('default', default_icon_prefix, default_icon_suffix)
 
 # 5. Generate the final sprite sheet
 puts 'Generating the final sprite sheet...'

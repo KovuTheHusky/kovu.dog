@@ -1910,540 +1910,547 @@
     "height": 512,
     "pixelRatio": 1
   },
-  "building-votingbooth": {
+  "default": {
     "x": 512,
+    "y": 8192,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-votingbooth": {
+    "x": 1024,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-school_music": {
-    "x": 1024,
+    "x": 1536,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-school": {
-    "x": 1536,
+    "x": 2048,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious_temple": {
-    "x": 2048,
+    "x": 2560,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious_synagogue": {
-    "x": 2560,
+    "x": 3072,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious_shrine": {
-    "x": 3072,
+    "x": 3584,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious_mosque": {
-    "x": 3584,
+    "x": 4096,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious_church": {
-    "x": 4096,
+    "x": 4608,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-religious": {
-    "x": 4608,
+    "x": 5120,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-postoffice": {
-    "x": 5120,
+    "x": 5632,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-parking": {
-    "x": 5632,
+    "x": 6144,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-office_coworkingspace": {
-    "x": 6144,
+    "x": 6656,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-office_conferenceroom": {
-    "x": 6656,
+    "x": 7168,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-militarybase": {
-    "x": 7168,
+    "x": 7680,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical_veterinarian": {
-    "x": 7680,
+    "x": 8192,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical_opticalshop": {
-    "x": 8192,
-    "y": 8192,
+    "x": 8704,
+    "y": 0,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical_ems": {
     "x": 8704,
-    "y": 0,
+    "y": 512,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical_doctorsoffice": {
     "x": 8704,
-    "y": 512,
+    "y": 1024,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical_dentist": {
     "x": 8704,
-    "y": 1024,
+    "y": 1536,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-medical": {
     "x": 8704,
-    "y": 1536,
+    "y": 2048,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-library": {
     "x": 8704,
-    "y": 2048,
+    "y": 2560,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-housingdevelopment": {
     "x": 8704,
-    "y": 2560,
+    "y": 3072,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-home": {
     "x": 8704,
-    "y": 3072,
+    "y": 3584,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-gym": {
     "x": 8704,
-    "y": 3584,
+    "y": 4096,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government_policestation": {
     "x": 8704,
-    "y": 4096,
+    "y": 4608,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government_monument": {
     "x": 8704,
-    "y": 4608,
+    "y": 5120,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government_firestation": {
     "x": 8704,
-    "y": 5120,
+    "y": 5632,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government_courthouse": {
     "x": 8704,
-    "y": 5632,
+    "y": 6144,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government_capitolbuilding": {
     "x": 8704,
-    "y": 6144,
+    "y": 6656,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-government": {
     "x": 8704,
-    "y": 6656,
+    "y": 7168,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-funeralhome": {
     "x": 8704,
-    "y": 7168,
+    "y": 7680,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-fair": {
     "x": 8704,
-    "y": 7680,
-    "width": 512,
-    "height": 512,
-    "pixelRatio": 1
-  },
-  "building-factory": {
-    "x": 8704,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "building-eventspace": {
+  "building-factory": {
     "x": 0,
+    "y": 8704,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "building-eventspace": {
+    "x": 512,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-default": {
-    "x": 512,
+    "x": 1024,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-conventioncenter_meetingroom": {
-    "x": 1024,
+    "x": 1536,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-conventioncenter": {
-    "x": 1536,
+    "x": 2048,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-cityhall": {
-    "x": 2048,
+    "x": 2560,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-auditorium": {
-    "x": 2560,
+    "x": 3072,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-apartment": {
-    "x": 3072,
+    "x": 3584,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
   "building-animalshelter": {
-    "x": 3584,
-    "y": 8704,
-    "width": 512,
-    "height": 512,
-    "pixelRatio": 1
-  },
-  "arts_entertainment-zoo": {
     "x": 4096,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-waterpark": {
+  "arts_entertainment-zoo": {
     "x": 4608,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-themepark": {
+  "arts_entertainment-waterpark": {
     "x": 5120,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_track": {
+  "arts_entertainment-themepark": {
     "x": 5632,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_tennis": {
+  "arts_entertainment-stadium_track": {
     "x": 6144,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_soccer": {
+  "arts_entertainment-stadium_tennis": {
     "x": 6656,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_hockey": {
+  "arts_entertainment-stadium_soccer": {
     "x": 7168,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_football": {
+  "arts_entertainment-stadium_hockey": {
     "x": 7680,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_cricket": {
+  "arts_entertainment-stadium_football": {
     "x": 8192,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_basketball": {
+  "arts_entertainment-stadium_cricket": {
     "x": 8704,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium_baseball": {
+  "arts_entertainment-stadium_basketball": {
     "x": 9216,
     "y": 0,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-stadium": {
+  "arts_entertainment-stadium_baseball": {
     "x": 9216,
     "y": 512,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-racetrack": {
+  "arts_entertainment-stadium": {
     "x": 9216,
     "y": 1024,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-performingarts_theater": {
+  "arts_entertainment-racetrack": {
     "x": 9216,
     "y": 1536,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-performingarts_operahouse": {
+  "arts_entertainment-performingarts_theater": {
     "x": 9216,
     "y": 2048,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-performingarts_dancestudio": {
+  "arts_entertainment-performingarts_operahouse": {
     "x": 9216,
     "y": 2560,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-performingarts": {
+  "arts_entertainment-performingarts_dancestudio": {
     "x": 9216,
     "y": 3072,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-musicvenue_rockclub": {
+  "arts_entertainment-performingarts": {
     "x": 9216,
     "y": 3584,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-musicvenue_pianobar": {
+  "arts_entertainment-musicvenue_rockclub": {
     "x": 9216,
     "y": 4096,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-musicvenue_jazzclub": {
+  "arts_entertainment-musicvenue_pianobar": {
     "x": 9216,
     "y": 4608,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-musicvenue": {
+  "arts_entertainment-musicvenue_jazzclub": {
     "x": 9216,
     "y": 5120,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-museum_science": {
+  "arts_entertainment-musicvenue": {
     "x": 9216,
     "y": 5632,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-museum_planetarium": {
+  "arts_entertainment-museum_science": {
     "x": 9216,
     "y": 6144,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-museum_history": {
+  "arts_entertainment-museum_planetarium": {
     "x": 9216,
     "y": 6656,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-museum_art": {
+  "arts_entertainment-museum_history": {
     "x": 9216,
     "y": 7168,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-museum": {
+  "arts_entertainment-museum_art": {
     "x": 9216,
     "y": 7680,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-movietheater": {
+  "arts_entertainment-museum": {
     "x": 9216,
     "y": 8192,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-historicsite": {
+  "arts_entertainment-movietheater": {
     "x": 9216,
     "y": 8704,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-default": {
+  "arts_entertainment-historicsite": {
     "x": 0,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-comedyclub": {
+  "arts_entertainment-default": {
     "x": 512,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-casino": {
+  "arts_entertainment-comedyclub": {
     "x": 1024,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-bowling": {
+  "arts_entertainment-casino": {
     "x": 1536,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-billiards": {
+  "arts_entertainment-bowling": {
     "x": 2048,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-artgallery": {
+  "arts_entertainment-billiards": {
     "x": 2560,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-arcade": {
+  "arts_entertainment-artgallery": {
     "x": 3072,
     "y": 9216,
     "width": 512,
     "height": 512,
     "pixelRatio": 1
   },
-  "arts_entertainment-aquarium": {
+  "arts_entertainment-arcade": {
     "x": 3584,
+    "y": 9216,
+    "width": 512,
+    "height": 512,
+    "pixelRatio": 1
+  },
+  "arts_entertainment-aquarium": {
+    "x": 4096,
     "y": 9216,
     "width": 512,
     "height": 512,
