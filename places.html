@@ -24,7 +24,24 @@ permalink: /places
     container: "map",
     hash: true,
     projection: "globe",
-    style: "mapbox://styles/mapbox/dark-v11",
+    style: {
+      version: 8,
+      sources: {
+        "mapbox-dark": {
+          type: "raster",
+          url: "mapbox://styles/mapbox/dark-v11",
+          tileSize: 256,
+        },
+      },
+      sprite: "https://status.{{ site.hostname }}/sprite",
+      layers: [
+        {
+          id: "mapbox-dark-layer",
+          type: "raster",
+          source: "mapbox-dark",
+        },
+      ],
+    },
     zoom: 2,
   });
   map.dragRotate.disable();
@@ -35,153 +52,28 @@ permalink: /places
     }),
     "bottom-right",
   );
-  map.on("load", async function () {
-    console.log("Map loaded. Starting custom data fetch process...");
 
-    try {
-      // STEP 1: Fetch the GeoJSON data ourselves
-      const geojsonUrl = "https://status.{{ site.hostname }}/places.geojson";
-      console.log(`Fetching GeoJSON from: ${geojsonUrl}`);
-      const response = await fetch(geojsonUrl);
-      if (!response.ok) {
-        throw new Error(
-          `HTTP error! Status: ${response.status} while fetching GeoJSON.`,
-        );
-      }
-      const geojsonData = await response.json();
-      console.log(
-        `Successfully fetched and parsed GeoJSON. Found ${geojsonData.features.length} features.`,
-      );
+  map.on("load", function () {
+    map.addSource("places", {
+      type: "geojson",
+      data: "https://status.{{ site.hostname }}/places.geojson",
+    });
 
-      if (geojsonData.features.length === 0) {
-        console.warn("GeoJSON file has no features. Stopping.");
-        return;
-      }
-
-      // STEP 2: Loop through our data to find unique icons
-      const imageLoadPromises = [];
-      const loadedIcons = new Set();
-
-      geojsonData.features.forEach((feature) => {
-        const iconName = feature.properties.icon;
-        if (iconName && !loadedIcons.has(iconName)) {
-          loadedIcons.add(iconName);
-          const imageUrl = `https://status.{{ site.hostname }}/places/${iconName}.webp`;
-          const promise = new Promise((resolve) => {
-            map.loadImage(imageUrl, (error, image) => {
-              if (error) {
-                console.error(`FAILED to load image: ${imageUrl}`, error);
-                resolve(); // Resolve even on failure
-                return;
-              }
-              if (!map.hasImage(iconName)) {
-                map.addImage(iconName, image);
-                console.log(`SUCCESS: Loaded image '${iconName}'`);
-              }
-              resolve();
-            });
-          });
-          imageLoadPromises.push(promise);
-        }
-      });
-
-      // STEP 3: Wait for all images to finish loading (or failing)
-      console.log(
-        `Attempting to load ${imageLoadPromises.length} unique icon images...`,
-      );
-      await Promise.all(imageLoadPromises);
-      console.log("All image loading attempts are complete.");
-      console.log(
-        "Map's current list of custom images:",
-        map.listImages().filter((img) => loadedIcons.has(img)),
-      );
-
-      // STEP 4: Add the source and the two layers to the map
-      console.log("Adding GeoJSON source and layers to the map.");
-      map.addSource("places", {
-        type: "geojson",
-        data: geojsonData, // Pass the object we already have
-      });
-
-      // LAYER 1: The background circle (Using your desired scaling)
-      map.addLayer(
-        {
-          id: "places-circles",
-          type: "circle",
-          source: "places",
-          paint: {
-            "circle-color": "#5dde95",
-            "circle-opacity": 1,
-            // This expression is correct and defines our target sizes
-            "circle-radius": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              11,
-              2.5,
-              13.75,
-              11.25,
-              16.5,
-              20,
-            ],
-            "circle-stroke-color": "white",
-            "circle-stroke-opacity": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              8,
-              0,
-              14,
-              1,
-            ],
-            "circle-stroke-width": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              8,
-              0,
-              14,
-              1.5,
-            ],
-          },
-        },
-        "waterway-label",
-      );
-
-      // LAYER 2: The foreground icon (With correctly calculated multipliers)
-      map.addLayer({
-        id: "places-icons",
-        type: "symbol",
-        source: "places",
-        minzoom: 11,
-        layout: {
-          "icon-image": ["get", "icon"],
-          "icon-size": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            11,
-            0.008,
-            13.75,
-            0.035,
-            16.5,
-            0.0625,
-          ],
-          "icon-allow-overlap": true,
-          "icon-ignore-placement": true,
-        },
-      });
-
-      console.log("Layers added successfully!");
-    } catch (error) {
-      console.error(
-        "A critical error occurred in the map setup process:",
-        error,
-      );
-    }
+    map.addLayer({
+      id: "places",
+      type: "symbol",
+      source: "places",
+      minzoom: 8,
+      layout: {
+        "icon-image": ["get", "icon"],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 8, 0.1, 14, 0.25],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+      },
+    });
   });
 
-  map.on("click", "places-icons", function (e) {
+  map.on("click", "places", function (e) {
     var str = '<div class="text-center" style="color: #000;">';
     str = str.concat(
       '<h6 class="mb-1">' + e.features[0].properties.name + "</h6>",
@@ -223,10 +115,10 @@ permalink: /places
       .setHTML(str)
       .addTo(map);
   });
-  map.on("mouseenter", "places-icons", function () {
+  map.on("mouseenter", "places", function () {
     map.getCanvas().style.cursor = "pointer";
   });
-  map.on("mouseleave", "places-icons", function () {
+  map.on("mouseleave", "places", function () {
     map.getCanvas().style.cursor = "";
   });
 </script>
