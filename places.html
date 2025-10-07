@@ -30,18 +30,21 @@ permalink: /places
     style: {
       version: 8,
       sources: {
-        "mapbox-dark": {
+        "mapbox-dark-tiles": {
           type: "raster",
-          url: "mapbox://styles/mapbox/dark-v11",
+          tiles: [
+            `https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=${mapboxgl.accessToken}`,
+          ],
           tileSize: 256,
         },
       },
       sprite: "https://{{ site.hostname }}/sprite",
+      glyphs: "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
       layers: [
         {
           id: "mapbox-dark-layer",
           type: "raster",
-          source: "mapbox-dark",
+          source: "mapbox-dark-tiles",
         },
       ],
     },
