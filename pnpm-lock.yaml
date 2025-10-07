@@ -63,8 +63,8 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^15.16.0
-        version: 15.16.0
+        specifier: ^15.16.1
+        version: 15.16.1
     devDependencies:
       '@shopify/prettier-plugin-liquid':
         specifier: ^1.10.0
@@ -313,8 +313,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@15.16.0:
-    resolution: {integrity: sha512-AeyYdQ5BsFe7ONruVRClZ+2921tQIEcHuP9AZdNUR0in1jFeakH0pA9Rkjj0T/RkTH7Icx2jprXxWWY3aaCDJQ==}
+  simple-icons@15.16.1:
+    resolution: {integrity: sha512-UpT6dslPDUfl+9xAjxHAh4ralefkrAqBe8o4cN+HtBOa2HjYZnEAiQsUkAdkaMfW05rU/rc/MWaKxF/cpUllCg==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -580,7 +580,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@15.16.0: {}
+  simple-icons@15.16.1: {}
 
   splaytree@0.1.4: {}
 
