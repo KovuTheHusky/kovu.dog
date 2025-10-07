@@ -10,12 +10,15 @@ permalink: /places
   }
 </style>
 <link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet" />
-<script src="/node_modules/mapbox-gl/dist/mapbox-gl.js"></script>
+<script
+  src="/node_modules/mapbox-gl/dist/mapbox-gl.js"
+  data-cfasync="false"
+></script>
 <div
   id="map"
   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
 ></div>
-<script>
+<script data-cfasync="false">
   mapboxgl.accessToken =
     "pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw";
   var map = new mapboxgl.Map({
