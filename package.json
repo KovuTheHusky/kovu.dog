@@ -13,7 +13,7 @@
     "balloons-js": "^0.0.3",
     "bootstrap": "^5.3.8",
     "brand-icons": "github:Meow/brand-icons",
-    "chart.js": "^4.5.0",
+    "chart.js": "^4.5.1",
     "chartjs-plugin-annotation": "^3.1.0",
     "clipboard": "^2.0.11",
     "glob": "^11.0.3",
