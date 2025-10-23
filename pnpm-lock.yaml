@@ -33,11 +33,11 @@ importers:
         specifier: github:Meow/brand-icons
         version: https://codeload.github.com/Meow/brand-icons/tar.gz/e15d1fe98d755bb27eab02bd562a161568bfc592
       chart.js:
-        specifier: ^4.5.0
-        version: 4.5.0
+        specifier: ^4.5.1
+        version: 4.5.1
       chartjs-plugin-annotation:
         specifier: ^3.1.0
-        version: 3.1.0(chart.js@4.5.0)
+        version: 3.1.0(chart.js@4.5.1)
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
@@ -66,8 +66,8 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^15.16.1
-        version: 15.16.1
+        specifier: ^15.17.0
+        version: 15.17.0
       spritesmith:
         specifier: ^3.5.1
         version: 3.5.1
@@ -223,8 +223,8 @@ packages:
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
 
-  chart.js@4.5.0:
-    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
+  chart.js@4.5.1:
+    resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
     engines: {pnpm: '>=8'}
 
   chartjs-plugin-annotation@3.1.0:
@@ -688,8 +688,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@15.16.1:
-    resolution: {integrity: sha512-UpT6dslPDUfl+9xAjxHAh4ralefkrAqBe8o4cN+HtBOa2HjYZnEAiQsUkAdkaMfW05rU/rc/MWaKxF/cpUllCg==}
+  simple-icons@15.17.0:
+    resolution: {integrity: sha512-viOcugYj+JFYVWJvDh4Ph1xHk9iTGhzt+NoPrfAQYSCADvmZFSQUWyKEbSMuqVRUsaRgvADn+Cczysemsf1N3Q==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -942,13 +942,13 @@ snapshots:
 
   caseless@0.12.0: {}
 
-  chart.js@4.5.0:
+  chart.js@4.5.1:
     dependencies:
       '@kurkle/color': 0.3.4
 
-  chartjs-plugin-annotation@3.1.0(chart.js@4.5.0):
+  chartjs-plugin-annotation@3.1.0(chart.js@4.5.1):
     dependencies:
-      chart.js: 4.5.0
+      chart.js: 4.5.1
 
   cheap-ruler@4.0.0: {}
 
@@ -1439,7 +1439,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@15.16.1: {}
+  simple-icons@15.17.0: {}
 
   splaytree@0.1.4: {}
 
