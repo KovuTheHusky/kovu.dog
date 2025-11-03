@@ -18,8 +18,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@primer/octicons':
-        specifier: ^19.19.0
-        version: 19.19.0
+        specifier: ^19.20.0
+        version: 19.20.0
       '@twemoji/api':
         specifier: ^16.0.1
         version: 16.0.1
@@ -131,8 +131,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons@19.19.0':
-    resolution: {integrity: sha512-LBbL8nOl6FWMDy7riKB5ppHLtffY7loRq+CDGj0D5G1Xdo2mKlSOQy3rWy2RVE8SxxPFL+mj46C1nG+smKBEZA==}
+  '@primer/octicons@19.20.0':
+    resolution: {integrity: sha512-fRMWUnDzBJ7ymxtu0AeeKwLhEIOPFJX+DSUyuKCUfRcgP4opFphErrUPSByV9al6P0cgPFkOgBmiMSKSkergmw==}
 
   '@shopify/liquid-html-parser@2.9.0':
     resolution: {integrity: sha512-bkI4tLbU47YUxpgbMa9fgeJjFEMvRNEFL644Yk0ZKo5H1IRzU4pPyCQ6PkGvb0JJnt7OZ+RDGvb6ZLCnAR2Z/A==}
@@ -857,7 +857,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons@19.19.0':
+  '@primer/octicons@19.20.0':
     dependencies:
       object-assign: 4.1.1
 
