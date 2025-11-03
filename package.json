@@ -9,7 +9,7 @@
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@popperjs/core": "^2.11.8",
     "@primer/octicons": "^19.19.0",
-    "@twemoji/api": "^16.0.1",
+    "@twemoji/api": "^17.0.1",
     "balloons-js": "^0.0.3",
     "bootstrap": "^5.3.8",
     "brand-icons": "github:Meow/brand-icons",
