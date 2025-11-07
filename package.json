@@ -8,8 +8,8 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@popperjs/core": "^2.11.8",
-    "@primer/octicons": "^19.19.0",
-    "@twemoji/api": "^16.0.1",
+    "@primer/octicons": "^19.20.0",
+    "@twemoji/api": "^17.0.2",
     "balloons-js": "^0.0.3",
     "bootstrap": "^5.3.8",
     "brand-icons": "github:Meow/brand-icons",
@@ -24,7 +24,7 @@
     "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^15.17.0",
+    "simple-icons": "^15.19.0",
     "spritesmith": "^3.5.1"
   },
   "devDependencies": {
