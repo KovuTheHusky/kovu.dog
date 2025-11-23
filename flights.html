@@ -111,15 +111,18 @@ permalink: /flights
     return features;
   }
 
-  function createAirportFeatures(uniqueAirports, db) {
+  function createAirportFeatures(airportCounts, db) {
     const features = [];
-    for (const code of uniqueAirports) {
+    for (const [code, count] of airportCounts.entries()) {
       const coords = db.get(code);
       if (coords) {
         features.push({
           type: "Feature",
           geometry: { type: "Point", coordinates: coords },
-          properties: { code: code },
+          properties: {
+            code: code,
+            count: count,
+          },
         });
       }
     }
@@ -133,23 +136,29 @@ permalink: /flights
     ]);
 
     const routeStats = new Map();
+    const airportStats = new Map();
 
     flightRoutes.forEach((route) => {
-      const key = [route.origin, route.destination].sort().join("-");
-
-      if (!routeStats.has(key)) {
-        routeStats.set(key, {
+      const routeKey = [route.origin, route.destination].sort().join("-");
+      if (!routeStats.has(routeKey)) {
+        routeStats.set(routeKey, {
           origin: route.origin,
           destination: route.destination,
           count: 0,
         });
       }
-      routeStats.get(key).count++;
+      routeStats.get(routeKey).count++;
+
+      airportStats.set(route.origin, (airportStats.get(route.origin) || 0) + 1);
+      airportStats.set(
+        route.destination,
+        (airportStats.get(route.destination) || 0) + 1,
+      );
     });
 
     const uniqueFlightRoutes = Array.from(routeStats.values());
-
     const routeFeatures = createRouteFeatures(uniqueFlightRoutes, airportDb);
+    const airportFeatures = createAirportFeatures(airportStats, airportDb);
 
     map.addSource("flight-routes", {
       type: "geojson",
@@ -169,21 +178,11 @@ permalink: /flights
           ["get", "count"],
           1,
           1,
-          5,
-          4,
           10,
-          8,
+          10,
         ],
       },
     });
-
-    const visitedAirports = new Set();
-    flightRoutes.forEach((route) => {
-      visitedAirports.add(route.origin);
-      visitedAirports.add(route.destination);
-    });
-
-    const airportFeatures = createAirportFeatures(visitedAirports, airportDb);
 
     map.addSource("airport-nodes", {
       type: "geojson",
@@ -203,37 +202,48 @@ permalink: /flights
     });
   });
 
-  map.on("click", "airport-points", function (e) {
-    const code = e.features[0].properties.code;
-    const coordinates = e.features[0].geometry.coordinates.slice();
+  map.on("click", (e) => {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: ["airport-points", "route-lines"],
+    });
 
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    if (!features.length) return;
+
+    const feature = features[0];
+
+    if (feature.layer.id === "airport-points") {
+      const props = feature.properties;
+      const coordinates = feature.geometry.coordinates.slice();
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      const description = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${props.code}</h6>
+          <p class="m-0">${props.count} flights</p>
+        </div>
+      `;
+
+      new mapboxgl.Popup({ closeButton: false })
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    } else if (feature.layer.id === "route-lines") {
+      const props = feature.properties;
+      const description = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${props.origin} ↔ ${props.destination}</h6>
+          <p class="m-0">${props.count} flights</p>
+        </div>
+      `;
+
+      new mapboxgl.Popup({ closeButton: false })
+        .setLngLat(e.lngLat)
+        .setHTML(description)
+        .addTo(map);
     }
-
-    var str = '<div class="text-center" style="color: #000;">';
-    str = str.concat('<h6 class="mb-0">' + code + "</h6>");
-    str = str.concat("</div>");
-
-    new mapboxgl.Popup({ closeButton: false })
-      .setLngLat(coordinates)
-      .setHTML(str)
-      .addTo(map);
-  });
-
-  map.on("click", "route-lines", function (e) {
-    const props = e.features[0].properties;
-    const description = `
-      <div class="text-center" style="color: #000;">
-        <h6 class="mb-0">${props.origin} ↔ ${props.destination}</h6>
-        <p class="m-0">${props.count} flights</p>
-      </div>
-    `;
-
-    new mapboxgl.Popup({ closeButton: false })
-      .setLngLat(e.lngLat)
-      .setHTML(description)
-      .addTo(map);
   });
 
   map.on("mouseenter", ["airport-points", "route-lines"], function () {
