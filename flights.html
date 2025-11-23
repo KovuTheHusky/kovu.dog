@@ -36,9 +36,6 @@ permalink: /flights
     "bottom-right",
   );
 
-  // The hardcoded `flightRoutes` array has been removed.
-
-  // NEW: Function to fetch and parse the Flighty CSV data
   async function loadFlightRoutesFromCSV(url) {
     try {
       const response = await fetch(url);
@@ -46,24 +43,18 @@ permalink: /flights
 
       const routes = [];
       const lines = csvText.trim().split("\n");
-
-      // Get header to find column indices dynamically
       const header = lines[0].split(",");
       const fromIndex = header.indexOf("From");
       const toIndex = header.indexOf("To");
       const canceledIndex = header.indexOf("Canceled");
 
-      // Start from 1 to skip header row
       for (let i = 1; i < lines.length; i++) {
         const columns = lines[i].split(",");
-
-        // Ensure row has enough columns
         if (columns.length > Math.max(fromIndex, toIndex, canceledIndex)) {
           const from = columns[fromIndex]?.trim();
           const to = columns[toIndex]?.trim();
           const isCanceled = columns[canceledIndex] === "true";
 
-          // Add the route if it's valid and not canceled
           if (from && to && !isCanceled) {
             routes.push({ origin: from, destination: to });
           }
@@ -72,7 +63,7 @@ permalink: /flights
       return routes;
     } catch (error) {
       console.error("Error loading or parsing flight data:", error);
-      return []; // Return an empty array on failure
+      return [];
     }
   }
 
@@ -113,6 +104,7 @@ permalink: /flights
         properties: {
           origin: route.origin,
           destination: route.destination,
+          count: route.count,
         },
       });
     }
@@ -140,27 +132,48 @@ permalink: /flights
       loadFlightRoutesFromCSV("/flights.csv"),
     ]);
 
-    const uniqueRouteKeys = new Set();
-    const uniqueFlightRoutes = [];
+    const routeStats = new Map();
+
     flightRoutes.forEach((route) => {
       const key = [route.origin, route.destination].sort().join("-");
-      if (!uniqueRouteKeys.has(key)) {
-        uniqueRouteKeys.add(key);
-        uniqueFlightRoutes.push(route);
+
+      if (!routeStats.has(key)) {
+        routeStats.set(key, {
+          origin: route.origin,
+          destination: route.destination,
+          count: 0,
+        });
       }
+      routeStats.get(key).count++;
     });
 
+    const uniqueFlightRoutes = Array.from(routeStats.values());
+
     const routeFeatures = createRouteFeatures(uniqueFlightRoutes, airportDb);
+
     map.addSource("flight-routes", {
       type: "geojson",
       data: { type: "FeatureCollection", features: routeFeatures },
     });
+
     map.addLayer({
       id: "route-lines",
       type: "line",
       source: "flight-routes",
       paint: {
         "line-color": "#5dde95",
+        "line-opacity": 0.8,
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["get", "count"],
+          1,
+          1,
+          5,
+          4,
+          10,
+          8,
+        ],
       },
     });
 
@@ -202,14 +215,32 @@ permalink: /flights
     str = str.concat('<h6 class="mb-0">' + code + "</h6>");
     str = str.concat("</div>");
 
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(str).addTo(map);
+    new mapboxgl.Popup({ closeButton: false })
+      .setLngLat(coordinates)
+      .setHTML(str)
+      .addTo(map);
   });
 
-  map.on("mouseenter", ["airport-points"], function () {
+  map.on("click", "route-lines", function (e) {
+    const props = e.features[0].properties;
+    const description = `
+      <div class="text-center" style="color: #000;">
+        <h6 class="mb-0">${props.origin} ↔ ${props.destination}</h6>
+        <p class="m-0">${props.count} flights</p>
+      </div>
+    `;
+
+    new mapboxgl.Popup({ closeButton: false })
+      .setLngLat(e.lngLat)
+      .setHTML(description)
+      .addTo(map);
+  });
+
+  map.on("mouseenter", ["airport-points", "route-lines"], function () {
     map.getCanvas().style.cursor = "pointer";
   });
 
-  map.on("mouseleave", ["airport-points"], function () {
+  map.on("mouseleave", ["airport-points", "route-lines"], function () {
     map.getCanvas().style.cursor = "";
   });
 </script>
