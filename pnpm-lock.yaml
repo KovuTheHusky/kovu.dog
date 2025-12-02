@@ -66,8 +66,8 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^15.22.0
-        version: 15.22.0
+        specifier: ^16.0.0
+        version: 16.0.0
       spritesmith:
         specifier: ^3.5.1
         version: 3.5.1
@@ -331,7 +331,6 @@ packages:
   glob@13.0.0:
     resolution: {integrity: sha512-tvZgpqk6fz4BaNZ66ZsRaZnbHvP/jG3uKJvAZOwEVUL4RTA5nJeeLYfyN9/VA8NX/V3IBG+hkeuGpKjvELkVhA==}
     engines: {node: 20 || >=22}
-    hasBin: true
 
   good-listener@1.2.2:
     resolution: {integrity: sha512-goW1b+d9q/HIwbVYZzZ6SsTr4IgE+WA44A0GmPIQstuOrgsFcT7VEJ48nmr9GaRtNu0XTKacFLGnBPAM6Afouw==}
@@ -614,8 +613,8 @@ packages:
     resolution: {integrity: sha512-owllqNuDDEimQat7EPG0tH7JjO090xKNzUtYz6X+Sk2BXDnOCilDdNLwjWeFywG9xkJul1ULvtUQa9O4pUaY0w==}
     engines: {node: '>=4.0.0'}
 
-  simple-icons@15.22.0:
-    resolution: {integrity: sha512-i/w5Ie4tENfGYbdCo2iJ+oies0vOFd8QXWHopKOUzudfLCvnmeheF2PpHp89Z2azpc+c2su3lMiWO/SpP+429A==}
+  simple-icons@16.0.0:
+    resolution: {integrity: sha512-FPA/dxEy0dfXplKhPhqFI6KoPKAhe7t75emZ5i1T1vmqCYwboCqVNezRWaMmPkBazpHKmMAnaUYxoYsfRoDnZQ==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -1271,7 +1270,7 @@ snapshots:
 
   serialize-to-js@3.1.2: {}
 
-  simple-icons@15.22.0: {}
+  simple-icons@16.0.0: {}
 
   splaytree@0.1.4: {}
 
