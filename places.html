@@ -69,7 +69,7 @@ permalink: /places
       id: "places-dots",
       type: "circle",
       source: "places",
-      maxzoom: 10,
+      maxzoom: 12,
       paint: {
         "circle-radius": 2.5,
         "circle-color": "#5dde95",
@@ -84,7 +84,17 @@ permalink: /places
       minzoom: 10,
       layout: {
         "icon-image": ["get", "icon"],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.08, 12, 0.5],
+        "icon-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          0.08,
+          11,
+          0.25,
+          12,
+          0.5,
+        ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
       },
