@@ -30,8 +30,8 @@ end
 def create_marker_image(icon_name, icon_url_prefix, icon_url_suffix)
   print "  -> Generating marker for: #{icon_name} ... "
 
-  # Request a 512px version of the icon
-  icon_url = "#{icon_url_prefix}512#{icon_url_suffix}"
+  # Request a 512px version of the icon - 128px now
+  icon_url = "#{icon_url_prefix}128#{icon_url_suffix}"
 
   # Use MiniMagick to composite the images
   base_image = MiniMagick::Image.open(BASE_MARKER_PATH)

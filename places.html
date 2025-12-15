@@ -66,14 +66,14 @@ permalink: /places
     });
 
     map.addLayer({
-      id: "places-dots", // New ID for the dot layer
+      id: "places-dots",
       type: "circle",
       source: "places",
       maxzoom: 10,
       paint: {
         "circle-radius": 2.5,
         "circle-color": "#5dde95",
-        "circle-stroke-width": 0, // No stroke for the simple dots
+        "circle-stroke-width": 0,
       },
     });
 
@@ -84,17 +84,7 @@ permalink: /places
       minzoom: 10,
       layout: {
         "icon-image": ["get", "icon"],
-        "icon-size": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          10,
-          0.01,
-          11,
-          0.025, // ...marker is 5px wide (matching the original 2.5px radius)
-          12,
-          0.05, // ...marker is 10px wide (matching the original 5px radius)
-        ],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.04, 12, 0.25],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
       },
