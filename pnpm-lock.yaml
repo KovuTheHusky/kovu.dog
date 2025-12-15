@@ -66,8 +66,8 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^16.1.0
-        version: 16.1.0
+        specifier: ^16.2.0
+        version: 16.2.0
       spritesmith:
         specifier: ^3.5.1
         version: 3.5.1
@@ -610,8 +610,8 @@ packages:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
 
-  simple-icons@16.1.0:
-    resolution: {integrity: sha512-fL95b22MWTn3y+zQ/QC9oKqJ6mXXNwm35oy5XMVPdvJZGfGNWDMMb33kfqm50OuRKNcdjbk7HQ73NdWcvaBXIQ==}
+  simple-icons@16.2.0:
+    resolution: {integrity: sha512-SCV4cAX8O2M2WQ3QJm+3k4QdcUIJiBiwKNViQiOwPjWbFWgypzelviW+Bp0A2ij6r/DIEZpTTDcLgD/BE4aexQ==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -1264,7 +1264,7 @@ snapshots:
 
   semver@5.7.2: {}
 
-  simple-icons@16.1.0: {}
+  simple-icons@16.2.0: {}
 
   splaytree@0.1.4: {}
 
