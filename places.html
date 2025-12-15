@@ -84,7 +84,17 @@ permalink: /places
       minzoom: 10,
       layout: {
         "icon-image": ["get", "icon"],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.08, 14, 0.25],
+        "icon-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          0.01,
+          11,
+          0.025, // ...marker is 5px wide (matching the original 2.5px radius)
+          12,
+          0.05, // ...marker is 10px wide (matching the original 5px radius)
+        ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
       },
