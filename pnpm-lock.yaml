@@ -66,8 +66,8 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2
       simple-icons:
-        specifier: ^16.2.0
-        version: 16.2.0
+        specifier: ^16.3.0
+        version: 16.3.0
       spritesmith:
         specifier: ^3.5.1
         version: 3.5.1
@@ -482,8 +482,8 @@ packages:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
 
-  ohm-js@17.2.1:
-    resolution: {integrity: sha512-4cXF0G09fAYU9z61kTfkNbKK1Kz/sGEZ5NbVWHoe9Qi7VB7y+Spwk051CpUTfUENdlIr+vt8tMV4/LosTE2cDQ==}
+  ohm-js@17.3.0:
+    resolution: {integrity: sha512-LySMdjweN1hKBMMV8lM44+1wiewkndDNNJxtgVAscs7y683MXCdQZLsIaw64/p8NuqYbKOWZoHIOA5DU/xchoA==}
     engines: {node: '>=0.12.1'}
 
   omggif@1.0.10:
@@ -610,8 +610,8 @@ packages:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
 
-  simple-icons@16.2.0:
-    resolution: {integrity: sha512-SCV4cAX8O2M2WQ3QJm+3k4QdcUIJiBiwKNViQiOwPjWbFWgypzelviW+Bp0A2ij6r/DIEZpTTDcLgD/BE4aexQ==}
+  simple-icons@16.3.0:
+    resolution: {integrity: sha512-Bi28W15wyjt9902EnR6Mfr9gqt5ElKbKviYA80j77VkcUJtkeSGa6K4XKJWmBw1djiMPy0+it9KOk9nKMisYeQ==}
     engines: {node: '>=0.12.18'}
 
   splaytree@0.1.4:
@@ -748,7 +748,7 @@ snapshots:
   '@shopify/liquid-html-parser@2.9.0':
     dependencies:
       line-column: 1.0.2
-      ohm-js: 17.2.1
+      ohm-js: 17.3.0
 
   '@shopify/prettier-plugin-liquid@1.10.0(prettier@3.7.4)':
     dependencies:
@@ -1110,7 +1110,7 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  ohm-js@17.2.1: {}
+  ohm-js@17.3.0: {}
 
   omggif@1.0.10: {}
 
@@ -1264,7 +1264,7 @@ snapshots:
 
   semver@5.7.2: {}
 
-  simple-icons@16.2.0: {}
+  simple-icons@16.3.0: {}
 
   splaytree@0.1.4: {}
 
