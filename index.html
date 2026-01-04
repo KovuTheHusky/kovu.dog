@@ -25,20 +25,6 @@ layout: default
   </h1>
   <div class="grid grid-about">
     <a
-      href="#"
-      style="background-color: #f7931a"
-      data-bs-toggle="modal"
-      data-bs-target="#bitcoin"
-      class="more"
-    >
-      <img
-        src="/node_modules/simple-icons/icons/bitcoin.svg"
-        alt="Bitcoin"
-        style="filter: invert(0)"
-      />
-      <span style="color: #000">Bitcoin</span>
-    </a>
-    <a
       href="https://bsky.app/profile/kovu.dog"
       style="background-color: #0285ff"
     >
@@ -50,32 +36,12 @@ layout: default
       <span>Discord</span>
     </a>
     <a
-      href="#"
-      style="background-color: #c2a633"
-      data-bs-toggle="modal"
-      data-bs-target="#dogecoin"
-      class="more"
-    >
-      <img src="/node_modules/simple-icons/icons/dogecoin.svg" alt="Dogecoin" />
-      <span>Dogecoin</span>
-    </a>
-    <a
       href="mailto:bark@kovu.dog"
       style="background-color: #ea4335"
       class="more"
     >
       <img src="/node_modules/simple-icons/icons/gmail.svg" alt="Email" />
       <span>Email</span>
-    </a>
-    <a
-      href="#"
-      style="background-color: #3c3c3d"
-      data-bs-toggle="modal"
-      data-bs-target="#ethereum"
-      class="more"
-    >
-      <img src="/node_modules/simple-icons/icons/ethereum.svg" alt="Ethereum" />
-      <span>Ethereum</span>
     </a>
     <a
       href="https://fitbit.com/user/24JYMN"
@@ -232,7 +198,10 @@ layout: default
 <div class="container text-center" style="margin-top: 12px">
   <button
     type="button"
-    onclick="$('.more').show(); $(this).parent().hide();"
+    onclick="
+      $('.more').show();
+      $(this).parent().hide();
+    "
     class="btn btn-dark text-light"
   >
     More
@@ -240,75 +209,6 @@ layout: default
 </div>
 <div class="container gmt gpb text-center">
   <small>Icons by <a href="https://simpleicons.org">Simple Icons</a>.</small>
-</div>
-<div class="modal fade" id="bitcoin" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img
-          src="/images/bitcoin-qr.svg"
-          class="rounded"
-          alt="bc1qx7ev7xzk0wz8r822lzyfxd4r6q8ec85cu5yfya"
-        />
-        <button
-          type="button"
-          class="btn btn-lg btn-light text-dark text-center w-100 mt-3"
-          data-clipboard-text="bc1qx7ev7xzk0wz8r822lzyfxd4r6q8ec85cu5yfya"
-          onmouseenter="$(this).html(copy);"
-          onmouseleave="$(this).text('bc1qx7ev7x...c85cu5yfya');"
-          onclick="$(this).html(check);"
-        >
-          bc1qx7ev7x...c85cu5yfya
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="dogecoin" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img
-          src="/images/dogecoin-qr.svg"
-          class="rounded"
-          alt="DNqN25mV2xn3khfpfQ4pws7fQtBGiu3rDj"
-        />
-        <button
-          type="button"
-          class="btn btn-lg btn-light text-dark text-center w-100 mt-3"
-          data-clipboard-text="DNqN25mV2xn3khfpfQ4pws7fQtBGiu3rDj"
-          onmouseenter="$(this).html(copy);"
-          onmouseleave="$(this).text('DNqN25mV2x...QtBGiu3rDj');"
-          onclick="$(this).html(check);"
-        >
-          DNqN25mV2x...QtBGiu3rDj
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="ethereum" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img
-          src="/images/ethereum-qr.svg"
-          class="rounded"
-          alt="0xA2e09626c01D7ae792506f64812d6680981d89C3"
-        />
-        <button
-          type="button"
-          class="btn btn-lg btn-light text-dark text-center w-100 mt-3"
-          data-clipboard-text="0xA2e09626c01D7ae792506f64812d6680981d89C3"
-          onmouseenter="$(this).html(copy);"
-          onmouseleave="$(this).text('0xA2e09626...80981d89C3');"
-          onclick="$(this).html(check);"
-        >
-          0xA2e09626...80981d89C3
-        </button>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="modal fade" id="nintendoswitch" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -318,9 +218,9 @@ layout: default
           type="button"
           class="btn btn-lg btn-light text-dark text-center w-100"
           data-clipboard-text="039410160826"
-          onmouseenter="$(this).html(copy);"
-          onmouseleave="$(this).text('SW-0394-1016-0826');"
-          onclick="$(this).html(check);"
+          onmouseenter="$(this).html(copy)"
+          onmouseleave="$(this).text('SW-0394-1016-0826')"
+          onclick="$(this).html(check)"
         >
           SW-0394-1016-0826
         </button>
@@ -341,9 +241,9 @@ layout: default
           type="button"
           class="btn btn-lg btn-light text-dark text-center w-100 mt-3"
           data-clipboard-text="812195417331"
-          onmouseenter="$(this).html(copy);"
-          onmouseleave="$(this).text('8121 9541 7331');"
-          onclick="$(this).html(check);"
+          onmouseenter="$(this).html(copy)"
+          onmouseleave="$(this).text('8121 9541 7331')"
+          onclick="$(this).html(check)"
         >
           8121 9541 7331
         </button>
