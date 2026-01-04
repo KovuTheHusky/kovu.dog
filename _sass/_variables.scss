@@ -62,7 +62,7 @@ body {
   z-index: 999;
 }
 
-.navbar > * {
+.navbar>* {
   pointer-events: auto;
 }
 
@@ -316,7 +316,7 @@ a.disabled {
   width: 100%;
   height: 100%;
   z-index: -999;
-  background: url("/images/fursuit.webp") no-repeat top center fixed;
+  background: url("/images/fursuit.webp") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -389,17 +389,14 @@ a.disabled {
 .rainbow {
   --angle: 0deg;
   border: 2px solid;
-  border-image: conic-gradient(
-      from var(--angle),
+  border-image: conic-gradient(from var(--angle),
       red,
       yellow,
       lime,
       aqua,
       blue,
       magenta,
-      red
-    )
-    1;
+      red) 1;
   animation: 10s rotate linear infinite;
 }
 
@@ -435,6 +432,7 @@ a.disabled {
     padding-right: 0 !important;
     border-right: none;
   }
+
   .col-right {
     padding-left: 0 !important;
     border-left: 1px solid #808080;
