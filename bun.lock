@@ -7,7 +7,7 @@
         "@fancyapps/fancybox": "^3.5.7",
         "@fortawesome/fontawesome-free": "^7.1.0",
         "@popperjs/core": "^2.11.8",
-        "@primer/octicons": "^19.21.1",
+        "@primer/octicons": "^19.21.2",
         "@twemoji/api": "^17.0.2",
         "balloons-js": "^0.0.3",
         "bootstrap": "^5.3.8",
@@ -23,7 +23,7 @@
         "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
         "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
         "qr-code-styling": "^1.9.2",
-        "simple-icons": "^16.4.0",
+        "simple-icons": "^16.5.0",
         "spritesmith": "^3.5.1",
       },
       "devDependencies": {
@@ -59,7 +59,7 @@
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@primer/octicons": ["@primer/octicons@19.21.1", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-7tgtBkCNcg75YJnckinzvES+uxysYQCe+CHSEnzr3VYgxttzKRvfmrnVogl3aEuHCQP4xhiE9k2lFDhYwGtTzQ=="],
+    "@primer/octicons": ["@primer/octicons@19.21.2", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-SRTcpAZtKYh2266VQpAqNkXAQpPvYWk6dxggkHDzwI95NrE5mEzJ7cfFt/bSVbqDffKQ+tm7TEdLHoSjEcggfQ=="],
 
     "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.9.0", "", { "dependencies": { "line-column": "^1.0.2", "ohm-js": "^17.0.0" } }, "sha512-bkI4tLbU47YUxpgbMa9fgeJjFEMvRNEFL644Yk0ZKo5H1IRzU4pPyCQ6PkGvb0JJnt7OZ+RDGvb6ZLCnAR2Z/A=="],
 
