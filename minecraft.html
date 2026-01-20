@@ -62,15 +62,6 @@ permalink: /minecraft
           <li class="list-group-item" style="border-top: 0; padding-top: 0">
             <canvas id="tickrate-chart" height="30"></canvas>
           </li>
-          <li
-            class="list-group-item d-flex justify-content-between"
-            style="border-bottom: 0"
-          >
-            Memory<span id="memory"></span>
-          </li>
-          <li class="list-group-item" style="border-top: 0; padding-top: 0">
-            <canvas id="memory-chart" height="30"></canvas>
-          </li>
         </ul>
       </div>
       <div class="col-sm-6 col-right">
@@ -309,7 +300,6 @@ permalink: /minecraft
   var players = [];
 
   var charttickrate = null;
-  var chartmemory = null;
 
   function refresh() {
     $.getJSON(
@@ -343,7 +333,6 @@ permalink: /minecraft
         $("#tickrate").text(
           data.Tickrate[data.Tickrate.length - 1].toFixed(2) + "/s",
         );
-        $("#memory").text(data.Memory[data.Memory.length - 1].toFixed(2) + "%");
         $("#players").text(
           data["Info"]["Players"] + " / " + data["Info"]["MaxPlayers"],
         );
@@ -432,7 +421,7 @@ permalink: /minecraft
         };
 
         var labels = [];
-        for (var i = 0; i < data.Memory.length; i++) {
+        for (var i = 0; i < data.Tickrate.length; i++) {
           labels[i] = i;
         }
 
@@ -454,25 +443,6 @@ permalink: /minecraft
           },
           options: tickrateOptions,
         });
-
-        if (chartmemory != null) {
-          chartmemory.destroy();
-        }
-
-        chartmemory = new Chart(document.getElementById("memory-chart"), {
-          type: "line",
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                data: data.Memory,
-                borderColor: "#ffffff",
-                fill: false,
-              },
-            ],
-          },
-          options: availabilityOptions,
-        });
       },
     ).fail(function () {
       $("#overlay").hide();
@@ -486,7 +456,6 @@ permalink: /minecraft
       $("#time").text("Offline");
       $("#weather").text("Offline");
       $("#tickrate").text("Offline");
-      $("#memory").text("Offline");
       $("#players").text("Offline");
       $(".player-").remove();
     });
