@@ -310,15 +310,50 @@ permalink: /minecraft
 
 <script>
   var players = [];
-
   var charttickrate = null;
   var chartticktime = null;
+
+  // New variables for Time Interpolation
+  var lastServerTime = 0;
+  var lastServerDay = 0;
+  var lastUpdateTimestamp = 0;
+  var isOnline = false;
+
+  function formatMinecraftTime(ticks) {
+    var hour = Math.floor((ticks / 1000 + 6) % 24);
+    var period = hour >= 12 ? "pm" : "am";
+    hour = hour % 12 || 12;
+    var minute = Math.floor((ticks % 1000) / (16 + 2 / 3));
+    return hour + ":" + (minute < 10 ? "0" + minute : minute) + period;
+  }
+
+  // This function runs much faster (every 100ms) to keep the clock moving smoothly
+  function smoothUpdate() {
+    if (!isOnline) return;
+
+    // Calculate how many milliseconds have passed since the last actual JSON poll
+    var msSinceUpdate = Date.now() - lastUpdateTimestamp;
+
+    // Convert real-world MS to Minecraft Ticks (1000ms = 20 ticks)
+    var tickOffset = (msSinceUpdate / 1000) * 20;
+    var estimatedTime = lastServerTime + tickOffset;
+
+    // Handle day rollover in the estimation
+    if (estimatedTime >= 24000) {
+      // We don't increment the day here to avoid double-counting,
+      // we wait for the server to confirm the day change.
+      estimatedTime = estimatedTime % 24000;
+    }
+
+    $("#time").text(formatMinecraftTime(estimatedTime));
+  }
 
   function refresh() {
     $.getJSON(
       "https://api.{{ site.hostname }}/minecraft.json",
       function (data) {
         $("#overlay").hide();
+        isOnline = true;
         $("#status")
           .text("Online")
           .css("visibility", "visible")
@@ -327,7 +362,12 @@ permalink: /minecraft
         $(".remote").removeClass("disabled");
 
         $("#version").text(data["Info"]["Version"]);
-        $("#day").text(Number(data["Day"]).toLocaleString());
+
+        lastServerTime = data["Time"];
+        lastServerDay = data["Day"];
+        lastUpdateTimestamp = Date.now();
+
+        $("#day").text(Number(lastServerDay).toLocaleString());
 
         var hour = Math.floor((data["Time"] / 1000 + 6) % 24);
         var period = hour >= 12 ? "pm" : "am";
@@ -410,6 +450,7 @@ permalink: /minecraft
         });
       },
     ).fail(function () {
+      isOnline = false;
       $("#overlay").hide();
       $("#status")
         .text("Offline")
@@ -426,6 +467,7 @@ permalink: /minecraft
 
   refresh();
   setInterval(refresh, 1000);
+  setInterval(smoothUpdate, 100);
 </script>
 
 <script>
