@@ -62,6 +62,15 @@ permalink: /minecraft
           <li class="list-group-item" style="border-top: 0; padding-top: 0">
             <canvas id="tickrate-chart" height="30"></canvas>
           </li>
+          <li
+            class="list-group-item d-flex justify-content-between"
+            style="border-bottom: 0"
+          >
+            Ticktime<span id="ticktime"></span>
+          </li>
+          <li class="list-group-item" style="border-top: 0; padding-top: 0">
+            <canvas id="ticktime-chart" height="30"></canvas>
+          </li>
         </ul>
       </div>
       <div class="col-sm-6 col-right">
@@ -300,42 +309,46 @@ permalink: /minecraft
   var players = [];
 
   var charttickrate = null;
+  var chartticktime = null;
 
   function refresh() {
     $.getJSON(
       "https://api.{{ site.hostname }}/minecraft.json",
       function (data) {
         $("#overlay").hide();
-        $("#status").text("Online");
-        $("#status").css("visibility", "visible");
+        $("#status")
+          .text("Online")
+          .css("visibility", "visible")
+          .addClass("bg-success")
+          .removeClass("bg-danger");
         $(".remote").removeClass("disabled");
-        $("#status").addClass("bg-success");
-        $("#status").removeClass("bg-danger");
+
         $("#version").text(data["Info"]["Version"]);
-        var day = data["Day"];
-        $("#day").text(Number(day).toLocaleString());
-        var period = "am";
+        $("#day").text(Number(data["Day"]).toLocaleString());
+
         var hour = Math.floor((data["Time"] / 1000 + 6) % 24);
-        if (hour > 12) {
-          period = "pm";
-          hour = hour - 12;
-        } else if (hour == 0) {
-          hour = 12;
-        }
+        var period = hour >= 12 ? "pm" : "am";
+        hour = hour % 12 || 12;
         var minute = Math.floor((data["Time"] % 1000) / (16 + 2 / 3));
-        if (minute < 10) {
-          minute = "0" + minute;
-        }
-        $("#time").text(hour + ":" + minute + period);
+        $("#time").text(
+          hour + ":" + (minute < 10 ? "0" + minute : minute) + period,
+        );
+
         $("#weather").text(
           data["Weather"].charAt(0).toUpperCase() + data["Weather"].slice(1),
         );
+
         $("#tickrate").text(
           data.Tickrate[data.Tickrate.length - 1].toFixed(2) + "/s",
         );
+        $("#ticktime").text(
+          data.Ticktime[data.Ticktime.length - 1].toFixed(2) + "ms",
+        );
+
         $("#players").text(
           data["Info"]["Players"] + " / " + data["Info"]["MaxPlayers"],
         );
+
         var join = $(data.Players).not(players).get();
         var part = $(players).not(data.Players).get();
         $.each(join, function (key, value) {
@@ -354,109 +367,47 @@ permalink: /minecraft
         });
         players = data.Players;
 
-        var availabilityOptions = {
-          animation: {
-            duration: 0,
-          },
-          elements: {
-            line: {
-              borderWidth: 2,
-            },
-            point: {
-              radius: 0,
-              hitRadius: 0,
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-          scales: {
-            x: {
-              display: false,
-            },
-            y: {
-              display: false,
-              min: -10,
-              max: 110,
-            },
-          },
-          tooltips: {
-            enabled: true,
-          },
-        };
+        const getChartOptions = (min, max) => ({
+          animation: false,
+          elements: { line: { borderWidth: 2 }, point: { radius: 0 } },
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false, min, max } },
+        });
 
-        var tickrateOptions = {
-          animation: {
-            duration: 0,
-          },
-          elements: {
-            line: {
-              borderWidth: 2,
-            },
-            point: {
-              radius: 0,
-              hitRadius: 0,
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-          scales: {
-            x: {
-              display: false,
-            },
-            y: {
-              display: false,
-              min: -2,
-              max: 22,
-            },
-          },
-          tooltips: {
-            enabled: true,
-          },
-        };
+        var labels = Array.from({ length: 60 }, (_, i) => i);
 
-        var labels = [];
-        for (var i = 0; i < data.Tickrate.length; i++) {
-          labels[i] = i;
-        }
-
-        if (charttickrate != null) {
-          charttickrate.destroy();
-        }
-
+        if (charttickrate) charttickrate.destroy();
         charttickrate = new Chart(document.getElementById("tickrate-chart"), {
           type: "line",
           data: {
             labels: labels,
             datasets: [
-              {
-                data: data.Tickrate,
-                borderColor: "#ffffff",
-                fill: false,
-              },
+              { data: data.Tickrate, borderColor: "#ffffff", fill: false },
             ],
           },
-          options: tickrateOptions,
+          options: getChartOptions(-2, 22),
+        });
+
+        if (chartticktime) chartticktime.destroy();
+        chartticktime = new Chart(document.getElementById("ticktime-chart"), {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              { data: data.Ticktime, borderColor: "#ffffff", fill: false },
+            ],
+          },
+          options: getChartOptions(-5, 55),
         });
       },
     ).fail(function () {
-      $("#overlay").hide();
-      $("#status").text("Offline");
-      $("#status").css("visibility", "visible");
-      $(".remote").addClass("disabled");
-      $("#status").addClass("bg-danger");
-      $("#status").removeClass("bg-success");
-      $("#version").text("Offline");
-      $("#day").text("Offline");
-      $("#time").text("Offline");
-      $("#weather").text("Offline");
-      $("#tickrate").text("Offline");
-      $("#players").text("Offline");
+      $("#status")
+        .text("Offline")
+        .addClass("bg-danger")
+        .removeClass("bg-success");
+      $("#tickrate, #ticktime, #version, #day, #time, #weather, #players").text(
+        "Offline",
+      );
       $(".player-").remove();
     });
   }
