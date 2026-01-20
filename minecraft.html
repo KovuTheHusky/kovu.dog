@@ -410,10 +410,13 @@ permalink: /minecraft
         });
       },
     ).fail(function () {
+      $("#overlay").hide();
       $("#status")
         .text("Offline")
+        .css("visibility", "visible")
         .addClass("bg-danger")
         .removeClass("bg-success");
+      $(".remote").addClass("disabled");
       $(
         "#tickrate, #ticktime, #version, #day, #time, #weather, #moon, #players",
       ).text("Offline");
