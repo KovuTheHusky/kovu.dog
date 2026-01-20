@@ -263,21 +263,18 @@ layout: default
 
   function refresh() {
     if (!shown) {
-      $.getJSON(
-        "https://status.{{ site.hostname }}/twitch.json",
-        function (data) {
-          if (data["type"] == "live") {
-            shown = true;
-            $("#twitch").append(
-              '<iframe src="https://player.twitch.tv/?channel=kovuthehusky&parent={{ site.hostname }}" height="624" width="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>',
-            );
-            $("#twitch").css("margin-bottom", "66px");
-            $("#twitch > iframe").height(
-              ($("#twitch > iframe").width() * 9) / 16,
-            );
-          }
-        },
-      );
+      $.getJSON("https://api.{{ site.hostname }}/twitch.json", function (data) {
+        if (data["type"] == "live") {
+          shown = true;
+          $("#twitch").append(
+            '<iframe src="https://player.twitch.tv/?channel=kovuthehusky&parent={{ site.hostname }}" height="624" width="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>',
+          );
+          $("#twitch").css("margin-bottom", "66px");
+          $("#twitch > iframe").height(
+            ($("#twitch > iframe").width() * 9) / 16,
+          );
+        }
+      });
     } else {
       clearInterval(interval);
     }

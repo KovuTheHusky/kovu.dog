@@ -193,7 +193,7 @@ permalink: /minecraft
           <input
             type="text"
             class="form-control"
-            onclick="this.select();"
+            onclick="this.select()"
             value="{{ site.hostname }}"
             readonly
           />
@@ -313,7 +313,7 @@ permalink: /minecraft
 
   function refresh() {
     $.getJSON(
-      "https://status.{{ site.hostname }}/minecraft.json",
+      "https://api.{{ site.hostname }}/minecraft.json",
       function (data) {
         $("#overlay").hide();
         $("#status").text("Online");

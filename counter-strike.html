@@ -78,7 +78,7 @@ permalink: /counter-strike
 
   function refresh() {
     $.getJSON(
-      "https://status.{{ site.hostname }}/counter-strike.json",
+      "https://api.{{ site.hostname }}/counter-strike.json",
       function (data) {
         $("#status").text("Online");
         $(".remote").removeClass("disabled");
