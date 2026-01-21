@@ -5,6 +5,32 @@ subtitle: "Timeline, connection details, world downloads, maps."
 permalink: /minecraft
 ---
 
+<style>
+  .chart-background {
+    height: 61.5px;
+  }
+  /* Green at the top, Red at the bottom */
+  .tickrate-background {
+    background: linear-gradient(
+      to bottom,
+      rgba(40, 167, 69, 0.07) 0%,
+      rgba(40, 167, 69, 0.07) 15%,
+      rgba(220, 53, 69, 0.07) 15%,
+      rgba(220, 53, 69, 0.07) 100%
+    );
+  }
+
+  /* Red at the top, Green at the bottom */
+  .ticktime-background {
+    background: linear-gradient(
+      to bottom,
+      rgba(220, 53, 69, 0.07) 0%,
+      rgba(220, 53, 69, 0.07) 25%,
+      rgba(40, 167, 69, 0.07) 25%,
+      rgba(40, 167, 69, 0.07) 100%
+    );
+  }
+</style>
 <div class="container">
   <div class="card" style="margin-bottom: 66px">
     <div class="card-body justify-content-center align-items-center">
@@ -59,7 +85,11 @@ permalink: /minecraft
           >
             Tickrate<span id="tickrate"></span>
           </li>
-          <li class="list-group-item" style="border-top: 0; padding-top: 0">
+          <li
+            id="tickrate-item"
+            class="list-group-item chart-background"
+            style="border-top: 0; padding-top: 0"
+          >
             <canvas id="tickrate-chart" height="30"></canvas>
           </li>
           <li
@@ -68,7 +98,11 @@ permalink: /minecraft
           >
             Ticktime<span id="ticktime"></span>
           </li>
-          <li class="list-group-item" style="border-top: 0; padding-top: 0">
+          <li
+            id="ticktime-item"
+            class="list-group-item chart-background"
+            style="border-top: 0; padding-top: 0"
+          >
             <canvas id="ticktime-chart" height="30"></canvas>
           </li>
         </ul>
@@ -406,6 +440,9 @@ permalink: /minecraft
           .removeClass("bg-danger");
         $(".remote").removeClass("disabled");
 
+        $("#tickrate-item").addClass("tickrate-background");
+        $("#ticktime-item").addClass("ticktime-background");
+
         $("#version").text(data["Info"]["Version"]);
         lastServerTime = data["Time"];
         lastServerDay = data["Day"];
@@ -486,10 +523,22 @@ permalink: /minecraft
         .addClass("bg-danger")
         .removeClass("bg-success");
       $(".remote").addClass("disabled");
+
+      $("#tickrate-item").removeClass("tickrate-background");
+      $("#ticktime-item").removeClass("ticktime-background");
+
       $("#tickrate, #ticktime, #version, #day, #time, #weather, #players").text(
         "Offline",
       );
       $(".player-").remove();
+      if (charttickrate) {
+        charttickrate.destroy();
+        charttickrate = null;
+      }
+      if (chartticktime) {
+        chartticktime.destroy();
+        chartticktime = null;
+      }
     });
   }
 
