@@ -1,12 +1,26 @@
+- title: "Survival 2025"
+  badge:
+    color: secondary
+    label: "Archived"
+  description: "The longest lasting world started in version 1.19.4 and retired in version 1.21.4. Included many players."
+  buttons:
+    - label: "Download"
+      link: "https://archive.kovu.dog/minecraft/survival-2025.zip"
+      primary: true
+    # - label: "Map"
+    #   link: "https://archive.kovu.dog/minecraft/survival-2025/"
+
 - title: "Survival 2022"
   badge:
     color: secondary
     label: "Archived"
-  description: "The longest lasting world started in version 1.7.2 and retired in version 1.19.3. Included many players."
+  description: "The longest lasting world started in version 1.7.2 and retired in version 1.19.4. Included many players."
   buttons:
     - label: "Download"
       link: "https://archive.kovu.dog/minecraft/survival-2022.zip"
       primary: true
+    # - label: "Map"
+    #   link: "https://archive.kovu.dog/minecraft/survival-2022/"
 
 - title: "Forge 2015"
   badge:
