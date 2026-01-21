@@ -316,10 +316,10 @@ permalink: /minecraft
 
   function formatMinecraftTime(ticks) {
     var hour = Math.floor((ticks / 1000 + 6) % 24);
-    var period = hour >= 12 ? "pm" : "am";
-    hour = hour % 12 || 12;
     var minute = Math.floor((ticks % 1000) / (16 + 2 / 3));
-    return hour + ":" + (minute < 10 ? "0" + minute : minute) + period;
+    var hourDisplay = hour < 10 ? "0" + hour : hour;
+    var minuteDisplay = minute < 10 ? "0" + minute : minute;
+    return hourDisplay + ":" + minuteDisplay;
   }
 
   function updateTwemoji(id) {
