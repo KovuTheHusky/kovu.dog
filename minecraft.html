@@ -53,9 +53,6 @@ permalink: /minecraft
           <li class="list-group-item d-flex justify-content-between">
             Weather<span id="weather"></span>
           </li>
-          <li class="list-group-item d-flex justify-content-between">
-            Moon<span id="moon"></span>
-          </li>
           <li
             class="list-group-item d-flex justify-content-between"
             style="border-bottom: 0"
@@ -296,12 +293,24 @@ permalink: /minecraft
 </script>
 
 <script>
+  const moonIcons = {
+    full_moon: "🌕",
+    waning_gibbous: "🌖",
+    last_quarter: "🌗",
+    waning_crescent: "🌘",
+    new_moon: "🌑",
+    waxing_crescent: "🌒",
+    first_quarter: "🌓",
+    waxing_gibbous: "🌔",
+  };
+
   var players = [];
   var charttickrate = null;
   var chartticktime = null;
 
   var lastServerTime = 0;
   var lastServerDay = 0;
+  var lastServerMoon = "new_moon";
   var lastUpdateTimestamp = 0;
   var isOnline = false;
 
@@ -329,7 +338,11 @@ permalink: /minecraft
     var estimatedTime = lastServerTime + tickOffset;
     if (estimatedTime >= 24000) estimatedTime = estimatedTime % 24000;
 
-    var timeIcon = estimatedTime >= 0 && estimatedTime < 12000 ? "☀️" : "🌙";
+    var timeIcon =
+      estimatedTime >= 0 && estimatedTime < 12000
+        ? "☀️"
+        : moonIcons[lastServerMoon] || "🌙";
+
     $("#time").text(timeIcon + " " + formatMinecraftTime(estimatedTime));
     updateTwemoji("time");
   }
@@ -350,10 +363,10 @@ permalink: /minecraft
         $("#version").text(data["Info"]["Version"]);
         lastServerTime = data["Time"];
         lastServerDay = data["Day"];
+        lastServerMoon = data["Moon"];
         lastUpdateTimestamp = Date.now();
         $("#day").text(Number(lastServerDay).toLocaleString());
 
-        // Weather with Emoji
         const weatherIcons = { clear: "☀️", rain: "🌧️", thunder: "⛈️" };
         let wLabel =
           data["Weather"].charAt(0).toUpperCase() + data["Weather"].slice(1);
@@ -361,23 +374,6 @@ permalink: /minecraft
           (weatherIcons[data["Weather"]] || "❓") + " " + wLabel,
         );
         updateTwemoji("weather");
-
-        // Moon with Emoji
-        const moonIcons = {
-          full_moon: "🌕",
-          waning_gibbous: "🌖",
-          last_quarter: "🌗",
-          waning_crescent: "🌘",
-          new_moon: "🌑",
-          waxing_crescent: "🌒",
-          first_quarter: "🌓",
-          waxing_gibbous: "🌔",
-        };
-        let mLabel = data["Moon"]
-          .replace(/_/g, " ")
-          .replace(/\b\w/g, (l) => l.toUpperCase());
-        $("#moon").text((moonIcons[data["Moon"]] || "🌙") + " " + mLabel);
-        updateTwemoji("moon");
 
         $("#tickrate").text(
           data.Tickrate[data.Tickrate.length - 1].toFixed(2) + "/s",
@@ -448,9 +444,9 @@ permalink: /minecraft
         .addClass("bg-danger")
         .removeClass("bg-success");
       $(".remote").addClass("disabled");
-      $(
-        "#tickrate, #ticktime, #version, #day, #time, #weather, #moon, #players",
-      ).text("Offline");
+      $("#tickrate, #ticktime, #version, #day, #time, #weather, #players").text(
+        "Offline",
+      );
       $(".player-").remove();
     });
   }
