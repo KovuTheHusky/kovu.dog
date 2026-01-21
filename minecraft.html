@@ -350,9 +350,11 @@ permalink: /minecraft
   function formatMinecraftTime(ticks) {
     var hour = Math.floor((ticks / 1000 + 6) % 24);
     var minute = Math.floor((ticks % 1000) / (16 + 2 / 3));
-    var hourDisplay = hour < 10 ? "0" + hour : hour;
-    var minuteDisplay = minute < 10 ? "0" + minute : minute;
-    return hourDisplay + ":" + minuteDisplay;
+    return (
+      (hour < 10 ? "0" + hour : hour) +
+      ":" +
+      (minute < 10 ? "0" + minute : minute)
+    );
   }
 
   function updateTwemoji(id) {
