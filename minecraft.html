@@ -347,52 +347,6 @@ permalink: /minecraft
   var lastUpdateTimestamp = 0;
   var isOnline = false;
 
-  const chartBands = {
-    id: "chartBands",
-    beforeDraw: (chart, args, options) => {
-      const {
-        ctx,
-        chartArea: { top, bottom, left, right },
-        scales: { y },
-      } = chart;
-      const type = chart.config.options.customType;
-      const threshold = type === "tickrate" ? 19.9 : 40.0;
-      const thresholdPixel = y.getPixelForValue(threshold);
-
-      ctx.save();
-      if (type === "tickrate") {
-        ctx.fillStyle = "rgba(40, 167, 69, 0.2)";
-        ctx.fillRect(left, top, right - left, thresholdPixel - top);
-        ctx.fillStyle = "rgba(220, 53, 69, 0.2)";
-        ctx.fillRect(
-          left,
-          thresholdPixel,
-          right - left,
-          bottom - thresholdPixel,
-        );
-      } else {
-        ctx.fillStyle = "rgba(40, 167, 69, 0.2)";
-        ctx.fillRect(
-          left,
-          thresholdPixel,
-          right - left,
-          bottom - thresholdPixel,
-        );
-        ctx.fillStyle = "rgba(220, 53, 69, 0.2)";
-        ctx.fillRect(left, top, right - left, thresholdPixel - top);
-      }
-      ctx.restore();
-    },
-  };
-
-  const getOpts = (min, max, type) => ({
-    animation: false,
-    customType: type,
-    elements: { line: { borderWidth: 2 }, point: { radius: 0 } },
-    plugins: { legend: { display: false } },
-    scales: { x: { display: false }, y: { display: false, min, max } },
-  });
-
   function formatMinecraftTime(ticks) {
     var hour = Math.floor((ticks / 1000 + 6) % 24);
     var minute = Math.floor((ticks % 1000) / (16 + 2 / 3));
@@ -485,6 +439,12 @@ permalink: /minecraft
         });
         players = data.Players;
 
+        const getOpts = (min, max) => ({
+          animation: false,
+          elements: { line: { borderWidth: 2 }, point: { radius: 0 } },
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false, min, max } },
+        });
         var labels = Array.from({ length: 60 }, (_, i) => i);
 
         if (charttickrate) charttickrate.destroy();
@@ -496,8 +456,7 @@ permalink: /minecraft
               { data: data.Tickrate, borderColor: "#ffffff", fill: false },
             ],
           },
-          options: getOpts(-2, 22, "tickrate"),
-          plugins: [chartBands],
+          options: getOpts(-2, 22),
         });
 
         if (chartticktime) chartticktime.destroy();
@@ -509,8 +468,7 @@ permalink: /minecraft
               { data: data.Ticktime, borderColor: "#ffffff", fill: false },
             ],
           },
-          options: getOpts(-5, 55, "ticktime"),
-          plugins: [chartBands],
+          options: getOpts(-5, 55),
         });
       },
     ).fail(function () {
