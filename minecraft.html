@@ -370,7 +370,9 @@ permalink: /minecraft
   var lastServerTime = 0;
   var lastServerDay = 0;
   var lastServerMoon = "new_moon";
-  var lastUpdateTimestamp = 0;
+
+  // New Variable: Track when the server actually generated the file
+  var lastServerUpdated = 0;
   var isOnline = false;
 
   function formatMinecraftTime(ticks) {
@@ -393,9 +395,12 @@ permalink: /minecraft
   }
 
   function smoothUpdate() {
-    if (!isOnline) return;
-    var msSinceUpdate = Date.now() - lastUpdateTimestamp;
-    var tickOffset = (msSinceUpdate / 1000) * 20;
+    if (!isOnline || lastServerUpdated === 0) return;
+
+    var secondsSinceUpdate = Date.now() / 1000 - lastServerUpdated;
+
+    var tickOffset = secondsSinceUpdate * 20;
+
     var estimatedTime = lastServerTime + tickOffset;
     if (estimatedTime >= 24000) estimatedTime = estimatedTime % 24000;
 
@@ -414,6 +419,18 @@ permalink: /minecraft
       function (data) {
         $("#overlay").hide();
         isOnline = true;
+
+        var currentUpdate = data.Updated || Math.floor(Date.now() / 1000);
+
+        if (currentUpdate <= lastServerUpdated) {
+          return;
+        }
+
+        lastServerUpdated = currentUpdate;
+        lastServerTime = data["Time"];
+        lastServerDay = data["Day"];
+        lastServerMoon = data["Moon"];
+
         $("#status")
           .text("Online")
           .css("visibility", "visible")
@@ -425,10 +442,6 @@ permalink: /minecraft
         $("#ticktime-item").addClass("ticktime-background");
 
         $("#version").text(data["Info"]["Version"]);
-        lastServerTime = data["Time"];
-        lastServerDay = data["Day"];
-        lastServerMoon = data["Moon"];
-        lastUpdateTimestamp = Date.now();
         $("#day").text(Number(lastServerDay).toLocaleString());
 
         const weatherIcons = { clear: "☀️", rain: "🌧️", thunder: "⛈️" };
