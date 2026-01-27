@@ -5,10 +5,10 @@
   description: "The longest lasting world started in version 1.19.4 and retired in version 1.21.4. Included many players."
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/survival-2025.zip"
+      link: "https://archive.kovu.dog/minecraft/2025-survival.zip"
       primary: true
-    # - label: "Map"
-    #   link: "https://archive.kovu.dog/minecraft/survival-2025/"
+    - label: "Map"
+      link: "https://archive.kovu.dog/minecraft/2025-survival/"
 
 - title: "Survival 2022"
   badge:
@@ -17,10 +17,10 @@
   description: "The longest lasting world started in version 1.7.2 and retired in version 1.19.4. Included many players."
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/survival-2022.zip"
+      link: "https://archive.kovu.dog/minecraft/2022-survival.zip"
       primary: true
-    # - label: "Map"
-    #   link: "https://archive.kovu.dog/minecraft/survival-2022/"
+    - label: "Map"
+      link: "https://archive.kovu.dog/minecraft/2022-survival/"
 
 - title: "Forge 2015"
   badge:
@@ -29,7 +29,7 @@
   description: "A world using the Biomes O' Plenty mod from version 1.8-1.9.4. No map is available due to compatibility issues."
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/forge-2015.zip"
+      link: "https://archive.kovu.dog/minecraft/2015-forge.zip"
       primary: true
 
 - title: "Survival 2013"
@@ -39,10 +39,10 @@
   description: "The second long lasting world started in version 1.2.3 and retired in version 1.6.4. Included many players."
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/survival-2013.zip"
+      link: "https://archive.kovu.dog/minecraft/2013-survival.zip"
       primary: true
     - label: "Map"
-      link: "https://archive.kovu.dog/minecraft/survival-2013/"
+      link: "https://archive.kovu.dog/minecraft/2013-survival/"
 
 - title: "Creative 2012"
   badge:
@@ -54,10 +54,10 @@
     nytewuff.
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/creative-2012.zip"
+      link: "https://archive.kovu.dog/minecraft/2012-creative.zip"
       primary: true
     - label: "Map"
-      link: "https://archive.kovu.dog/minecraft/creative-2012/"
+      link: "https://archive.kovu.dog/minecraft/2012-creative/"
 
 - title: "Survival 2012"
   badge:
@@ -73,10 +73,10 @@
     Cujo27.
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/survival-2012.zip"
+      link: "https://archive.kovu.dog/minecraft/2012-survival.zip"
       primary: true
     - label: "Map"
-      link: "https://archive.kovu.dog/minecraft/survival-2012/"
+      link: "https://archive.kovu.dog/minecraft/2012-survival/"
 
 - title: "Survival 2011"
   badge:
@@ -85,7 +85,7 @@
   description: "The first world created in version 1.2_02β and retired in version 1.7.3β. Players consisted mostly of family."
   buttons:
     - label: "Download"
-      link: "https://archive.kovu.dog/minecraft/survival-2011.zip"
+      link: "https://archive.kovu.dog/minecraft/2011-survival.zip"
       primary: true
     - label: "Map"
-      link: "https://archive.kovu.dog/minecraft/survival-2011/"
+      link: "https://archive.kovu.dog/minecraft/2011-survival/"
