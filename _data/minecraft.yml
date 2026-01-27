@@ -2,7 +2,7 @@
   badge:
     color: secondary
     label: "Archived"
-  description: "The longest lasting world started in version 1.19.4 and retired in version 1.21.4. Included many players."
+  description: "The longest lasting world started in version 1.19.4 and retired in version 1.21.4. Fairly inactive server with only a few players."
   buttons:
     - label: "Download"
       link: "https://archive.kovu.dog/minecraft/2025-survival.zip"
@@ -51,7 +51,7 @@
   description: >-
     An experimental creative mode world used for versions 1.8β-1.1. Only substantial build is by
     <img src="/images/minecraft/NightWolf1298.webp" alt="NightWolf1298" class="rounded" style="image-rendering: pixelated;">
-    nytewuff.
+    NightWolf1298.
   buttons:
     - label: "Download"
       link: "https://archive.kovu.dog/minecraft/2012-creative.zip"
@@ -68,7 +68,7 @@
     <img src="/images/minecraft/KovuTheHusky.webp" alt="KovuTheHusky" class="rounded" style="image-rendering: pixelated;">
     KovuTheHusky,
     <img src="/images/minecraft/NightWolf1298.webp" alt="NightWolf1298" class="rounded" style="image-rendering: pixelated;">
-    nytewuff, and
+    NightWolf1298, and
     <img src="/images/minecraft/Cujo27.webp" alt="Cujo27" class="rounded" style="image-rendering: pixelated;">
     Cujo27.
   buttons:
