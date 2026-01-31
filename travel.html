@@ -398,7 +398,7 @@ permalink: /travel
       layerId === "route-lines-future"
     ) {
       // --- Route Popup (Works for both) ---
-      const type = layerId === "route-lines-future" ? "Upcoming" : "Past";
+      const type = layerId === "route-lines-future" ? "upcoming" : "past";
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${feature.properties.origin} ↔ ${feature.properties.destination}</h6>
