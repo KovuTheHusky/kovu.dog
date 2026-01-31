@@ -24,3 +24,4 @@ gem "wdm", "~> 0.2", :install_if => Gem.win_platform?
 gem "logger"
 gem "nokogiri", "~> 1.16"
 gem "webrick", "~> 1.9"
+gem "mini_magick"

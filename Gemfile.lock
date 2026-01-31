@@ -69,6 +69,8 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
     mercenary (0.4.0)
+    mini_magick (5.3.1)
+      logger
     nokogiri (1.19.0-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.0-x86_64-darwin)
@@ -116,6 +118,7 @@ DEPENDENCIES
   jekyll-seo-tag (~> 2.8)
   jekyll-sitemap (~> 1.4)
   logger
+  mini_magick
   nokogiri (~> 1.16)
   tzinfo (~> 2.0)
   tzinfo-data
