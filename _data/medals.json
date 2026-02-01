@@ -12,7 +12,7 @@
       "title": "GO Fest 2020",
       "subtitle": "Global, July 25-26, 2020"
     },
-    "pokemon-go-tour-kanto-2021.webp": {
+    "pokemon-go-tour-kanto.webp": {
       "title": "GO Tour Kanto",
       "subtitle": "Global, February 20, 2021"
     },
@@ -30,7 +30,7 @@
     },
     "legacy-40.webp": {
       "title": "Legacy 40",
-      "subtitle": "Achieve level 40 by December 31, 2020."
+      "subtitle": "Achieved by December 31, 2020"
     },
     "pokemon-go-fest-2021.webp": {
       "title": "GO Fest 2021",
@@ -39,6 +39,42 @@
     "pokemon-go-fest-2022.webp": {
       "title": "GO Fest 2022",
       "subtitle": "Global, June 4-5 & August 27, 2022"
+    },
+    "pokemon-go-fest-2023-new-york-city-city.webp#2": {
+      "title": "GO Fest 2023",
+      "subtitle": "New York City, August 18, 2023"
+    },
+    "pokemon-go-fest-2023-new-york-city-city.webp#3": {
+      "title": "GO Fest 2023",
+      "subtitle": "New York City, August 19, 2023"
+    },
+    "pokemon-go-fest-2023-new-york-city-city.webp#4": {
+      "title": "GO Fest 2023",
+      "subtitle": "New York City, August 20, 2023"
+    },
+    "pokemon-go-fest-2023-new-york-city-park.webp": {
+      "title": "GO Fest 2023",
+      "subtitle": "New York City, August 19, 2023"
+    },
+    "pokemon-go-fest-2023-new-york-city-addon.webp": {
+      "title": "GO Fest 2023",
+      "subtitle": "Egg-thusiast"
+    },
+    "pokemon-go-fest-2023-new-york-city-addon.webp#2": {
+      "title": "GO Fest 2023",
+      "subtitle": "Raid Lover"
+    },
+    "go-tour-unova-black-version-reshiram.webp": {
+      "title": "GO Tour: Unova",
+      "subtitle": "Global, March, 2025"
+    },
+    "legacy-40.webp#2": {
+      "title": "Legacy 40",
+      "subtitle": "Achieved by October 15, 2025"
+    },
+    "elite-collector.webp": {
+      "title": "Elite Collector",
+      "subtitle": "Complete Collection Challenges"
     }
   },
   "general": {
@@ -178,10 +214,6 @@
       "title": "Wayfarer",
       "rank": "shadow"
     },
-    "galar.webp": {
-      "title": "Galar",
-      "rank": "shadow"
-    },
     "kalos.webp": {
       "title": "Kalos",
       "rank": "bronze"
@@ -189,6 +221,14 @@
     "alola.webp": {
       "title": "Alola",
       "rank": "bronze"
+    },
+    "galar.webp": {
+      "title": "Galar",
+      "rank": "shadow"
+    },
+    "hisui.webp": {
+      "title": "Hisui",
+      "rank": "shadow"
     },
     "triathlete.webp": {
       "title": "Triathlete",
@@ -214,6 +254,10 @@
       "title": "Mega Evolution Guru",
       "rank": "bronze"
     },
+    "expert-navigator.webp": {
+      "title": "Expert Navigator",
+      "rank": "shadow"
+    },
     "friend-finder.webp": {
       "title": "Friend Finder",
       "rank": "shadow"
@@ -221,6 +265,34 @@
     "raid-expert.webp": {
       "title": "Raid Expert",
       "rank": "bronze"
+    },
+    "tiny-pokemon-collector.webp": {
+      "title": "Tiny Pokémon Collector",
+      "rank": "shadow"
+    },
+    "jumbo-pokemon-collector.webp": {
+      "title": "Jumbo Pokémon Collector",
+      "rank": "shadow"
+    },
+    "paldea.webp": {
+      "title": "Paldea",
+      "rank": "shadow"
+    },
+    "life-of-the-party.webp": {
+      "title": "Life of the Party",
+      "rank": "shadow"
+    },
+    "community-member.webp": {
+      "title": "Community Member",
+      "rank": "shadow"
+    },
+    "vivillon-collector.webp": {
+      "title": "Vivillon Collector",
+      "rank": "shadow"
+    },
+    "showcase-star.webp": {
+      "title": "Showcase Star",
+      "rank": "shadow"
     }
   },
   "type": {

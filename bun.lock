@@ -377,7 +377,7 @@
 
     "pngjs-nozlib": ["pngjs-nozlib@1.0.0", "", {}, "sha512-N1PggqLp9xDqwAoKvGohmZ3m4/N9xpY0nDZivFqQLcpLHmliHnCp9BuNCsOeqHWMuEEgFjpEaq9dZq6RZyy0fA=="],
 
-    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#ebe88fc", {}, "KovuTheHusky-pokemon-medals-ebe88fc"],
+    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#a15a1bf", {}, "KovuTheHusky-pokemon-medals-a15a1bf"],
 
     "potpack": ["potpack@2.1.0", "", {}, "sha512-pcaShQc1Shq0y+E7GqJqvZj8DTthWV1KeHGdi0Z6IAin2Oi3JnLCOfwnCo84qc+HAp52wT9nK9H7FAJp5a44GQ=="],
 

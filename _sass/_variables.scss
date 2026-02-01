@@ -298,11 +298,15 @@ a.disabled {
 .grid-pokemon div span.pokemon-text {
   margin-top: 8px;
   display: block;
-  font-size: 60%;
+  font-size: 50%;
   line-height: 1;
   white-space: nowrap;
   margin-left: -28px;
   margin-right: -28px;
+}
+
+.grid-pokemon div span.pokemon-subtext {
+  font-size: 75%;
 }
 
 .colors button {

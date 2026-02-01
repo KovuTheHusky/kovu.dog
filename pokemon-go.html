@@ -102,7 +102,9 @@ divided_by: all_pokemon.size | round %}
       <div class="{% if pokemon.caught %}c{% else %}n{% endif %}">
         <span class="pokemon-icon pokemon-{{ pokemon.id }}"></span>
         <span class="pokemon-text"
-          >{{ pokemon.name }}<br />#{{ pokemon.id }}</span
+          >{{ pokemon.name }}<br /><span class="pokemon-subtext"
+            >#{{ pokemon.id }}</span
+          ></span
         >
       </div>
       {% endfor %}
@@ -127,7 +129,11 @@ divided_by: all_pokemon.size | round %}
           class="pokemon-medal"
         />
         {% endif %}
-        <span class="pokemon-text">{{ medal[1].title }}</span>
+        <span class="pokemon-text"
+          >{{ medal[1].title }}<br /><span class="pokemon-subtext"
+            >{{ medal[1].subtitle | default: "&nbsp;" }}</span
+          ></span
+        >
       </div>
       {% endfor %} {% endfor %}
     </div>
