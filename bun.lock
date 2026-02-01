@@ -20,10 +20,9 @@
         "jquery": "^4.0.0",
         "mapbox-gl": "^3.18.1",
         "masonry-layout": "^4.2.2",
-        "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
-        "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
+        "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
         "qr-code-styling": "^1.9.2",
-        "simple-icons": "^16.6.1",
+        "simple-icons": "^16.7.0",
       },
       "devDependencies": {
         "@shopify/prettier-plugin-liquid": "^1.10.0",
@@ -378,9 +377,7 @@
 
     "pngjs-nozlib": ["pngjs-nozlib@1.0.0", "", {}, "sha512-N1PggqLp9xDqwAoKvGohmZ3m4/N9xpY0nDZivFqQLcpLHmliHnCp9BuNCsOeqHWMuEEgFjpEaq9dZq6RZyy0fA=="],
 
-    "pokemon-icons": ["pokemon-icons@github:TheArtificial/pokemon-icons#33e644c", {}, "TheArtificial-pokemon-icons-33e644c"],
-
-    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#7340bdc", {}, "KovuTheHusky-pokemon-medals-7340bdc"],
+    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#ebe88fc", {}, "KovuTheHusky-pokemon-medals-ebe88fc"],
 
     "potpack": ["potpack@2.1.0", "", {}, "sha512-pcaShQc1Shq0y+E7GqJqvZj8DTthWV1KeHGdi0Z6IAin2Oi3JnLCOfwnCo84qc+HAp52wT9nK9H7FAJp5a44GQ=="],
 
@@ -426,7 +423,7 @@
 
     "sharp": ["sharp@0.34.5", "", { "dependencies": { "@img/colour": "^1.0.0", "detect-libc": "^2.1.2", "semver": "^7.7.3" }, "optionalDependencies": { "@img/sharp-darwin-arm64": "0.34.5", "@img/sharp-darwin-x64": "0.34.5", "@img/sharp-libvips-darwin-arm64": "1.2.4", "@img/sharp-libvips-darwin-x64": "1.2.4", "@img/sharp-libvips-linux-arm": "1.2.4", "@img/sharp-libvips-linux-arm64": "1.2.4", "@img/sharp-libvips-linux-ppc64": "1.2.4", "@img/sharp-libvips-linux-riscv64": "1.2.4", "@img/sharp-libvips-linux-s390x": "1.2.4", "@img/sharp-libvips-linux-x64": "1.2.4", "@img/sharp-libvips-linuxmusl-arm64": "1.2.4", "@img/sharp-libvips-linuxmusl-x64": "1.2.4", "@img/sharp-linux-arm": "0.34.5", "@img/sharp-linux-arm64": "0.34.5", "@img/sharp-linux-ppc64": "0.34.5", "@img/sharp-linux-riscv64": "0.34.5", "@img/sharp-linux-s390x": "0.34.5", "@img/sharp-linux-x64": "0.34.5", "@img/sharp-linuxmusl-arm64": "0.34.5", "@img/sharp-linuxmusl-x64": "0.34.5", "@img/sharp-wasm32": "0.34.5", "@img/sharp-win32-arm64": "0.34.5", "@img/sharp-win32-ia32": "0.34.5", "@img/sharp-win32-x64": "0.34.5" } }, "sha512-Ou9I5Ft9WNcCbXrU9cMgPBcCK8LiwLqcbywW3t4oDV37n1pzpuNLsYiAV8eODnjbtQlSDwZ2cUEeQz4E54Hltg=="],
 
-    "simple-icons": ["simple-icons@16.6.1", "", {}, "sha512-zg3g5RCnc3cJfxCclOvElfow2rtpeB+Ow/dj1uvGG3MkpT7OjPBrE2hotqW2Hmt2ZYbuXCx2u+Oh4yi5N+yg5Q=="],
+    "simple-icons": ["simple-icons@16.7.0", "", {}, "sha512-2BteuQXu1+/jK5dF8YXe8nwoRG3afwl03bCmgPJLiotllUBU46B+WntXT731Z17oOntfV5eeTI7Q1k7MeOA6eg=="],
 
     "splaytree": ["splaytree@0.1.4", "", {}, "sha512-D50hKrjZgBzqD3FT2Ek53f2dcDLAQT8SSGrzj3vidNH5ISRgceeGVJ2dQIthKOuayqFXfFjXheHNo4bbt9LhRQ=="],
 

@@ -21,10 +21,9 @@
     "jquery": "^4.0.0",
     "mapbox-gl": "^3.18.1",
     "masonry-layout": "^4.2.2",
-    "pokemon-icons": "github:TheArtificial/pokemon-icons#gh-pages",
-    "pokemon-medals": "github:KovuTheHusky/pokemon-medals#gh-pages",
+    "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.6.1"
+    "simple-icons": "^16.7.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.0",
