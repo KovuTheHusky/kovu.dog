@@ -216,7 +216,6 @@ permalink: /travel
 
     const airportFeatures = createAirportFeatures(airportStats, airportDb);
 
-    // --- Add Sources ---
     map.addSource("flight-routes-past", {
       type: "geojson",
       data: { type: "FeatureCollection", features: pastFeatures },
@@ -232,60 +231,6 @@ permalink: /travel
       data: { type: "FeatureCollection", features: airportFeatures },
     });
 
-    // --- Add Layers ---
-
-    // 1. Past Flights (Aqua)
-    map.addLayer({
-      id: "route-lines-past",
-      type: "line",
-      source: "flight-routes-past",
-      paint: {
-        "line-color": "#76e9c8",
-        "line-opacity": 1,
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "count"],
-          1,
-          1,
-          10,
-          10,
-        ],
-      },
-    });
-
-    // 2. Future Flights (Gold)
-    map.addLayer({
-      id: "route-lines-future",
-      type: "line",
-      source: "flight-routes-future",
-      paint: {
-        "line-color": "#ffd700", // Gold
-        "line-opacity": 1,
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "count"],
-          1,
-          1, // Same thickness logic
-          10,
-          10,
-        ],
-      },
-    });
-
-    map.addLayer({
-      id: "airport-points",
-      type: "circle",
-      source: "airport-nodes",
-      paint: {
-        "circle-radius": 5,
-        "circle-color": "#76e9c8",
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
-
     map.addSource("places", {
       type: "geojson",
       data: "https://api.{{ site.hostname }}/places.geojson",
@@ -299,7 +244,8 @@ permalink: /travel
       paint: {
         "circle-radius": 2.5,
         "circle-color": "#44d262",
-        "circle-stroke-width": 0,
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 0.3125,
       },
     });
 
@@ -323,6 +269,56 @@ permalink: /travel
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
+      },
+    });
+
+    map.addLayer({
+      id: "route-lines-past",
+      type: "line",
+      source: "flight-routes-past",
+      paint: {
+        "line-color": "#76e9c8",
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["get", "count"],
+          1,
+          1,
+          10,
+          10,
+        ],
+      },
+    });
+
+    map.addLayer({
+      id: "route-lines-future",
+      type: "line",
+      source: "flight-routes-future",
+      paint: {
+        "line-color": "#ffd700",
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["get", "count"],
+          1,
+          1,
+          10,
+          10,
+        ],
+      },
+    });
+
+    map.addLayer({
+      id: "airport-points",
+      type: "circle",
+      source: "airport-nodes",
+      paint: {
+        "circle-radius": 5,
+        "circle-color": "#76e9c8",
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25,
       },
     });
   });
