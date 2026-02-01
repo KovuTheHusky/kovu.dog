@@ -152,15 +152,19 @@ permalink: /travel
     return features;
   }
 
-  function createAirportFeatures(airportCounts, db) {
+  function createAirportFeatures(airportStatsMap, db) {
     const features = [];
-    for (const [code, count] of airportCounts.entries()) {
+    for (const [code, stats] of airportStatsMap.entries()) {
       const coords = db.get(code);
       if (coords) {
         features.push({
           type: "Feature",
           geometry: { type: "Point", coordinates: coords },
-          properties: { code: code, count: count },
+          properties: {
+            code: code,
+            count: stats.count,
+            isFutureOnly: !stats.hasPast, // True ONLY if no past flights exist
+          },
         });
       }
     }
@@ -172,64 +176,6 @@ permalink: /travel
       getAirportDatabase(),
       loadFlightRoutesFromCSV("/flights.csv"),
     ]);
-
-    const routeStatsPast = new Map();
-    const routeStatsFuture = new Map();
-    const airportStats = new Map();
-
-    // Get today's date in YYYY-MM-DD format for comparison
-    const todayISO = new Date().toISOString().split("T")[0];
-
-    flightRoutes.forEach((route) => {
-      const routeKey = [route.origin, route.destination].sort().join("-");
-      const isFuture = route.date >= todayISO;
-
-      // Select which stats map to use (Past or Future)
-      const targetStats = isFuture ? routeStatsFuture : routeStatsPast;
-
-      if (!targetStats.has(routeKey)) {
-        targetStats.set(routeKey, {
-          origin: route.origin,
-          destination: route.destination,
-          count: 0,
-        });
-      }
-      targetStats.get(routeKey).count++;
-
-      // Aggregate airports (combining both past and future for the dots)
-      airportStats.set(route.origin, (airportStats.get(route.origin) || 0) + 1);
-      airportStats.set(
-        route.destination,
-        (airportStats.get(route.destination) || 0) + 1,
-      );
-    });
-
-    const pastFeatures = createRouteFeatures(
-      Array.from(routeStatsPast.values()),
-      airportDb,
-    );
-
-    const futureFeatures = createRouteFeatures(
-      Array.from(routeStatsFuture.values()),
-      airportDb,
-    );
-
-    const airportFeatures = createAirportFeatures(airportStats, airportDb);
-
-    map.addSource("flight-routes-past", {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: pastFeatures },
-    });
-
-    map.addSource("flight-routes-future", {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: futureFeatures },
-    });
-
-    map.addSource("airport-nodes", {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: airportFeatures },
-    });
 
     map.addSource("places", {
       type: "geojson",
@@ -272,6 +218,71 @@ permalink: /travel
       },
     });
 
+    // --- 2. Process Flight Data ---
+    const routeStatsPast = new Map();
+    const routeStatsFuture = new Map();
+    const airportStats = new Map(); // Key: Code, Value: { count, hasPast }
+
+    // Get today's date (YYYY-MM-DD)
+    const todayISO = new Date().toISOString().split("T")[0];
+
+    flightRoutes.forEach((route) => {
+      const routeKey = [route.origin, route.destination].sort().join("-");
+      const isFuture = route.date >= todayISO;
+
+      // 1. Separate Routes into Past or Future maps
+      const targetStats = isFuture ? routeStatsFuture : routeStatsPast;
+      if (!targetStats.has(routeKey)) {
+        targetStats.set(routeKey, {
+          origin: route.origin,
+          destination: route.destination,
+          count: 0,
+        });
+      }
+      targetStats.get(routeKey).count++;
+
+      // 2. Track Airport History (Check if it has ANY past flights)
+      [route.origin, route.destination].forEach((code) => {
+        if (!airportStats.has(code)) {
+          airportStats.set(code, { count: 0, hasPast: false });
+        }
+        const stats = airportStats.get(code);
+        stats.count++;
+
+        // If this flight is in the past, mark the airport as 'visited'
+        if (!isFuture) {
+          stats.hasPast = true;
+        }
+      });
+    });
+
+    const pastFeatures = createRouteFeatures(
+      Array.from(routeStatsPast.values()),
+      airportDb,
+    );
+    const futureFeatures = createRouteFeatures(
+      Array.from(routeStatsFuture.values()),
+      airportDb,
+    );
+    const airportFeatures = createAirportFeatures(airportStats, airportDb);
+
+    // --- 3. Add Flight Layers SECOND (Top) ---
+    map.addSource("flight-routes-past", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: pastFeatures },
+    });
+
+    map.addSource("flight-routes-future", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: futureFeatures },
+    });
+
+    map.addSource("airport-nodes", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: airportFeatures },
+    });
+
+    // Past Flights (Aqua)
     map.addLayer({
       id: "route-lines-past",
       type: "line",
@@ -291,6 +302,7 @@ permalink: /travel
       },
     });
 
+    // Future Flights (Gold)
     map.addLayer({
       id: "route-lines-future",
       type: "line",
@@ -310,13 +322,14 @@ permalink: /travel
       },
     });
 
+    // Airport Dots
     map.addLayer({
       id: "airport-points",
       type: "circle",
       source: "airport-nodes",
       paint: {
         "circle-radius": 5,
-        "circle-color": "#76e9c8",
+        "circle-color": ["case", ["get", "isFutureOnly"], "#ffd700", "#76e9c8"],
         "circle-stroke-color": "white",
         "circle-stroke-width": 1.25,
       },
@@ -328,7 +341,7 @@ permalink: /travel
     "places-icons",
     "airport-points",
     "route-lines-past",
-    "route-lines-future", // Added future layer to interactions
+    "route-lines-future",
   ];
 
   map.on("click", interactiveLayers, function (e) {
@@ -338,11 +351,9 @@ permalink: /travel
     let coordinates = e.lngLat;
 
     if (layerId === "places-dots" || layerId === "places-icons") {
-      // --- Places Popup ---
       coordinates = feature.geometry.coordinates;
       html = '<div class="text-center" style="color: #000;">';
       html += '<h6 class="mb-1">' + feature.properties.name + "</h6>";
-
       if (
         feature.properties.address &&
         feature.properties.name != feature.properties.address
@@ -352,14 +363,12 @@ permalink: /travel
           JSON.parse(feature.properties.address).join("<br>") +
           "</p>";
       }
-
       if (feature.properties.id) {
         html +=
           ' <a href="https://foursquare.com/v/' +
           feature.properties.id +
           '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #ffa633;"><img src="/node_modules/simple-icons/icons/swarm.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a>';
       }
-
       html +=
         ' <a href="https://maps.apple.com/?sll=' +
         coordinates[1] +
@@ -368,14 +377,12 @@ permalink: /travel
         "&q=" +
         feature.properties.name +
         '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #999999;"><img src="/node_modules/simple-icons/icons/apple.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ';
-
       html +=
         ' <a href="https://www.google.com/maps/search/?api=1&query=' +
         coordinates[1] +
         "," +
         coordinates[0] +
         '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #4285f4;"><img src="/node_modules/simple-icons/icons/googlemaps.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ';
-
       html += "</div>";
     } else if (layerId === "airport-points") {
       // --- Airport Popup ---
@@ -383,7 +390,6 @@ permalink: /travel
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
-
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${feature.properties.code}</h6>
@@ -393,7 +399,6 @@ permalink: /travel
       layerId === "route-lines-past" ||
       layerId === "route-lines-future"
     ) {
-      // --- Route Popup (Works for both) ---
       const type = layerId === "route-lines-future" ? "upcoming" : "past";
       html = `
         <div class="text-center" style="color: #000;">
@@ -426,7 +431,6 @@ permalink: /travel
 
   document.getElementById("toggle-flights").addEventListener("change", (e) => {
     const visibility = e.target.checked ? "visible" : "none";
-    // Toggle both flight layers
     if (map.getLayer("route-lines-past"))
       map.setLayoutProperty("route-lines-past", "visibility", visibility);
     if (map.getLayer("route-lines-future"))
