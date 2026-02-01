@@ -6,9 +6,13 @@ permalink: /pokemon-go
 xp: 21100000
 ---
 
+<link rel="stylesheet" href="/pokemon.css" />
+
 {% assign xp = page.xp | times: 100 | divided_by: 176000000 | round %} {% assign
-dex = site.data.pokemongo.caught | times: 100 | divided_by:
-site.data.pokemongo.total | round %}
+all_pokemon = site.data.pokemon %} {% assign caught_pokemon = all_pokemon |
+where: "caught", true %} {% assign dex = caught_pokemon.size | times: 100 |
+divided_by: all_pokemon.size | round %}
+
 <div class="container">
   <div class="progress" style="height: 38px; margin-bottom: 12px">
     <div
@@ -31,8 +35,7 @@ site.data.pokemongo.total | round %}
       aria-valuemin="0"
       aria-valuemax="100"
     >
-      Pokédex - {{ dex }}% ({{ site.data.pokemongo.caught }}/{{
-      site.data.pokemongo.total }})
+      Pokédex - {{ dex }}% ({{ caught_pokemon.size }}/{{ all_pokemon.size }})
     </div>
   </div>
   <div class="text-center gmt" style="margin-bottom: 12px">
@@ -58,77 +61,54 @@ site.data.pokemongo.total | round %}
         <a
           class="dropdown-item"
           href="#"
-          onclick="window.location.hash = 'all/' + $('#filter-type').html().trim(); return false;"
+          onclick="
+            window.location.hash = 'all';
+            return false;
+          "
           >all</a
         >
         <a
           class="dropdown-item"
           href="#"
-          onclick="window.location.hash = 'caught/' + $('#filter-type').html().trim(); return false;"
+          onclick="
+            window.location.hash = 'caught';
+            return false;
+          "
           >caught</a
         >
         <a
           class="dropdown-item"
           href="#"
-          onclick="window.location.hash = 'non-caught/' + $('#filter-type').html().trim(); return false;"
-          >non-caught</a
+          onclick="
+            window.location.hash = 'uncaught';
+            return false;
+          "
+          >uncaught</a
         >
       </div>
     </div>
-    <div class="dropdown" style="display: inline-block !important">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="filter-type"
-        data-bs-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        normal
-      </button>
-      <div
-        class="dropdown-menu dropdown-menu-dark"
-        aria-labelledby="filter-type"
-      >
-        <a
-          class="dropdown-item"
-          href="#"
-          onclick="window.location.hash = $('#filter-caught').html().trim() + '/normal'; return false;"
-          >normal</a
-        >
-        <a
-          class="dropdown-item"
-          href="#"
-          onclick="window.location.hash = $('#filter-caught').html().trim() + '/shiny'; return false;"
-          >shiny</a
-        >
-      </div>
-    </div>
+
     <label
       style="height: 38px; line-height: 38px; vertical-align: middle; margin: 0"
     >
       pokémon.</label
     >
   </div>
-  {% for type in site.data.pokedex %}
-  <div class="pokemon pokemon-{{ type[0] }}">
-    {% for region in type[1] %}
-    <h3>{{ region[0] | capitalize }}</h3>
+
+  <div class="pokemon">
+    <h3>Pokédex</h3>
     <div class="grid grid-pokemon">
-      {% for pokemon in region[1] %}
-      <div class="{% if pokemon[1].caught == 0 %}n{% else %}c{% endif %}">
-        <svg viewBox="0 0 32 32">
-          <use
-            xlink:href="/node_modules/pokemon-icons/assets/icon-symbols.svg#{{ pokemon[0] }}"
-          ></use>
-        </svg>
-        <span>{{ pokemon[1].name }}<br />#{{ pokemon[1].number }}</span>
+      {% for pokemon in site.data.pokemon %}
+      <div class="{% if pokemon.caught %}c{% else %}n{% endif %}">
+        <span class="pokemon-icon pokemon-{{ pokemon.id }}"></span>
+        <span class="pokemon-text"
+          >{{ pokemon.name }}<br />#{{ pokemon.id }}</span
+        >
       </div>
       {% endfor %}
     </div>
-    {% endfor %}
   </div>
-  {% endfor %}
+
   <div class="pokemon pokemon-medals gmt">
     <h3>Medals</h3>
     <div class="grid grid-pokemon">
@@ -138,70 +118,59 @@ site.data.pokemongo.total | round %}
         <img
           src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[1].rank }}/{{ medal[0] }}"
           alt="{{ medal[1].title }}"
+          class="pokemon-medal"
         />
         {% else %}
         <img
           src="/node_modules/pokemon-medals/{{ medals[0] }}/{{ medal[0] }}"
           alt="{{ medal[1].title }}"
+          class="pokemon-medal"
         />
         {% endif %}
-        <span>{{ medal[1].title }}</span>
+        <span class="pokemon-text">{{ medal[1].title }}</span>
       </div>
       {% endfor %} {% endfor %}
     </div>
   </div>
 </div>
+
 <div class="container gmt text-center">
   <small
-    >Icons by
-    <a href="https://theartificial.github.io/pokemon-icons">The Artificial</a
-    >.</small
+    >Icons by <a href="https://github.com/PokeAPI/sprites">PokeAPI</a>.</small
   >
 </div>
+
 <script>
   window.addEventListener("hashchange", fn, false);
-
   window.onload = fn;
 
   function fn() {
-    var args = window.location.hash.replace("#", "").split("/");
-    if (args.length < 2) {
-      window.location.hash = "all/normal";
-    } else {
-      filter_caught(args[0]);
-      filter_type(args[1]);
+    // Remove the # and get the string
+    var hash = window.location.hash.replace("#", "");
+
+    // Default to 'all' if empty or invalid
+    if (hash != "caught" && hash != "uncaught") {
+      hash = "all";
     }
+
+    filter_all(hash);
   }
 
-  function filter_caught(str) {
-    if (str == "all") {
-      $("#filter-caught").html(" all ");
-      $(".c").show();
-      $(".n").show();
-    } else if (str == "caught") {
-      $("#filter-caught").html(" caught ");
-      $(".c").show();
-      $(".n").hide();
-    } else if (str == "non-caught") {
-      $("#filter-caught").html(" non-caught ");
-      $(".c").hide();
-      $(".n").show();
-    } else {
-      window.location.hash = "all/normal";
-    }
-  }
+  function filter_all(caughtStatus) {
+    $("#filter-caught").html(" " + caughtStatus + " ");
 
-  function filter_type(str) {
-    if (str == "normal") {
-      $("#filter-type").html(" normal ");
-      $(".pokemon-normal").show();
-      $(".pokemon-shiny").hide();
-    } else if (str == "shiny") {
-      $("#filter-type").html(" shiny ");
-      $(".pokemon-normal").hide();
-      $(".pokemon-shiny").show();
-    } else {
-      window.location.hash = "all/normal";
+    var $all = $(".grid-pokemon > div");
+    var $caught = $(".c");
+    var $notCaught = $(".n");
+
+    if (caughtStatus == "all") {
+      $all.show();
+    } else if (caughtStatus == "caught") {
+      $all.hide();
+      $caught.show();
+    } else if (caughtStatus == "uncaught") {
+      $all.hide();
+      $notCaught.show();
     }
   }
 </script>
