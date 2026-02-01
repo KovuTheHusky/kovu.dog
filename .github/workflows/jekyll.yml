@@ -22,7 +22,6 @@ jobs:
       - run: gem install bundler
       - run: bundle install
       # - run: ./icons.sh
-      - run: ruby pokemongo.rb
       - run: curl -X GET "https://api.kovu.dog/projects.json" > _data/projects.json
       - run: bundle exec jekyll build
       - run: |
