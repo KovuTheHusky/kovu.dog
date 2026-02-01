@@ -108,15 +108,11 @@ permalink: /counter-strike
         var part = $(players).not(playernames).get();
         $.each(join, function (key, value) {
           $("#live-playerlist").append(
-            '<a href="' +
-              data["Players"][value]["url"] +
-              '" class="list-group-item d-flex align-items-center justify-content-end player player-' +
+            '<li class="list-group-item d-flex align-items-center justify-content-end player player-' +
               value +
-              '"><img src="' +
-              data["Players"][value]["avatar"] +
-              '" class="rounded me-1" style="width: 24px; height: 24px;">' +
+              '">' +
               data["Players"][value]["name"] +
-              "</a>",
+              "</li>",
           );
         });
         $.each(part, function (key, value) {
