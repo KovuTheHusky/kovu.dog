@@ -188,7 +188,7 @@
     },
     "cameraman.webp": {
       "title": "Cameraman",
-      "rank": "bronze"
+      "rank": "silver"
     },
     "unova.webp": {
       "title": "Unova",
@@ -216,7 +216,7 @@
     },
     "kalos.webp": {
       "title": "Kalos",
-      "rank": "bronze"
+      "rank": "silver"
     },
     "alola.webp": {
       "title": "Alola",
@@ -224,7 +224,7 @@
     },
     "galar.webp": {
       "title": "Galar",
-      "rank": "shadow"
+      "rank": "bronze"
     },
     "hisui.webp": {
       "title": "Hisui",
@@ -268,15 +268,15 @@
     },
     "tiny-pokemon-collector.webp": {
       "title": "Tiny Pokémon Collector",
-      "rank": "shadow"
+      "rank": "bronze"
     },
     "jumbo-pokemon-collector.webp": {
       "title": "Jumbo Pokémon Collector",
-      "rank": "shadow"
+      "rank": "bronze"
     },
     "paldea.webp": {
       "title": "Paldea",
-      "rank": "shadow"
+      "rank": "bronze"
     },
     "life-of-the-party.webp": {
       "title": "Life of the Party",
@@ -306,7 +306,7 @@
     },
     "bird-keeper.webp": {
       "title": "Bird Keeper",
-      "rank": "gold"
+      "rank": "platinum"
     },
     "punk-girl.webp": {
       "title": "Punk Girl",
