@@ -1,3 +1,14 @@
+- title: "Survival 2021"
+  badge:
+    color: primary
+    label: "Active"
+  description: "A world started in version 1.4.3.2. It ran for a very short period of time."
+  buttons:
+    - label: "Download"
+      link: "https://archive.kovu.dog/terraria/survival-2021.wld"
+      primary: true
+    - label: "Map"
+      link: "https://archive.kovu.dog/terraria/survival-2021/"
 - title: "Survival 2015"
   badge:
     color: secondary
