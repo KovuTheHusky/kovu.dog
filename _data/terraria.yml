@@ -1,7 +1,7 @@
 - title: "Survival 2021"
   badge:
-    color: primary
-    label: "Active"
+    color: secondary
+    label: "Archived"
   description: "A world started in version 1.4.3.2. It ran for a very short period of time."
   buttons:
     - label: "Download"
