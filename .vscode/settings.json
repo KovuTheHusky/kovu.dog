@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "files.associations": {
     "*.html": "liquid"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
