@@ -1,0 +1,603 @@
+- name: Furcationland
+  url: https://furcationland.org
+  start_date: 2026-04-09
+  end_date: 2026-04-12
+  location: Portland, Maine
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2026-07-02
+  end_date: 2026-07-05
+  location: Pittsburgh, Pennsylvania
+
+- name: ConnectiCon
+  url: https://connecticon.org
+  start_date: 2026-07-16
+  end_date: 2026-07-19
+  location: Hartford, Connecticut
+
+- name: Babyfur Con
+  url: https://babyfurcon.com
+  start_date: 2026-10-29
+  end_date: 2026-11-01
+  location: San Francisco, California
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2026-10-29
+  end_date: 2026-11-01
+  location: Stamford, Connecticut
+
+- name: NordicFuzzCon
+  url: https://nordicfuzzcon.org
+  start_date: 2026-02-18
+  end_date: 2026-02-22
+  location: Malmö, Sweden
+  emoji: "&#x1f1f8;&#x1f1ea;"
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2026-01-15
+  end_date: 2026-01-18
+  location: Boston, Massachusetts
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2025-12-04
+  end_date: 2025-12-07
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2025-10-30
+  end_date: 2025-11-02
+  location: Stamford, Connecticut
+
+- name: Babyfur Con
+  url: https://babyfurcon.com
+  start_date: 2025-09-11
+  end_date: 2025-09-15
+  location: San Jose, California
+
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2025-08-22
+  end_date: 2025-08-24
+  location: Philadelphia, Pennsylvania
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2025-07-26
+  end_date: 2025-07-27
+  location: East Islip, New York
+
+- name: ConnectiCon
+  url: https://connecticon.org
+  start_date: 2025-07-17
+  end_date: 2025-07-20
+  location: Hartford, Connecticut
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2025-07-03
+  end_date: 2025-07-06
+  location: Pittsburgh, Pennsylvania
+
+- name: PortConMaine
+  url: https://portconmaine.com
+  start_date: 2025-06-26
+  end_date: 2025-06-29
+  location: Portland, Maine
+
+- name: Furcationland
+  url: https://furcationland.org
+  start_date: 2025-04-10
+  end_date: 2025-04-13
+  location: Portland, Maine
+
+- name: Fur the 'More
+  url: https://furthemore.org
+  start_date: 2025-03-07
+  end_date: 2025-03-09
+  location: Herndon, Virginia
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2025-01-16
+  end_date: 2025-01-19
+  location: Boston, Massachusetts
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2024-12-05
+  end_date: 2024-12-08
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2024-10-31
+  end_date: 2024-11-03
+  location: Stamford, Connecticut
+
+- name: Babyfur Con
+  url: https://babyfurcon.com
+  start_date: 2024-09-26
+  end_date: 2024-09-30
+  location: Santa Cruz, California
+
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2024-08-08
+  end_date: 2024-08-11
+  location: Philadelphia, Pennsylvania
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2024-07-27
+  end_date: 2024-07-28
+  location: East Islip, New York
+
+- name: ConnectiCon
+  url: https://connecticon.org
+  start_date: 2024-07-18
+  end_date: 2024-07-21
+  location: Hartford, Connecticut
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2024-07-04
+  end_date: 2024-07-07
+  location: Pittsburgh, Pennsylvania
+
+- name: Furcationland
+  url: https://furcationland.org
+  start_date: 2024-04-12
+  end_date: 2024-04-14
+  location: Portland, Maine
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2024-01-18
+  end_date: 2024-01-21
+  location: Boston, Massachusetts
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2023-11-30
+  end_date: 2023-12-03
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2023-10-26
+  end_date: 2023-10-29
+  location: Stamford, Connecticut
+
+- name: Babyfur Con
+  url: https://babyfurcon.com
+  start_date: 2023-10-06
+  end_date: 2023-10-09
+  location: Santa Cruz, California
+
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2023-08-25
+  end_date: 2023-08-27
+  location: Philadelphia, Pennsylvania
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2023-07-29
+  end_date: 2023-07-30
+  location: Kings Park, New York
+
+- name: ConnectiCon
+  url: https://connecticon.org
+  start_date: 2023-07-20
+  end_date: 2023-07-23
+  location: Hartford, Connecticut
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2023-06-29
+  end_date: 2023-07-02
+  location: Pittsburgh, Pennsylvania
+
+- name: Furcationland
+  url: https://furcationland.org
+  start_date: 2023-04-14
+  end_date: 2023-04-16
+  location: Portland, Maine
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2023-01-20
+  end_date: 2023-01-22
+  location: Boston, Massachusetts
+
+- name: New Year's Furry Ball
+  url: https://newyearsfurryball.com
+  start_date: 2022-12-31
+  end_date: 2023-01-01
+  location: Newark, Delaware
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2022-12-01
+  end_date: 2022-12-04
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2022-10-27
+  end_date: 2022-10-30
+  location: Stamford, Connecticut
+
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2022-08-26
+  end_date: 2022-08-28
+  location: Philadelphia, Pennsylvania
+
+- name: DenFur
+  url: https://denfur.org
+  start_date: 2022-08-19
+  end_date: 2022-08-21
+  location: Denver, Colorado
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2022-08-13
+  end_date: 2022-08-14
+  location: Kings Park, New York
+
+- name: Megaplex
+  url: https://megaplexcon.org
+  start_date: 2022-08-05
+  end_date: 2022-08-07
+  location: Orlando, Florida
+
+- name: ConnectiCon
+  url: https://connecticon.org
+  start_date: 2022-07-14
+  end_date: 2022-07-17
+  location: Hartford, Connecticut
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2022-06-30
+  end_date: 2022-07-03
+  location: Pittsburgh, Pennsylvania
+
+- name: Biggest Little Fur Con
+  url: https://goblfc.org
+  start_date: 2022-06-02
+  end_date: 2022-06-05
+  location: Reno, Nevada
+
+- name: Furry Weekend Atlanta
+  url: https://furryweekend.com
+  start_date: 2022-05-05
+  end_date: 2022-05-08
+  location: Atlanta, Georgia
+
+- name: Motor City Furry Con
+  url: https://motorcityfurrycon.org
+  start_date: 2022-03-25
+  end_date: 2022-03-27
+  location: Ypsilanti, Michigan
+
+- name: Furry Fiesta
+  url: https://furryfiesta.org
+  start_date: 2022-03-17
+  end_date: 2022-03-20
+  location: Dallas, Texas
+
+- name: Blue Ridge Furfare
+  url: https://blueridgefurfare.com
+  start_date: 2022-03-10
+  end_date: 2022-03-13
+  location: Asheville, North Carolina
+
+- name: Fur the 'More
+  url: https://furthemore.org
+  start_date: 2022-03-04
+  end_date: 2022-03-06
+  location: Arlington, Virginia
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2022-02-17
+  end_date: 2022-02-20
+  location: Boston, Massachusetts
+
+- name: Sin City Murr Con
+  url: https://sincitymurrcon.com
+  start_date: 2022-02-04
+  end_date: 2022-02-06
+  location: Las Vegas, Nevada
+
+- name: New Year's Furry Ball
+  url: https://newyearsfurryball.com
+  start_date: 2021-12-31
+  end_date: 2022-01-01
+  location: Newark, Delaware
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2021-12-03
+  end_date: 2021-12-05
+  location: Rosemont, Illinois
+
+- name: Biggest Little Fur Con
+  url: https://goblfc.org
+  start_date: 2021-10-21
+  end_date: 2021-10-24
+  location: Reno, Nevada
+
+- name: Motor City Furry Con
+  url: https://motorcityfurrycon.org
+  start_date: 2021-10-08
+  end_date: 2021-10-10
+  location: Ypsilanti, Michigan
+
+- name: Furry Migration
+  url: https://furrymigration.org
+  start_date: 2021-09-10
+  end_date: 2021-09-12
+  location: Minneapolis, Minnesota
+
+- name: IndyFurCon
+  url: https://indyfurcon.com
+  start_date: 2021-08-20
+  end_date: 2021-08-22
+  location: Indianapolis, Indiana
+
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2021-08-12
+  end_date: 2021-08-15
+  location: King of Prussia, Pennsylvania
+
+- name: Megaplex
+  url: https://megaplexcon.org
+  start_date: 2021-08-06
+  end_date: 2021-08-08
+  location: Orlando, Florida
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2020-10-29
+  end_date: 2020-11-01
+  location: Online
+  emoji: "&#127760;"
+
+- name: Fur the 'More
+  url: https://furthemore.org
+  start_date: 2020-03-06
+  end_date: 2020-03-08
+  location: Arlington, Virginia
+
+- name: Furry Fiesta
+  url: https://furryfiesta.org
+  start_date: 2020-02-27
+  end_date: 2020-03-01
+  location: Dallas, Texas
+
+- name: Anthro New England
+  url: https://anthronewengland.com
+  start_date: 2020-02-20
+  end_date: 2020-02-23
+  location: Boston, Massachusetts
+
+- name: New Year's Furry Ball
+  url: https://newyearsfurryball.com
+  start_date: 2019-12-31
+  end_date: 2020-01-01
+  location: Newark, Delaware
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2019-12-05
+  end_date: 2019-12-08
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2019-10-25
+  end_date: 2019-10-27
+  location: Cromwell, Connecticut
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2019-07-27
+  end_date: 2019-07-28
+  location: Kings Park, New York
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2019-07-04
+  end_date: 2019-07-07
+  location: Pittsburgh, Pennsylvania
+
+- name: Pine Fur Con
+  url: https://en.wikifur.com/wiki/Pine_Fur_Con
+  start_date: 2019-04-05
+  end_date: 2019-04-07
+  location: Portland, Maine
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2018-11-29
+  end_date: 2018-12-02
+  location: Rosemont, Illinois
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2018-10-26
+  end_date: 2018-10-28
+  location: Cromwell, Connecticut
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2018-08-25
+  end_date: 2018-08-26
+  location: Kings Park, New York
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2018-07-05
+  end_date: 2018-07-08
+  location: Pittsburgh, Pennsylvania
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2017-10-27
+  end_date: 2017-10-29
+  location: Cromwell, Connecticut
+
+- name: New York Comic Con
+  url: https://www.newyorkcomiccon.com
+  start_date: 2017-10-05
+  end_date: 2017-10-08
+  location: New York, New York
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2017-08-12
+  end_date: 2017-08-13
+  location: Kings Park, New York
+
+- name: TrotCon
+  url: https://trotcon.net
+  start_date: 2017-07-14
+  end_date: 2017-07-16
+  location: Columbus, Ohio
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2017-03-17
+  end_date: 2017-03-19
+  location: Brentwood, New York
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2016-10-28
+  end_date: 2016-10-30
+  location: Cromwell, Connecticut
+
+- name: BronyCon
+  url: https://bronycon.org
+  start_date: 2016-07-08
+  end_date: 2016-07-10
+  location: Baltimore, Maryland
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2015-10-30
+  end_date: 2015-11-01
+  location: Cromwell, Connecticut
+
+- name: BronyCon
+  url: https://bronycon.org
+  start_date: 2015-08-07
+  end_date: 2015-08-09
+  location: Baltimore, Maryland
+
+- name: Furpocalypse
+  url: https://furpocalypse.org
+  start_date: 2014-10-31
+  end_date: 2014-11-02
+  location: Cromwell, Connecticut
+
+- name: BronyCon
+  url: https://bronycon.org
+  start_date: 2014-08-01
+  end_date: 2014-08-03
+  location: Baltimore, Maryland
+
+- name: FurFright
+  url: https://en.wikifur.com/wiki/FurFright
+  start_date: 2013-10-25
+  end_date: 2013-10-27
+  location: Cromwell, Connecticut
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2013-08-10
+  end_date: 2013-08-11
+  location: Kings Park, New York
+
+- name: FurFright
+  url: https://en.wikifur.com/wiki/FurFright
+  start_date: 2012-10-26
+  end_date: 2012-10-28
+  location: Cromwell, Connecticut
+
+- name: OMGWTFBBQ
+  url: https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ
+  start_date: 2012-07-21
+  end_date: 2012-07-22
+  location: Kings Park, New York
+
+- name: Anthrocon
+  url: https://anthrocon.org
+  start_date: 2011-06-23
+  end_date: 2011-06-26
+  location: Pittsburgh, Pennsylvania
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2011-04-15
+  end_date: 2011-04-17
+  location: Stony Brook, New York
+
+- name: Furnal Equinox
+  url: https://furnalequinox.com
+  start_date: 2011-03-11
+  end_date: 2011-03-13
+  location: Toronto, Ontario, Canada
+  emoji: "&#127464;&#127462;"
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2010-11-19
+  end_date: 2010-11-21
+  location: Rosemont, Illinois
+
+- name: FurFright
+  url: https://en.wikifur.com/wiki/FurFright
+  start_date: 2010-10-29
+  end_date: 2010-10-31
+  location: Cromwell, Connecticut
+
+- name: Condition
+  url: https://en.wikifur.com/wiki/Condition
+  start_date: 2010-08-06
+  end_date: 2010-08-08
+  location: London, Ontario, Canada
+  emoji: "&#127464;&#127462;"
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2010-03-26
+  end_date: 2010-03-28
+  location: Stony Brook, New York
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2007-03-23
+  end_date: 2007-03-25
+  location: Stony Brook, New York
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2006-03-24
+  end_date: 2006-03-26
+  location: Stony Brook, New York
+
+- name: I-CON
+  url: https://en.wikipedia.org/wiki/I-CON
+  start_date: 2005-04-08
+  end_date: 2005-04-10
+  location: Stony Brook, New York

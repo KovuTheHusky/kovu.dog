@@ -8,447 +8,85 @@ redirect_from:
 ---
 
 <div class="conventions container text-center">
+  {% assign today_seconds = 'now' | date: '%s' | plus: 0 %} {% assign
+  sorted_cons = site.data.conventions | sort: 'start_date' %} {% assign
+  past_cons = "" | split: "" %} {% assign future_cons = "" | split: "" %} {%
+  assign up_next = nil %} {% for con in sorted_cons %} {% assign end_seconds =
+  con.end_date | date: '%s' | plus: 86400 %} {% if end_seconds < today_seconds
+  %} {% assign past_cons = past_cons | push: con %} {% elsif up_next == nil %}
+  {% assign up_next = con %} {% else %} {% assign future_cons = future_cons |
+  push: con %} {% endif %} {% endfor %} {% if up_next %}
   <h3>Up Next</h3>
   <h5 id="countdown"><span id="days"></span> day<span id="plural">s</span></h5>
+
+  {% assign start_m = up_next.start_date | date: "%B" %} {% assign end_m =
+  up_next.end_date | date: "%B" %} {% assign start_d = up_next.start_date |
+  date: "%-d" %} {% assign end_d = up_next.end_date | date: "%-d" %}
+
   <p>
-    <a href="https://furcationland.org">Furcationland</a> &bull; April 9-12
-    &bull; Portland, Maine
+    <a href="{{ up_next.url }}">{{ up_next.name }}</a> &bull; {% if start_m ==
+    end_m %}{{ start_m }} {{ start_d }}-{{ end_d }}{% else %}{{ start_m }} {{
+    start_d }}-{{ end_m }} {{ end_d }}{% endif %} &bull; {{ up_next.location }}
+    {{ up_next.emoji }}
   </p>
+  {% endif %} {% if future_cons.size > 0 %}
   <h3 class="gmt">Future</h3>
-  <h5>2026</h5>
+  {% assign current_future_year = "" %} {% for con in future_cons %} {% assign
+  con_year = con.start_date | date: "%Y" %} {% if con_year !=
+  current_future_year %}
+  <h5>{{ con_year }}</h5>
+  {% assign current_future_year = con_year %} {% endif %} {% assign start_m =
+  con.start_date | date: "%B" %} {% assign end_m = con.end_date | date: "%B" %}
+  {% assign start_d = con.start_date | date: "%-d" %} {% assign end_d =
+  con.end_date | date: "%-d" %}
+
   <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; July 2-5 &bull;
-    Pittsburgh, Pennsylvania
+    <a href="{{ con.url }}">{{ con.name }}</a> &bull; {% if start_m == end_m
+    %}{{ start_m }} {{ start_d }}-{{ end_d }}{% else %}{{ start_m }} {{ start_d
+    }}-{{ end_m }} {{ end_d }}{% endif %} &bull; {{ con.location }} {{ con.emoji
+    }}
   </p>
-  <p>
-    <a href="https://connecticon.org">ConnectiCon</a> &bull; July 16-19 &bull;
-    Hartford, Connecticut
-  </p>
-  <p>
-    <a href="https://babyfurcon.com">Babyfur Con</a> &bull; October 29-November
-    1 &bull; San Francisco, California
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    29-November 1 &bull; Stamford, Connecticut
-  </p>
+  {% endfor %} {% endif %} {% if past_cons.size > 0 %}
   <h3 class="gmt">Past</h3>
-  <h5>2026</h5>
-  <p>
-    <a href="https://nordicfuzzcon.org">NordicFuzzCon</a> &bull; February 18-22
-    &bull; Malm&ouml;, Sweden &#x1f1f8;&#x1f1ea;
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull; January
-    15-18 &bull; Boston, Massachusetts
-  </p>
-  <h5>2025</h5>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; December 4-7 &bull;
-    Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    30-November 2 &bull; Stamford, Connecticut
-  </p>
-  <p>
-    <a href="https://babyfurcon.com">Babyfur Con</a> &bull; September 11-15
-    &bull; San Jose, California
-  </p>
-  <p>
-    <a href="https://furrydelphia.org">Furrydelphia</a> &bull; August 22-24
-    &bull; Philadelphia, Pennsylvania
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    July 26-27 &bull; East Islip, New York
-  </p>
-  <p>
-    <a href="https://connecticon.org">ConnectiCon</a> &bull; July 17-20 &bull;
-    Hartford, Connecticut
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; July 3-6 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://portconmaine.com">PortConMaine</a> &bull; June 26-29 &bull;
-    Portland, Maine
-  </p>
-  <p>
-    <a href="https://furcationland.org">Furcationland</a> &bull; April 10-13
-    &bull; Portland, Maine
-  </p>
-  <p>
-    <a href="https://furthemore.org">Fur the 'More</a> &bull; March 7-9 &bull;
-    Herndon, Virginia
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull; January
-    16-19 &bull; Boston, Massachusetts
-  </p>
-  <h5>2024</h5>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; December 5-8 &bull;
-    Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    31-November 3 &bull; Stamford, Connecticut
-  </p>
-  <p>
-    <a href="https://babyfurcon.com">Babyfur Con</a> &bull; September 26-30
-    &bull; Santa Cruz, California
-  </p>
-  <p>
-    <a href="https://furrydelphia.org">Furrydelphia</a> &bull; August 8-11
-    &bull; Philadelphia, Pennsylvania
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    July 27-28 &bull; East Islip, New York
-  </p>
-  <p>
-    <a href="https://connecticon.org">ConnectiCon</a> &bull; July 18-21 &bull;
-    Hartford, Connecticut
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; July 4-7 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://furcationland.org">Furcationland</a> &bull; April 12-14
-    &bull; Portland, Maine
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull; January
-    18-21 &bull; Boston, Massachusetts
-  </p>
-  <h5>2023</h5>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; November
-    30-December 3 &bull; Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 26-29
-    &bull; Stamford, Connecticut
-  </p>
-  <p>
-    <a href="https://babyfurcon.com">Babyfur Con</a> &bull; October 6-9 &bull;
-    Santa Cruz, California
-  </p>
-  <p>
-    <a href="https://furrydelphia.org">Furrydelphia</a> &bull; August 25-27
-    &bull; Philadelphia, Pennsylvania
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    July 29-30 &bull; Kings Park, New York
-  </p>
-  <p>
-    <a href="https://connecticon.org">ConnectiCon</a> &bull; July 20-23 &bull;
-    Hartford, Connecticut
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; June 29-July 2 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://furcationland.org">Furcationland</a> &bull; April 14-16
-    &bull; Portland, Maine
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull; January
-    20-22 &bull; Boston, Massachusetts
-  </p>
-  <h5>2022</h5>
-  <p>
-    <a href="https://newyearsfurryball.com">New Year's Furry Ball</a> &bull;
-    December 31-January 1 &bull; Newark, Delaware
-  </p>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; December 1-4 &bull;
-    Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 27-30
-    &bull; Stamford, Connecticut
-  </p>
-  <p>
-    <a href="https://furrydelphia.org">Furrydelphia</a> &bull; August 26-28
-    &bull; Philadelphia, Pennsylvania
-  </p>
-  <p>
-    <a href="https://denfur.org">DenFur</a> &bull; August 19-21 &bull; Denver,
-    Colorado
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    August 13-14 &bull; Kings Park, New York
-  </p>
-  <p>
-    <a href="https://megaplexcon.org">Megaplex</a> &bull; August 5-7 &bull;
-    Orlando, Florida
-  </p>
-  <p>
-    <a href="https://connecticon.org">ConnectiCon</a> &bull; July 14-17 &bull;
-    Hartford, Connecticut
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; June 30-July 3 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://goblfc.org">Biggest Little Fur Con</a> &bull; June 2-5
-    &bull; Reno, Nevada
-  </p>
-  <p>
-    <a href="https://furryweekend.com">Furry Weekend Atlanta</a> &bull; May 5-8
-    &bull; Atlanta, Georgia
-  </p>
-  <p>
-    <a href="https://motorcityfurrycon.org">Motor City Furry Con</a> &bull;
-    March 25-27 &bull; Ypsilanti, Michigan
-  </p>
-  <p>
-    <a href="https://furryfiesta.org">Furry Fiesta</a> &bull; March 17-20 &bull;
-    Dallas, Texas
-  </p>
-  <p>
-    <a href="https://blueridgefurfare.com">Blue Ridge Furfare</a> &bull; March
-    10-13 &bull; Asheville, North Carolina
-  </p>
-  <p>
-    <a href="https://furthemore.org">Fur the 'More</a> &bull; March 4-6 &bull;
-    Arlington, Virginia
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull;
-    February 17-20 &bull; Boston, Massachusetts
-  </p>
-  <p>
-    <a href="https://sincitymurrcon.com">Sin City Murr Con</a> &bull; February
-    4-6 &bull; Las Vegas, Nevada
-  </p>
-  <h5>2021</h5>
-  <p>
-    <a href="https://newyearsfurryball.com">New Year's Furry Ball</a> &bull;
-    December 31-January 1 &bull; Newark, Delaware
-  </p>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; December 3-5 &bull;
-    Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://goblfc.org">Biggest Little Fur Con</a> &bull; October 21-24
-    &bull; Reno, Nevada
-  </p>
-  <p>
-    <a href="https://motorcityfurrycon.org">Motor City Furry Con</a> &bull;
-    October 8-10 &bull; Ypsilanti, Michigan
-  </p>
-  <p>
-    <a href="https://furrymigration.org">Furry Migration</a> &bull; September
-    10-12 &bull; Minneapolis, Minnesota
-  </p>
-  <p>
-    <a href="https://indyfurcon.com">IndyFurCon</a> &bull; August 20-22 &bull;
-    Indianapolis, Indiana
-  </p>
-  <p>
-    <a href="https://furrydelphia.org">Furrydelphia</a> &bull; August 12-15
-    &bull; King of Prussia, Pennsylvania
-  </p>
-  <p>
-    <a href="https://megaplexcon.org">Megaplex</a> &bull; August 6-8 &bull;
-    Orlando, Florida
-  </p>
-  <h5>2020</h5>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    29-November 1 &bull; Online &#127760;
-  </p>
-  <p>
-    <a href="https://furthemore.org">Fur the 'More</a> &bull; March 6-8 &bull;
-    Arlington, Virginia
-  </p>
-  <p>
-    <a href="https://furryfiesta.org">Furry Fiesta</a> &bull; February 27-March
-    1 &bull; Dallas, Texas
-  </p>
-  <p>
-    <a href="https://anthronewengland.com">Anthro New England</a> &bull;
-    February 20-23 &bull; Boston, Massachusetts
-  </p>
-  <h5>2019</h5>
-  <p>
-    <a href="https://newyearsfurryball.com">New Year's Furry Ball</a> &bull;
-    December 31-January 1 &bull; Newark, Delaware
-  </p>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; December 5-8 &bull;
-    Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 25-27
-    &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    July 27-28 &bull; Kings Park, New York
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; July 4-7 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/Pine_Fur_Con">Pine Fur Con</a> &bull;
-    April 5-7 &bull; Portland, Maine
-  </p>
-  <h5>2018</h5>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; November
-    29-December 2 &bull; Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 26-28
-    &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    August 25-26 &bull; Kings Park, New York
-  </p>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; July 5-8 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <h5>2017</h5>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 27-29
-    &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://www.newyorkcomiccon.com">New York Comic Con</a> &bull;
-    October 5-8 &bull; New York, New York
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    August 12-13 &bull; Kings Park, New York
-  </p>
-  <p>
-    <a href="https://trotcon.net">TrotCon</a> &bull; July 14-16 &bull; Columbus,
-    Ohio
-  </p>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; March 17-19
-    &bull; Brentwood, New York
-  </p>
-  <h5>2016</h5>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October 28-30
-    &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://bronycon.org">BronyCon</a> &bull; July 8-10 &bull;
-    Baltimore, Maryland
-  </p>
-  <h5>2015</h5>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    30-November 1 &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://bronycon.org">BronyCon</a> &bull; August 7-9 &bull;
-    Baltimore, Maryland
-  </p>
-  <h5>2014</h5>
-  <p>
-    <a href="https://furpocalypse.org">Furpocalypse</a> &bull; October
-    31-November 2 &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://bronycon.org">BronyCon</a> &bull; August 1-3 &bull;
-    Baltimore, Maryland
-  </p>
-  <h5>2013</h5>
-  <p>
-    <a href="https://en.wikifur.com/wiki/FurFright">FurFright</a> &bull; October
-    25-27 &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    August 10-11 &bull; Kings Park, New York
-  </p>
-  <h5>2012</h5>
-  <p>
-    <a href="https://en.wikifur.com/wiki/FurFright">FurFright</a> &bull; October
-    26-28 &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/LIFurs_OMGWTFBBQ">OMGWTFBBQ</a> &bull;
-    July 21-22 &bull; Kings Park, New York
-  </p>
-  <h5>2011</h5>
-  <p>
-    <a href="https://anthrocon.org">Anthrocon</a> &bull; June 23-26 &bull;
-    Pittsburgh, Pennsylvania
-  </p>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; April 15-17
-    &bull; Stony Brook, New York
-  </p>
-  <p>
-    <a href="https://furnalequinox.com">Furnal Equinox</a> &bull; March 11-13
-    &bull; Toronto, Ontario, Canada &#127464;&#127462;
-  </p>
-  <h5>2010</h5>
-  <p>
-    <a href="https://furfest.org">Midwest FurFest</a> &bull; November 19-21
-    &bull; Rosemont, Illinois
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/FurFright">FurFright</a> &bull; October
-    29-31 &bull; Cromwell, Connecticut
-  </p>
-  <p>
-    <a href="https://en.wikifur.com/wiki/Condition">Condition</a> &bull; August
-    6-8 &bull; London, Ontario, Canada &#127464;&#127462;
-  </p>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; March 26-28
-    &bull; Stony Brook, New York
-  </p>
-  <h5>2009</h5>
-  <p>&mdash;</p>
-  <h5>2008</h5>
-  <p>&mdash;</p>
-  <h5>2007</h5>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; March 23-25
-    &bull; Stony Brook, New York
-  </p>
-  <h5>2006</h5>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; March 24-26
-    &bull; Stony Brook, New York
-  </p>
-  <h5>2005</h5>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/I-CON">I-CON</a> &bull; April 8-10
-    &bull; Stony Brook, New York
-  </p>
+  {% assign past_cons_reversed = past_cons | reverse %} {% assign
+  current_past_year = "" %} {% for con in past_cons_reversed %} {% assign
+  con_year = con.start_date | date: "%Y" %} {% if con_year != current_past_year
+  %}
+  <h5>{{ con_year }}</h5>
+  {% assign current_past_year = con_year %} {% endif %} {% assign start_m =
+  con.start_date | date: "%B" %} {% assign end_m = con.end_date | date: "%B" %}
+  {% assign start_d = con.start_date | date: "%-d" %} {% assign end_d =
+  con.end_date | date: "%-d" %}
+
+  <p>
+    <a href="{{ con.url }}">{{ con.name }}</a> &bull; {% if start_m == end_m
+    %}{{ start_m }} {{ start_d }}-{{ end_d }}{% else %}{{ start_m }} {{ start_d
+    }}-{{ end_m }} {{ end_d }}{% endif %} &bull; {{ con.location }} {{ con.emoji
+    }}
+  </p>
+  {% endfor %} {% endif %}
 </div>
+
+{% if up_next %}
 <script>
-  var convention = new Date("04/09/2026");
+  var conventionDate = new Date("{{ up_next.start_date | date: '%m/%d/%Y' }}");
   var today = new Date();
-  var difference = convention.getTime() - today.getTime();
+
+  today.setHours(0, 0, 0, 0);
+  conventionDate.setHours(0, 0, 0, 0);
+
+  var difference = conventionDate.getTime() - today.getTime();
   var days = Math.ceil(difference / (1000 * 3600 * 24));
+
   if (days > 0) {
-    $("#days").text(days);
-    if (days == 1) {
-      $("#plural").text("");
+    document.getElementById("days").innerText = days;
+    if (days === 1) {
+      document.getElementById("plural").innerText = "";
+    } else {
+      document.getElementById("plural").innerText = "s";
     }
   } else {
-    $("#countdown").text("Now");
+    document.getElementById("countdown").innerText = "Now";
   }
 </script>
+{% endif %}
