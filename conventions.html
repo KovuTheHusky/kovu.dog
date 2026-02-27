@@ -49,9 +49,18 @@ redirect_from:
   {% endfor %} {% endif %} {% if past_cons.size > 0 %}
   <h3 class="gmt">Past</h3>
   {% assign past_cons_reversed = past_cons | reverse %} {% assign
-  current_past_year = "" %} {% for con in past_cons_reversed %} {% assign
-  con_year = con.start_date | date: "%Y" %} {% if con_year != current_past_year
-  %}
+  current_past_year = nil %} {% for con in past_cons_reversed %} {% assign
+  con_year = con.start_date | date: "%Y" | plus: 0 %} {% if current_past_year ==
+  nil %}
+  <h5>{{ con_year }}</h5>
+  {% assign current_past_year = con_year %} {% elsif con_year !=
+  current_past_year %} {% assign gap = current_past_year | minus: con_year |
+  minus: 1 %} {% if gap > 0 %} {% assign missing_year = current_past_year |
+  minus: 1 %} {% for i in (1..gap) %}
+  <h5>{{ missing_year }}</h5>
+  <p>&mdash;</p>
+  {% assign missing_year = missing_year | minus: 1 %} {% endfor %} {% endif %}
+
   <h5>{{ con_year }}</h5>
   {% assign current_past_year = con_year %} {% endif %} {% assign start_m =
   con.start_date | date: "%B" %} {% assign end_m = con.end_date | date: "%B" %}
