@@ -22,12 +22,6 @@
   end_date: 2026-11-01
   location: San Francisco, California
 
-- name: Furpocalypse
-  url: https://furpocalypse.org
-  start_date: 2026-10-29
-  end_date: 2026-11-01
-  location: Stamford, Connecticut
-
 - name: NordicFuzzCon
   url: https://nordicfuzzcon.org
   start_date: 2026-02-18
