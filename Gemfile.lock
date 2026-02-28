@@ -20,9 +20,6 @@ GEM
     google-protobuf (4.34.0-arm64-darwin)
       bigdecimal
       rake (~> 13.3)
-    google-protobuf (4.34.0-x86_64-darwin)
-      bigdecimal
-      rake (~> 13.3)
     google-protobuf (4.34.0-x86_64-linux-gnu)
       bigdecimal
       rake (~> 13.3)
