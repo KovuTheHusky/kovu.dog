@@ -169,6 +169,7 @@ permalink: /travel
           origin: route.origin,
           destination: route.destination,
           count: route.count,
+          hasPast: route.hasPast || false,
         },
       });
     }
@@ -279,6 +280,10 @@ permalink: /travel
       });
     });
 
+    for (const [routeKey, stats] of routeStatsFuture.entries()) {
+      stats.hasPast = routeStatsPast.has(routeKey);
+    }
+
     const pastFeatures = createRouteFeatures(
       Array.from(routeStatsPast.values()),
       airportDb,
@@ -325,15 +330,37 @@ permalink: /travel
       },
     });
 
-    // Future Flights (Gold)
+    // Future Flights (Solid - No past flights on this route)
     map.addLayer({
-      id: "route-lines-future",
+      id: "route-lines-future-solid",
       type: "line",
       source: "flight-routes-future",
+      filter: ["!", ["get", "hasPast"]], // Only show if hasPast is false
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-dasharray": [10, 10],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["get", "count"],
+          1,
+          1,
+          10,
+          10,
+        ],
+      },
+    });
+
+    // Future Flights (Dashed - Overlapping with past flights)
+    map.addLayer({
+      id: "route-lines-future-dashed",
+      type: "line",
+      source: "flight-routes-future",
+      filter: ["get", "hasPast"], // Only show if hasPast is true
+      paint: {
+        "line-color": "#ffd700",
+        "line-opacity": 1,
+        "line-dasharray": [2, 2], // Dashed pattern
         "line-width": [
           "interpolate",
           ["linear"],
@@ -365,7 +392,8 @@ permalink: /travel
     "places-icons",
     "airport-points",
     "route-lines-past",
-    "route-lines-future",
+    "route-lines-future-solid", // Updated
+    "route-lines-future-dashed", // Updated
   ];
 
   map.on("click", interactiveLayers, function (e) {
@@ -419,11 +447,8 @@ permalink: /travel
           <h6 class="mb-0">${feature.properties.code}</h6>
           <p class="m-0">${feature.properties.count} flights</p>
         </div>`;
-    } else if (
-      layerId === "route-lines-past" ||
-      layerId === "route-lines-future"
-    ) {
-      const type = layerId === "route-lines-future" ? "upcoming" : "past";
+    } else if (layerId.startsWith("route-lines")) {
+      const type = layerId.includes("future") ? "upcoming" : "past";
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${feature.properties.origin} ↔ ${feature.properties.destination}</h6>
@@ -457,8 +482,18 @@ permalink: /travel
     const visibility = e.target.checked ? "visible" : "none";
     if (map.getLayer("route-lines-past"))
       map.setLayoutProperty("route-lines-past", "visibility", visibility);
-    if (map.getLayer("route-lines-future"))
-      map.setLayoutProperty("route-lines-future", "visibility", visibility);
+    if (map.getLayer("route-lines-future-solid"))
+      map.setLayoutProperty(
+        "route-lines-future-solid",
+        "visibility",
+        visibility,
+      );
+    if (map.getLayer("route-lines-future-dashed"))
+      map.setLayoutProperty(
+        "route-lines-future-dashed",
+        "visibility",
+        visibility,
+      );
     if (map.getLayer("airport-points"))
       map.setLayoutProperty("airport-points", "visibility", visibility);
   });
