@@ -4,6 +4,12 @@
   end_date: 2026-04-12
   location: Portland, Maine
 
+- name: Furry Weekend Atlanta
+  url: https://furryweekend.com
+  start_date: 2026-05-07
+  end_date: 2026-05-10
+  location: Atlanta, Georgia
+
 - name: Anthrocon
   url: https://anthrocon.org
   start_date: 2026-07-02
