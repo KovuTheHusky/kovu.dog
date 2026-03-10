@@ -19,11 +19,11 @@
     "glob": "^13.0.6",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
-    "mapbox-gl": "^3.19.0",
+    "mapbox-gl": "^3.19.1",
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.9.0"
+    "simple-icons": "^16.11.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.0",
