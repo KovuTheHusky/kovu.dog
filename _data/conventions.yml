@@ -1,5 +1,11 @@
 - name: Furcationland
   url: https://furcationland.org
+  start_date: 2027-04-08
+  end_date: 2027-04-11
+  location: Portland, Maine
+
+- name: Furcationland
+  url: https://furcationland.org
   start_date: 2026-04-09
   end_date: 2026-04-12
   location: Portland, Maine
