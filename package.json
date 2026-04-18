@@ -19,7 +19,7 @@
     "glob": "^13.0.6",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
-    "mapbox-gl": "^3.21.0",
+    "mapbox-gl": "^3.22.0",
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
