@@ -316,7 +316,7 @@ permalink: /travel
       type: "line",
       source: "flight-routes-past",
       paint: {
-        "line-color": "#76e9c8",
+        "line-color": "#c0c0c0",
         "line-opacity": 1,
         "line-width": [
           "interpolate",
@@ -380,7 +380,7 @@ permalink: /travel
       source: "airport-nodes",
       paint: {
         "circle-radius": 5,
-        "circle-color": ["case", ["get", "isFutureOnly"], "#ffd700", "#76e9c8"],
+        "circle-color": ["case", ["get", "isFutureOnly"], "#ffd700", "#c0c0c0"],
         "circle-stroke-color": "white",
         "circle-stroke-width": 1.25,
       },
