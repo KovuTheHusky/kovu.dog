@@ -60,6 +60,18 @@ permalink: /travel
         >Flights</label
       >
     </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="toggle-cruises"
+        checked
+      />
+      <label class="form-check-label text-white" for="toggle-cruises"
+        >Cruises</label
+      >
+    </div>
   </div>
 </div>
 <script data-cfasync="false">
@@ -101,6 +113,53 @@ permalink: /travel
     "bottom-right",
   );
 
+  // --- Convert Jekyll YAML into GeoJSON ---
+  const cruiseFeatures = [];
+  {% for cruise in site.data.cruises %}
+    {% if cruise.route %}
+      // Build the line string for the vessel route
+      const coords_{{ forloop.index }} = [
+        {% for stop in cruise.route %}
+          [{{ stop.coordinates[0] }}, {{ stop.coordinates[1] }}]{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ];
+
+      cruiseFeatures.push({
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: coords_{{ forloop.index }}
+        },
+        properties: {
+          vessel: "{{ cruise.vessel | escape }}",
+          operator: "{{ cruise.operator | escape }}",
+          date: "{{ cruise.departure_date }}"
+        }
+      });
+
+      // Build the individual port dots
+      {% for stop in cruise.route %}
+        cruiseFeatures.push({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [{{ stop.coordinates[0] }}, {{ stop.coordinates[1] }}]
+          },
+          properties: {
+            port: "{{ stop.port | escape }}",
+            state: "{{ stop.state | escape }}",
+            country: "{{ stop.country | escape }}"
+          }
+        });
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  const cruiseGeoJSON = {
+    type: "FeatureCollection",
+    features: cruiseFeatures
+  };
+
   async function loadFlightRoutesFromCSV(url) {
     try {
       const response = await fetch(url);
@@ -112,7 +171,7 @@ permalink: /travel
       const fromIndex = header.indexOf("From");
       const toIndex = header.indexOf("To");
       const canceledIndex = header.indexOf("Canceled");
-      const dateIndex = header.indexOf("Date"); // Added Date column
+      const dateIndex = header.indexOf("Date");
 
       for (let i = 1; i < lines.length; i++) {
         const columns = lines[i].split(",");
@@ -187,7 +246,7 @@ permalink: /travel
           properties: {
             code: code,
             count: stats.count,
-            isFutureOnly: !stats.hasPast, // True ONLY if no past flights exist
+            isFutureOnly: !stats.hasPast,
           },
         });
       }
@@ -201,6 +260,7 @@ permalink: /travel
       loadFlightRoutesFromCSV("/flights.csv"),
     ]);
 
+    // --- 1. Places Added FIRST (Bottom Layer) ---
     map.addSource("places", {
       type: "geojson",
       data: "https://api.{{ site.hostname }}/places.geojson",
@@ -242,19 +302,50 @@ permalink: /travel
       },
     });
 
-    // --- 2. Process Flight Data ---
+    // --- 2. Cruise Sources and Layers Added SECOND (Middle Layer) ---
+    map.addSource("cruise-data", {
+      type: "geojson",
+      data: cruiseGeoJSON
+    });
+
+    // Cruise Lines (Bronze)
+    map.addLayer({
+      id: "cruise-route-lines",
+      type: "line",
+      source: "cruise-data",
+      filter: ["==", ["geometry-type"], "LineString"],
+      paint: {
+        "line-color": "#cd7f32",
+        "line-opacity": 1,
+        "line-width": 1
+      }
+    });
+
+    // Cruise Ports (Bronze)
+    map.addLayer({
+      id: "cruise-ports",
+      type: "circle",
+      source: "cruise-data",
+      filter: ["==", ["geometry-type"], "Point"],
+      paint: {
+        "circle-radius": 5,
+        "circle-color": "#cd7f32",
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25
+      }
+    });
+
+    // --- 3. Flights Added LAST (Top Layer) ---
     const routeStatsPast = new Map();
     const routeStatsFuture = new Map();
-    const airportStats = new Map(); // Key: Code, Value: { count, hasPast }
+    const airportStats = new Map();
 
-    // Get today's date (YYYY-MM-DD)
     const todayISO = new Date().toISOString().split("T")[0];
 
     flightRoutes.forEach((route) => {
       const routeKey = [route.origin, route.destination].sort().join("-");
       const isFuture = route.date >= todayISO;
 
-      // 1. Separate Routes into Past or Future maps
       const targetStats = isFuture ? routeStatsFuture : routeStatsPast;
       if (!targetStats.has(routeKey)) {
         targetStats.set(routeKey, {
@@ -265,7 +356,6 @@ permalink: /travel
       }
       targetStats.get(routeKey).count++;
 
-      // 2. Track Airport History (Check if it has ANY past flights)
       [route.origin, route.destination].forEach((code) => {
         if (!airportStats.has(code)) {
           airportStats.set(code, { count: 0, hasPast: false });
@@ -273,7 +363,6 @@ permalink: /travel
         const stats = airportStats.get(code);
         stats.count++;
 
-        // If this flight is in the past, mark the airport as 'visited'
         if (!isFuture) {
           stats.hasPast = true;
         }
@@ -294,7 +383,6 @@ permalink: /travel
     );
     const airportFeatures = createAirportFeatures(airportStats, airportDb);
 
-    // --- 3. Add Flight Layers SECOND (Top) ---
     map.addSource("flight-routes-past", {
       type: "geojson",
       data: { type: "FeatureCollection", features: pastFeatures },
@@ -310,7 +398,6 @@ permalink: /travel
       data: { type: "FeatureCollection", features: airportFeatures },
     });
 
-    // Past Flights (Aqua)
     map.addLayer({
       id: "route-lines-past",
       type: "line",
@@ -330,12 +417,11 @@ permalink: /travel
       },
     });
 
-    // Future Flights (Solid - No past flights on this route)
     map.addLayer({
       id: "route-lines-future-solid",
       type: "line",
       source: "flight-routes-future",
-      filter: ["!", ["get", "hasPast"]], // Only show if hasPast is false
+      filter: ["!", ["get", "hasPast"]],
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
@@ -351,16 +437,15 @@ permalink: /travel
       },
     });
 
-    // Future Flights (Dashed - Overlapping with past flights)
     map.addLayer({
       id: "route-lines-future-dashed",
       type: "line",
       source: "flight-routes-future",
-      filter: ["get", "hasPast"], // Only show if hasPast is true
+      filter: ["get", "hasPast"],
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-dasharray": [2, 2], // Dashed pattern
+        "line-dasharray": [2, 2],
         "line-width": [
           "interpolate",
           ["linear"],
@@ -373,7 +458,6 @@ permalink: /travel
       },
     });
 
-    // Airport Dots
     map.addLayer({
       id: "airport-points",
       type: "circle",
@@ -392,8 +476,10 @@ permalink: /travel
     "places-icons",
     "airport-points",
     "route-lines-past",
-    "route-lines-future-solid", // Updated
-    "route-lines-future-dashed", // Updated
+    "route-lines-future-solid",
+    "route-lines-future-dashed",
+    "cruise-route-lines",
+    "cruise-ports"
   ];
 
   map.on("click", interactiveLayers, function (e) {
@@ -437,7 +523,6 @@ permalink: /travel
         '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #4285f4;"><img src="/node_modules/simple-icons/icons/googlemaps.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ';
       html += "</div>";
     } else if (layerId === "airport-points") {
-      // --- Airport Popup ---
       coordinates = feature.geometry.coordinates.slice();
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -454,12 +539,47 @@ permalink: /travel
           <h6 class="mb-0">${feature.properties.origin} ↔ ${feature.properties.destination}</h6>
           <p class="m-0">${feature.properties.count} ${type} flights</p>
         </div>`;
+    } else if (layerId === "cruise-ports") {
+      // --- Cruise Port Popups with Twemoji-Ready Flags ---
+      coordinates = feature.geometry.coordinates.slice();
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      const portName = feature.properties.port;
+      const state = feature.properties.state;
+      const countryCode = feature.properties.country;
+
+      let flag = "";
+      if (countryCode && countryCode.length === 2) {
+        // Mathematically build the Unicode flag
+        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397)) + " ";
+      }
+
+      // Removed text-muted class
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${portName}</h6>
+          <p class="m-0">${flag}</p>
+        </div>`;
+    } else if (layerId === "cruise-route-lines") {
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${feature.properties.vessel}</h6>
+          <p class="m-0">${feature.properties.date}</p>
+        </div>`;
     }
 
-    new mapboxgl.Popup({ closeButton: false })
+    // Create the popup
+    const popup = new mapboxgl.Popup({ closeButton: false })
       .setLngLat(coordinates)
       .setHTML(html)
       .addTo(map);
+
+    // --- NEW: Command Twemoji to parse this specific popup right after it gets added ---
+    if (typeof twemoji !== 'undefined') {
+      twemoji.parse(popup.getElement());
+    }
   });
 
   map.on("mouseenter", interactiveLayers, function () {
@@ -496,6 +616,14 @@ permalink: /travel
       );
     if (map.getLayer("airport-points"))
       map.setLayoutProperty("airport-points", "visibility", visibility);
+  });
+
+  document.getElementById("toggle-cruises").addEventListener("change", (e) => {
+    const visibility = e.target.checked ? "visible" : "none";
+    if (map.getLayer("cruise-route-lines"))
+      map.setLayoutProperty("cruise-route-lines", "visibility", visibility);
+    if (map.getLayer("cruise-ports"))
+      map.setLayoutProperty("cruise-ports", "visibility", visibility);
   });
 
   document

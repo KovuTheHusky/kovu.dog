@@ -1,0 +1,25 @@
+- vessel: "Norwegian Prima"
+  operator: "Norwegian Cruise Line"
+  departure_date: "2026-04-26"
+  return_date: "2026-05-03"
+  route:
+    - port: "Port Canaveral"
+      state: "FL"
+      country: "US"
+      coordinates: [-80.61, 28.41]
+    - port: "Great Stirrup Cay"
+      country: "BS"
+      coordinates: [-77.9, 25.833333]
+    - port: "Montego Bay"
+      country: "JM"
+      coordinates: [-77.916667, 18.466667]
+    - port: "George Town"
+      country: "KY"
+      coordinates: [-81.381667, 19.296389]
+    - port: "Cozumel"
+      country: "MX"
+      coordinates: [-86.92, 20.42]
+    - port: "Port Canaveral"
+      state: "FL"
+      country: "US"
+      coordinates: [-80.61, 28.41]
