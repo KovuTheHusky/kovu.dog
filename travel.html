@@ -8,6 +8,13 @@ permalink: /travel
   ::-webkit-scrollbar {
     width: 0 !important;
   }
+
+  .mapboxgl-popup-content img.emoji {
+    height: 1em !important;
+    position: relative !important;
+    top: -2px !important;
+    vertical-align: bottom !important;
+  }
 </style>
 <link href="/node_modules/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet" />
 <script
@@ -197,22 +204,24 @@ permalink: /travel
   }
 
   async function getAirportDatabase() {
-    const response = await fetch("/airports.json");
+    const response = await fetch("/airports.json"); // Updated to match your new JSON file
     const airports = await response.json();
     return new Map(
-      airports.map((airport) => [airport.code, [airport.lat, airport.lon]]),
+      // Keep the whole object so we have access to name and country later
+      airports.map((airport) => [airport.iata_code, airport]),
     );
   }
 
   function createRouteFeatures(routes, db) {
     const features = [];
     for (const route of routes) {
-      const originCoords = db.get(route.origin);
-      const destCoords = db.get(route.destination);
-      if (!originCoords || !destCoords) continue;
+      const originData = db.get(route.origin);
+      const destData = db.get(route.destination);
+      if (!originData || !destData) continue;
 
+      const originCoords = [originData.longitude_deg, originData.latitude_deg];
       const originLng = originCoords[0];
-      let destLng = destCoords[0];
+      let destLng = destData.longitude_deg;
 
       const diff = destLng - originLng;
       if (diff > 180) destLng -= 360;
@@ -222,7 +231,7 @@ permalink: /travel
         type: "Feature",
         geometry: {
           type: "LineString",
-          coordinates: [originCoords, [destLng, destCoords[1]]],
+          coordinates: [originCoords, [destLng, destData.latitude_deg]],
         },
         properties: {
           origin: route.origin,
@@ -238,13 +247,15 @@ permalink: /travel
   function createAirportFeatures(airportStatsMap, db) {
     const features = [];
     for (const [code, stats] of airportStatsMap.entries()) {
-      const coords = db.get(code);
-      if (coords) {
+      const airportData = db.get(code);
+      if (airportData) {
         features.push({
           type: "Feature",
-          geometry: { type: "Point", coordinates: coords },
+          geometry: { type: "Point", coordinates: [airportData.longitude_deg, airportData.latitude_deg] },
           properties: {
             code: code,
+            name: airportData.name, // Extract the name
+            country: airportData.iso_country, // Extract the country
             count: stats.count,
             isFutureOnly: !stats.hasPast,
           },
@@ -527,9 +538,18 @@ permalink: /travel
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
+
+      const airportName = feature.properties.name;
+      const countryCode = feature.properties.country;
+
+      let flag = "";
+      if (countryCode && countryCode.length === 2) {
+        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
+      }
+
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${feature.properties.code}</h6>
+          <h6 class="mb-0">${airportName} ${flag}</h6>
           <p class="m-0">${feature.properties.count} flights</p>
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
@@ -540,27 +560,22 @@ permalink: /travel
           <p class="m-0">${feature.properties.count} ${type} flights</p>
         </div>`;
     } else if (layerId === "cruise-ports") {
-      // --- Cruise Port Popups with Twemoji-Ready Flags ---
       coordinates = feature.geometry.coordinates.slice();
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
 
       const portName = feature.properties.port;
-      const state = feature.properties.state;
       const countryCode = feature.properties.country;
 
       let flag = "";
       if (countryCode && countryCode.length === 2) {
-        // Mathematically build the Unicode flag
-        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397)) + " ";
+        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
       }
 
-      // Removed text-muted class
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${portName}</h6>
-          <p class="m-0">${flag}</p>
+          <h6 class="mb-0">${portName} ${flag}</h6>
         </div>`;
     } else if (layerId === "cruise-route-lines") {
       html = `
@@ -570,13 +585,11 @@ permalink: /travel
         </div>`;
     }
 
-    // Create the popup
     const popup = new mapboxgl.Popup({ closeButton: false })
       .setLngLat(coordinates)
       .setHTML(html)
       .addTo(map);
 
-    // --- NEW: Command Twemoji to parse this specific popup right after it gets added ---
     if (typeof twemoji !== 'undefined') {
       twemoji.parse(popup.getElement());
     }
