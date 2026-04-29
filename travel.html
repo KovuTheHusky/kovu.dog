@@ -341,7 +341,7 @@ permalink: /travel
       data: cruiseGeoJSON
     });
 
-    // Cruise Lines (Bronze)
+    // Cruise Lines (Bronze) - Dynamically thickness scaled via count
     map.addLayer({
       id: "cruise-route-lines",
       type: "line",
@@ -350,7 +350,15 @@ permalink: /travel
       paint: {
         "line-color": "#cd7f32",
         "line-opacity": 1,
-        "line-width": 1
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["get", "count"],
+          1,
+          1,
+          10,
+          10,
+        ],
       }
     });
 
