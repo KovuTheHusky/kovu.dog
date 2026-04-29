@@ -120,8 +120,8 @@ permalink: /travel
     "bottom-right",
   );
 
-  // --- Convert Jekyll YAML into GeoJSON ---
-  const cruiseFeatures = [];
+  // --- Convert Jekyll YAML into GeoJSON with Aggregation ---
+  const rawCruiseFeatures = [];
   {% for cruise in site.data.cruises %}
     {% if cruise.route %}
       // Build the line string for the vessel route
@@ -131,7 +131,7 @@ permalink: /travel
         {% endfor %}
       ];
 
-      cruiseFeatures.push({
+      rawCruiseFeatures.push({
         type: "Feature",
         geometry: {
           type: "LineString",
@@ -146,7 +146,7 @@ permalink: /travel
 
       // Build the individual port dots
       {% for stop in cruise.route %}
-        cruiseFeatures.push({
+        rawCruiseFeatures.push({
           type: "Feature",
           geometry: {
             type: "Point",
@@ -162,9 +162,32 @@ permalink: /travel
     {% endif %}
   {% endfor %}
 
+  // Aggregate duplicate ports and identical cruise routes to calculate counts
+  const portStats = new Map();
+  const cruiseRouteStats = new Map();
+
+  rawCruiseFeatures.forEach(f => {
+    if (f.geometry.type === "Point") {
+      const key = f.properties.port;
+      if (!portStats.has(key)) {
+        f.properties.count = 0;
+        portStats.set(key, f);
+      }
+      portStats.get(key).properties.count++;
+    } else if (f.geometry.type === "LineString") {
+      // Use vessel + exact coordinate path as a unique identifier for a specific route
+      const key = f.properties.vessel + JSON.stringify(f.geometry.coordinates);
+      if (!cruiseRouteStats.has(key)) {
+        f.properties.count = 0;
+        cruiseRouteStats.set(key, f);
+      }
+      cruiseRouteStats.get(key).properties.count++;
+    }
+  });
+
   const cruiseGeoJSON = {
     type: "FeatureCollection",
-    features: cruiseFeatures
+    features: [...portStats.values(), ...cruiseRouteStats.values()]
   };
 
   async function loadFlightRoutesFromCSV(url) {
@@ -204,10 +227,9 @@ permalink: /travel
   }
 
   async function getAirportDatabase() {
-    const response = await fetch("/airports.json"); // Updated to match your new JSON file
+    const response = await fetch("/airports.json");
     const airports = await response.json();
     return new Map(
-      // Keep the whole object so we have access to name and country later
       airports.map((airport) => [airport.iata_code, airport]),
     );
   }
@@ -254,8 +276,8 @@ permalink: /travel
           geometry: { type: "Point", coordinates: [airportData.longitude_deg, airportData.latitude_deg] },
           properties: {
             code: code,
-            name: airportData.name, // Extract the name
-            country: airportData.iso_country, // Extract the country
+            name: airportData.name,
+            country: airportData.iso_country,
             count: stats.count,
             isFutureOnly: !stats.hasPast,
           },
@@ -550,14 +572,14 @@ permalink: /travel
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${airportName} ${flag}</h6>
-          <p class="m-0">${feature.properties.count} flights</p>
+          <p class="m-0">${feature.properties.count} ${feature.properties.count === 1 ? 'visit' : 'visits'}</p>
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
       const type = layerId.includes("future") ? "upcoming" : "past";
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${feature.properties.origin} ↔ ${feature.properties.destination}</h6>
-          <p class="m-0">${feature.properties.count} ${type} flights</p>
+          <p class="m-0">${feature.properties.count} ${feature.properties.count === 1 ? 'flight' : 'flights'}</p>
+
         </div>`;
     } else if (layerId === "cruise-ports") {
       coordinates = feature.geometry.coordinates.slice();
@@ -567,6 +589,7 @@ permalink: /travel
 
       const portName = feature.properties.port;
       const countryCode = feature.properties.country;
+      const count = feature.properties.count;
 
       let flag = "";
       if (countryCode && countryCode.length === 2) {
@@ -576,12 +599,13 @@ permalink: /travel
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${portName} ${flag}</h6>
+          <p class="m-0">${count} ${count === 1 ? 'visit' : 'visits'}</p>
         </div>`;
     } else if (layerId === "cruise-route-lines") {
+      const count = feature.properties.count;
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${feature.properties.vessel}</h6>
-          <p class="m-0">${feature.properties.date}</p>
+          <p class="m-0">${count} ${count === 1 ? 'voyage' : 'voyages'}</p>
         </div>`;
     }
 
