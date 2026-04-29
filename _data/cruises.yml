@@ -6,20 +6,26 @@
     - port: "Port Canaveral"
       state: "FL"
       country: "US"
+      date: "2026-04-26"
       coordinates: [-80.61, 28.41]
     - port: "Great Stirrup Cay"
       country: "BS"
+      date: "2026-04-27"
       coordinates: [-77.9, 25.833333]
     - port: "Montego Bay"
       country: "JM"
+      date: "2026-04-29"
       coordinates: [-77.916667, 18.466667]
     - port: "George Town"
       country: "KY"
+      date: "2026-04-30"
       coordinates: [-81.381667, 19.296389]
     - port: "Cozumel"
       country: "MX"
+      date: "2026-05-01"
       coordinates: [-86.92, 20.42]
     - port: "Port Canaveral"
       state: "FL"
       country: "US"
+      date: "2026-05-03"
       coordinates: [-80.61, 28.41]
