@@ -134,7 +134,10 @@ permalink: /travel
               state: "{{ stop.state | escape }}",
               country: "{{ stop.country | escape }}",
               date: "{{ stop.date }}",
-              coordinates: [{{ stop.coordinates[0] }}, {{ stop.coordinates[1] }}]
+              coordinates: [{{ stop.coordinates[0] }}, {{ stop.coordinates[1] }}],
+              flagId: ("{{ stop.country }}" === "US" && "{{ stop.state }}")
+                        ? "us-{{ stop.state | downcase }}"
+                        : "{{ stop.country | downcase }}"
             }{% unless forloop.last %},{% endunless %}
           {% endfor %}
         ];
@@ -149,7 +152,8 @@ permalink: /travel
               state: stop.state,
               country: stop.country,
               date: stop.date,
-              vessel: vessel
+              vessel: vessel,
+              flagId: stop.flagId
             }
           });
         });
@@ -179,7 +183,7 @@ permalink: /travel
             properties: {
               vessel: vessel,
               operator: operator,
-              date: end.date, // The segment uses the date it arrives at the destination
+              date: end.date,
               origin_port: start.port,
               destination_port: end.port
             }
@@ -196,9 +200,7 @@ permalink: /travel
 
   const todayISO = new Date().toISOString().split("T")[0];
 
-  // Distribute features into Past and Future buckets
   rawCruiseFeatures.forEach(f => {
-    // If the date is tomorrow or later, it is Future. If it is today or earlier, it is Past.
     const isFuture = f.properties.date > todayISO;
 
     if (f.geometry.type === "Point") {
@@ -223,7 +225,6 @@ permalink: /travel
     }
   });
 
-  // Cross-reference to find dashed routes (routes sailed in both past and future)
   for (const [key, feature] of portStatsFuture.entries()) {
     if (portStatsPast.has(key)) feature.properties.hasPast = true;
   }
@@ -322,6 +323,16 @@ permalink: /travel
     for (const [code, stats] of airportStatsMap.entries()) {
       const airportData = db.get(code);
       if (airportData) {
+
+        let dynamicFlagId = null;
+        if (airportData.iso_country) {
+          if (airportData.iso_country === "US" && airportData.iso_region) {
+            dynamicFlagId = airportData.iso_region.toLowerCase();
+          } else {
+            dynamicFlagId = airportData.iso_country.toLowerCase();
+          }
+        }
+
         features.push({
           type: "Feature",
           geometry: { type: "Point", coordinates: [airportData.longitude_deg, airportData.latitude_deg] },
@@ -329,6 +340,7 @@ permalink: /travel
             code: code,
             name: airportData.name,
             country: airportData.iso_country,
+            flagId: dynamicFlagId,
             count: stats.count,
             isFutureOnly: !stats.hasPast,
           },
@@ -384,66 +396,78 @@ permalink: /travel
     const futureFeatures = createRouteFeatures(Array.from(routeStatsFuture.values()), airportDb);
     const airportFeatures = createAirportFeatures(airportStats, airportDb);
 
-    // --- 2. Extract Unique Countries & Build Canvas Flags ---
-    const uniqueCountries = new Set();
+    // --- 2. Extract Unique Flag IDs & Load SVG Assets ---
+    const uniqueFlags = new Set();
 
     [...cruiseGeoJSONPast.features, ...cruiseGeoJSONFuture.features].forEach(f => {
-      if (f.geometry.type === "Point" && f.properties.country) {
-        uniqueCountries.add(f.properties.country);
+      if (f.geometry.type === "Point" && f.properties.flagId) {
+        uniqueFlags.add(f.properties.flagId);
       }
     });
 
     airportFeatures.forEach(f => {
-      if (f.properties.country) {
-        uniqueCountries.add(f.properties.country);
+      if (f.properties.flagId) {
+        uniqueFlags.add(f.properties.flagId);
       }
     });
 
-    const loadPromises = Array.from(uniqueCountries).map(countryCode => {
+    const loadPromises = Array.from(uniqueFlags).map(flagId => {
       return new Promise((resolve) => {
-        if (!countryCode || countryCode.length !== 2) return resolve();
+        if (!flagId) return resolve();
 
-        const flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
-        const div = document.createElement('div');
-        div.innerHTML = flag;
-        if (typeof twemoji !== 'undefined') twemoji.parse(div);
-
-        const imgEl = div.querySelector('img');
-        if (imgEl && imgEl.src) {
-          const img = new Image();
-          img.crossOrigin = "Anonymous";
-          img.onload = () => {
-            if (!map.hasImage('flag-circle-' + countryCode)) {
-              const size = 32;
-              const canvas = document.createElement('canvas');
-              canvas.width = size;
-              canvas.height = size;
-              const ctx = canvas.getContext('2d');
-              const radius = 12;
-
-              ctx.save();
-              ctx.beginPath();
-              ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
-              ctx.clip();
-              ctx.drawImage(img, size/2 - radius, size/2 - radius, radius * 2, radius * 2);
-              ctx.restore();
-
-              ctx.beginPath();
-              ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
-              ctx.lineWidth = 2.5;
-              ctx.strokeStyle = "white";
-              ctx.stroke();
-
-              const imageData = ctx.getImageData(0, 0, size, size);
-              map.addImage('flag-circle-' + countryCode, imageData);
-            }
-            resolve();
-          };
-          img.onerror = () => resolve();
-          img.src = imgEl.src;
+        // Hybrid Routing Logic
+        let imgUrl = "";
+        if (flagId === "us-dc") {
+          imgUrl = "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg";
+        } else if (flagId.startsWith("us-")) {
+          // US States use FlagCDN
+          imgUrl = `https://flagcdn.com/${flagId}.svg`;
         } else {
-          resolve();
+          // Countries use Circle-Flags
+          imgUrl = `https://hatscripts.github.io/circle-flags/flags/${flagId}.svg`;
         }
+
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.onload = () => {
+          if (!map.hasImage('flag-circle-' + flagId)) {
+            const size = 32;
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            const radius = 12;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
+            ctx.clip();
+
+            // Object-Fit Cover Math (Safely handles both 1:1 and rectangular SVGs)
+            const targetSize = radius * 2;
+            const scale = Math.max(targetSize / img.width, targetSize / img.height);
+            const scaledWidth = img.width * scale;
+            const scaledHeight = img.height * scale;
+
+            const dx = (size - scaledWidth) / 2;
+            const dy = (size - scaledHeight) / 2;
+
+            ctx.drawImage(img, dx, dy, scaledWidth, scaledHeight);
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = "white";
+            ctx.stroke();
+
+            const imageData = ctx.getImageData(0, 0, size, size);
+            map.addImage('flag-circle-' + flagId, imageData);
+          }
+          resolve();
+        };
+        img.onerror = () => resolve();
+        img.src = imgUrl;
       });
     });
 
@@ -569,7 +593,7 @@ permalink: /travel
       source: "cruise-data-past",
       filter: ["==", ["geometry-type"], "Point"],
       layout: {
-        "icon-image": ["case", ["has", "country"], ["concat", "flag-circle-", ["get", "country"]], ""],
+        "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
         "icon-size": 0.5,
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
@@ -583,7 +607,7 @@ permalink: /travel
       source: "cruise-data-future",
       filter: ["==", ["geometry-type"], "Point"],
       layout: {
-        "icon-image": ["case", ["has", "country"], ["concat", "flag-circle-", ["get", "country"]], ""],
+        "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
         "icon-size": 0.5,
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
@@ -661,7 +685,7 @@ permalink: /travel
       type: "symbol",
       source: "airport-nodes",
       layout: {
-        "icon-image": ["case", ["has", "country"], ["concat", "flag-circle-", ["get", "country"]], ""],
+        "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
         "icon-size": 0.5,
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
@@ -734,16 +758,22 @@ permalink: /travel
       }
 
       const airportName = feature.properties.name;
-      const countryCode = feature.properties.country;
+      const flagId = feature.properties.flagId;
 
-      let flag = "";
-      if (countryCode && countryCode.length === 2) {
-        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
+      let flagImg = "";
+      if (flagId) {
+        if (flagId === "us-dc") {
+          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else if (flagId.startsWith("us-")) {
+          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else {
+          flagImg = `<img src="https://hatscripts.github.io/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        }
       }
 
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${airportName} ${flag}</h6>
+          <h6 class="mb-0">${airportName} ${flagImg}</h6>
           <p class="m-0">${feature.properties.count} ${feature.properties.count === 1 ? 'visit' : 'visits'}</p>
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
@@ -760,17 +790,23 @@ permalink: /travel
       }
 
       const portName = feature.properties.port;
-      const countryCode = feature.properties.country;
+      const flagId = feature.properties.flagId;
       const count = feature.properties.count;
 
-      let flag = "";
-      if (countryCode && countryCode.length === 2) {
-        flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
+      let flagImg = "";
+      if (flagId) {
+        if (flagId === "us-dc") {
+          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else if (flagId.startsWith("us-")) {
+          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else {
+          flagImg = `<img src="https://hatscripts.github.io/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        }
       }
 
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${portName} ${flag}</h6>
+          <h6 class="mb-0">${portName} ${flagImg}</h6>
           <p class="m-0">${count} ${count === 1 ? 'visit' : 'visits'}</p>
         </div>`;
     } else if (layerId.startsWith("cruise-route-lines")) {
@@ -779,6 +815,7 @@ permalink: /travel
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${feature.properties.origin_port} ↔ ${feature.properties.destination_port}</h6>
+          <p class="m-0" style="font-size: 0.9em; margin-bottom: 2px;">${feature.properties.vessel}</p>
           <p class="m-0">${count} ${type} ${count === 1 ? 'voyage' : 'voyages'}</p>
         </div>`;
     }
@@ -819,7 +856,6 @@ permalink: /travel
   document.getElementById("toggle-cruises").addEventListener("change", (e) => {
     const visibility = e.target.checked ? "visible" : "none";
 
-    // Toggle all 6 cruise layers
     const layers = [
       "cruise-route-lines-past",
       "cruise-route-lines-future-solid",
