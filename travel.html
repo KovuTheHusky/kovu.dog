@@ -415,16 +415,16 @@ permalink: /travel
       return new Promise((resolve) => {
         if (!flagId) return resolve();
 
-        // Hybrid Routing Logic
         let imgUrl = "";
+
         if (flagId === "us-dc") {
           imgUrl = "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg";
         } else if (flagId.startsWith("us-")) {
-          // US States use FlagCDN
+          // US States load via the external CDN
           imgUrl = `https://flagcdn.com/${flagId}.svg`;
         } else {
-          // Countries use Circle-Flags
-          imgUrl = `https://hatscripts.github.io/circle-flags/flags/${flagId}.svg`;
+          // International countries load locally via Bun!
+          imgUrl = `/node_modules/circle-flags/flags/${flagId}.svg`;
         }
 
         const img = new Image();
@@ -443,7 +443,7 @@ permalink: /travel
             ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
             ctx.clip();
 
-            // Object-Fit Cover Math (Safely handles both 1:1 and rectangular SVGs)
+            // Object-Fit Cover Math (Automatically centers and masks the flags perfectly)
             const targetSize = radius * 2;
             const scale = Math.max(targetSize / img.width, targetSize / img.height);
             const scaledWidth = img.width * scale;
@@ -767,7 +767,7 @@ permalink: /travel
         } else if (flagId.startsWith("us-")) {
           flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
         } else {
-          flagImg = `<img src="https://hatscripts.github.io/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
         }
       }
 
@@ -800,7 +800,7 @@ permalink: /travel
         } else if (flagId.startsWith("us-")) {
           flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
         } else {
-          flagImg = `<img src="https://hatscripts.github.io/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
         }
       }
 
