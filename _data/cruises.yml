@@ -1,3 +1,34 @@
+- vessel: "Norwegian Aqua"
+  operator: "Norwegian Cruise Line"
+  departure_date: "2026-11-15"
+  return_date: "2026-11-22"
+  route:
+    - port: "Port Miami"
+      state: "FL"
+      country: "US"
+      date: "2026-11-15"
+      coordinates: [-80.171111, 25.774167]
+    - port: "Puerto Plata"
+      country: "DO"
+      date: "2026-11-17"
+      coordinates: [-70.683333, 19.8]
+    - port: "Saint Thomas"
+      country: "VI"
+      date: "2026-11-18"
+      coordinates: [-64.916667, 18.333333]
+    - port: "Tortola"
+      country: "VG"
+      date: "2026-11-19"
+      coordinates: [-64.618056, 18.423333]
+    - port: "Great Stirrup Cay"
+      country: "BS"
+      date: "2026-11-21"
+      coordinates: [-77.9, 25.833333]
+    - port: "Port Miami"
+      state: "FL"
+      country: "US"
+      date: "2026-11-22"
+      coordinates: [-80.171111, 25.774167]
 - vessel: "Norwegian Prima"
   operator: "Norwegian Cruise Line"
   departure_date: "2026-04-26"

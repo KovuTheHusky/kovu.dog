@@ -193,53 +193,89 @@ permalink: /travel
     {% endif %}
   {% endfor %}
 
-  const portStatsPast = new Map();
-  const portStatsFuture = new Map();
-  const cruiseRouteStatsPast = new Map();
-  const cruiseRouteStatsFuture = new Map();
-
+  // --- NEW AGGREGATION LOGIC ---
+  const globalPortStats = new Map();
+  const globalRouteStats = new Map();
   const todayISO = new Date().toISOString().split("T")[0];
 
+  // 1. First Pass: Tally every visit globally, regardless of date
   rawCruiseFeatures.forEach(f => {
-    const isFuture = f.properties.date > todayISO;
-
     if (f.geometry.type === "Point") {
       const key = f.properties.port;
-      const targetStats = isFuture ? portStatsFuture : portStatsPast;
-
-      if (!targetStats.has(key)) {
-        f.properties = { ...f.properties, count: 0 };
-        targetStats.set(key, f);
+      if (!globalPortStats.has(key)) {
+        globalPortStats.set(key, { count: 0, hasPast: false, latestFutureFeature: null, latestPastFeature: null });
       }
-      targetStats.get(key).properties.count++;
+
+      const stats = globalPortStats.get(key);
+      stats.count++;
+
+      if (f.properties.date > todayISO) {
+        stats.latestFutureFeature = f;
+      } else {
+        stats.hasPast = true;
+        stats.latestPastFeature = f;
+      }
 
     } else if (f.geometry.type === "LineString") {
       const key = f.properties.vessel + "-" + f.properties.origin_port + "-" + f.properties.destination_port;
-      const targetStats = isFuture ? cruiseRouteStatsFuture : cruiseRouteStatsPast;
-
-      if (!targetStats.has(key)) {
-        f.properties = { ...f.properties, count: 0 };
-        targetStats.set(key, f);
+      if (!globalRouteStats.has(key)) {
+        globalRouteStats.set(key, { count: 0, hasPast: false, latestFutureFeature: null, latestPastFeature: null });
       }
-      targetStats.get(key).properties.count++;
+
+      const stats = globalRouteStats.get(key);
+      stats.count++;
+
+      if (f.properties.date > todayISO) {
+        stats.latestFutureFeature = f;
+      } else {
+        stats.hasPast = true;
+        stats.latestPastFeature = f;
+      }
     }
   });
 
-  for (const [key, feature] of portStatsFuture.entries()) {
-    if (portStatsPast.has(key)) feature.properties.hasPast = true;
+  // 2. Second Pass: Distribute into Mapbox Layers with synchronized counts
+  const portFeaturesPast = [];
+  const portFeaturesFuture = [];
+  const routeFeaturesPast = [];
+  const routeFeaturesFuture = [];
+
+  for (const [key, stats] of globalPortStats.entries()) {
+    if (stats.latestFutureFeature) {
+      const f = stats.latestFutureFeature;
+      f.properties.count = stats.count;
+      f.properties.hasPast = stats.hasPast;
+      portFeaturesFuture.push(f);
+    }
+    if (stats.latestPastFeature) {
+      const f = stats.latestPastFeature;
+      f.properties.count = stats.count;
+      portFeaturesPast.push(f);
+    }
   }
-  for (const [key, feature] of cruiseRouteStatsFuture.entries()) {
-    if (cruiseRouteStatsPast.has(key)) feature.properties.hasPast = true;
+
+  for (const [key, stats] of globalRouteStats.entries()) {
+    if (stats.latestFutureFeature) {
+      const f = stats.latestFutureFeature;
+      f.properties.count = stats.count;
+      f.properties.hasPast = stats.hasPast;
+      routeFeaturesFuture.push(f);
+    }
+    if (stats.latestPastFeature) {
+      const f = stats.latestPastFeature;
+      f.properties.count = stats.count;
+      routeFeaturesPast.push(f);
+    }
   }
 
   const cruiseGeoJSONPast = {
     type: "FeatureCollection",
-    features: [...portStatsPast.values(), ...cruiseRouteStatsPast.values()]
+    features: [...portFeaturesPast, ...routeFeaturesPast]
   };
 
   const cruiseGeoJSONFuture = {
     type: "FeatureCollection",
-    features: [...portStatsFuture.values(), ...cruiseRouteStatsFuture.values()]
+    features: [...portFeaturesFuture, ...routeFeaturesFuture]
   };
 
   async function loadFlightRoutesFromCSV(url) {
