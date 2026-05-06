@@ -349,7 +349,8 @@ permalink: /travel
           count: route.count,
           hasPast: route.hasPast || false,
           pastCount: route.pastCount || 0,
-          futureCount: route.futureCount || 0
+          futureCount: route.futureCount || 0,
+          totalCount: route.totalCount || route.count // Fallback to raw count if total isn't set
         },
       });
     }
@@ -426,11 +427,23 @@ permalink: /travel
       });
     });
 
+    // Populate default totalCounts for past
+    for (const stats of routeStatsPast.values()) {
+      stats.totalCount = stats.count;
+    }
+
+    // Populate future totalCounts and handle cross-referencing totals
     for (const [routeKey, stats] of routeStatsFuture.entries()) {
+      stats.totalCount = stats.count; // Default if there is no past flight
       if (routeStatsPast.has(routeKey)) {
         stats.hasPast = true;
         stats.pastCount = routeStatsPast.get(routeKey).count;
         routeStatsPast.get(routeKey).futureCount = stats.count;
+
+        // Sum them up and inject totalCount into both maps
+        const combinedCount = stats.count + stats.pastCount;
+        stats.totalCount = combinedCount;
+        routeStatsPast.get(routeKey).totalCount = combinedCount;
       }
     }
 
@@ -679,7 +692,8 @@ permalink: /travel
       paint: {
         "line-color": "#c0c0c0",
         "line-opacity": 1,
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        // Using totalCount for thickness calculation
+        "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
 
@@ -691,7 +705,8 @@ permalink: /travel
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        // Using totalCount for thickness calculation
+        "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
 
@@ -704,7 +719,8 @@ permalink: /travel
         "line-color": "#ffd700",
         "line-opacity": 1,
         "line-dasharray": [10, 10],
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        // Using totalCount for thickness calculation
+        "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
 
