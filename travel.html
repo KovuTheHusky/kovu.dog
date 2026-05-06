@@ -350,7 +350,7 @@ permalink: /travel
           hasPast: route.hasPast || false,
           pastCount: route.pastCount || 0,
           futureCount: route.futureCount || 0,
-          totalCount: route.totalCount || route.count // Fallback to raw count if total isn't set
+          totalCount: route.totalCount || route.count
         },
       });
     }
@@ -427,20 +427,17 @@ permalink: /travel
       });
     });
 
-    // Populate default totalCounts for past
     for (const stats of routeStatsPast.values()) {
       stats.totalCount = stats.count;
     }
 
-    // Populate future totalCounts and handle cross-referencing totals
     for (const [routeKey, stats] of routeStatsFuture.entries()) {
-      stats.totalCount = stats.count; // Default if there is no past flight
+      stats.totalCount = stats.count;
       if (routeStatsPast.has(routeKey)) {
         stats.hasPast = true;
         stats.pastCount = routeStatsPast.get(routeKey).count;
         routeStatsPast.get(routeKey).futureCount = stats.count;
 
-        // Sum them up and inject totalCount into both maps
         const combinedCount = stats.count + stats.pastCount;
         stats.totalCount = combinedCount;
         routeStatsPast.get(routeKey).totalCount = combinedCount;
@@ -486,19 +483,22 @@ permalink: /travel
         img.crossOrigin = "Anonymous";
         img.onload = () => {
           if (!map.hasImage('flag-circle-' + flagId)) {
-            const size = 32;
+            // Render High-Res Canvas (No stroke or background fill, just the clipped flag)
+            const scaleFactor = 4;
+            const logicalSize = 32;
+            const size = logicalSize * scaleFactor;
+
             const canvas = document.createElement('canvas');
             canvas.width = size;
             canvas.height = size;
             const ctx = canvas.getContext('2d');
-            const radius = 12;
+            const radius = 16 * scaleFactor; // Full size, radius perfectly bounds the image
 
             ctx.save();
             ctx.beginPath();
             ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
             ctx.clip();
 
-            // Object-Fit Cover Math (Automatically centers and masks the flags perfectly)
             const targetSize = radius * 2;
             const scale = Math.max(targetSize / img.width, targetSize / img.height);
             const scaledWidth = img.width * scale;
@@ -510,14 +510,9 @@ permalink: /travel
             ctx.drawImage(img, dx, dy, scaledWidth, scaledHeight);
             ctx.restore();
 
-            ctx.beginPath();
-            ctx.arc(size/2, size/2, radius, 0, Math.PI * 2);
-            ctx.lineWidth = 2.5;
-            ctx.strokeStyle = "white";
-            ctx.stroke();
-
             const imageData = ctx.getImageData(0, 0, size, size);
-            map.addImage('flag-circle-' + flagId, imageData);
+            // Mapbox natively scales down the 128px image to a razor-sharp 32px footprint
+            map.addImage('flag-circle-' + flagId, imageData, { pixelRatio: scaleFactor });
           }
           resolve();
         };
@@ -620,7 +615,8 @@ permalink: /travel
       source: "cruise-data-past",
       filter: ["==", ["geometry-type"], "Point"],
       paint: {
-        "circle-radius": 5,
+        // Radius math perfectly traces the icon-size of the symbol layer
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
         "circle-color": "#8c92ac",
         "circle-stroke-color": "white",
         "circle-stroke-width": 1.25
@@ -634,7 +630,7 @@ permalink: /travel
       source: "cruise-data-future",
       filter: ["==", ["geometry-type"], "Point"],
       paint: {
-        "circle-radius": 5,
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
         "circle-color": "#cd7f32",
         "circle-stroke-color": "white",
         "circle-stroke-width": 1.25
@@ -649,7 +645,7 @@ permalink: /travel
       filter: ["==", ["geometry-type"], "Point"],
       layout: {
         "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
-        "icon-size": 0.5,
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
       }
@@ -663,7 +659,7 @@ permalink: /travel
       filter: ["==", ["geometry-type"], "Point"],
       layout: {
         "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
-        "icon-size": 0.5,
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
       }
@@ -692,7 +688,6 @@ permalink: /travel
       paint: {
         "line-color": "#c0c0c0",
         "line-opacity": 1,
-        // Using totalCount for thickness calculation
         "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
@@ -705,7 +700,6 @@ permalink: /travel
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        // Using totalCount for thickness calculation
         "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
@@ -719,7 +713,6 @@ permalink: /travel
         "line-color": "#ffd700",
         "line-opacity": 1,
         "line-dasharray": [10, 10],
-        // Using totalCount for thickness calculation
         "line-width": ["interpolate", ["linear"], ["get", "totalCount"], 1, 1, 10, 10],
       },
     });
@@ -730,10 +723,10 @@ permalink: /travel
       type: "circle",
       source: "airport-nodes",
       paint: {
-        "circle-radius": 5,
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
         "circle-color": ["case", ["get", "isFutureOnly"], "#ffd700", "#c0c0c0"],
         "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
+        "circle-stroke-width": 1.25
       },
     });
 
@@ -744,7 +737,7 @@ permalink: /travel
       source: "airport-nodes",
       layout: {
         "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
-        "icon-size": 0.5,
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
       }
@@ -836,8 +829,8 @@ permalink: /travel
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
       const props = feature.properties;
-      const pastCount = layerId.includes("future") ? props.pastCount : props.count;
-      const futureCount = layerId.includes("future") ? props.count : props.futureCount;
+      const pastCount = layerId.includes("future") ? (props.pastCount || 0) : props.count;
+      const futureCount = layerId.includes("future") ? props.count : (props.futureCount || 0);
 
       let textParts = [];
       if (pastCount > 0) {
@@ -884,6 +877,7 @@ permalink: /travel
       html = `
         <div class="text-center" style="color: #000;">
           <h6 class="mb-0">${feature.properties.origin_port} ↔ ${feature.properties.destination_port}</h6>
+          <p class="m-0" style="font-size: 0.9em; margin-bottom: 2px;">${feature.properties.vessel}</p>
           <p class="m-0">${count} ${type} ${count === 1 ? 'voyage' : 'voyages'}</p>
         </div>`;
     }
