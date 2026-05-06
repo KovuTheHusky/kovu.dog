@@ -348,6 +348,8 @@ permalink: /travel
           destination: route.destination,
           count: route.count,
           hasPast: route.hasPast || false,
+          pastCount: route.pastCount || 0,
+          futureCount: route.futureCount || 0
         },
       });
     }
@@ -425,7 +427,11 @@ permalink: /travel
     });
 
     for (const [routeKey, stats] of routeStatsFuture.entries()) {
-      stats.hasPast = routeStatsPast.has(routeKey);
+      if (routeStatsPast.has(routeKey)) {
+        stats.hasPast = true;
+        stats.pastCount = routeStatsPast.get(routeKey).count;
+        routeStatsPast.get(routeKey).futureCount = stats.count;
+      }
     }
 
     const pastFeatures = createRouteFeatures(Array.from(routeStatsPast.values()), airportDb);
@@ -813,11 +819,22 @@ permalink: /travel
           <p class="m-0">${feature.properties.count} ${feature.properties.count === 1 ? 'visit' : 'visits'}</p>
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
-      const type = layerId.includes("future") ? "upcoming" : "past";
+      const props = feature.properties;
+      const pastCount = layerId.includes("future") ? props.pastCount : props.count;
+      const futureCount = layerId.includes("future") ? props.count : props.futureCount;
+
+      let textParts = [];
+      if (pastCount > 0) {
+        textParts.push(`${pastCount} past ${pastCount === 1 ? 'flight' : 'flights'}`);
+      }
+      if (futureCount > 0) {
+        textParts.push(`${futureCount} upcoming ${futureCount === 1 ? 'flight' : 'flights'}`);
+      }
+
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${feature.properties.origin} ↔ ${feature.properties.destination}</h6>
-          <p class="m-0">${feature.properties.count} ${type} ${feature.properties.count === 1 ? 'flight' : 'flights'}</p>
+          <h6 class="mb-0">${props.origin} ↔ ${props.destination}</h6>
+          <p class="m-0">${textParts.join('<br>')}</p>
         </div>`;
     } else if (layerId.startsWith("cruise-ports")) {
       coordinates = feature.geometry.coordinates.slice();
