@@ -22,6 +22,18 @@
   end_date: 2026-05-10
   location: Atlanta, Georgia
 
+- name: Finger Lakes Anthro Weekend
+  url: https://campflaw.org
+  start_date: 2026-05-28
+  end_date: 2026-05-31
+  location: Penn Yan, New York
+
+- name: PortConMaine
+  url: https://portconmaine.com
+  start_date: 2026-06-25
+  end_date: 2026-06-28
+  location: Portland, Maine
+
 - name: Anthrocon
   url: https://anthrocon.org
   start_date: 2026-07-02
@@ -34,11 +46,29 @@
   end_date: 2026-07-19
   location: Hartford, Connecticut
 
+- name: Furrydelphia
+  url: https://furrydelphia.org
+  start_date: 2026-08-06
+  end_date: 2026-08-09
+  location: Philadelphia, Pennsylvania
+
+- name: DenFur
+  url: https://denfur.org
+  start_date: 2026-08-28
+  end_date: 2026-08-30
+  location: Denver, Colorado
+
 - name: Babyfur Con
   url: https://babyfurcon.com
   start_date: 2026-10-29
   end_date: 2026-11-01
   location: San Francisco, California
+
+- name: Midwest FurFest
+  url: https://furfest.org
+  start_date: 2026-12-03
+  end_date: 2026-12-06
+  location: Rosemont, Illinois
 
 - name: NordicFuzzCon
   url: https://nordicfuzzcon.org
