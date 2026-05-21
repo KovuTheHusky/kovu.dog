@@ -7,7 +7,7 @@
         "@fancyapps/fancybox": "^3.5.7",
         "@fortawesome/fontawesome-free": "^7.2.0",
         "@popperjs/core": "^2.11.8",
-        "@primer/octicons": "^19.25.0",
+        "@primer/octicons": "^19.26.0",
         "@twemoji/api": "^17.0.2",
         "balloons-js": "^0.0.3",
         "bootstrap": "^5.3.8",
@@ -108,7 +108,7 @@
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@primer/octicons": ["@primer/octicons@19.25.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-E0eMV8nXexrs7Vro7PdS8v/JfvvYCMh8HN6CXJ9l8fk9atZaY05fVUcyiAh5KjEJu7IxdFy4URfHGpM7+iOl1A=="],
+    "@primer/octicons": ["@primer/octicons@19.26.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-K+ewEvXf9w+65i4OeLDXOhd1yT5qdMIpU/miqmjTuaGufZCxFn4131SIh0CfrinmLFnL9Ow60kk3hxx0Y4oIAQ=="],
 
     "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.9.2", "", { "dependencies": { "line-column": "^1.0.2", "ohm-js": "^17.0.0" } }, "sha512-2XJYqHaZxEBwuufGhzIZ0M6m9YA4HS7YlVOiZtYanFgkmoQeJm1c0JhKcuCXU5C1pc2M0rt1XzBX8SgWv7l8Ww=="],
 
