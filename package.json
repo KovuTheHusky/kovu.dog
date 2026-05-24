@@ -24,7 +24,7 @@
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.20.0"
+    "simple-icons": "^16.21.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.2",
