@@ -46,6 +46,12 @@
   end_date: 2026-07-19
   location: Hartford, Connecticut
 
+- name: Eufuria
+  url: https://eufuria.org
+  start_date: 2026-07-23
+  end_date: 2026-07-25
+  location: Albany, New York
+
 - name: Furrydelphia
   url: https://furrydelphia.org
   start_date: 2026-08-06
