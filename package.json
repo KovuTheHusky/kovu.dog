@@ -8,7 +8,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^7.2.0",
     "@popperjs/core": "^2.11.8",
-    "@primer/octicons": "^19.28.0",
+    "@primer/octicons": "^19.28.1",
     "@twemoji/api": "^17.0.3",
     "balloons-js": "^0.0.3",
     "bootstrap": "^5.3.8",
@@ -24,7 +24,7 @@
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.22.0"
+    "simple-icons": "^16.23.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.2",
