@@ -32,3 +32,8 @@ sass:
   load_paths:
     - _sass
     - node_modules
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+    - if-function
