@@ -6,7 +6,7 @@
   "type": "module",
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@fortawesome/fontawesome-free": "^7.3.0",
     "@popperjs/core": "^2.11.8",
     "@primer/octicons": "^19.28.1",
     "@twemoji/api": "^17.0.3",
@@ -20,18 +20,18 @@
     "glob": "^13.0.6",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
-    "mapbox-gl": "^3.24.0",
+    "mapbox-gl": "^3.25.0",
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.23.0"
+    "simple-icons": "^16.24.1"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.3",
-    "axios": "^1.17.0",
-    "prettier": "^3.8.4",
+    "axios": "^1.18.1",
+    "prettier": "^3.9.1",
     "sharp": "^0.34.5",
     "spritesmith": "^3.5.1",
-    "unzipper": "^0.12.3"
+    "unzipper": "^0.12.5"
   }
 }
