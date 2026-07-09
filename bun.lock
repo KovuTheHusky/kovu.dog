@@ -298,7 +298,7 @@
 
     "lru-cache": ["lru-cache@11.2.4", "", {}, "sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg=="],
 
-    "mapbox-gl": ["mapbox-gl@3.25.0", "", {}, "sha512-I+9oSkJVFu51xIAAQcjKophFe6zVAGWROHsszeRhX9E1OXEizgPH+8BkF7GaxmmLd9FbADdEfvULF8NxEFcB5w=="],
+    "mapbox-gl": ["mapbox-gl@3.26.0", "", {}, "sha512-N+Y8VmvpD6xDeP0hAbegPZeEMY5TtnLcV0gEUBZ/KHq3s/yUKQm0PVG9JEkId0QFMMe5/W+FEjoyV4NI3B/N7A=="],
 
     "masonry-layout": ["masonry-layout@4.2.2", "", { "dependencies": { "get-size": "^2.0.2", "outlayer": "^2.1.0" } }, "sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA=="],
 
@@ -350,7 +350,7 @@
 
     "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#d79a58a", {}, "KovuTheHusky-pokemon-medals-d79a58a", "sha512-vXTtB67hU7hClkSG5ArRJbgw5UN/QxbOiycjsNSIqRFmuw+bw0NyT8MvVTAqb51E7bO7fmevSgAS63WiiqDjvg=="],
 
-    "prettier": ["prettier@3.9.4", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg=="],
+    "prettier": ["prettier@3.9.5", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg=="],
 
     "process-nextick-args": ["process-nextick-args@1.0.7", "", {}, "sha512-yN0WQmuCX63LP/TMvAg31nvT6m4vDqJEiiv2CAZqWOGNWutc9DfDk1NPYYmKUFmaVM2UwDowH4u5AHWYP/jxKw=="],
 
