@@ -11,6 +11,15 @@ permalink: /qr
     width: 100% !important;
     height: auto !important;
   }
+  #toggle-square-qr {
+    --bs-form-switch-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-4%20-4%208%208%22%3E%3Ccircle%20r%3D%223%22%20fill%3D%22%236c757d%22%2F%3E%3C%2Fsvg%3E");
+  }
+  #toggle-square-qr:checked {
+    --bs-form-switch-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-4%20-4%208%208%22%3E%3Ccircle%20r%3D%223%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
+  }
+  #urlLabel {
+    margin-left: -0.97em;
+  }
 </style>
 <script
   type="text/javascript"
@@ -19,7 +28,29 @@ permalink: /qr
 <div class="container text-center">
   <form>
     <div class="mb-3">
-      <label for="urlHelp" class="form-label">URL</label>
+      <div class="row m-0">
+        <div class="col p-0"></div>
+        <div class="d-flex max-w-100 col m-0 p-0 justify-content-between">
+          <label for="urlHelp" id="urlLabel" class="form-label w-auto d-inline"
+            >URL</label
+          >
+          <div
+            class="form-check form-switch text-start pr-0"
+            data-bs-theme="dark"
+          >
+            <input
+              type="checkbox"
+              id="toggle-square-qr"
+              class="form-check-input"
+            />
+            <label
+              for="toggle-square-qr"
+              class="form-check-label w-auto d-inline"
+              >Square</label
+            >
+          </div>
+        </div>
+      </div>
       <input
         type="text"
         class="form-control"
@@ -83,16 +114,37 @@ permalink: /qr
 </div>
 <script type="text/javascript">
   $(document).ready(function () {
-    $("form :input").on("change input", function () {
+    $("#url").on("input", function () {
       console.log("Input changed!");
       generate();
     });
   });
 
+  let isSquare = false;
+
+  window.onload = () => {
+    document
+      .querySelector("#toggle-square-qr")
+      .addEventListener("change", (e) => {
+        isSquare = e.target.checked;
+        if ($("#url").val() !== "") generate();
+      });
+  };
+
   var qrCodeLight;
   var qrCodeDark;
 
   function generate() {
+    let dots = "dots";
+    let corners = "extra-rounded";
+    let cornersDot = "dot";
+
+    if (isSquare) {
+      dots = "square";
+      corners = "square";
+      cornersDot = "square";
+    }
+
     qrCodeLight = new QRCodeStyling({
       width: 1000,
       height: 1000,
@@ -101,20 +153,21 @@ permalink: /qr
       image: "/favicon.webp",
       dotsOptions: {
         color: "#000",
-        type: "dots",
+        type: dots,
       },
       backgroundOptions: {
         color: "#fff",
       },
       cornersSquareOptions: {
-        type: "extra-rounded",
+        type: corners,
       },
       cornersDotOptions: {
-        type: "dot",
+        type: cornersDot,
       },
       imageOptions: {
         crossOrigin: "anonymous",
         margin: 10,
+        hideDotsBehindImage: !isSquare,
         saveAsBlob: true,
       },
     });
@@ -127,20 +180,21 @@ permalink: /qr
       image: "/favicon.webp",
       dotsOptions: {
         color: "#fff",
-        type: "dots",
+        type: dots,
       },
       backgroundOptions: {
         color: "#000",
       },
       cornersSquareOptions: {
-        type: "extra-rounded",
+        type: corners,
       },
       cornersDotOptions: {
-        type: "dot",
+        type: cornersDot,
       },
       imageOptions: {
         crossOrigin: "anonymous",
         margin: 10,
+        hideDotsBehindImage: true,
         saveAsBlob: true,
       },
     });
