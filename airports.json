@@ -425,8 +425,8 @@
   },
   {
     "name": "Century City Heliport",
-    "latitude_deg": 34.060798645,
-    "longitude_deg": -118.417999268,
+    "latitude_deg": 34.061015,
+    "longitude_deg": -118.417344,
     "iso_country": "US",
     "iso_region": "US-CA",
     "iata_code": "CCD"
@@ -566,6 +566,14 @@
     "iso_country": "CO",
     "iso_region": "CO-AMA",
     "iata_code": "ACM"
+  },
+  {
+    "name": "Andorra la Vella Heliport",
+    "latitude_deg": 42.511227,
+    "longitude_deg": 1.53365,
+    "iso_country": "AD",
+    "iso_region": "AD-08",
+    "iata_code": "ALV"
   },
   {
     "name": "El Daein Airport",
@@ -1208,7 +1216,7 @@
     "iata_code": "ASZ"
   },
   {
-    "name": "(Duplicate)Wolf's Fang Runway",
+    "name": "[Duplicate] Wolf's Fang Runway",
     "latitude_deg": -71.5264,
     "longitude_deg": 8.799459,
     "iso_country": "AQ",
@@ -1230,6 +1238,14 @@
     "iso_country": "AU",
     "iso_region": "AU-WA",
     "iata_code": "GYZ"
+  },
+  {
+    "name": "Western Sydney International (Nancy-Bird Walton) Airport",
+    "latitude_deg": -33.883461,
+    "longitude_deg": 150.712981,
+    "iso_country": "AU",
+    "iso_region": "AU-WA",
+    "iata_code": "WSI"
   },
   {
     "name": "Agnew Airport",
@@ -1313,8 +1329,8 @@
   },
   {
     "name": "Kimberley Downs Airport",
-    "latitude_deg": -17.39780044555664,
-    "longitude_deg": 124.3550033569336,
+    "latitude_deg": -17.398577,
+    "longitude_deg": 124.355565,
     "iso_country": "AU",
     "iso_region": "AU-WA",
     "iata_code": "KBD"
@@ -2993,8 +3009,8 @@
   },
   {
     "name": "Safia Airport",
-    "latitude_deg": -9.59305555556,
-    "longitude_deg": 148.636111111,
+    "latitude_deg": -9.594471,
+    "longitude_deg": 148.639305,
     "iso_country": "PG",
     "iso_region": "PG-NPP",
     "iata_code": "SFU"
@@ -4129,8 +4145,8 @@
   },
   {
     "name": "Brighton Downs Airport",
-    "latitude_deg": -23.363333,
-    "longitude_deg": 141.562778,
+    "latitude_deg": -23.365763,
+    "longitude_deg": 141.562947,
     "iso_country": "AU",
     "iso_region": "AU-QLD",
     "iata_code": "BHT"
@@ -4689,8 +4705,8 @@
   },
   {
     "name": "Melinda Airport",
-    "latitude_deg": 17.004299,
-    "longitude_deg": -88.304199,
+    "latitude_deg": 16.998419,
+    "longitude_deg": -88.318191,
     "iso_country": "BZ",
     "iso_region": "BZ-SC",
     "iata_code": "MDB"
@@ -5654,6 +5670,14 @@
     "iso_country": "CN",
     "iso_region": "CN-33",
     "iata_code": "HEW"
+  },
+  {
+    "name": "Leshan Airport",
+    "latitude_deg": 29.438627,
+    "longitude_deg": 103.749218,
+    "iso_country": "CN",
+    "iso_region": "CN-51",
+    "iata_code": "LSG"
   },
   {
     "name": "Jiande Qiandaohu General Airport",
@@ -6777,8 +6801,8 @@
   },
   {
     "name": "Vancouver Harbour Water Aerodrome",
-    "latitude_deg": 49.291265,
-    "longitude_deg": -123.11717,
+    "latitude_deg": 49.290739,
+    "longitude_deg": -123.118541,
     "iso_country": "CA",
     "iso_region": "CA-BC",
     "iata_code": "CXH"
@@ -9473,8 +9497,8 @@
   },
   {
     "name": "Fada N'gourma Airport",
-    "latitude_deg": 12.033,
-    "longitude_deg": 0.35,
+    "latitude_deg": 12.038931,
+    "longitude_deg": 0.362798,
     "iso_country": "BF",
     "iso_region": "BF-GOU",
     "iata_code": "FNG"
@@ -9881,8 +9905,8 @@
   },
   {
     "name": "Dalnerechensk Airport",
-    "latitude_deg": 45.877949,
-    "longitude_deg": 133.735822,
+    "latitude_deg": 45.879857,
+    "longitude_deg": 133.737629,
     "iso_country": "RU",
     "iso_region": "RU-PRI",
     "iata_code": "DLR"
@@ -10312,7 +10336,7 @@
     "iata_code": "GNE"
   },
   {
-    "name": "Flanders International Airport Kortrijk-Wevelgem",
+    "name": "Kortrijk-Wevelgem International Airport",
     "latitude_deg": 50.818878,
     "longitude_deg": 3.209551,
     "iso_country": "BE",
@@ -10617,8 +10641,8 @@
   },
   {
     "name": "Hamburg-Finkenwerder Airport",
-    "latitude_deg": 53.5352783203125,
-    "longitude_deg": 9.835556030273438,
+    "latitude_deg": 53.535278,
+    "longitude_deg": 9.835556,
     "iso_country": "DE",
     "iso_region": "DE-HH",
     "iata_code": "XFW"
@@ -11318,14 +11342,6 @@
     "iso_country": "GB",
     "iso_region": "GB-ENG",
     "iata_code": "BHX"
-  },
-  {
-    "name": "Coventry Airport",
-    "latitude_deg": 52.369701,
-    "longitude_deg": -1.47972,
-    "iso_country": "GB",
-    "iso_region": "GB-ENG",
-    "iata_code": "CVT"
   },
   {
     "name": "Gloucestershire Airport",
@@ -14185,8 +14201,8 @@
   },
   {
     "name": "Vryburg Airport",
-    "latitude_deg": -26.9824008942,
-    "longitude_deg": 24.7287998199,
+    "latitude_deg": -26.982401,
+    "longitude_deg": 24.7288,
     "iso_country": "ZA",
     "iso_region": "ZA-NW",
     "iata_code": "VRU"
@@ -15432,7 +15448,7 @@
     "iata_code": "MJN"
   },
   {
-    "name": "Nosy Be-Fascene International Airport",
+    "name": "Nosy Be International Airport",
     "latitude_deg": -13.3121,
     "longitude_deg": 48.3148,
     "iso_country": "MG",
@@ -15742,14 +15758,6 @@
     "iso_country": "AO",
     "iso_region": "AO-CCU",
     "iata_code": "CTI"
-  },
-  {
-    "name": "Camaxilo Airport",
-    "latitude_deg": -8.37361,
-    "longitude_deg": 18.923599,
-    "iso_country": "AO",
-    "iso_region": "AO-LNO",
-    "iata_code": "CXM"
   },
   {
     "name": "Cazombo Airport",
@@ -17672,14 +17680,6 @@
     "iata_code": "NIX"
   },
   {
-    "name": "Sikasso Airport",
-    "latitude_deg": 11.328611,
-    "longitude_deg": -5.684722,
-    "iso_country": "ML",
-    "iso_region": "ML-3",
-    "iata_code": "KSS"
-  },
-  {
     "name": "Tombouktou Airport",
     "latitude_deg": 16.730499,
     "longitude_deg": -3.00758,
@@ -17721,8 +17721,8 @@
   },
   {
     "name": "Foula Airfield",
-    "latitude_deg": 60.121725,
-    "longitude_deg": -2.053202,
+    "latitude_deg": 60.121916,
+    "longitude_deg": -2.053439,
     "iso_country": "GB",
     "iso_region": "GB-SCT",
     "iata_code": "FOA"
@@ -19440,7 +19440,7 @@
     "iata_code": "SKV"
   },
   {
-    "name": "Sohag International Airport",
+    "name": "Suhaj International Airport",
     "latitude_deg": 26.342515,
     "longitude_deg": 31.743017,
     "iso_country": "EG",
@@ -20984,7 +20984,7 @@
     "iata_code": "JRA"
   },
   {
-    "name": "Downtown Manhattan Heliport",
+    "name": "Downtown Skyport Heliport",
     "latitude_deg": 40.700711,
     "longitude_deg": -74.008573,
     "iso_country": "US",
@@ -22433,8 +22433,8 @@
   },
   {
     "name": "Bell Island Hot Springs Seaplane Base",
-    "latitude_deg": 55.9291000366,
-    "longitude_deg": -131.572006226,
+    "latitude_deg": 55.9291,
+    "longitude_deg": -131.572006,
     "iso_country": "US",
     "iso_region": "US-AK",
     "iata_code": "KBE"
@@ -23945,8 +23945,8 @@
   },
   {
     "name": "Colorado Creek Airport",
-    "latitude_deg": 63.5676994324,
-    "longitude_deg": -155.988998413,
+    "latitude_deg": 63.571196,
+    "longitude_deg": -156.006653,
     "iso_country": "US",
     "iso_region": "US-AK",
     "iata_code": "KCR"
@@ -26712,9 +26712,9 @@
     "iata_code": "HEE"
   },
   {
-    "name": "Manassas Regional Airport/Harry P. Davis Field",
-    "latitude_deg": 38.721401,
-    "longitude_deg": -77.515404,
+    "name": "Washington Manassas Harry P. Davis Field",
+    "latitude_deg": 38.723021,
+    "longitude_deg": -77.515422,
     "iso_country": "US",
     "iso_region": "US-VA",
     "iata_code": "MNZ"
@@ -27457,8 +27457,8 @@
   },
   {
     "name": "Winkler County Airport",
-    "latitude_deg": 31.779600143399996,
-    "longitude_deg": -103.200996399,
+    "latitude_deg": 31.7796,
+    "longitude_deg": -103.200996,
     "iso_country": "US",
     "iso_region": "US-TX",
     "iata_code": "INK"
@@ -28169,8 +28169,8 @@
   },
   {
     "name": "Laguna Army Airfield",
-    "latitude_deg": 32.86000061,
-    "longitude_deg": -114.3970032,
+    "latitude_deg": 32.860794,
+    "longitude_deg": -114.39615,
     "iso_country": "US",
     "iso_region": "US-AZ",
     "iata_code": "LGF"
@@ -30136,7 +30136,7 @@
     "iata_code": "OAJ"
   },
   {
-    "name": "San Francisco Bay Oakland International Airport",
+    "name": "Oakland San Francisco Bay Airport",
     "latitude_deg": 37.720085,
     "longitude_deg": -122.221184,
     "iso_country": "US",
@@ -30824,7 +30824,7 @@
     "iata_code": "PBG"
   },
   {
-    "name": "Palm Beach International Airport",
+    "name": "President Donald J. Trump International Airport",
     "latitude_deg": 26.683201,
     "longitude_deg": -80.095596,
     "iso_country": "US",
@@ -32505,8 +32505,8 @@
   },
   {
     "name": "Shreveport Regional Airport",
-    "latitude_deg": 32.446602,
-    "longitude_deg": -93.8256,
+    "latitude_deg": 32.444747,
+    "longitude_deg": -93.826741,
     "iso_country": "US",
     "iso_region": "US-LA",
     "iata_code": "SHV"
@@ -33270,6 +33270,14 @@
     "iso_country": "US",
     "iso_region": "US-FL",
     "iata_code": "TIX"
+  },
+  {
+    "name": "McKinney National Airport",
+    "latitude_deg": 33.177898,
+    "longitude_deg": -96.5905,
+    "iso_country": "US",
+    "iso_region": "US-TX",
+    "iata_code": "DTX"
   },
   {
     "name": "Kennett Memorial Airport",
@@ -45265,8 +45273,8 @@
   },
   {
     "name": "Allen Army Airfield",
-    "latitude_deg": 63.9944992065,
-    "longitude_deg": -145.722000122,
+    "latitude_deg": 63.994499,
+    "longitude_deg": -145.722,
     "iso_country": "US",
     "iso_region": "US-AK",
     "iata_code": "BIG"
@@ -46888,6 +46896,22 @@
     "iata_code": "BIJ"
   },
   {
+    "name": "Bimin Airport",
+    "latitude_deg": -5.289378,
+    "longitude_deg": 142.014039,
+    "iso_country": "PG",
+    "iso_region": "PG-SAN",
+    "iata_code": "BIZ"
+  },
+  {
+    "name": "Kisengam Airport [CLOSED]",
+    "latitude_deg": -6.362,
+    "longitude_deg": 146.709999,
+    "iso_country": "PG",
+    "iso_region": "PG-MPL",
+    "iata_code": "KSG"
+  },
+  {
     "name": "Pambwa Airstrip",
     "latitude_deg": -11.402966,
     "longitude_deg": 154.011701,
@@ -47168,14 +47192,6 @@
     "iata_code": "BHC"
   },
   {
-    "name": "Campbellpore Airport",
-    "latitude_deg": 33.766700744628906,
-    "longitude_deg": 72.36689758300781,
-    "iso_country": "PK",
-    "iso_region": "PK-PB",
-    "iata_code": "CWP"
-  },
-  {
     "name": "Gujrat Airport",
     "latitude_deg": 32.62826,
     "longitude_deg": 74.067287,
@@ -47436,13 +47452,13 @@
     "latitude_deg": 26.159656,
     "longitude_deg": 119.958376,
     "iso_country": "TW",
-    "iso_region": "TW-X-LK",
+    "iso_region": "TW-LIE",
     "iata_code": "LZN"
   },
   {
     "name": "Taitung Airport",
-    "latitude_deg": 22.7549991607666,
-    "longitude_deg": 121.10199737548828,
+    "latitude_deg": 22.754856,
+    "longitude_deg": 121.101794,
     "iso_country": "TW",
     "iso_region": "TW-TTT",
     "iata_code": "TTT"
@@ -47505,10 +47521,10 @@
   },
   {
     "name": "Matsu Beigan Airport",
-    "latitude_deg": 26.224199,
-    "longitude_deg": 120.002998,
+    "latitude_deg": 26.22414,
+    "longitude_deg": 120.002679,
     "iso_country": "TW",
-    "iso_region": "TW-X-LK",
+    "iso_region": "TW-LIE",
     "iata_code": "MFK"
   },
   {
@@ -47534,14 +47550,6 @@
     "iso_country": "TW",
     "iso_region": "TW-PEN",
     "iata_code": "MZG"
-  },
-  {
-    "name": "Pingtung Air Force Base North",
-    "latitude_deg": 22.700199,
-    "longitude_deg": 120.482002,
-    "iso_country": "TW",
-    "iso_region": "TW-PIF",
-    "iata_code": "PIF"
   },
   {
     "name": "Taipei Songshan International Airport",
@@ -48384,7 +48392,7 @@
     "iata_code": "OSN"
   },
   {
-    "name": "Gimpo International Airport",
+    "name": "Seoul Gimpo International Airport",
     "latitude_deg": 37.5583,
     "longitude_deg": 126.791,
     "iso_country": "KR",
@@ -48398,14 +48406,6 @@
     "iso_country": "KR",
     "iso_region": "KR-41",
     "iata_code": "SWU"
-  },
-  {
-    "name": "Taean Airport",
-    "latitude_deg": 36.593781,
-    "longitude_deg": 126.29662,
-    "iso_country": "KR",
-    "iso_region": "KR-44",
-    "iata_code": "QDY"
   },
   {
     "name": "Pohang Airport (G-815/K-3)",
@@ -49192,6 +49192,14 @@
     "iata_code": "UHS"
   },
   {
+    "name": "Velikiye Luki Airport",
+    "latitude_deg": 56.381066,
+    "longitude_deg": 30.607846,
+    "iso_country": "RU",
+    "iso_region": "RU-PSK",
+    "iata_code": "VLU"
+  },
+  {
     "name": "Kirovsk-Apatity Airport",
     "latitude_deg": 67.462851,
     "longitude_deg": 33.585294,
@@ -49801,8 +49809,8 @@
   },
   {
     "name": "El Calafate - Commander Armando Tola International Airport",
-    "latitude_deg": -50.281997,
-    "longitude_deg": -72.053949,
+    "latitude_deg": -50.280267,
+    "longitude_deg": -72.053401,
     "iso_country": "AR",
     "iso_region": "AR-Z",
     "iata_code": "FTE"
@@ -54041,8 +54049,8 @@
   },
   {
     "name": "Sócrates Rezende Airport",
-    "latitude_deg": -15.666999816895,
-    "longitude_deg": -38.954700469971,
+    "latitude_deg": -15.667,
+    "longitude_deg": -38.9547,
     "iso_country": "BR",
     "iso_region": "BR-BA",
     "iata_code": "CNV"
@@ -54921,8 +54929,8 @@
   },
   {
     "name": "Eduard Alexander Gummels Airport",
-    "latitude_deg": 5.8604,
-    "longitude_deg": -55.192,
+    "latitude_deg": 5.863807,
+    "longitude_deg": -55.189504,
     "iso_country": "SR",
     "iso_region": "SR-PM",
     "iata_code": "EAX"
@@ -55929,8 +55937,8 @@
   },
   {
     "name": "Canarana Airport",
-    "latitude_deg": -13.574444,
-    "longitude_deg": -52.270557,
+    "latitude_deg": -13.576545,
+    "longitude_deg": -52.268296,
     "iso_country": "BR",
     "iso_region": "BR-MT",
     "iata_code": "CQA"
@@ -58160,14 +58168,6 @@
     "iata_code": "KGO"
   },
   {
-    "name": "Ihor Sikorsky Kyiv International Airport (Zhuliany)",
-    "latitude_deg": 50.40194,
-    "longitude_deg": 30.45194,
-    "iso_country": "UA",
-    "iso_region": "UA-30",
-    "iata_code": "IEV"
-  },
-  {
     "name": "Zhytomyr Airport",
     "latitude_deg": 50.270556,
     "longitude_deg": 28.738611,
@@ -58281,8 +58281,8 @@
   },
   {
     "name": "Leshukonskoye Airport",
-    "latitude_deg": 64.8960037231,
-    "longitude_deg": 45.7229995728,
+    "latitude_deg": 64.896004,
+    "longitude_deg": 45.723,
     "iso_country": "RU",
     "iso_region": "RU-ARK",
     "iata_code": "LDG"
@@ -58297,8 +58297,8 @@
   },
   {
     "name": "Solovki Airport",
-    "latitude_deg": 65.029999,
-    "longitude_deg": 35.733334,
+    "latitude_deg": 65.029996,
+    "longitude_deg": 35.730558,
     "iso_country": "RU",
     "iso_region": "RU-ARK",
     "iata_code": "CSH"
@@ -58777,8 +58777,8 @@
   },
   {
     "name": "Elista Airport",
-    "latitude_deg": 46.3739013671875,
-    "longitude_deg": 44.33089828491211,
+    "latitude_deg": 46.373901,
+    "longitude_deg": 44.330898,
     "iso_country": "RU",
     "iso_region": "RU-KL",
     "iata_code": "ESL"
@@ -59441,8 +59441,8 @@
   },
   {
     "name": "Voronezh International Airport",
-    "latitude_deg": 51.813683,
-    "longitude_deg": 39.231711,
+    "latitude_deg": 51.814324,
+    "longitude_deg": 39.230948,
     "iso_country": "RU",
     "iso_region": "RU-VOR",
     "iata_code": "VOZ"
@@ -59609,8 +59609,8 @@
   },
   {
     "name": "Penza Airport",
-    "latitude_deg": 53.110599517822266,
-    "longitude_deg": 45.02109909057617,
+    "latitude_deg": 53.1106,
+    "longitude_deg": 45.021099,
     "iso_country": "RU",
     "iso_region": "RU-PNZ",
     "iata_code": "PEZ"
@@ -60564,7 +60564,7 @@
     "latitude_deg": 22.801001,
     "longitude_deg": 90.301201,
     "iso_country": "BD",
-    "iso_region": "BD-1",
+    "iso_region": "BD-A",
     "iata_code": "BZL"
   },
   {
@@ -60572,7 +60572,7 @@
     "latitude_deg": 21.457517,
     "longitude_deg": 91.963263,
     "iso_country": "BD",
-    "iso_region": "BD-2",
+    "iso_region": "BD-B",
     "iata_code": "CXB"
   },
   {
@@ -60580,7 +60580,7 @@
     "latitude_deg": 23.440133,
     "longitude_deg": 91.188685,
     "iso_country": "BD",
-    "iso_region": "BD-2",
+    "iso_region": "BD-B",
     "iata_code": "CLA"
   },
   {
@@ -60588,7 +60588,7 @@
     "latitude_deg": 22.249599,
     "longitude_deg": 91.813301,
     "iso_country": "BD",
-    "iso_region": "BD-2",
+    "iso_region": "BD-B",
     "iata_code": "CGP"
   },
   {
@@ -60596,7 +60596,7 @@
     "latitude_deg": 23.843347,
     "longitude_deg": 90.397783,
     "iso_country": "BD",
-    "iso_region": "BD-3",
+    "iso_region": "BD-C",
     "iata_code": "DAC"
   },
   {
@@ -60604,7 +60604,7 @@
     "latitude_deg": 24.1525,
     "longitude_deg": 89.0494,
     "iso_country": "BD",
-    "iso_region": "BD-5",
+    "iso_region": "BD-E",
     "iata_code": "IRD"
   },
   {
@@ -60612,7 +60612,7 @@
     "latitude_deg": 23.1838,
     "longitude_deg": 89.160797,
     "iso_country": "BD",
-    "iso_region": "BD-4",
+    "iso_region": "BD-D",
     "iata_code": "JSR"
   },
   {
@@ -60620,7 +60620,7 @@
     "latitude_deg": 24.437201,
     "longitude_deg": 88.616501,
     "iso_country": "BD",
-    "iso_region": "BD-5",
+    "iso_region": "BD-E",
     "iata_code": "RJH"
   },
   {
@@ -60628,7 +60628,7 @@
     "latitude_deg": 25.759199,
     "longitude_deg": 88.908897,
     "iso_country": "BD",
-    "iso_region": "BD-5",
+    "iso_region": "BD-E",
     "iata_code": "SPD"
   },
   {
@@ -60636,7 +60636,7 @@
     "latitude_deg": 26.016378,
     "longitude_deg": 88.402092,
     "iso_country": "BD",
-    "iso_region": "BD-5",
+    "iso_region": "BD-E",
     "iata_code": "TKR"
   },
   {
@@ -60644,15 +60644,15 @@
     "latitude_deg": 24.398333,
     "longitude_deg": 91.916944,
     "iso_country": "BD",
-    "iso_region": "BD-6",
+    "iso_region": "BD-G",
     "iata_code": "ZHM"
   },
   {
     "name": "Osmany International Airport",
-    "latitude_deg": 24.963071,
-    "longitude_deg": 91.866903,
+    "latitude_deg": 24.963993,
+    "longitude_deg": 91.864749,
     "iso_country": "BD",
-    "iso_region": "BD-6",
+    "iso_region": "BD-G",
     "iata_code": "ZYL"
   },
   {
@@ -68504,6 +68504,14 @@
     "iata_code": "NYN"
   },
   {
+    "name": "Oban Airport",
+    "latitude_deg": -21.234797,
+    "longitude_deg": 139.033231,
+    "iso_country": "AU",
+    "iso_region": "AU-QLD",
+    "iata_code": "OBA"
+  },
+  {
     "name": "Oenpelli Airport",
     "latitude_deg": -12.325,
     "longitude_deg": 133.005997,
@@ -68625,8 +68633,8 @@
   },
   {
     "name": "Palm Island Airport",
-    "latitude_deg": -18.755300521850586,
-    "longitude_deg": 146.58099365234375,
+    "latitude_deg": -18.755301,
+    "longitude_deg": 146.580994,
     "iso_country": "AU",
     "iso_region": "AU-QLD",
     "iata_code": "PMK"
@@ -69328,14 +69336,6 @@
     "iata_code": "SWC"
   },
   {
-    "name": "(Duplicate)Western Sydney International Airport",
-    "latitude_deg": -33.88806,
-    "longitude_deg": 150.71472,
-    "iso_country": "AU",
-    "iso_region": "AU-NSW",
-    "iata_code": "WSI"
-  },
-  {
     "name": "Tara Airport",
     "latitude_deg": -27.163054,
     "longitude_deg": 150.476423,
@@ -69718,14 +69718,6 @@
     "iso_country": "AU",
     "iso_region": "AU-SA",
     "iata_code": "WYA"
-  },
-  {
-    "name": "Wittenoom Airport",
-    "latitude_deg": -22.224992,
-    "longitude_deg": 118.353739,
-    "iso_country": "AU",
-    "iso_region": "AU-WA",
-    "iata_code": "WIT"
   },
   {
     "name": "Warracknabeal Airport",
@@ -70905,8 +70897,8 @@
   },
   {
     "name": "Xi'an Xianyang International Airport",
-    "latitude_deg": 34.447102,
-    "longitude_deg": 108.751999,
+    "latitude_deg": 34.442207,
+    "longitude_deg": 108.762385,
     "iso_country": "CN",
     "iso_region": "CN-61",
     "iata_code": "XIY"
