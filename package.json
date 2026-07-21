@@ -29,7 +29,7 @@
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.11.0",
     "axios": "^1.18.1",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "sharp": "^0.34.5",
     "spritesmith": "^3.5.1",
     "unzipper": "^0.12.5"
