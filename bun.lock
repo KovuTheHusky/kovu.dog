@@ -98,7 +98,7 @@
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@primer/octicons": ["@primer/octicons@19.29.2", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-n7zuEgzTz70m5dmBqpYuE8zpeLKxgf73OeDudQWByNzIwWLb0I/UlxqdCLkk6Qb338O7em0aNuhVfExNBVCfTQ=="],
+    "@primer/octicons": ["@primer/octicons@19.31.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-Tkrm4jp2IbQsBU4OMMbqrVVz1NVR+uK2ZmYQ34kdUHiN6QjN/O9/sD3pnxbZYWkicIR0JM2JhGH8oowMQfRM+g=="],
 
     "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.10.0", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-fdfKqVOoGCvLWgXUiqPjw99wM64wZV/3RpSQZb59P1K8pT7l1cyJZV+QAyHgvVV1jcglUCtFmr+8ioY7rGVdKg=="],
 
@@ -298,7 +298,7 @@
 
     "lru-cache": ["lru-cache@11.2.4", "", {}, "sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg=="],
 
-    "mapbox-gl": ["mapbox-gl@3.26.0", "", {}, "sha512-N+Y8VmvpD6xDeP0hAbegPZeEMY5TtnLcV0gEUBZ/KHq3s/yUKQm0PVG9JEkId0QFMMe5/W+FEjoyV4NI3B/N7A=="],
+    "mapbox-gl": ["mapbox-gl@3.27.0", "", {}, "sha512-K8W9LTTjFEJsg9qsnJbKk+zbXrmSqa+nU1EiFXez5gQ0T0RMtylZUelgg1/RE6vCUMvHX0gaYfWU9g2mTWuA0g=="],
 
     "masonry-layout": ["masonry-layout@4.2.2", "", { "dependencies": { "get-size": "^2.0.2", "outlayer": "^2.1.0" } }, "sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA=="],
 
@@ -346,7 +346,7 @@
 
     "pngjs-nozlib": ["pngjs-nozlib@1.0.0", "", {}, "sha512-N1PggqLp9xDqwAoKvGohmZ3m4/N9xpY0nDZivFqQLcpLHmliHnCp9BuNCsOeqHWMuEEgFjpEaq9dZq6RZyy0fA=="],
 
-    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#d79a58a", {}, "KovuTheHusky-pokemon-medals-d79a58a", "sha512-vXTtB67hU7hClkSG5ArRJbgw5UN/QxbOiycjsNSIqRFmuw+bw0NyT8MvVTAqb51E7bO7fmevSgAS63WiiqDjvg=="],
+    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#268c26c", {}, "KovuTheHusky-pokemon-medals-268c26c", "sha512-81Wny3FyPdVIlK2/REb35Z7/uG/mHydbSxuUH5oYsLYf2c3CFoflszfEOeLd2d7qsUMO1xkPnXbebEQAwmiZHw=="],
 
     "prettier": ["prettier@3.9.6", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g=="],
 
