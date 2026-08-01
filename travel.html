@@ -79,6 +79,18 @@ permalink: /travel
         >Cruises</label
       >
     </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="toggle-trains"
+        checked
+      />
+      <label class="form-check-label text-white" for="toggle-trains"
+        >Trains</label
+      >
+    </div>
   </div>
 </div>
 <script data-cfasync="false">
@@ -557,6 +569,56 @@ permalink: /travel
       },
     });
 
+    // --- Add Rail Source ---
+    map.addSource("rail-data", {
+      type: "geojson",
+      data: "/rail.geojson" // Path to your new file
+    });
+
+    // --- Rail Layers (Track Base) ---
+    map.addLayer({
+      id: "rail-lines-base",
+      type: "line",
+      source: "rail-data",
+      paint: {
+        "line-color": "#a0aec0", // Silver base
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.5, 12, 4],
+        "line-opacity": 0.9
+      }
+    });
+
+    // --- Rail Layers (Track Ties) ---
+    map.addLayer({
+      id: "rail-lines-ties",
+      type: "line",
+      source: "rail-data",
+      paint: {
+        "line-color": "#1a202c", // Dark ties
+        "line-dasharray": [2, 2], // 2px drawn, 2px gap
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1, 12, 2],
+        "line-opacity": 0.9
+      }
+    });
+
+    // --- Add Stations Source ---
+    map.addSource("rail-stations-data", {
+      type: "geojson",
+      data: "/stations.geojson"
+    });
+
+    // --- Stations Layer ---
+    map.addLayer({
+      id: "rail-stations",
+      type: "circle",
+      source: "rail-stations-data",
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 3, 12, 6],
+        "circle-color": "#ffffff", // Solid white inside
+        "circle-stroke-color": "#1a202c", // Dark border matching the track ties
+        "circle-stroke-width": 2
+      }
+    });
+
     // Cruises
     map.addSource("cruise-data-past", {
       type: "geojson",
@@ -759,7 +821,9 @@ permalink: /travel
     "cruise-ports-past",
     "cruise-ports-future",
     "cruise-ports-flags-past",
-    "cruise-ports-flags-future"
+    "cruise-ports-flags-future",
+    "rail-lines-base",
+    "rail-stations"
   ];
 
   map.on("click", interactiveLayers, function (e) {
@@ -879,6 +943,26 @@ permalink: /travel
           <h6 class="mb-0">${feature.properties.origin_port} ↔ ${feature.properties.destination_port}</h6>
           <p class="m-0">${count} ${type} ${count === 1 ? 'voyage' : 'voyages'}</p>
         </div>`;
+    } else if (layerId === "rail-lines-base") {
+      // --- Rail Popup ---
+      const operator = feature.properties.operator || "Rail";
+      const route = feature.properties.route || "Unknown Route";
+
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${operator}</h6>
+          <p class="m-0">${route}</p>
+        </div>`;
+    } else if (layerId === "rail-stations") {
+      // --- Station Popup ---
+      const stationName = feature.properties.name || "Unknown Station";
+      const stationCode = feature.properties.code || "";
+
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${stationName}</h6>
+          ${stationCode ? `<p class="m-0 text-muted" style="font-size: 0.85em;">${stationCode}</p>` : ''}
+        </div>`;
     }
 
     const popup = new mapboxgl.Popup({ closeButton: false })
@@ -930,6 +1014,14 @@ permalink: /travel
     layers.forEach(layer => {
       if (map.getLayer(layer)) map.setLayoutProperty(layer, "visibility", visibility);
     });
+  });
+
+  document.getElementById("toggle-trains").addEventListener("change", (e) => {
+    const visibility = e.target.checked ? "visible" : "none";
+
+    if (map.getLayer("rail-lines-base")) map.setLayoutProperty("rail-lines-base", "visibility", visibility);
+    if (map.getLayer("rail-lines-ties")) map.setLayoutProperty("rail-lines-ties", "visibility", visibility);
+    if (map.getLayer("rail-stations")) map.setLayoutProperty("rail-stations", "visibility", visibility);
   });
 
   document

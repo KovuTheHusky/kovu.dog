@@ -1,0 +1,354 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7030623591",
+        "addr:state": "ME",
+        "name": "Portland",
+        "network": "Amtrak",
+        "network:wikidata": "Q23239",
+        "operator": "Amtrak",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "POR",
+        "ref": "POR",
+        "train": "yes",
+        "wikidata": "Q7232062"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.2910991,
+          43.6539343
+        ]
+      },
+      "id": "node/7030623591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/474893799",
+        "addr:city": "Boston",
+        "addr:housenumber": "126",
+        "addr:postcode": "02114",
+        "addr:state": "MA",
+        "addr:street": "Causeway Street",
+        "building": "train_station",
+        "building:levels": "10",
+        "check_date": "2024-05-29;2024-10-23",
+        "check_date:wheelchair": "2024-10-23",
+        "height": "49",
+        "layer": "1",
+        "name": "North Station",
+        "network": "Amtrak;MBTA",
+        "network:guid": "US-MA-MBTA",
+        "network:short": "MBTA",
+        "network:wikidata": "Q171985",
+        "network:wikipedia": "en:Massachusetts Bay Transportation Authority",
+        "operator:short": "MBTA",
+        "operator:wikidata": "Q171985",
+        "owner": "Massachusetts Bay Transportation Authority",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "BON",
+        "train": "yes",
+        "website": "https://www.mbta.com/stops/place-north",
+        "wheelchair": "yes",
+        "wikidata": "Q54454;Q7057082",
+        "wikipedia": "en:North Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0621014,
+          42.3663038
+        ]
+      },
+      "id": "way/474893799"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/29742438",
+        "addr:city": "Boston",
+        "addr:housenumber": "700",
+        "addr:postcode": "02210;02110",
+        "addr:state": "MA",
+        "addr:street": "Atlantic Avenue",
+        "alt_name": "The Governor Michael S. Dukakis Transportation Center at South Station",
+        "architect": "Shepley, Rutan & Coolidge",
+        "area": "yes",
+        "building": "train_station",
+        "building:levels": "6",
+        "building:material": "stone",
+        "bus": "yes",
+        "historic": "building",
+        "iata": "ZTO",
+        "layer": "1",
+        "name": "South Station",
+        "network": "MBTA;Amtrak;CCRTA",
+        "network:guid": "US-MA-MBTA",
+        "network:wikidata": "Q171985",
+        "network:wikipedia": "en:Massachusetts Bay Transportation Authority",
+        "official_name": "The Governor Michael S. Dukakis Transportation Center at South Station",
+        "operator": "Amtrak",
+        "operator:short": "MBTA",
+        "operator:wikidata": "Q171985",
+        "owner": "Massachusetts Bay Transportation Authority",
+        "platforms": "13",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "BOS",
+        "roof:colour": "grey",
+        "station": "train",
+        "subway": "yes",
+        "train": "yes",
+        "website": "https://www.mbta.com/",
+        "wheelchair": "yes",
+        "wikidata": "Q54453",
+        "wikipedia": "en:South Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0555329,
+          42.3507463
+        ]
+      },
+      "id": "way/29742438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/895371274",
+        "addr:city": "New York",
+        "addr:housenumber": "234",
+        "addr:postcode": "10001",
+        "addr:state": "NY",
+        "addr:street": "West 31st Street",
+        "iata": "ZYP",
+        "name": "New York Penn Station",
+        "name:en": "New York Penn Station",
+        "name:he": "תחנת פנסילבניה",
+        "name:ja": "ペンシルベニア駅",
+        "name:ko": "펜실베이니아역",
+        "name:ru": "Пенсильванский вокзал",
+        "name:zh": "宾夕法尼亚车站車站",
+        "name:zh-Hans": "宾夕法尼亚车站",
+        "name:zh-Hant": "賓夕法尼亞車站",
+        "network": "Amtrak;NJ Transit;LIRR",
+        "official_name": "Pennsylvania Station",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:position": "mi:0.0",
+        "railway:ref": "NYP",
+        "ref:amtrak": "NYP",
+        "ref:via_rail": "NEWY",
+        "toilets:wheelchair": "yes",
+        "train": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q54451",
+        "wikipedia": "en:New York Penn Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9928111,
+          40.7502382
+        ]
+      },
+      "id": "node/895371274"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6097540128",
+        "addr:city": "Washington",
+        "addr:housenumber": "50",
+        "addr:postcode": "20002",
+        "addr:state": "DC",
+        "addr:street": "Massachusetts Avenue Northeast",
+        "departures_board": "realtime",
+        "iata": "ZWU",
+        "name": "Washington Union Station",
+        "name:de": "Washington DC Hauptbahnhof",
+        "name:en": "Washington Union Station",
+        "name:zh": "华盛顿联合车站",
+        "name:zh-Hans": "华盛顿联合车站",
+        "network": "Amtrak;MARC;VRE",
+        "official_name": "Washington, DC Union Station",
+        "operator": "Amtrak",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:position": "mi:136.0",
+        "railway:ref": "WAS",
+        "train": "yes",
+        "wikidata": "Q3570"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0058628,
+          38.8983696
+        ]
+      },
+      "id": "node/6097540128"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6997722785",
+        "addr:city": "Brunswick",
+        "addr:housename": "Maine Street Station",
+        "addr:housenumber": "16",
+        "addr:postcode": "04011",
+        "addr:state": "ME",
+        "addr:street": "Station Avenue",
+        "name": "Brunswick",
+        "network": "Downeaster",
+        "network:wikidata": "Q657613",
+        "network:wikipedia": "en:Downeaster (train)",
+        "not:network:wikidata": "Q23239",
+        "operator": "Amtrak",
+        "operator:website": "https://www.amtrak.com/",
+        "operator:wikidata": "Q23239",
+        "operator:wikipedia": "en:Amtrak",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "BRK",
+        "train": "yes",
+        "website": "https://www.amtrak.com/stations/brk",
+        "wheelchair": "yes",
+        "wikidata": "Q4979521",
+        "wikipedia": "en:Brunswick Maine Street Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.9655363,
+          43.9114183
+        ]
+      },
+      "id": "node/6997722785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/367781363",
+        "addr:city": "Springfield",
+        "addr:housenumber": "55",
+        "addr:postcode": "01103",
+        "addr:state": "MA",
+        "addr:street": "Frank B Murray Street",
+        "gnis:feature_id": "601014",
+        "iata": "ZSF",
+        "internet_access": "yes",
+        "name": "Springfield Union Station",
+        "network": "Amtrak;CTrail",
+        "operator": "Amtrak",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "SPG",
+        "source": "USGS Geonames",
+        "train": "yes",
+        "website": "https://www.amtrak.com/stations/spg",
+        "wikidata": "Q7581099",
+        "wikipedia": "en:Springfield Union Station (Massachusetts)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5932224,
+          42.1062905
+        ]
+      },
+      "id": "node/367781363"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7015066748",
+        "addr:state": "NY",
+        "iata": "ZLY",
+        "name": "Albany-Rensselaer",
+        "network": "Amtrak",
+        "network:wikidata": "Q23239",
+        "operator": "Amtrak",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "ALB",
+        "ref:amtrak": "ALB",
+        "ref:via_rail": "ALBY",
+        "train": "yes",
+        "wikidata": "Q3097403"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7412926,
+          42.6412525
+        ]
+      },
+      "id": "node/7015066748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/20313627",
+        "addr:city": "Boston",
+        "addr:housenumber": "145",
+        "addr:postcode": "02116",
+        "addr:state": "MA",
+        "addr:street": "Dartmouth Street",
+        "architect": "Kallmann McKinnell & Wood",
+        "building": "train_station",
+        "building:levels": "2",
+        "building:material": "brick",
+        "check_date": "2025-05-10",
+        "fixme": "heights estimated",
+        "height": "6",
+        "internet_access": "no",
+        "level": "-1",
+        "name": "Back Bay Station",
+        "network": "Amtrak;MBTA",
+        "network:guid": "US-MA-MBTA",
+        "network:short": "MBTA",
+        "network:wikidata": "Q171985",
+        "network:wikipedia": "en:Massachusetts Bay Transportation Authority",
+        "opening_hours": "Mo-Su 05:00-11:59",
+        "operator": "Massachusetts Bay Transportation Authority",
+        "operator:short": "MBTA",
+        "operator:wikidata": "Q171985",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "BBY",
+        "roof": "yes",
+        "roof:material": "concrete",
+        "roof:shape": "flat",
+        "start_date": "1987",
+        "station": "train",
+        "subway": "yes",
+        "toilets": "yes",
+        "train": "yes",
+        "type": "multipolygon",
+        "website": "https://www.mbta.com/stops/place-bbsta",
+        "wheelchair": "yes",
+        "wikidata": "Q3675991",
+        "wikipedia": "en:Back Bay station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0753072,
+          42.3474198
+        ]
+      },
+      "id": "relation/20313627"
+    }
+  ]
+}
