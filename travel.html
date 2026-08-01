@@ -398,9 +398,10 @@ permalink: /travel
   }
 
   map.on("load", async function () {
-    const [airportDb, flightRoutes] = await Promise.all([
+    const [airportDb, flightRoutes, stationsGeoJSON] = await Promise.all([
       getAirportDatabase(),
       loadFlightRoutesFromCSV("/flights.csv"),
+      fetch("/stations.geojson").then(r => r.json())
     ]);
 
     // --- 1. Process Flight Data ---
@@ -467,6 +468,12 @@ permalink: /travel
 
     airportFeatures.forEach(f => {
       if (f.properties.flagId) {
+        uniqueFlags.add(f.properties.flagId);
+      }
+    });
+
+    stationsGeoJSON.features.forEach(f => {
+      if (f.properties && f.properties.flagId) {
         uniqueFlags.add(f.properties.flagId);
       }
     });
@@ -599,19 +606,35 @@ permalink: /travel
     // --- Add Stations Source ---
     map.addSource("rail-stations-data", {
       type: "geojson",
-      data: "/stations.geojson"
+      data: stationsGeoJSON
     });
 
-    // --- Stations Layer ---
+    // --- Stations Layer (Dots) ---
     map.addLayer({
       id: "rail-stations",
       type: "circle",
       source: "rail-stations-data",
+      filter: ["==", ["geometry-type"], "Point"],
       paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 3, 12, 6],
-        "circle-color": "#ffffff", // Solid white inside
-        "circle-stroke-color": "#1a202c", // Dark border matching the track ties
-        "circle-stroke-width": 2
+        // Radius math perfectly traces the icon-size of the symbol layer
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
+        "circle-color": "#8c92ac",
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25
+      }
+    });
+
+    // --- Stations Layer (Flags) ---
+    map.addLayer({
+      id: "rail-stations-flags",
+      type: "symbol",
+      source: "rail-stations-data",
+      filter: ["==", ["geometry-type"], "Point"],
+      layout: {
+        "icon-image": ["case", ["has", "flagId"], ["concat", "flag-circle-", ["get", "flagId"]], ""],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
       }
     });
 
@@ -819,7 +842,8 @@ permalink: /travel
     "cruise-ports-flags-past",
     "cruise-ports-flags-future",
     "rail-lines-base",
-    "rail-stations"
+    "rail-stations",
+    "rail-stations-flags"
   ];
 
   map.on("click", interactiveLayers, function (e) {
@@ -949,14 +973,26 @@ permalink: /travel
           <h6 class="mb-0">${operator}</h6>
           <p class="m-0">${route}</p>
         </div>`;
-    } else if (layerId === "rail-stations") {
+    } else if (layerId === "rail-stations" || layerId === "rail-stations-flags") {
       // --- Station Popup ---
       const stationName = feature.properties.name || "Unknown Station";
       const stationCode = feature.properties.code || "";
+      const flagId = feature.properties.flagId;
+
+      let flagImg = "";
+      if (flagId) {
+        if (flagId === "us-dc") {
+          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else if (flagId.startsWith("us-")) {
+          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else {
+          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        }
+      }
 
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${stationName}</h6>
+          <h6 class="mb-0">${stationName} ${flagImg}</h6>
           ${stationCode ? `<p class="m-0 text-muted" style="font-size: 0.85em;">${stationCode}</p>` : ''}
         </div>`;
     }
@@ -1018,6 +1054,7 @@ permalink: /travel
     if (map.getLayer("rail-lines-base")) map.setLayoutProperty("rail-lines-base", "visibility", visibility);
     if (map.getLayer("rail-lines-ties")) map.setLayoutProperty("rail-lines-ties", "visibility", visibility);
     if (map.getLayer("rail-stations")) map.setLayoutProperty("rail-stations", "visibility", visibility);
+    if (map.getLayer("rail-stations-flags")) map.setLayoutProperty("rail-stations-flags", "visibility", visibility);
   });
 
   document
