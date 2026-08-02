@@ -7,28 +7,28 @@
       state: "FL"
       country: "US"
       date: "2026-11-15"
-      coordinates: [-80.171111, 25.774167]
+      coordinates: [-80.1651, 25.7781] # NCL Terminal B (The Pearl)
     - port: "Puerto Plata"
       country: "DO"
       date: "2026-11-17"
-      coordinates: [-70.683333, 19.8]
+      coordinates: [-70.7027, 19.8055] # Taino Bay Cruise Port
     - port: "Saint Thomas"
       country: "VI"
       date: "2026-11-18"
-      coordinates: [-64.916667, 18.333333]
+      coordinates: [-64.9566, 18.3340] # Crown Bay Cruise Terminal
     - port: "Tortola"
       country: "VG"
       date: "2026-11-19"
-      coordinates: [-64.618056, 18.423333]
+      coordinates: [-64.6186, 18.4216] # Tortola Pier Park
     - port: "Great Stirrup Cay"
       country: "BS"
       date: "2026-11-21"
-      coordinates: [-77.9, 25.833333]
+      coordinates: [-77.9140, 25.8261] # New NCL Dual-Berth Pier
     - port: "Port Miami"
       state: "FL"
       country: "US"
       date: "2026-11-22"
-      coordinates: [-80.171111, 25.774167]
+      coordinates: [-80.1651, 25.7781] # NCL Terminal B (The Pearl)
 - vessel: "Norwegian Prima"
   operator: "Norwegian Cruise Line"
   departure_date: "2026-04-26"
@@ -38,25 +38,25 @@
       state: "FL"
       country: "US"
       date: "2026-04-26"
-      coordinates: [-80.61, 28.41]
+      coordinates: [-80.6225, 28.4116] # Cruise Terminal 10
     - port: "Great Stirrup Cay"
       country: "BS"
       date: "2026-04-27"
-      coordinates: [-77.9, 25.833333]
+      coordinates: [-77.9140, 25.8261] # New NCL Dual-Berth Pier
     - port: "Montego Bay"
       country: "JM"
       date: "2026-04-29"
-      coordinates: [-77.916667, 18.466667]
+      coordinates: [-77.9397, 18.4622] # Montego Bay Cruise Terminal
     - port: "George Town"
       country: "KY"
       date: "2026-04-30"
-      coordinates: [-81.381667, 19.296389]
+      coordinates: [-81.3831, 19.2964] # Grand Cayman Tender Anchorage
     - port: "Cozumel"
       country: "MX"
       date: "2026-05-01"
-      coordinates: [-86.92, 20.42]
+      coordinates: [-86.9569, 20.5101] # Punta Langosta Pier
     - port: "Port Canaveral"
       state: "FL"
       country: "US"
       date: "2026-05-03"
-      coordinates: [-80.61, 28.41]
+      coordinates: [-80.6225, 28.4116] # Cruise Terminal 10

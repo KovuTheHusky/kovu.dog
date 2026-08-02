@@ -1,0 +1,675 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1651,
+          25.7781
+        ]
+      },
+      "properties": {
+        "port": "Port Miami",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-11-15",
+        "vessel": "Norwegian Aqua",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.7027,
+          19.8055
+        ]
+      },
+      "properties": {
+        "port": "Puerto Plata",
+        "state": "",
+        "country": "DO",
+        "date": "2026-11-17",
+        "vessel": "Norwegian Aqua",
+        "flagId": "do"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9566,
+          18.334
+        ]
+      },
+      "properties": {
+        "port": "Saint Thomas",
+        "state": "",
+        "country": "VI",
+        "date": "2026-11-18",
+        "vessel": "Norwegian Aqua",
+        "flagId": "vi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.6186,
+          18.4216
+        ]
+      },
+      "properties": {
+        "port": "Tortola",
+        "state": "",
+        "country": "VG",
+        "date": "2026-11-19",
+        "vessel": "Norwegian Aqua",
+        "flagId": "vg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.914,
+          25.8261
+        ]
+      },
+      "properties": {
+        "port": "Great Stirrup Cay",
+        "state": "",
+        "country": "BS",
+        "date": "2026-11-21",
+        "vessel": "Norwegian Aqua",
+        "flagId": "bs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1651,
+          25.7781
+        ]
+      },
+      "properties": {
+        "port": "Port Miami",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-11-22",
+        "vessel": "Norwegian Aqua",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-17",
+        "origin_port": "Port Miami",
+        "destination_port": "Puerto Plata"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.1651,
+            25.7781
+          ],
+          [
+            -80.04625,
+            25.835
+          ],
+          [
+            -79.651484,
+            26.542969
+          ],
+          [
+            -78.2,
+            25.58
+          ],
+          [
+            -77.4775,
+            25.1425
+          ],
+          [
+            -76.45,
+            23.35
+          ],
+          [
+            -75.5525,
+            22.1925
+          ],
+          [
+            -75.0575,
+            21.4475
+          ],
+          [
+            -74.026953,
+            21.006875
+          ],
+          [
+            -72.65,
+            20.545
+          ],
+          [
+            -72.145313,
+            20.274375
+          ],
+          [
+            -70.7027,
+            19.8055
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-18",
+        "origin_port": "Puerto Plata",
+        "destination_port": "Saint Thomas"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -70.7027,
+            19.8055
+          ],
+          [
+            -72.145313,
+            20.274375
+          ],
+          [
+            -68.9,
+            19.75
+          ],
+          [
+            -67.038594,
+            19.219687
+          ],
+          [
+            -66.321289,
+            18.609453
+          ],
+          [
+            -64.754375,
+            18.364375
+          ],
+          [
+            -64.9566,
+            18.334
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -64.9566,
+            18.334
+          ],
+          [
+            -64.6186,
+            18.4216
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-19",
+        "origin_port": "Saint Thomas",
+        "destination_port": "Tortola"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-21",
+        "origin_port": "Tortola",
+        "destination_port": "Great Stirrup Cay"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -64.6186,
+            18.4216
+          ],
+          [
+            -64.754375,
+            18.364375
+          ],
+          [
+            -66.321289,
+            18.609453
+          ],
+          [
+            -67.038594,
+            19.219687
+          ],
+          [
+            -68.9,
+            19.75
+          ],
+          [
+            -71.705,
+            20.815
+          ],
+          [
+            -73.744375,
+            21.570625
+          ],
+          [
+            -74.535625,
+            21.845
+          ],
+          [
+            -75.5525,
+            22.1925
+          ],
+          [
+            -76.45,
+            23.35
+          ],
+          [
+            -77.4775,
+            25.1425
+          ],
+          [
+            -78.2,
+            25.58
+          ],
+          [
+            -77.914,
+            25.8261
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-22",
+        "origin_port": "Great Stirrup Cay",
+        "destination_port": "Port Miami"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.914,
+            25.8261
+          ],
+          [
+            -78.2,
+            25.58
+          ],
+          [
+            -79.651484,
+            26.542969
+          ],
+          [
+            -80.04625,
+            25.835
+          ],
+          [
+            -80.1651,
+            25.7781
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.6225,
+          28.4116
+        ]
+      },
+      "properties": {
+        "port": "Port Canaveral",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-04-26",
+        "vessel": "Norwegian Prima",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.914,
+          25.8261
+        ]
+      },
+      "properties": {
+        "port": "Great Stirrup Cay",
+        "state": "",
+        "country": "BS",
+        "date": "2026-04-27",
+        "vessel": "Norwegian Prima",
+        "flagId": "bs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.9397,
+          18.4622
+        ]
+      },
+      "properties": {
+        "port": "Montego Bay",
+        "state": "",
+        "country": "JM",
+        "date": "2026-04-29",
+        "vessel": "Norwegian Prima",
+        "flagId": "jm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3831,
+          19.2964
+        ]
+      },
+      "properties": {
+        "port": "George Town",
+        "state": "",
+        "country": "KY",
+        "date": "2026-04-30",
+        "vessel": "Norwegian Prima",
+        "flagId": "ky"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.9569,
+          20.5101
+        ]
+      },
+      "properties": {
+        "port": "Cozumel",
+        "state": "",
+        "country": "MX",
+        "date": "2026-05-01",
+        "vessel": "Norwegian Prima",
+        "flagId": "mx"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.6225,
+          28.4116
+        ]
+      },
+      "properties": {
+        "port": "Port Canaveral",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-05-03",
+        "vessel": "Norwegian Prima",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-27",
+        "origin_port": "Port Canaveral",
+        "destination_port": "Great Stirrup Cay"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.6225,
+            28.4116
+          ],
+          [
+            -80.435,
+            28.425
+          ],
+          [
+            -80.1,
+            27.58
+          ],
+          [
+            -79.651484,
+            26.542969
+          ],
+          [
+            -78.2,
+            25.58
+          ],
+          [
+            -77.914,
+            25.8261
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-29",
+        "origin_port": "Great Stirrup Cay",
+        "destination_port": "Montego Bay"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.914,
+            25.8261
+          ],
+          [
+            -78.2,
+            25.58
+          ],
+          [
+            -77.4775,
+            25.1425
+          ],
+          [
+            -76.45,
+            23.35
+          ],
+          [
+            -75.5525,
+            22.1925
+          ],
+          [
+            -75.0575,
+            21.4475
+          ],
+          [
+            -73.834453,
+            20.138125
+          ],
+          [
+            -75.095,
+            19.7
+          ],
+          [
+            -78.1875,
+            18.9975
+          ],
+          [
+            -77.9397,
+            18.4622
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-30",
+        "origin_port": "Montego Bay",
+        "destination_port": "George Town"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.9397,
+            18.4622
+          ],
+          [
+            -78.1875,
+            18.9975
+          ],
+          [
+            -80.655,
+            20.1475
+          ],
+          [
+            -81.195,
+            19.595
+          ],
+          [
+            -81.3225,
+            19.34
+          ],
+          [
+            -81.3831,
+            19.2964
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-05-01",
+        "origin_port": "George Town",
+        "destination_port": "Cozumel"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -81.3831,
+            19.2964
+          ],
+          [
+            -81.3225,
+            19.34
+          ],
+          [
+            -85.855781,
+            21.851211
+          ],
+          [
+            -86.9569,
+            20.5101
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-05-03",
+        "origin_port": "Cozumel",
+        "destination_port": "Port Canaveral"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.9569,
+            20.5101
+          ],
+          [
+            -85.855781,
+            21.851211
+          ],
+          [
+            -82.48,
+            23.835
+          ],
+          [
+            -82.011875,
+            24.220625
+          ],
+          [
+            -80.97875,
+            24.59125
+          ],
+          [
+            -80.1775,
+            25.0775
+          ],
+          [
+            -80.04625,
+            25.835
+          ],
+          [
+            -79.651484,
+            26.542969
+          ],
+          [
+            -80.1,
+            27.58
+          ],
+          [
+            -80.435,
+            28.425
+          ],
+          [
+            -80.6225,
+            28.4116
+          ]
+        ]
+      }
+    }
+  ]
+}

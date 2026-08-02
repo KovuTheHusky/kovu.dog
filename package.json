@@ -1,7 +1,8 @@
 {
   "license": "UNLICENSED",
   "scripts": {
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:rail": "node generate-rail.js"
   },
   "type": "module",
   "dependencies": {
@@ -20,11 +21,15 @@
     "glob": "^13.0.6",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
+    "js-yaml": "^5.2.3",
     "mapbox-gl": "^3.27.0",
+    "mapshaper": "^0.7.50",
     "masonry-layout": "^4.2.2",
+    "osmtogeojson": "^3.0.0-beta.5",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.27.1"
+    "searoute-ts": "^2.2.0",
+    "simple-icons": "^16.28.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.11.0",
