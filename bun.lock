@@ -346,7 +346,7 @@
 
     "pngjs-nozlib": ["pngjs-nozlib@1.0.0", "", {}, "sha512-N1PggqLp9xDqwAoKvGohmZ3m4/N9xpY0nDZivFqQLcpLHmliHnCp9BuNCsOeqHWMuEEgFjpEaq9dZq6RZyy0fA=="],
 
-    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#268c26c", {}, "KovuTheHusky-pokemon-medals-268c26c", "sha512-81Wny3FyPdVIlK2/REb35Z7/uG/mHydbSxuUH5oYsLYf2c3CFoflszfEOeLd2d7qsUMO1xkPnXbebEQAwmiZHw=="],
+    "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#99fe3af", {}, "KovuTheHusky-pokemon-medals-99fe3af", "sha512-lptLKWehq/EJI6n34x73Gt0Gb1KMEjZ0okZE+fp+joZzyHdINvoFOYQ9eis3G9+Vlq5/4Tf2PInULa6ErFF9cw=="],
 
     "prettier": ["prettier@3.9.6", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g=="],
 
