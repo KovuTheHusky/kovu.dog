@@ -10,10 +10,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -70.2910991,
-          43.6539343
-        ]
+        "coordinates": [-70.2910991, 43.6539343]
       }
     },
     {
@@ -25,10 +22,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -71.0621014,
-          42.3663038
-        ]
+        "coordinates": [-71.0621014, 42.3663038]
       }
     },
     {
@@ -40,10 +34,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -71.0555329,
-          42.3507463
-        ]
+        "coordinates": [-71.0555329, 42.3507463]
       }
     },
     {
@@ -55,10 +46,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -73.9928111,
-          40.7502382
-        ]
+        "coordinates": [-73.9928111, 40.7502382]
       }
     },
     {
@@ -70,10 +58,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -77.0058628,
-          38.8983696
-        ]
+        "coordinates": [-77.0058628, 38.8983696]
       }
     },
     {
@@ -85,10 +70,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -69.9655363,
-          43.9114183
-        ]
+        "coordinates": [-69.9655363, 43.9114183]
       }
     },
     {
@@ -100,10 +82,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -72.5932224,
-          42.1062905
-        ]
+        "coordinates": [-72.5932224, 42.1062905]
       }
     },
     {
@@ -115,10 +94,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -73.7412926,
-          42.6412525
-        ]
+        "coordinates": [-73.7412926, 42.6412525]
       }
     },
     {
@@ -130,10 +106,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -71.0753072,
-          42.3474198
-        ]
+        "coordinates": [-71.0753072, 42.3474198]
       }
     }
   ]
