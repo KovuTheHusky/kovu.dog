@@ -7,7 +7,7 @@
         "@fancyapps/fancybox": "^3.5.7",
         "@fortawesome/fontawesome-free": "^7.3.1",
         "@popperjs/core": "^2.11.8",
-        "@primer/octicons": "^19.33.0",
+        "@primer/octicons": "^19.34.0",
         "@twemoji/api": "^17.0.3",
         "balloons-js": "^0.0.3",
         "bootstrap": "^5.3.8",
@@ -19,7 +19,7 @@
         "glob": "^13.0.6",
         "imagesloaded": "^5.0.0",
         "jquery": "^4.0.0",
-        "mapbox-gl": "^3.29.0",
+        "mapbox-gl": "^3.30.0",
         "masonry-layout": "^4.2.2",
         "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
         "qr-code-styling": "^1.9.2",
@@ -100,7 +100,7 @@
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@primer/octicons": ["@primer/octicons@19.33.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-kYrlutFnNVWDgckjQwOv9kXiFIPjTD/N+DIx6qzMBAk82nGTE85UKSvFvbt/RUhviNEoCjFoEr4fn5EAbkkUzQ=="],
+    "@primer/octicons": ["@primer/octicons@19.34.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-baZoUfhGG8mtEpfI4C6HYd3By28GEmGDESMqSLwXWxIuj7rgeVjS4QXpqm3PW4DoDmE5UlpvK8VC0COP7tLGzg=="],
 
     "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.10.0", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-fdfKqVOoGCvLWgXUiqPjw99wM64wZV/3RpSQZb59P1K8pT7l1cyJZV+QAyHgvVV1jcglUCtFmr+8ioY7rGVdKg=="],
 
@@ -298,7 +298,7 @@
 
     "lru-cache": ["lru-cache@11.5.2", "", {}, "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g=="],
 
-    "mapbox-gl": ["mapbox-gl@3.29.0", "", {}, "sha512-Fnh1WLsZMfihwRZY5scp456iQuZo9G97tTpb26bf/Ejsi/L7O+4dE9+I03VoOor2ul3DEOp6F2P3273omyVsNw=="],
+    "mapbox-gl": ["mapbox-gl@3.30.0", "", {}, "sha512-26m0CSBszLkvbdVWf2oIZ3SjqCuResxJKEbupwwSyNwbwJAcgnMhDy2Yl5cSgtUxeamUJ1UeXRqpBmGEUVaAeQ=="],
 
     "masonry-layout": ["masonry-layout@4.2.2", "", { "dependencies": { "get-size": "^2.0.2", "outlayer": "^2.1.0" } }, "sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA=="],
 
