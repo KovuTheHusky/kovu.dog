@@ -28,7 +28,7 @@
       "devDependencies": {
         "@shopify/prettier-plugin-liquid": "^1.11.0",
         "axios": "^1.20.0",
-        "prettier": "^3.9.8",
+        "prettier": "^3.9.9",
         "sharp": "^0.35.4",
         "spritesmith": "^3.5.1",
         "unzipper": "^0.12.5",
@@ -348,7 +348,7 @@
 
     "pokemon-medals": ["pokemon-medals@github:KovuTheHusky/pokemon-medals#90c04de", {}, "KovuTheHusky-pokemon-medals-90c04de", "sha512-uW3PddMAO0Uc6/0Z0MNUDcis/x6qqfKnXPiDXNSG+BgET2eDCgjrv97aX9+9K9y4twjUy0CiO04LoBBTxWBsvg=="],
 
-    "prettier": ["prettier@3.9.8", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A=="],
+    "prettier": ["prettier@3.9.9", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg=="],
 
     "process-nextick-args": ["process-nextick-args@1.0.7", "", {}, "sha512-yN0WQmuCX63LP/TMvAg31nvT6m4vDqJEiiv2CAZqWOGNWutc9DfDk1NPYYmKUFmaVM2UwDowH4u5AHWYP/jxKw=="],
 
