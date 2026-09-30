@@ -30,7 +30,7 @@
     "@shopify/prettier-plugin-liquid": "^1.11.0",
     "axios": "^1.20.0",
     "prettier": "^3.9.9",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "spritesmith": "^3.5.1",
     "unzipper": "^0.12.5"
   }
