@@ -20,17 +20,17 @@
     "glob": "^13.0.6",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
-    "mapbox-gl": "^3.31.0",
+    "mapbox-gl": "^3.32.0",
     "masonry-layout": "^4.2.2",
     "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
     "qr-code-styling": "^1.9.2",
-    "simple-icons": "^16.32.0"
+    "simple-icons": "^16.33.0"
   },
   "devDependencies": {
-    "@shopify/prettier-plugin-liquid": "^1.11.0",
+    "@shopify/prettier-plugin-liquid": "^1.11.2",
     "axios": "^1.20.0",
     "prettier": "^3.9.9",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "spritesmith": "^3.5.1",
     "unzipper": "^0.12.5"
   }
