@@ -7,7 +7,7 @@
         "@fancyapps/fancybox": "^3.5.7",
         "@fortawesome/fontawesome-free": "^7.3.1",
         "@popperjs/core": "^2.11.8",
-        "@primer/octicons": "^19.38.0",
+        "@primer/octicons": "^19.39.0",
         "@twemoji/api": "^17.0.3",
         "balloons-js": "^0.0.3",
         "bootstrap": "^5.3.8",
@@ -100,7 +100,7 @@
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@primer/octicons": ["@primer/octicons@19.38.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-YUU2R66aDm72CdjlTyD663sCAjILrHWK2czw+BdTUkzZfcB7bXfO6GNXm22sepLOWKPkLHezVjIHch/KNd8rMg=="],
+    "@primer/octicons": ["@primer/octicons@19.39.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-M/UKa047bhf40RbQGv1JuG+YZVknH166fNVfqYJzMUUlxyk1QnlyQNbAVDNFeFc37GO5bwglJ8JC/WYz0J6xFQ=="],
 
     "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.10.2", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-/qBtTT3tbzSFgFVMNTPhX2pPN14ShMSYTu9nzkCB1vorjNvm1G9mvgYW9jKod0mrki+TUVfMYi5d1H+QKrLnCA=="],
 
