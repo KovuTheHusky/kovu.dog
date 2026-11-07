@@ -17,7 +17,7 @@
     "chartjs-plugin-annotation": "^3.1.0",
     "circle-flags": "^2.8.3",
     "clipboard": "^2.0.11",
-    "glob": "^14.0.3",
+    "glob": "^14.0.4",
     "imagesloaded": "^5.0.0",
     "jquery": "^4.0.0",
     "mapbox-gl": "^3.34.2",
@@ -27,7 +27,7 @@
     "simple-icons": "^16.36.0"
   },
   "devDependencies": {
-    "@shopify/prettier-plugin-liquid": "^1.11.3",
+    "@shopify/prettier-plugin-liquid": "^1.11.4",
     "axios": "^1.21.0",
     "prettier": "^3.9.10",
     "sharp": "^0.35.5",
