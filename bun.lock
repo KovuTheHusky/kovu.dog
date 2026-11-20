@@ -26,7 +26,7 @@
         "simple-icons": "^16.38.0",
       },
       "devDependencies": {
-        "@shopify/prettier-plugin-liquid": "^1.11.4",
+        "@shopify/prettier-plugin-liquid": "^1.11.6",
         "axios": "^1.21.1",
         "prettier": "^3.10.1",
         "sharp": "^0.35.5",
@@ -104,9 +104,9 @@
 
     "@primer/octicons": ["@primer/octicons@19.42.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-MEcHxVxNHu1I2Ndk5Mcwp7tfBiDk/EpytDJgKOfE2ldqIczWucVrZNeNU4wtEN5mnNudZ0YL5G0spax3bSMT4w=="],
 
-    "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.12.0", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-F0yV3rY5KmGt9J8cD5xc845JjX6H/W05hA5khBpZO3fuUDqZ4HHGkf4sWsu/uWvUBar/K6af1OAH5obJnyC8tw=="],
+    "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.12.2", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-0xK0uvWpJUrzSRh0RF2/srvLV5KT66cjqXErbtqQSYUnkfVHi/R5pgREsWy5+ZmNeNrhQ0MlvX9UbmdphYKk8A=="],
 
-    "@shopify/prettier-plugin-liquid": ["@shopify/prettier-plugin-liquid@1.11.4", "", { "dependencies": { "@shopify/liquid-html-parser": "^2.12.0", "html-styles": "^1.0.0" }, "peerDependencies": { "prettier": "^2.0.0 || ^3.0.0" } }, "sha512-2X9CQFPur99coUB17HGaEM1LqJbmEq7wcMx/yKHFmo8/1UDsj5GDAJHP9sjQej1LwrCevBKzarEbfHyjLZf5KA=="],
+    "@shopify/prettier-plugin-liquid": ["@shopify/prettier-plugin-liquid@1.11.6", "", { "dependencies": { "@shopify/liquid-html-parser": "^2.12.2", "html-styles": "^1.0.0" }, "peerDependencies": { "prettier": "^2.0.0 || ^3.0.0" } }, "sha512-zxihfa3mJA0rG5w08mgHIttIe8xmDTPelNMLpUf82RQ6q24EblgnmaG0esUDp29H3EBL7Er1nhO6geQ19wkshw=="],
 
     "@twemoji/api": ["@twemoji/api@17.0.3", "", { "dependencies": { "@twemoji/parser": "17.0.2", "fs-extra": "^8.0.1", "jsonfile": "^5.0.0", "universalify": "^0.1.2" } }, "sha512-iwERjxY0QgPGVwT6b1OKG0Oa9nIfHhJw+Ij1TapTBMKTvVCU6qdXPXX/XKwxKx5QZIJW5GwELUCtw8wlaIQ2ug=="],
 
