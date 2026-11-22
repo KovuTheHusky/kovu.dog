@@ -18,15 +18,15 @@
         "clipboard": "^2.0.11",
         "glob": "^14.0.6",
         "imagesloaded": "^5.0.0",
-        "jquery": "^4.0.0",
-        "mapbox-gl": "^3.35.0",
+        "jquery": "^4.1.0",
+        "mapbox-gl": "^3.35.2",
         "masonry-layout": "^4.2.2",
         "pokemon-medals": "github:KovuTheHusky/pokemon-medals#main",
         "qr-code-styling": "^1.9.2",
-        "simple-icons": "^16.38.0",
+        "simple-icons": "^16.38.1",
       },
       "devDependencies": {
-        "@shopify/prettier-plugin-liquid": "^1.11.4",
+        "@shopify/prettier-plugin-liquid": "^1.11.6",
         "axios": "^1.21.1",
         "prettier": "^3.10.1",
         "sharp": "^0.35.5",
@@ -104,9 +104,9 @@
 
     "@primer/octicons": ["@primer/octicons@19.42.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-MEcHxVxNHu1I2Ndk5Mcwp7tfBiDk/EpytDJgKOfE2ldqIczWucVrZNeNU4wtEN5mnNudZ0YL5G0spax3bSMT4w=="],
 
-    "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.12.0", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-F0yV3rY5KmGt9J8cD5xc845JjX6H/W05hA5khBpZO3fuUDqZ4HHGkf4sWsu/uWvUBar/K6af1OAH5obJnyC8tw=="],
+    "@shopify/liquid-html-parser": ["@shopify/liquid-html-parser@2.12.2", "", { "dependencies": { "line-column": "^1.0.2" } }, "sha512-0xK0uvWpJUrzSRh0RF2/srvLV5KT66cjqXErbtqQSYUnkfVHi/R5pgREsWy5+ZmNeNrhQ0MlvX9UbmdphYKk8A=="],
 
-    "@shopify/prettier-plugin-liquid": ["@shopify/prettier-plugin-liquid@1.11.4", "", { "dependencies": { "@shopify/liquid-html-parser": "^2.12.0", "html-styles": "^1.0.0" }, "peerDependencies": { "prettier": "^2.0.0 || ^3.0.0" } }, "sha512-2X9CQFPur99coUB17HGaEM1LqJbmEq7wcMx/yKHFmo8/1UDsj5GDAJHP9sjQej1LwrCevBKzarEbfHyjLZf5KA=="],
+    "@shopify/prettier-plugin-liquid": ["@shopify/prettier-plugin-liquid@1.11.6", "", { "dependencies": { "@shopify/liquid-html-parser": "^2.12.2", "html-styles": "^1.0.0" }, "peerDependencies": { "prettier": "^2.0.0 || ^3.0.0" } }, "sha512-zxihfa3mJA0rG5w08mgHIttIe8xmDTPelNMLpUf82RQ6q24EblgnmaG0esUDp29H3EBL7Er1nhO6geQ19wkshw=="],
 
     "@twemoji/api": ["@twemoji/api@17.0.3", "", { "dependencies": { "@twemoji/parser": "17.0.2", "fs-extra": "^8.0.1", "jsonfile": "^5.0.0", "universalify": "^0.1.2" } }, "sha512-iwERjxY0QgPGVwT6b1OKG0Oa9nIfHhJw+Ij1TapTBMKTvVCU6qdXPXX/XKwxKx5QZIJW5GwELUCtw8wlaIQ2ug=="],
 
@@ -280,7 +280,7 @@
 
     "jpeg-js": ["jpeg-js@0.4.4", "", {}, "sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg=="],
 
-    "jquery": ["jquery@4.0.0", "", {}, "sha512-TXCHVR3Lb6TZdtw1l3RTLf8RBWVGexdxL6AC8/e0xZKEpBflBsjh9/8LXw+dkNFuOyW9B7iB3O1sP7hS0Kiacg=="],
+    "jquery": ["jquery@4.1.0", "", {}, "sha512-tnN2N83S+xD3yhmdBP4nnJ1XOO0Fl586rG23FA5h/JAe8XN3W9a1zGwDMltBptn+UpcqEKicnO61+jQ0EiF2fw=="],
 
     "jsbn": ["jsbn@0.1.1", "", {}, "sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg=="],
 
@@ -300,7 +300,7 @@
 
     "lru-cache": ["lru-cache@11.5.3", "", {}, "sha512-U4N8FgzmWxc8k1VH8Kr6lQg18U7Fjvby6wXHVRX/ZZ7IwWbRMgrRbP0Wrb5q5NVinryp4SQampHKdvtecItxUg=="],
 
-    "mapbox-gl": ["mapbox-gl@3.35.0", "", {}, "sha512-kMe3klYmwU8Lw9kPU2tB/AKDcYUfPrhkQU/M67FiYgFDn7rCBllLU4XbUhnUoRjPyIaB7HVT63EO8jbzhoKGMA=="],
+    "mapbox-gl": ["mapbox-gl@3.35.2", "", {}, "sha512-xM+0319FNTS2iOxl0Jelousi31L+ckzOxaXKkIlelanSe2jMlRRNVv3ESezPj6eUGlTDrfaxefk5QM6wQ3ICgg=="],
 
     "masonry-layout": ["masonry-layout@4.2.2", "", { "dependencies": { "get-size": "^2.0.2", "outlayer": "^2.1.0" } }, "sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA=="],
 
@@ -310,7 +310,7 @@
 
     "mime-types": ["mime-types@2.1.35", "", { "dependencies": { "mime-db": "1.52.0" } }, "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw=="],
 
-    "minimatch": ["minimatch@11.0.8", "", { "dependencies": { "@isaacs/nonrecursive-glob-match": "^1.1.0", "brace-expansion": "^5.0.12" } }, "sha512-nFQuYSTVrGvysVBps5Ih+0BdnYFN/Cj3C816r6+p7yK+FHrVLGE4O4N9AFwykrlNlvM2HYt+Rad1Uiro6h88Ig=="],
+    "minimatch": ["minimatch@11.0.9", "", { "dependencies": { "@isaacs/nonrecursive-glob-match": "^1.1.0", "brace-expansion": "^5.0.12" } }, "sha512-KCFkfyjqerNlSstjlhIGNXIKZGA/6O4V4RlhZ+Dsr621SPPw0mzlypE9D9ZOoPiVefHID+j7/XuMMlqfD/F60Q=="],
 
     "minipass": ["minipass@7.1.3", "", {}, "sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A=="],
 
@@ -384,7 +384,7 @@
 
     "sharp": ["sharp@0.35.5", "", { "dependencies": { "@img/colour": "^1.1.0", "detect-libc": "^2.1.2", "semver": "^7.8.5" }, "optionalDependencies": { "@img/sharp-darwin-arm64": "0.35.5", "@img/sharp-darwin-x64": "0.35.5", "@img/sharp-freebsd-wasm32": "0.35.5", "@img/sharp-libvips-darwin-arm64": "1.3.4", "@img/sharp-libvips-darwin-x64": "1.3.4", "@img/sharp-libvips-linux-arm": "1.3.4", "@img/sharp-libvips-linux-arm64": "1.3.4", "@img/sharp-libvips-linux-ppc64": "1.3.4", "@img/sharp-libvips-linux-riscv64": "1.3.4", "@img/sharp-libvips-linux-s390x": "1.3.4", "@img/sharp-libvips-linux-x64": "1.3.4", "@img/sharp-libvips-linuxmusl-arm64": "1.3.4", "@img/sharp-libvips-linuxmusl-x64": "1.3.4", "@img/sharp-linux-arm": "0.35.5", "@img/sharp-linux-arm64": "0.35.5", "@img/sharp-linux-ppc64": "0.35.5", "@img/sharp-linux-riscv64": "0.35.5", "@img/sharp-linux-s390x": "0.35.5", "@img/sharp-linux-x64": "0.35.5", "@img/sharp-linuxmusl-arm64": "0.35.5", "@img/sharp-linuxmusl-x64": "0.35.5", "@img/sharp-webcontainers-wasm32": "0.35.5", "@img/sharp-win32-arm64": "0.35.5", "@img/sharp-win32-ia32": "0.35.5", "@img/sharp-win32-x64": "0.35.5" }, "peerDependencies": { "@types/node": "*" }, "optionalPeers": ["@types/node"] }, "sha512-Ywn4OnzGukp7CDMrp08RQ50YKmuwG47brZgIVPTvBaaAfQlRlygrRqSrxdCiL9M+LlzLBiJ68IR1QqvzHyjC7g=="],
 
-    "simple-icons": ["simple-icons@16.38.0", "", {}, "sha512-B0Wws90eL0Fm65aH35CA8kM+7/Zzgsaytt0DndBx7VFm3+o9HurVIVRQZ1hvqqYYIyNJq7ycn3kQm2v2FhiWSQ=="],
+    "simple-icons": ["simple-icons@16.38.1", "", {}, "sha512-q4JnGp1cgeASp4jzEsmSh/7BD/e2y7aYO8XST+QBEvOJ5wzZ/9WRmKsI+QUwkfPUSiXC+sfh2+QetD38zl3N0g=="],
 
     "spritesmith": ["spritesmith@3.5.1", "", { "dependencies": { "concat-stream": "~1.5.1", "layout": "~2.2.0", "pixelsmith": "^2.3.0", "semver": "~5.7.2", "through2": "~2.0.0" } }, "sha512-FrzGx9cD5SkH3Kxuk24vJJLBYHLyDskUJ2t6DSWfWkCd8+yFQAfBGVE7F0IhOpKu+aq1CZ9rgXnpaa4luIQgGg=="],
 
