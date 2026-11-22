@@ -1,3 +1,48 @@
+- vessel: "Norwegian Jade"
+  operator: "Norwegian Cruise Line"
+  departure_date: "2027-05-17"
+  return_date: "2027-05-24"
+  route:
+    - port: "Port of Whittier"
+      state: "AK"
+      country: "US"
+      date: "2027-05-17"
+      coordinates: [-148.701389, 60.776111]
+    - port: "Hubbard Glacier"
+      state: "AK"
+      country: "US"
+      date: "2027-05-18"
+      coordinates: [-139.370833, 60.313889]
+    - port: "Icy Strait Point"
+      state: "AK"
+      country: "US"
+      date: "2027-05-19"
+      coordinates: [-135.4632, 58.12933]
+    - port: "Juneau"
+      state: "AK"
+      country: "US"
+      date: "2027-05-20"
+      coordinates: [-134.416111, 58.3]
+    - port: "Skagway"
+      state: "AK"
+      country: "US"
+      date: "2027-05-21"
+      coordinates: [-135.313889, 59.458333]
+    - port: "Ketchikan"
+      state: "AK"
+      country: "US"
+      date: "2027-05-22"
+      coordinates: [-131.648, 55.342]
+    - port: "Inside Passage"
+      state: "AK"
+      country: "US"
+      date: "2027-05-23"
+      coordinates: [-131.440431, 54.800686]
+    - port: "Port of Vancouver"
+      state: "BC"
+      country: "CA"
+      date: "2027-05-24"
+      coordinates: [-123.120833, 49.276944]
 - vessel: "Norwegian Aqua"
   operator: "Norwegian Cruise Line"
   departure_date: "2026-11-15"
