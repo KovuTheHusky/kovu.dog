@@ -659,43 +659,57 @@ permalink: /travel
       data: cruiseGeoJSONFuture
     });
 
-    // Cruise Lines Past (Pewter)
+    // Cruise Lines Past — Classic Steamship Dash-Dot (— · — ·)
     map.addLayer({
       id: "cruise-route-lines-past",
       type: "line",
       source: "cruise-data-past",
       filter: ["==", ["geometry-type"], "LineString"],
+      layout: {
+        "line-join": "round",
+        "line-cap": "round"
+      },
       paint: {
         "line-color": "#c0c0c0",
         "line-opacity": 1,
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        "line-dasharray": [0.1, 2.2],
+        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 2, 10, 10],
       }
     });
 
-    // Cruise Lines Future (Bronze Solid)
+    // Cruise Lines Future — Gold Steamship Dash-Dot (— · — ·)
     map.addLayer({
       id: "cruise-route-lines-future-solid",
       type: "line",
       source: "cruise-data-future",
       filter: ["all", ["==", ["geometry-type"], "LineString"], ["!=", ["get", "hasPast"], true]],
+      layout: {
+        "line-join": "round",
+        "line-cap": "round"
+      },
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        "line-dasharray": [0.1, 2.2],
+        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 2, 10, 10],
       }
     });
 
-    // Cruise Lines Future (Bronze Dashed)
+    // Cruise Lines Future on Previously Sailed Routes (Alternating Gold & Silver Dash-Dot)
     map.addLayer({
       id: "cruise-route-lines-future-dashed",
       type: "line",
       source: "cruise-data-future",
       filter: ["all", ["==", ["geometry-type"], "LineString"], ["==", ["get", "hasPast"], true]],
+      layout: {
+        "line-join": "round",
+        "line-cap": "round"
+      },
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-dasharray": [10, 10],
-        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 1, 10, 10],
+        "line-dasharray": [0.1, 4.5],
+        "line-width": ["interpolate", ["linear"], ["get", "count"], 1, 2, 10, 10],
       }
     });
 
