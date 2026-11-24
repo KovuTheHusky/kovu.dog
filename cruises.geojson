@@ -1,0 +1,1337 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -148.701389,
+          60.776111
+        ]
+      },
+      "properties": {
+        "port": "Port of Whittier",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-17",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -139.370833,
+          60.313889
+        ]
+      },
+      "properties": {
+        "port": "Hubbard Glacier",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-18",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -135.4632,
+          58.12933
+        ]
+      },
+      "properties": {
+        "port": "Icy Strait Point",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-19",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -134.416111,
+          58.3
+        ]
+      },
+      "properties": {
+        "port": "Juneau",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-20",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -135.313889,
+          59.458333
+        ]
+      },
+      "properties": {
+        "port": "Skagway",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-21",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -131.648,
+          55.342
+        ]
+      },
+      "properties": {
+        "port": "Ketchikan",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-22",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -131.440431,
+          54.800686
+        ]
+      },
+      "properties": {
+        "port": "Inside Passage",
+        "state": "AK",
+        "country": "US",
+        "date": "2027-05-23",
+        "vessel": "Norwegian Jade",
+        "flagId": "us-ak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.120833,
+          49.276944
+        ]
+      },
+      "properties": {
+        "port": "Port of Vancouver",
+        "state": "BC",
+        "country": "CA",
+        "date": "2027-05-24",
+        "vessel": "Norwegian Jade",
+        "flagId": "ca"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -148.70139,
+            60.77611
+          ],
+          [
+            -148.674,
+            60.78
+          ],
+          [
+            -146.949,
+            60.75
+          ],
+          [
+            -146.769,
+            60.144
+          ],
+          [
+            -140.379,
+            59.306
+          ],
+          [
+            -139.37083,
+            60.31389
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-18",
+        "origin_port": "Port of Whittier",
+        "destination_port": "Hubbard Glacier",
+        "length_nm": 287
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -139.37083,
+            60.31389
+          ],
+          [
+            -140.379,
+            59.306
+          ],
+          [
+            -137.513,
+            57.878
+          ],
+          [
+            -137.101,
+            57.998
+          ],
+          [
+            -135.749,
+            58.309
+          ],
+          [
+            -135.042,
+            58.152
+          ],
+          [
+            -135.4632,
+            58.12933
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-19",
+        "origin_port": "Hubbard Glacier",
+        "destination_port": "Icy Strait Point",
+        "length_nm": 210
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -135.4632,
+            58.12933
+          ],
+          [
+            -135.042,
+            58.152
+          ],
+          [
+            -135.028,
+            58.55
+          ],
+          [
+            -134.573,
+            58.204
+          ],
+          [
+            -134.41611,
+            58.3
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-20",
+        "origin_port": "Icy Strait Point",
+        "destination_port": "Juneau",
+        "length_nm": 49
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -134.41611,
+            58.3
+          ],
+          [
+            -134.573,
+            58.204
+          ],
+          [
+            -135.028,
+            58.55
+          ],
+          [
+            -135.376,
+            59.266
+          ],
+          [
+            -135.319,
+            59.455
+          ],
+          [
+            -135.31389,
+            59.45833
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-21",
+        "origin_port": "Juneau",
+        "destination_port": "Skagway",
+        "length_nm": 81
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -135.31389,
+            59.45833
+          ],
+          [
+            -135.319,
+            59.455
+          ],
+          [
+            -135.376,
+            59.266
+          ],
+          [
+            -135.028,
+            58.55
+          ],
+          [
+            -134.573,
+            58.204
+          ],
+          [
+            -134.147,
+            58.171
+          ],
+          [
+            -133.818,
+            57.825
+          ],
+          [
+            -133.792,
+            57.203
+          ],
+          [
+            -133.035,
+            57.014
+          ],
+          [
+            -132.531,
+            56.612
+          ],
+          [
+            -133.221,
+            56.395
+          ],
+          [
+            -131.971,
+            55.404
+          ],
+          [
+            -131.598,
+            55.297
+          ],
+          [
+            -131.648,
+            55.342
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-22",
+        "origin_port": "Skagway",
+        "destination_port": "Ketchikan",
+        "length_nm": 325
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -131.648,
+            55.342
+          ],
+          [
+            -131.598,
+            55.297
+          ],
+          [
+            -131.82,
+            55.052
+          ],
+          [
+            -131.562,
+            54.638
+          ],
+          [
+            -131.44043,
+            54.80069
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-23",
+        "origin_port": "Ketchikan",
+        "destination_port": "Inside Passage",
+        "length_nm": 43
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -131.44043,
+            54.80069
+          ],
+          [
+            -131.562,
+            54.638
+          ],
+          [
+            -131.162,
+            54.672
+          ],
+          [
+            -130.632,
+            54.635
+          ],
+          [
+            -130.33,
+            54.3
+          ],
+          [
+            -130.668,
+            53.744
+          ],
+          [
+            -129.468,
+            52.49
+          ],
+          [
+            -128.219,
+            51.419
+          ],
+          [
+            -127.362,
+            50.898
+          ],
+          [
+            -125.569,
+            50.551
+          ],
+          [
+            -124.571,
+            49.873
+          ],
+          [
+            -123.378,
+            49.074
+          ],
+          [
+            -123.32,
+            49.276
+          ],
+          [
+            -123.151,
+            49.283
+          ],
+          [
+            -123.12,
+            49.271
+          ],
+          [
+            -123.12083,
+            49.27694
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Jade",
+        "operator": "Norwegian Cruise Line",
+        "date": "2027-05-24",
+        "origin_port": "Inside Passage",
+        "destination_port": "Port of Vancouver",
+        "length_nm": 516
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.171111,
+          25.774167
+        ]
+      },
+      "properties": {
+        "port": "Port Miami",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-11-15",
+        "vessel": "Norwegian Aqua",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.683333,
+          19.8
+        ]
+      },
+      "properties": {
+        "port": "Puerto Plata",
+        "state": "",
+        "country": "DO",
+        "date": "2026-11-17",
+        "vessel": "Norwegian Aqua",
+        "flagId": "do"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.916667,
+          18.333333
+        ]
+      },
+      "properties": {
+        "port": "Saint Thomas",
+        "state": "",
+        "country": "VI",
+        "date": "2026-11-18",
+        "vessel": "Norwegian Aqua",
+        "flagId": "vi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.618056,
+          18.423333
+        ]
+      },
+      "properties": {
+        "port": "Tortola",
+        "state": "",
+        "country": "VG",
+        "date": "2026-11-19",
+        "vessel": "Norwegian Aqua",
+        "flagId": "vg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.9,
+          25.833333
+        ]
+      },
+      "properties": {
+        "port": "Great Stirrup Cay",
+        "state": "",
+        "country": "BS",
+        "date": "2026-11-21",
+        "vessel": "Norwegian Aqua",
+        "flagId": "bs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.171111,
+          25.774167
+        ]
+      },
+      "properties": {
+        "port": "Port Miami",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-11-22",
+        "vessel": "Norwegian Aqua",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.17111,
+            25.77417
+          ],
+          [
+            -80.182,
+            25.784
+          ],
+          [
+            -79.956,
+            25.792
+          ],
+          [
+            -79.815,
+            25.79
+          ],
+          [
+            -79.5835,
+            26.0805
+          ],
+          [
+            -79.458,
+            26.34
+          ],
+          [
+            -79.214,
+            26.341
+          ],
+          [
+            -78.255,
+            25.567
+          ],
+          [
+            -77.709,
+            25.125
+          ],
+          [
+            -76.45,
+            23.348
+          ],
+          [
+            -75.402,
+            22.141
+          ],
+          [
+            -74.909,
+            21.391
+          ],
+          [
+            -74.44025,
+            21.20575
+          ],
+          [
+            -74.2745,
+            21.14
+          ],
+          [
+            -74.1065,
+            21.0735
+          ],
+          [
+            -73.86075,
+            20.97638
+          ],
+          [
+            -73.7265,
+            20.92325
+          ],
+          [
+            -73.618,
+            20.8825
+          ],
+          [
+            -72.648,
+            20.543
+          ],
+          [
+            -72.013,
+            20.298
+          ],
+          [
+            -70.68333,
+            19.8
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-17",
+        "origin_port": "Port Miami",
+        "destination_port": "Puerto Plata",
+        "length_nm": 629
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -70.68333,
+            19.8
+          ],
+          [
+            -72.013,
+            20.298
+          ],
+          [
+            -68.899,
+            19.75
+          ],
+          [
+            -67.331,
+            19.129
+          ],
+          [
+            -67.038,
+            19.012
+          ],
+          [
+            -66.21581,
+            18.67606
+          ],
+          [
+            -65.0535,
+            18.407
+          ],
+          [
+            -64.78825,
+            18.2635
+          ],
+          [
+            -64.91667,
+            18.33333
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-18",
+        "origin_port": "Puerto Plata",
+        "destination_port": "Saint Thomas",
+        "length_nm": 429
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -64.91667,
+            18.33333
+          ],
+          [
+            -64.78825,
+            18.2635
+          ],
+          [
+            -64.615,
+            18.421
+          ],
+          [
+            -64.61806,
+            18.42333
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-19",
+        "origin_port": "Saint Thomas",
+        "destination_port": "Tortola",
+        "length_nm": 14
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -64.61806,
+            18.42333
+          ],
+          [
+            -64.615,
+            18.421
+          ],
+          [
+            -64.78825,
+            18.2635
+          ],
+          [
+            -65.0535,
+            18.407
+          ],
+          [
+            -66.21581,
+            18.67606
+          ],
+          [
+            -67.038,
+            19.012
+          ],
+          [
+            -67.331,
+            19.129
+          ],
+          [
+            -68.899,
+            19.75
+          ],
+          [
+            -71.705,
+            20.817
+          ],
+          [
+            -73.495,
+            21.479
+          ],
+          [
+            -73.677,
+            21.5465
+          ],
+          [
+            -73.88475,
+            21.62225
+          ],
+          [
+            -74.304,
+            21.766
+          ],
+          [
+            -74.574,
+            21.858
+          ],
+          [
+            -74.702,
+            21.902
+          ],
+          [
+            -74.895,
+            21.968
+          ],
+          [
+            -75.402,
+            22.141
+          ],
+          [
+            -76.45,
+            23.348
+          ],
+          [
+            -77.709,
+            25.125
+          ],
+          [
+            -78.145,
+            25.595
+          ],
+          [
+            -77.9,
+            25.83333
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-21",
+        "origin_port": "Tortola",
+        "destination_port": "Great Stirrup Cay",
+        "length_nm": 913
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.9,
+            25.83333
+          ],
+          [
+            -78.145,
+            25.595
+          ],
+          [
+            -78.255,
+            25.567
+          ],
+          [
+            -79.214,
+            26.341
+          ],
+          [
+            -79.458,
+            26.34
+          ],
+          [
+            -79.5835,
+            26.0805
+          ],
+          [
+            -79.815,
+            25.79
+          ],
+          [
+            -79.956,
+            25.792
+          ],
+          [
+            -80.182,
+            25.784
+          ],
+          [
+            -80.17111,
+            25.77417
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Aqua",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-11-22",
+        "origin_port": "Great Stirrup Cay",
+        "destination_port": "Port Miami",
+        "length_nm": 147
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.61,
+          28.41
+        ]
+      },
+      "properties": {
+        "port": "Port Canaveral",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-04-26",
+        "vessel": "Norwegian Prima",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.9,
+          25.833333
+        ]
+      },
+      "properties": {
+        "port": "Great Stirrup Cay",
+        "state": "",
+        "country": "BS",
+        "date": "2026-04-27",
+        "vessel": "Norwegian Prima",
+        "flagId": "bs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.916667,
+          18.466667
+        ]
+      },
+      "properties": {
+        "port": "Montego Bay",
+        "state": "",
+        "country": "JM",
+        "date": "2026-04-29",
+        "vessel": "Norwegian Prima",
+        "flagId": "jm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.381667,
+          19.296389
+        ]
+      },
+      "properties": {
+        "port": "George Town",
+        "state": "",
+        "country": "KY",
+        "date": "2026-04-30",
+        "vessel": "Norwegian Prima",
+        "flagId": "ky"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.92,
+          20.42
+        ]
+      },
+      "properties": {
+        "port": "Cozumel",
+        "state": "",
+        "country": "MX",
+        "date": "2026-05-01",
+        "vessel": "Norwegian Prima",
+        "flagId": "mx"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.61,
+          28.41
+        ]
+      },
+      "properties": {
+        "port": "Port Canaveral",
+        "state": "FL",
+        "country": "US",
+        "date": "2026-05-03",
+        "vessel": "Norwegian Prima",
+        "flagId": "us-fl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.61,
+            28.41
+          ],
+          [
+            -80.435,
+            28.425
+          ],
+          [
+            -80.099,
+            27.582
+          ],
+          [
+            -79.89,
+            26.793
+          ],
+          [
+            -79.8,
+            26.4
+          ],
+          [
+            -79.458,
+            26.34
+          ],
+          [
+            -79.214,
+            26.341
+          ],
+          [
+            -78.255,
+            25.567
+          ],
+          [
+            -78.145,
+            25.595
+          ],
+          [
+            -77.9,
+            25.83333
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-27",
+        "origin_port": "Port Canaveral",
+        "destination_port": "Great Stirrup Cay",
+        "length_nm": 234
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.9,
+            25.83333
+          ],
+          [
+            -78.145,
+            25.595
+          ],
+          [
+            -77.709,
+            25.125
+          ],
+          [
+            -76.45,
+            23.348
+          ],
+          [
+            -75.704,
+            22.244
+          ],
+          [
+            -75.204,
+            21.506
+          ],
+          [
+            -73.83769,
+            19.98281
+          ],
+          [
+            -75.095,
+            19.701
+          ],
+          [
+            -78.14949,
+            18.99206
+          ],
+          [
+            -77.91667,
+            18.46667
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-29",
+        "origin_port": "Great Stirrup Cay",
+        "destination_port": "Montego Bay",
+        "length_nm": 665
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.91667,
+            18.46667
+          ],
+          [
+            -78.14949,
+            18.99206
+          ],
+          [
+            -80.883,
+            20.224
+          ],
+          [
+            -81.196,
+            19.594
+          ],
+          [
+            -81.344,
+            19.296
+          ],
+          [
+            -81.38167,
+            19.29639
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-04-30",
+        "origin_port": "Montego Bay",
+        "destination_port": "George Town",
+        "length_nm": 233
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -81.38167,
+            19.29639
+          ],
+          [
+            -81.344,
+            19.296
+          ],
+          [
+            -81.196,
+            19.594
+          ],
+          [
+            -80.883,
+            20.224
+          ],
+          [
+            -83.8945,
+            21.5975
+          ],
+          [
+            -85.695,
+            21.942
+          ],
+          [
+            -85.8755,
+            21.836
+          ],
+          [
+            -86.05619,
+            21.76544
+          ],
+          [
+            -86.92,
+            20.42
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-05-01",
+        "origin_port": "George Town",
+        "destination_port": "Cozumel",
+        "length_nm": 375
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.92,
+            20.42
+          ],
+          [
+            -86.05619,
+            21.76544
+          ],
+          [
+            -85.8755,
+            21.836
+          ],
+          [
+            -85.695,
+            21.942
+          ],
+          [
+            -82.478,
+            23.834
+          ],
+          [
+            -82.066,
+            24.077
+          ],
+          [
+            -81.825,
+            24.219
+          ],
+          [
+            -80.797,
+            24.513
+          ],
+          [
+            -80.029,
+            25.115
+          ],
+          [
+            -79.815,
+            25.79
+          ],
+          [
+            -79.956,
+            25.792
+          ],
+          [
+            -79.939,
+            25.981
+          ],
+          [
+            -79.89,
+            26.793
+          ],
+          [
+            -80.099,
+            27.582
+          ],
+          [
+            -80.435,
+            28.425
+          ],
+          [
+            -80.61,
+            28.41
+          ]
+        ]
+      },
+      "properties": {
+        "vessel": "Norwegian Prima",
+        "operator": "Norwegian Cruise Line",
+        "date": "2026-05-03",
+        "origin_port": "Cozumel",
+        "destination_port": "Port Canaveral",
+        "length_nm": 603
+      }
+    }
+  ]
+}
