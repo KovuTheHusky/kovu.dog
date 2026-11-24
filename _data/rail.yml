@@ -314,7 +314,7 @@ routes:
         relation["route"="train"](40.805,-74.080,40.818,-74.065);
         way(r);
         out geom;
-      clip_bbox: [-74.10, 40.758, -74.045, 40.818]
+      clip_bbox: [-74.12, 40.758, -74.045, 40.85]
 
   # US - Metro-North (Commuter)
   - id: mnr-new-haven
@@ -324,8 +324,19 @@ routes:
     from: GCT
     to: NHV
     source:
-      type: osm_relation
-      relation_id: 11021730 # New Haven Line
+      type: overpass_query
+      # 11021730 starts at Woodlawn Junction (Bronx border);
+      # stitch in New Haven passenger train ways through Manhattan and the Bronx into Grand Central
+      query: |
+        [out:json][timeout:60];
+        relation(11021730);
+        (._; rel(r);)->.nh_infra;
+        relation["route"="train"]["name"~"New Haven",i](40.75,-73.985,40.81,-73.93)->.nh_gct;
+        (
+          way(r.nh_infra);
+          way(r.nh_gct)(40.748,-73.99,40.92,-73.80);
+        );
+        out geom;
       clip_bbox: [-74.00, 40.74, -72.925, 41.305]
 
   # Europe
