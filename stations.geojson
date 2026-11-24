@@ -260,6 +260,70 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Woodside",
+        "code": "WDD",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.903201,
+          40.746072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Huntington",
+        "code": "HUN",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.410639,
+          40.852692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hartford Union Station",
+        "code": "HFD",
+        "flagId": "us-ct",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.681667,
+          41.768889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Windsor Locks",
+        "code": "WNL",
+        "flagId": "us-ct",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.62746,
+          41.9328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "London St Pancras International",
         "code": "STP",
         "flagId": "gb",
@@ -484,16 +548,32 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "New Rochelle",
-        "code": "NRO",
+        "name": "Harlem-125th Street",
+        "code": "HLM",
         "flagId": "us-ny",
         "status": "completed"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.784936,
-          40.912317
+          -73.939,
+          40.8052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Chester",
+        "code": "PCT",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6647,
+          41.00178
         ]
       }
     },

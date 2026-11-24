@@ -66,6 +66,24 @@ stations:
     name: Patchogue
     flagId: us-ny
     coordinates: [-73.015735, 40.761841]
+  - code: WDD
+    name: Woodside
+    flagId: us-ny
+    coordinates: [-73.903201, 40.746072]
+  - code: HUN
+    name: Huntington
+    flagId: us-ny
+    coordinates: [-73.410639, 40.852692]
+
+  # US - CTrail
+  - code: HFD
+    name: Hartford Union Station
+    flagId: us-ct
+    coordinates: [-72.681667, 41.768889]
+  - code: WNL
+    name: Windsor Locks
+    flagId: us-ct
+    coordinates: [-72.627460, 41.932800]
 
   # Europe
   - code: STP
@@ -130,10 +148,14 @@ stations:
     name: Grand Central Terminal
     flagId: us-ny
     coordinates: [-73.977222, 40.752778]
-  - code: NRO
-    name: New Rochelle
+  - code: HLM
+    name: Harlem-125th Street
     flagId: us-ny
-    coordinates: [-73.784936, 40.912317]
+    coordinates: [-73.939000, 40.805200]
+  - code: PCT
+    name: Port Chester
+    flagId: us-ny
+    coordinates: [-73.664700, 41.001780]
   - code: STM
     name: Stamford Transportation Center
     flagId: us-ct
@@ -338,6 +360,18 @@ routes:
         );
         out geom;
       clip_bbox: [-74.00, 40.74, -72.925, 41.305]
+
+  # US - CTrail (Commuter)
+  - id: ctrail-hartford-line
+    operator: CTrail
+    route: New Haven - Windsor Locks
+    tier: commuter
+    from: NHV
+    to: WNL
+    source:
+      type: osm_relation
+      relation_id: 9704911 # Hartford Line (NHV -> SPG)
+      clip_bbox: [-72.95, 41.293, -72.60, 41.934]
 
   # Europe
   - id: eurostar-london-brussels
