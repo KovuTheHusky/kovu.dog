@@ -4,37 +4,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Portland",
-        "code": "POR",
-        "flagId": "us-me"
+        "name": "Washington Union Station",
+        "code": "WAS",
+        "flagId": "us-dc",
+        "status": "completed"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-70.2910991, 43.6539343]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "North Station",
-        "code": "BON",
-        "flagId": "us-ma"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-71.0621014, 42.3663038]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "South Station",
-        "code": "BOS",
-        "flagId": "us-ma"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-71.0555329, 42.3507463]
+        "coordinates": [
+          -77.0058628,
+          38.8983696
+        ]
       }
     },
     {
@@ -42,47 +22,15 @@
       "properties": {
         "name": "New York Penn Station",
         "code": "NYP",
-        "flagId": "us-ny"
+        "flagId": "us-ny",
+        "status": "completed"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-73.9928111, 40.7502382]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Washington Union Station",
-        "code": "WAS",
-        "flagId": "us-dc"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.0058628, 38.8983696]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Brunswick",
-        "code": "BRK",
-        "flagId": "us-me"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-69.9655363, 43.9114183]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Springfield Union Station",
-        "code": "SPG",
-        "flagId": "us-ma"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-72.5932224, 42.1062905]
+        "coordinates": [
+          -73.9928111,
+          40.7502382
+        ]
       }
     },
     {
@@ -90,11 +38,31 @@
       "properties": {
         "name": "Albany-Rensselaer",
         "code": "ALB",
-        "flagId": "us-ny"
+        "flagId": "us-ny",
+        "status": "completed"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-73.7412926, 42.6412525]
+        "coordinates": [
+          -73.7412926,
+          42.6412525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Springfield Union Station",
+        "code": "SPG",
+        "flagId": "us-ma",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5932224,
+          42.1062905
+        ]
       }
     },
     {
@@ -102,11 +70,527 @@
       "properties": {
         "name": "Back Bay Station",
         "code": "BBY",
-        "flagId": "us-ma"
+        "flagId": "us-ma",
+        "status": "completed"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-71.0753072, 42.3474198]
+        "coordinates": [
+          -71.0753072,
+          42.3474198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "South Station",
+        "code": "BOS",
+        "flagId": "us-ma",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0555329,
+          42.3507463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "North Station",
+        "code": "BON",
+        "flagId": "us-ma",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0621014,
+          42.3663038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Portland",
+        "code": "POR",
+        "flagId": "us-me",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.2910991,
+          43.6539343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brunswick",
+        "code": "BRK",
+        "flagId": "us-me",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.9655363,
+          43.9114183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Atlantic Terminal",
+        "code": "ATL",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977234,
+          40.684226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jamaica",
+        "code": "JAM",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.807778,
+          40.699722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oceanside",
+        "code": "ODE",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.654613,
+          40.634986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hicksville",
+        "code": "HVL",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.528686,
+          40.767101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ronkonkoma",
+        "code": "RON",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.1059,
+          40.808088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Jefferson",
+        "code": "PJN",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.053692,
+          40.934719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Patchogue",
+        "code": "PGE",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.015735,
+          40.761841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London St Pancras International",
+        "code": "STP",
+        "flagId": "gb",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1276185,
+          51.5322106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris Gare du Nord",
+        "code": "XPG",
+        "flagId": "fr",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3549733,
+          48.8804003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bruxelles-Midi / Brussel-Zuid",
+        "code": "ZYR",
+        "flagId": "be",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3360541,
+          50.8357755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Antwerpen-Centraal",
+        "code": "ANR",
+        "flagId": "be",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.421446,
+          51.2172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam Zuid",
+        "code": "ASDZ",
+        "flagId": "nl",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.8732158,
+          52.3389524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam Centraal",
+        "code": "ASD",
+        "flagId": "nl",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9005805,
+          52.378901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Copenhagen Airport (Kastrup)",
+        "code": "CPH",
+        "flagId": "dk",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.649389,
+          55.629611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Malmö Triangeln",
+        "code": "TRI",
+        "flagId": "se",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.001039,
+          55.593239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Secaucus Junction",
+        "code": "SEC",
+        "flagId": "us-nj",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.075556,
+          40.761389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Meadowlands Rail Station",
+        "code": "MDL",
+        "flagId": "us-nj",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.071944,
+          40.812778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Woodbridge",
+        "code": "WDB",
+        "flagId": "us-nj",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.277783,
+          40.557094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Newark Penn Station",
+        "code": "NWK",
+        "flagId": "us-nj",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.164167,
+          40.734722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Newark Liberty International Airport",
+        "code": "EWR",
+        "flagId": "us-nj",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.190556,
+          40.704444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grand Central Terminal",
+        "code": "GCT",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977222,
+          40.752778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "New Rochelle",
+        "code": "NRO",
+        "flagId": "us-ny",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.784936,
+          40.912317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stamford Transportation Center",
+        "code": "STM",
+        "flagId": "us-ct",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.541389,
+          41.046944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "New Haven Union Station",
+        "code": "NHV",
+        "flagId": "us-ct",
+        "status": "completed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.926667,
+          41.2975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fairbanks Depot",
+        "code": "FAI",
+        "flagId": "us-ak",
+        "status": "future"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -147.7409,
+          64.8513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Denali Park",
+        "code": "DEN",
+        "flagId": "us-ak",
+        "status": "future"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -148.9108,
+          63.7336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Talkeetna",
+        "code": "TKA",
+        "flagId": "us-ak",
+        "status": "future"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.1119,
+          62.3236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Anchorage Depot",
+        "code": "ANC",
+        "flagId": "us-ak",
+        "status": "future"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.8861,
+          61.2216
+        ]
       }
     }
   ]

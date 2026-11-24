@@ -1,0 +1,381 @@
+stations:
+  # US - Northeast
+  - code: WAS
+    name: Washington Union Station
+    flagId: us-dc
+    coordinates: [-77.0058628, 38.8983696]
+  - code: NYP
+    name: New York Penn Station
+    flagId: us-ny
+    coordinates: [-73.9928111, 40.7502382]
+  - code: ALB
+    name: Albany-Rensselaer
+    flagId: us-ny
+    coordinates: [-73.7412926, 42.6412525]
+  - code: SPG
+    name: Springfield Union Station
+    flagId: us-ma
+    coordinates: [-72.5932224, 42.1062905]
+  - code: BBY
+    name: Back Bay Station
+    flagId: us-ma
+    coordinates: [-71.0753072, 42.3474198]
+  - code: BOS
+    name: South Station
+    flagId: us-ma
+    coordinates: [-71.0555329, 42.3507463]
+  - code: BON
+    name: North Station
+    flagId: us-ma
+    coordinates: [-71.0621014, 42.3663038]
+  - code: POR
+    name: Portland
+    flagId: us-me
+    coordinates: [-70.2910991, 43.6539343]
+  - code: BRK
+    name: Brunswick
+    flagId: us-me
+    coordinates: [-69.9655363, 43.9114183]
+
+  # US - LIRR
+  - code: ATL
+    name: Atlantic Terminal
+    flagId: us-ny
+    coordinates: [-73.977234, 40.684226]
+  - code: JAM
+    name: Jamaica
+    flagId: us-ny
+    coordinates: [-73.807778, 40.699722]
+  - code: ODE
+    name: Oceanside
+    flagId: us-ny
+    coordinates: [-73.654613, 40.634986]
+  - code: HVL
+    name: Hicksville
+    flagId: us-ny
+    coordinates: [-73.528686, 40.767101]
+  - code: RON
+    name: Ronkonkoma
+    flagId: us-ny
+    coordinates: [-73.1059, 40.808088]
+  - code: PJN
+    name: Port Jefferson
+    flagId: us-ny
+    coordinates: [-73.053692, 40.934719]
+  - code: PGE
+    name: Patchogue
+    flagId: us-ny
+    coordinates: [-73.015735, 40.761841]
+
+  # Europe
+  - code: STP
+    name: London St Pancras International
+    flagId: gb
+    coordinates: [-0.1276185, 51.5322106]
+  - code: XPG
+    name: Paris Gare du Nord
+    flagId: fr
+    coordinates: [2.3549733, 48.8804003]
+  - code: ZYR
+    name: Bruxelles-Midi / Brussel-Zuid
+    flagId: be
+    coordinates: [4.3360541, 50.8357755]
+  - code: ANR
+    name: Antwerpen-Centraal
+    flagId: be
+    coordinates: [4.421446, 51.2172]
+  - code: ASDZ
+    name: Amsterdam Zuid
+    flagId: nl
+    coordinates: [4.8732158, 52.3389524]
+  - code: ASD
+    name: Amsterdam Centraal
+    flagId: nl
+    coordinates: [4.9005805, 52.378901]
+
+  # Europe - Scandinavia
+  - code: CPH
+    name: Copenhagen Airport (Kastrup)
+    flagId: dk
+    coordinates: [12.649389, 55.629611]
+  - code: TRI
+    name: Malmö Triangeln
+    flagId: se
+    coordinates: [13.001039, 55.593239]
+
+  # US - NJ Transit
+  - code: SEC
+    name: Secaucus Junction
+    flagId: us-nj
+    coordinates: [-74.075556, 40.761389]
+  - code: MDL
+    name: Meadowlands Rail Station
+    flagId: us-nj
+    coordinates: [-74.071944, 40.812778]
+  - code: WDB
+    name: Woodbridge
+    flagId: us-nj
+    coordinates: [-74.277783, 40.557094]
+  - code: NWK
+    name: Newark Penn Station
+    flagId: us-nj
+    coordinates: [-74.164167, 40.734722]
+  - code: EWR
+    name: Newark Liberty International Airport
+    flagId: us-nj
+    coordinates: [-74.190556, 40.704444]
+
+  # US - Metro-North
+  - code: GCT
+    name: Grand Central Terminal
+    flagId: us-ny
+    coordinates: [-73.977222, 40.752778]
+  - code: NRO
+    name: New Rochelle
+    flagId: us-ny
+    coordinates: [-73.784936, 40.912317]
+  - code: STM
+    name: Stamford Transportation Center
+    flagId: us-ct
+    coordinates: [-73.541389, 41.046944]
+  - code: NHV
+    name: New Haven Union Station
+    flagId: us-ct
+    coordinates: [-72.926667, 41.297500]
+
+  # US - Alaska (Future)
+  - code: FAI
+    name: Fairbanks Depot
+    flagId: us-ak
+    status: future
+    coordinates: [-147.7409, 64.8513]
+  - code: DEN
+    name: Denali Park
+    flagId: us-ak
+    status: future
+    coordinates: [-148.9108, 63.7336]
+  - code: TKA
+    name: Talkeetna
+    flagId: us-ak
+    status: future
+    coordinates: [-150.1119, 62.3236]
+  - code: ANC
+    name: Anchorage Depot
+    flagId: us-ak
+    status: future
+    coordinates: [-149.8861, 61.2216]
+
+routes:
+  # US - Amtrak
+  - id: amtrak-nec-dc-boston
+    operator: Amtrak
+    route: Washington DC - Boston
+    from: WAS
+    to: BOS
+    source:
+      type: osm_relation
+      relation_id: 9796352 # Acela (BOS -> WAS)
+
+  - id: amtrak-empire-nyc-albany
+    operator: Amtrak
+    route: New York - Albany-Rensselaer
+    from: NYP
+    to: ALB
+    source:
+      type: osm_relation
+      relation_id: 10322902 # Empire Service 230 (ALB -> NYP)
+
+  - id: amtrak-boston-springfield
+    operator: Amtrak
+    route: Boston - Springfield
+    from: BOS
+    to: SPG
+    source:
+      type: osm_relation
+      relation_id: 10946019 # Lake Shore Limited 449 (BOS -> CHI)
+      clip_to_endpoints: true
+      clip_padding: 0.02 # Tight pad so the clip stops cleanly at Springfield
+
+  - id: amtrak-downeaster
+    operator: Amtrak Downeaster
+    route: Boston North - Brunswick
+    from: BON
+    to: BRK
+    source:
+      type: osm_relation
+      relation_id: 10322756 # Downeaster route_master
+
+  # US - LIRR (Commuter)
+  - id: lirr-ronkonkoma
+    operator: Long Island Rail Road
+    route: New York Penn - Ronkonkoma
+    tier: commuter
+    from: NYP
+    to: RON
+    source:
+      type: overpass_query
+      # Penn->Ronkonkoma branch + Main Line east of Jamaica to fill the Third Track gap (avoids LIC stub)
+      query: |
+        [out:json][timeout:60];
+        relation(8325874)->.branch;
+        relation(3898476)->.mainline;
+        (
+          way(r.branch);
+          way(r.mainline)(40.69,-73.82,40.82,-73.10);
+        );
+        out geom;
+      clip_bbox: [-74.00, 40.69, -73.105, 40.83]
+
+  - id: lirr-port-jefferson
+    operator: Long Island Rail Road
+    route: New York Penn - Port Jefferson
+    tier: commuter
+    from: NYP
+    to: PJN
+    source:
+      type: osm_relation
+      relation_id: 1255264 # Port Jefferson Branch
+
+  - id: lirr-montauk-patchogue
+    operator: Long Island Rail Road
+    route: New York Penn - Patchogue
+    tier: commuter
+    from: NYP
+    to: PGE
+    source:
+      type: osm_relation
+      relation_ids: [4509484, 4501572] # Babylon (NYP-Babylon) + Montauk (Jamaica-Montauk)
+      clip_bbox: [-74.00, 40.63, -73.015, 40.78]
+
+  - id: lirr-long-beach-oceanside
+    operator: Long Island Rail Road
+    route: New York Penn - Oceanside
+    tier: commuter
+    from: NYP
+    to: ODE
+    source:
+      type: osm_relation
+      relation_id: 8712202 # Long Beach Branch (NYP -> Long Beach)
+      clip_bbox: [-74.00, 40.6345, -73.64, 40.76]
+
+  - id: lirr-atlantic
+    operator: Long Island Rail Road
+    route: Atlantic Terminal - Jamaica
+    tier: commuter
+    from: ATL
+    to: JAM
+    source:
+      type: osm_relation
+      relation_id: 21156462 # Far Rockaway Branch (Atlantic Terminal -> Jamaica -> Far Rockaway)
+      clip_bbox: [-73.985, 40.665, -73.807, 40.710]
+
+  # Europe - Scandinavia
+  - id: oresundstag-cph-triangeln
+    operator: Øresundståg
+    route: Copenhagen Airport - Malmö Triangeln
+    tier: intercity
+    from: CPH
+    to: TRI
+    source:
+      type: overpass_query
+      # Match train relations crossing the Øresund Bridge, then split bbox to stop at Triangeln (excludes Malmö C)
+      query: |
+        [out:json][timeout:60];
+        relation["route"="train"](55.56,12.75,55.61,12.90)->.bridge;
+        (
+          way(r.bridge)(55.55,12.648,55.635,12.95);
+          way(r.bridge)(55.55,12.94,55.5945,13.01);
+        );
+        out geom;
+
+  # US - NJ Transit (Commuter)
+  - id: njt-njcl-woodbridge
+    operator: NJ Transit
+    route: New York Penn - Woodbridge
+    tier: commuter
+    from: NYP
+    to: WDB
+    source:
+      type: osm_relation
+      relation_id: 207401 # North Jersey Coast Line
+      clip_bbox: [-74.30, 40.555, -73.98, 40.78]
+
+  - id: njt-meadowlands
+    operator: NJ Transit
+    route: Secaucus Junction - Meadowlands
+    tier: commuter
+    from: SEC
+    to: MDL
+    source:
+      type: overpass_query
+      # Finds the Meadowlands shuttle relation by stadium terminus bbox (resilient to sponsorship renames)
+      query: |
+        [out:json][timeout:60];
+        relation["route"="train"](40.805,-74.080,40.818,-74.065);
+        way(r);
+        out geom;
+      clip_bbox: [-74.10, 40.758, -74.045, 40.818]
+
+  # US - Metro-North (Commuter)
+  - id: mnr-new-haven
+    operator: Metro-North Railroad
+    route: Grand Central - New Haven
+    tier: commuter
+    from: GCT
+    to: NHV
+    source:
+      type: osm_relation
+      relation_id: 11021730 # New Haven Line
+      clip_bbox: [-74.00, 40.74, -72.925, 41.305]
+
+  # Europe
+  - id: eurostar-london-brussels
+    operator: Eurostar
+    route: London - Brussels Midi
+    from: STP
+    to: ZYR
+    source:
+      type: osm_relation
+      relation_id: 5951792 # Eurostar London - Brussels
+
+  - id: eurostar-amsterdam-brussels
+    operator: Eurostar
+    route: Amsterdam Centraal - Brussels Midi
+    from: ASD
+    to: ZYR
+    source:
+      type: osm_relation
+      relation_id: 5189990 # Eurostar Paris - Brussels - Amsterdam
+      clip_to_endpoints: true
+      clip_padding: 0.02
+
+  - id: ouigo-brussels-paris
+    operator: OUIGO
+    route: Brussels Midi - Paris Nord
+    from: ZYR
+    to: XPG
+    source:
+      type: osm_relation
+      relation_id: 19302065 # OUIGO Train Classique (Paris-Nord - Mons - Brussels)
+
+  - id: ns-brussels-amsterdam-zuid
+    operator: NS International / EuroCity Direct
+    route: Brussels Midi - Amsterdam Zuid
+    from: ZYR
+    to: ASDZ
+    source:
+      type: osm_relation
+      relation_id: 18413470 # EuroCity Direct 9500
+      clip_to_endpoints: true
+      clip_padding: 0.02
+
+  # Future
+  - id: alaska-denali-star
+    operator: Alaska Railroad
+    route: Fairbanks - Anchorage
+    from: FAI
+    to: ANC
+    status: future
+    source:
+      type: osm_relation
+      relation_id: 6824342 # Denali Star (full mainline)

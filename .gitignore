@@ -1,8 +1,9 @@
 _site
 .bundle
-.sass-cache
+.cache
 .jekyll-cache
 .jekyll-metadata
+.sass-cache
 images/markers
 node_modules
 vendor
