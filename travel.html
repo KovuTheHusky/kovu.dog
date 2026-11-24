@@ -242,13 +242,19 @@ permalink: /travel
   }
 
   map.on("load", async function () {
-    const [airportDb, flightRoutes, cruisesGeoJSON, stationsGeoJSON] =
-      await Promise.all([
-        getAirportDatabase(),
-        loadFlightRoutesFromCSV("/flights.csv"),
-        fetch("/cruises.geojson").then((r) => r.json()),
-        fetch("/stations.geojson").then((r) => r.json()),
-      ]);
+    const [
+      airportDb,
+      flightRoutes,
+      cruisesGeoJSON,
+      ferriesGeoJSON,
+      stationsGeoJSON,
+    ] = await Promise.all([
+      getAirportDatabase(),
+      loadFlightRoutesFromCSV("/flights.csv"),
+      fetch("/cruises.geojson").then((r) => r.json()),
+      fetch("/ferries.geojson").then((r) => r.json()),
+      fetch("/stations.geojson").then((r) => r.json()),
+    ]);
 
     // --- Process Cruise Data (past vs future computed live against todayISO) ---
     const globalPortStats = new Map();
@@ -415,6 +421,12 @@ permalink: /travel
 
     stationsGeoJSON.features.forEach((f) => {
       if (f.properties && f.properties.flagId) {
+        uniqueFlags.add(f.properties.flagId);
+      }
+    });
+
+    ferriesGeoJSON.features.forEach((f) => {
+      if (f.geometry.type === "Point" && f.properties && f.properties.flagId) {
         uniqueFlags.add(f.properties.flagId);
       }
     });
@@ -776,6 +788,75 @@ permalink: /travel
       },
     });
 
+    // Ferries
+    map.addSource("ferries-data", {
+      type: "geojson",
+      data: ferriesGeoJSON,
+    });
+
+    // Ferry Lines (Tighter, thinner beaded dots — no wake halo)
+    map.addLayer({
+      id: "ferry-route-lines",
+      type: "line",
+      source: "ferries-data",
+      filter: ["==", ["geometry-type"], "LineString"],
+      layout: {
+        "line-join": "round",
+        "line-cap": "round",
+      },
+      paint: {
+        "line-color": [
+          "match",
+          ["get", "status"],
+          "future",
+          "#ffd700",
+          "#c0c0c0",
+        ],
+        "line-opacity": 0.9,
+        "line-dasharray": [0.1, 1.8],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.5, 12, 3],
+      },
+    });
+
+    // Ferry Terminals (Dots)
+    map.addLayer({
+      id: "ferry-terminals",
+      type: "circle",
+      source: "ferries-data",
+      filter: ["==", ["geometry-type"], "Point"],
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
+        "circle-color": [
+          "match",
+          ["get", "status"],
+          "future",
+          "#ffd700",
+          "#c0c0c0",
+        ],
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25,
+      },
+    });
+
+    // Ferry Terminals (Flags)
+    map.addLayer({
+      id: "ferry-terminals-flags",
+      type: "symbol",
+      source: "ferries-data",
+      filter: ["==", ["geometry-type"], "Point"],
+      layout: {
+        "icon-image": [
+          "case",
+          ["has", "flagId"],
+          ["concat", "flag-circle-", ["get", "flagId"]],
+          "",
+        ],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+      },
+    });
+
     // Flights
     map.addSource("flight-routes-past", {
       type: "geojson",
@@ -900,6 +981,9 @@ permalink: /travel
     "cruise-ports-future",
     "cruise-ports-flags-past",
     "cruise-ports-flags-future",
+    "ferry-route-lines",
+    "ferry-terminals",
+    "ferry-terminals-flags",
     "rail-lines-base",
     "rail-stations",
     "rail-stations-flags",
@@ -1068,6 +1152,40 @@ permalink: /travel
           <h6 class="mb-0">${stationName} ${flagImg}</h6>
           ${stationCode ? `<p class="m-0 text-muted" style="font-size: 0.85em;">${stationCode}</p>` : ""}
         </div>`;
+    } else if (layerId === "ferry-route-lines") {
+      const operator = feature.properties.operator || "Ferry";
+      const route = feature.properties.route || "Unknown Route";
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${operator}</h6>
+          <p class="m-0">${route}</p>
+        </div>`;
+    } else if (
+      layerId === "ferry-terminals" ||
+      layerId === "ferry-terminals-flags"
+    ) {
+      coordinates = feature.geometry.coordinates.slice();
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      const terminalName = feature.properties.name || "Ferry Terminal";
+      const flagId = feature.properties.flagId;
+      let flagImg = "";
+      if (flagId) {
+        if (flagId === "us-dc") {
+          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else if (flagId.startsWith("us-")) {
+          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        } else {
+          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+        }
+      }
+
+      html = `
+        <div class="text-center" style="color: #000;">
+          <h6 class="mb-0">${terminalName} ${flagImg}</h6>
+        </div>`;
     }
 
     const popup = new mapboxgl.Popup({ closeButton: false })
@@ -1129,6 +1247,9 @@ permalink: /travel
       "cruise-ports-future",
       "cruise-ports-flags-past",
       "cruise-ports-flags-future",
+      "ferry-route-lines",
+      "ferry-terminals",
+      "ferry-terminals-flags",
     ];
 
     layers.forEach((layer) => {

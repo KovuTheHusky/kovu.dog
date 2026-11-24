@@ -1,0 +1,94 @@
+terminals:
+  # Long Island Sound
+  - code: BPT
+    name: Bridgeport Ferry Terminal
+    flagId: us-ct
+    coordinates: [-73.185664, 41.175050]
+  - code: PJF
+    name: Port Jefferson Ferry Terminal
+    flagId: us-ny
+    coordinates: [-73.070600, 40.947600]
+  - code: ORP
+    name: Orient Point Ferry Terminal
+    flagId: us-ny
+    coordinates: [-72.240361, 41.154289]
+  - code: NLD
+    name: New London Ferry Terminal
+    flagId: us-ct
+    coordinates: [-72.092600, 41.355800]
+
+  # Lake Michigan
+  - code: MKE
+    name: Milwaukee Ferry Terminal
+    flagId: us-wi
+    coordinates: [-87.893900, 43.001200]
+  - code: MKG
+    name: Muskegon Ferry Terminal
+    flagId: us-mi
+    coordinates: [-86.291107, 43.219410]
+
+  # Puget Sound
+  - code: SEA
+    name: Seattle Ferry Terminal (Colman Dock)
+    flagId: us-wa
+    coordinates: [-122.338611, 47.602778]
+  - code: BAI
+    name: Bainbridge Island Ferry Terminal
+    flagId: us-wa
+    coordinates: [-122.511111, 47.622778]
+
+  # Casco Bay
+  - code: PWM
+    name: Casco Bay Ferry Terminal
+    flagId: us-me
+    coordinates: [-70.248600, 43.657000]
+  - code: PKI
+    name: Peaks Island Ferry Landing
+    flagId: us-me
+    coordinates: [-70.199214, 43.655361]
+
+routes:
+  - id: ferry-bridgeport-port-jefferson
+    operator: Bridgeport & Port Jefferson Steamboat Co.
+    route: Bridgeport - Port Jefferson
+    from: BPT
+    to: PJF
+    source:
+      type: osm_way
+      way_id: 54689694
+
+  - id: ferry-cross-sound
+    operator: Cross Sound Ferry
+    route: Orient Point - New London
+    from: ORP
+    to: NLD
+    source:
+      type: osm_way
+      way_id: 45127361
+
+  - id: ferry-lake-express
+    operator: Lake Express
+    route: Milwaukee - Muskegon
+    from: MKE
+    to: MKG
+    source:
+      type: osm_relation
+      relation_id: 8529356
+
+  - id: ferry-seattle-bainbridge
+    operator: Washington State Ferries
+    route: Seattle - Bainbridge Island
+    from: SEA
+    to: BAI
+    source:
+      type: osm_relation
+      relation_id: 5516446
+
+  - id: ferry-portland-peaks
+    operator: Casco Bay Lines
+    route: Portland - Peaks Island
+    from: PWM
+    to: PKI
+    source:
+      type: osm_way
+      way_id: 30770334
