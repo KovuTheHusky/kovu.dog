@@ -92,7 +92,8 @@ permalink: /travel
 <script data-cfasync="false">
   mapboxgl.accessToken =
     "pk.eyJ1Ijoia292dXRoZWh1c2t5IiwiYSI6ImNqOG5mN3djYjE5czkycXJ0dzRnd3ZxMWoifQ.GzioSYbbeQRtheWUd-BVAw";
-  var map = new mapboxgl.Map({
+
+  const map = new mapboxgl.Map({
     attributionControl: false,
     center: [-74.0059662, 40.7127848],
     container: "map",
@@ -121,6 +122,7 @@ permalink: /travel
     },
     zoom: 2,
   });
+
   map.dragRotate.disable();
   map.touchZoomRotate.disableRotation();
   map.addControl(
@@ -128,8 +130,77 @@ permalink: /travel
     "bottom-right",
   );
 
-  const todayISO = new Date().toISOString().split("T")[0];
+  // --- Shared Constants & Helpers ---
+  const todayISO = new Date().toLocaleDateString("en-CA"); // Local YYYY-MM-DD
+  const STATUS_COLOR = [
+    "match",
+    ["get", "status"],
+    "future",
+    "#ffd700",
+    "#c0c0c0",
+  ];
+  const WATER_LINE_LAYOUT = { "line-join": "round", "line-cap": "round" };
 
+  function getFlagUrl(flagId) {
+    if (!flagId) return "";
+    if (flagId === "us-dc") {
+      return "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg";
+    }
+    return flagId.startsWith("us-")
+      ? `https://flagcdn.com/${flagId}.svg`
+      : `/node_modules/circle-flags/flags/${flagId}.svg`;
+  }
+
+  function renderFlagImg(flagId) {
+    const url = getFlagUrl(flagId);
+    if (!url) return "";
+    return `<img src="${url}" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
+  }
+
+  function getPointCoords(feature, clickLngLat) {
+    const coords = feature.geometry.coordinates.slice();
+    while (Math.abs(clickLngLat.lng - coords[0]) > 180) {
+      coords[0] += clickLngLat.lng > coords[0] ? 360 : -360;
+    }
+    return coords;
+  }
+
+  function addFlagPinLayers(baseId, source, colorExpr, filter = null) {
+    const filterProp = filter ? { filter } : {};
+
+    map.addLayer({
+      id: baseId,
+      type: "circle",
+      source,
+      ...filterProp,
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
+        "circle-color": colorExpr,
+        "circle-stroke-color": "white",
+        "circle-stroke-width": 1.25,
+      },
+    });
+
+    map.addLayer({
+      id: `${baseId}-flags`,
+      type: "symbol",
+      source,
+      ...filterProp,
+      layout: {
+        "icon-image": [
+          "case",
+          ["has", "flagId"],
+          ["concat", "flag-circle-", ["get", "flagId"]],
+          "",
+        ],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+      },
+    });
+  }
+
+  // --- Data Loaders ---
   async function loadFlightRoutesFromCSV(url) {
     try {
       const response = await fetch(url);
@@ -155,7 +226,7 @@ permalink: /travel
           const date = columns[dateIndex]?.trim();
 
           if (from && to && !isCanceled) {
-            routes.push({ origin: from, destination: to, date: date });
+            routes.push({ origin: from, destination: to, date });
           }
         }
       }
@@ -180,10 +251,9 @@ permalink: /travel
       if (!originData || !destData) continue;
 
       const originCoords = [originData.longitude_deg, originData.latitude_deg];
-      const originLng = originCoords[0];
       let destLng = destData.longitude_deg;
 
-      const diff = destLng - originLng;
+      const diff = destLng - originCoords[0];
       if (diff > 180) destLng -= 360;
       else if (diff < -180) destLng += 360;
 
@@ -211,32 +281,31 @@ permalink: /travel
     const features = [];
     for (const [code, stats] of airportStatsMap.entries()) {
       const airportData = db.get(code);
-      if (airportData) {
-        let dynamicFlagId = null;
-        if (airportData.iso_country) {
-          if (airportData.iso_country === "US" && airportData.iso_region) {
-            dynamicFlagId = airportData.iso_region.toLowerCase();
-          } else {
-            dynamicFlagId = airportData.iso_country.toLowerCase();
-          }
-        }
+      if (!airportData) continue;
 
-        features.push({
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [airportData.longitude_deg, airportData.latitude_deg],
-          },
-          properties: {
-            code: code,
-            name: airportData.name,
-            country: airportData.iso_country,
-            flagId: dynamicFlagId,
-            count: stats.count,
-            isFutureOnly: !stats.hasPast,
-          },
-        });
+      let flagId = null;
+      if (airportData.iso_country) {
+        flagId =
+          airportData.iso_country === "US" && airportData.iso_region
+            ? airportData.iso_region.toLowerCase()
+            : airportData.iso_country.toLowerCase();
       }
+
+      features.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [airportData.longitude_deg, airportData.latitude_deg],
+        },
+        properties: {
+          code,
+          name: airportData.name,
+          country: airportData.iso_country,
+          flagId,
+          count: stats.count,
+          status: stats.hasPast ? "completed" : "future",
+        },
+      });
     }
     return features;
   }
@@ -256,94 +325,81 @@ permalink: /travel
       fetch("/stations.geojson").then((r) => r.json()),
     ]);
 
-    // --- Process Cruise Data (past vs future computed live against todayISO) ---
-    const globalPortStats = new Map();
-    const globalRouteStats = new Map();
+    // --- 1. Process Cruise Data (Single Source, Live Past/Future Status) ---
+    const portStats = new Map();
+    const cruiseRouteStats = new Map();
 
     cruisesGeoJSON.features.forEach((f) => {
+      const isFuture = f.properties.date >= todayISO;
+
       if (f.geometry.type === "Point") {
         const key = f.properties.port;
-        if (!globalPortStats.has(key)) {
-          globalPortStats.set(key, {
+        if (!portStats.has(key)) {
+          portStats.set(key, {
+            geometry: f.geometry,
+            properties: {
+              port: f.properties.port,
+              state: f.properties.state,
+              country: f.properties.country,
+              flagId: f.properties.flagId,
+            },
             count: 0,
             hasPast: false,
-            latestFutureFeature: null,
-            latestPastFeature: null,
           });
         }
-        const stats = globalPortStats.get(key);
+        const stats = portStats.get(key);
         stats.count++;
-        if (f.properties.date > todayISO) {
-          stats.latestFutureFeature = f;
-        } else {
-          stats.hasPast = true;
-          stats.latestPastFeature = f;
-        }
+        if (!isFuture) stats.hasPast = true;
       } else if (f.geometry.type === "LineString") {
-        const key =
-          f.properties.vessel +
-          "-" +
-          f.properties.origin_port +
-          "-" +
-          f.properties.destination_port;
-        if (!globalRouteStats.has(key)) {
-          globalRouteStats.set(key, {
-            count: 0,
-            hasPast: false,
-            latestFutureFeature: null,
-            latestPastFeature: null,
+        const key = [f.properties.origin_port, f.properties.destination_port]
+          .sort()
+          .join("|");
+        if (!cruiseRouteStats.has(key)) {
+          cruiseRouteStats.set(key, {
+            geometry: f.geometry,
+            properties: {
+              origin_port: f.properties.origin_port,
+              destination_port: f.properties.destination_port,
+            },
+            pastCount: 0,
+            futureCount: 0,
           });
         }
-        const stats = globalRouteStats.get(key);
-        stats.count++;
-        if (f.properties.date > todayISO) {
-          stats.latestFutureFeature = f;
-        } else {
-          stats.hasPast = true;
-          stats.latestPastFeature = f;
-        }
+        const stats = cruiseRouteStats.get(key);
+        if (isFuture) stats.futureCount++;
+        else stats.pastCount++;
       }
     });
 
-    const portFeaturesPast = [];
-    const portFeaturesFuture = [];
-    const routeFeaturesPast = [];
-    const routeFeaturesFuture = [];
+    const cruiseFeatures = [
+      ...Array.from(portStats.values()).map((stats) => ({
+        type: "Feature",
+        geometry: stats.geometry,
+        properties: {
+          ...stats.properties,
+          count: stats.count,
+          status: stats.hasPast ? "completed" : "future",
+        },
+      })),
+      ...Array.from(cruiseRouteStats.values()).map((stats) => ({
+        type: "Feature",
+        geometry: stats.geometry,
+        properties: {
+          ...stats.properties,
+          pastCount: stats.pastCount,
+          futureCount: stats.futureCount,
+          count: stats.pastCount + stats.futureCount,
+          status:
+            stats.pastCount > 0 && stats.futureCount > 0
+              ? "both"
+              : stats.futureCount > 0
+                ? "future"
+                : "completed",
+        },
+      })),
+    ];
 
-    for (const stats of globalPortStats.values()) {
-      if (stats.latestFutureFeature) {
-        stats.latestFutureFeature.properties.count = stats.count;
-        stats.latestFutureFeature.properties.hasPast = stats.hasPast;
-        portFeaturesFuture.push(stats.latestFutureFeature);
-      }
-      if (stats.latestPastFeature) {
-        stats.latestPastFeature.properties.count = stats.count;
-        portFeaturesPast.push(stats.latestPastFeature);
-      }
-    }
-
-    for (const stats of globalRouteStats.values()) {
-      if (stats.latestFutureFeature) {
-        stats.latestFutureFeature.properties.count = stats.count;
-        stats.latestFutureFeature.properties.hasPast = stats.hasPast;
-        routeFeaturesFuture.push(stats.latestFutureFeature);
-      }
-      if (stats.latestPastFeature) {
-        stats.latestPastFeature.properties.count = stats.count;
-        routeFeaturesPast.push(stats.latestPastFeature);
-      }
-    }
-
-    const cruiseGeoJSONPast = {
-      type: "FeatureCollection",
-      features: [...portFeaturesPast, ...routeFeaturesPast],
-    };
-    const cruiseGeoJSONFuture = {
-      type: "FeatureCollection",
-      features: [...portFeaturesFuture, ...routeFeaturesFuture],
-    };
-
-    // --- 1. Process Flight Data ---
+    // --- 2. Process Flight Data ---
     const routeStatsPast = new Map();
     const routeStatsFuture = new Map();
     const airportStats = new Map();
@@ -368,10 +424,7 @@ permalink: /travel
         }
         const stats = airportStats.get(code);
         stats.count++;
-
-        if (!isFuture) {
-          stats.hasPast = true;
-        }
+        if (!isFuture) stats.hasPast = true;
       });
     });
 
@@ -402,102 +455,71 @@ permalink: /travel
     );
     const airportFeatures = createAirportFeatures(airportStats, airportDb);
 
-    // --- 2. Extract Unique Flag IDs & Load SVG Assets ---
+    // --- 3. Preload Unique Circular Flag Assets ---
     const uniqueFlags = new Set();
+    [
+      ...cruiseFeatures,
+      ...airportFeatures,
+      ...stationsGeoJSON.features,
+      ...ferriesGeoJSON.features,
+    ].forEach((f) => {
+      if (f.geometry?.type === "Point" && f.properties?.flagId) {
+        uniqueFlags.add(f.properties.flagId);
+      }
+    });
 
-    [...cruiseGeoJSONPast.features, ...cruiseGeoJSONFuture.features].forEach(
-      (f) => {
-        if (f.geometry.type === "Point" && f.properties.flagId) {
-          uniqueFlags.add(f.properties.flagId);
-        }
-      },
+    await Promise.all(
+      Array.from(uniqueFlags).map(
+        (flagId) =>
+          new Promise((resolve) => {
+            const imgUrl = getFlagUrl(flagId);
+            if (!imgUrl) return resolve();
+
+            const img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.onload = () => {
+              if (!map.hasImage("flag-circle-" + flagId)) {
+                const scaleFactor = 4;
+                const size = 32 * scaleFactor;
+                const radius = 16 * scaleFactor;
+
+                const canvas = document.createElement("canvas");
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext("2d");
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(size / 2, size / 2, radius, 0, Math.PI * 2);
+                ctx.clip();
+
+                const scale = Math.max(size / img.width, size / img.height);
+                const scaledWidth = img.width * scale;
+                const scaledHeight = img.height * scale;
+                ctx.drawImage(
+                  img,
+                  (size - scaledWidth) / 2,
+                  (size - scaledHeight) / 2,
+                  scaledWidth,
+                  scaledHeight,
+                );
+                ctx.restore();
+
+                map.addImage(
+                  "flag-circle-" + flagId,
+                  ctx.getImageData(0, 0, size, size),
+                  { pixelRatio: scaleFactor },
+                );
+              }
+              resolve();
+            };
+            img.onerror = () => resolve();
+            img.src = imgUrl;
+          }),
+      ),
     );
 
-    airportFeatures.forEach((f) => {
-      if (f.properties.flagId) {
-        uniqueFlags.add(f.properties.flagId);
-      }
-    });
-
-    stationsGeoJSON.features.forEach((f) => {
-      if (f.properties && f.properties.flagId) {
-        uniqueFlags.add(f.properties.flagId);
-      }
-    });
-
-    ferriesGeoJSON.features.forEach((f) => {
-      if (f.geometry.type === "Point" && f.properties && f.properties.flagId) {
-        uniqueFlags.add(f.properties.flagId);
-      }
-    });
-
-    const loadPromises = Array.from(uniqueFlags).map((flagId) => {
-      return new Promise((resolve) => {
-        if (!flagId) return resolve();
-
-        let imgUrl = "";
-
-        if (flagId === "us-dc") {
-          imgUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg";
-        } else if (flagId.startsWith("us-")) {
-          // US States load via the external CDN
-          imgUrl = `https://flagcdn.com/${flagId}.svg`;
-        } else {
-          // International countries load locally via Bun!
-          imgUrl = `/node_modules/circle-flags/flags/${flagId}.svg`;
-        }
-
-        const img = new Image();
-        img.crossOrigin = "Anonymous";
-        img.onload = () => {
-          if (!map.hasImage("flag-circle-" + flagId)) {
-            // Render High-Res Canvas (No stroke or background fill, just the clipped flag)
-            const scaleFactor = 4;
-            const logicalSize = 32;
-            const size = logicalSize * scaleFactor;
-
-            const canvas = document.createElement("canvas");
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext("2d");
-            const radius = 16 * scaleFactor; // Full size, radius perfectly bounds the image
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(size / 2, size / 2, radius, 0, Math.PI * 2);
-            ctx.clip();
-
-            const targetSize = radius * 2;
-            const scale = Math.max(
-              targetSize / img.width,
-              targetSize / img.height,
-            );
-            const scaledWidth = img.width * scale;
-            const scaledHeight = img.height * scale;
-
-            const dx = (size - scaledWidth) / 2;
-            const dy = (size - scaledHeight) / 2;
-
-            ctx.drawImage(img, dx, dy, scaledWidth, scaledHeight);
-            ctx.restore();
-
-            const imageData = ctx.getImageData(0, 0, size, size);
-            // Mapbox natively scales down the 128px image to a razor-sharp 32px footprint
-            map.addImage("flag-circle-" + flagId, imageData, {
-              pixelRatio: scaleFactor,
-            });
-          }
-          resolve();
-        };
-        img.onerror = () => resolve();
-        img.src = imgUrl;
-      });
-    });
-
-    await Promise.all(loadPromises);
-
-    // --- 3. Add Sources and Layers ---
+    // --- 4. Add Sources and Layers ---
 
     // Places
     map.addSource("places", {
@@ -541,323 +563,144 @@ permalink: /travel
       },
     });
 
-    // --- Add Rail Source ---
+    // Rail (4px solid base + 2px dark dashed ties)
     map.addSource("rail-data", {
       type: "geojson",
-      data: "/rail.geojson", // Path to your new file
+      data: "/rail.geojson",
     });
 
-    // --- Rail Layers (Track Base) ---
     map.addLayer({
       id: "rail-lines-base",
       type: "line",
       source: "rail-data",
       paint: {
-        "line-color": [
-          "match",
-          ["get", "status"],
-          "future",
-          "#FFD700", // Gold for upcoming routes
-          "#C0C0C0", // Silver default for completed routes
-        ],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.5, 12, 4],
+        "line-color": STATUS_COLOR,
+        "line-width": 4,
         "line-opacity": 0.9,
       },
     });
 
-    // --- Rail Layers (Track Ties) ---
     map.addLayer({
       id: "rail-lines-ties",
       type: "line",
       source: "rail-data",
       paint: {
-        "line-color": "#212529", // Dark ties
-        "line-dasharray": [2, 2], // 2px drawn, 2px gap
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1, 12, 2],
+        "line-color": "#212529",
+        "line-dasharray": [2, 2],
+        "line-width": 2,
         "line-opacity": 0.9,
       },
     });
 
-    // --- Add Stations Source ---
     map.addSource("rail-stations-data", {
       type: "geojson",
       data: stationsGeoJSON,
     });
 
-    // --- Stations Layer (Dots) ---
-    map.addLayer({
-      id: "rail-stations",
-      type: "circle",
-      source: "rail-stations-data",
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        // Radius math perfectly traces the icon-size of the symbol layer
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
-        "circle-color": [
-          "match",
-          ["get", "status"],
-          "future",
-          "#FFD700",
-          "#C0C0C0",
-        ],
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
+    addFlagPinLayers("rail-stations", "rail-stations-data", STATUS_COLOR, [
+      "==",
+      ["geometry-type"],
+      "Point",
+    ]);
 
-    // --- Stations Layer (Flags) ---
-    map.addLayer({
-      id: "rail-stations-flags",
-      type: "symbol",
-      source: "rail-stations-data",
-      filter: ["==", ["geometry-type"], "Point"],
-      layout: {
-        "icon-image": [
-          "case",
-          ["has", "flagId"],
-          ["concat", "flag-circle-", ["get", "flagId"]],
-          "",
-        ],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
-      },
-    });
-
-    // Cruises
-    map.addSource("cruise-data-past", {
+    // Cruises (4px translucent wake + 2px beaded dots)
+    map.addSource("cruise-data", {
       type: "geojson",
-      data: cruiseGeoJSONPast,
+      data: { type: "FeatureCollection", features: cruiseFeatures },
     });
 
-    map.addSource("cruise-data-future", {
-      type: "geojson",
-      data: cruiseGeoJSONFuture,
-    });
-
-    // Cruise Lines Past — Classic Steamship Dash-Dot (— · — ·)
     map.addLayer({
-      id: "cruise-route-lines-past",
+      id: "cruise-wake",
       type: "line",
-      source: "cruise-data-past",
+      source: "cruise-data",
       filter: ["==", ["geometry-type"], "LineString"],
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
+      layout: WATER_LINE_LAYOUT,
       paint: {
-        "line-color": "#c0c0c0",
-        "line-opacity": 1,
-        "line-dasharray": [0.1, 2.2],
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "count"],
-          1,
-          2,
-          10,
-          10,
-        ],
+        "line-color": STATUS_COLOR,
+        "line-width": 4,
+        "line-opacity": 0.05,
       },
     });
 
-    // Cruise Lines Future — Gold Steamship Dash-Dot (— · — ·)
     map.addLayer({
-      id: "cruise-route-lines-future-solid",
+      id: "cruise-route-lines",
       type: "line",
-      source: "cruise-data-future",
-      filter: [
-        "all",
-        ["==", ["geometry-type"], "LineString"],
-        ["!=", ["get", "hasPast"], true],
-      ],
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
+      source: "cruise-data",
+      filter: ["==", ["geometry-type"], "LineString"],
+      layout: WATER_LINE_LAYOUT,
       paint: {
-        "line-color": "#ffd700",
+        "line-color": STATUS_COLOR,
+        "line-width": 2,
         "line-opacity": 1,
         "line-dasharray": [0.1, 2.2],
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "count"],
-          1,
-          2,
-          10,
-          10,
-        ],
       },
     });
 
-    // Cruise Lines Future on Previously Sailed Routes (Alternating Gold & Silver Dash-Dot)
+    // Alternating gold dots over silver on repeated past + future legs
     map.addLayer({
-      id: "cruise-route-lines-future-dashed",
+      id: "cruise-route-lines-overlap",
       type: "line",
-      source: "cruise-data-future",
+      source: "cruise-data",
       filter: [
         "all",
         ["==", ["geometry-type"], "LineString"],
-        ["==", ["get", "hasPast"], true],
+        ["==", ["get", "status"], "both"],
       ],
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
+      layout: WATER_LINE_LAYOUT,
       paint: {
         "line-color": "#ffd700",
+        "line-width": 2,
         "line-opacity": 1,
         "line-dasharray": [0.1, 4.5],
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "count"],
-          1,
-          2,
-          10,
-          10,
-        ],
       },
     });
 
-    // Base Pewter Cruise Ports
-    map.addLayer({
-      id: "cruise-ports-past",
-      type: "circle",
-      source: "cruise-data-past",
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        // Radius math perfectly traces the icon-size of the symbol layer
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
-        "circle-color": "#c0c0c0",
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
+    addFlagPinLayers("cruise-ports", "cruise-data", STATUS_COLOR, [
+      "==",
+      ["geometry-type"],
+      "Point",
+    ]);
 
-    // Base Bronze Cruise Ports
-    map.addLayer({
-      id: "cruise-ports-future",
-      type: "circle",
-      source: "cruise-data-future",
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
-        "circle-color": "#ffd700",
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
-
-    // Cruise Port Flags Layer (Past)
-    map.addLayer({
-      id: "cruise-ports-flags-past",
-      type: "symbol",
-      source: "cruise-data-past",
-      filter: ["==", ["geometry-type"], "Point"],
-      layout: {
-        "icon-image": [
-          "case",
-          ["has", "flagId"],
-          ["concat", "flag-circle-", ["get", "flagId"]],
-          "",
-        ],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
-      },
-    });
-
-    // Cruise Port Flags Layer (Future)
-    map.addLayer({
-      id: "cruise-ports-flags-future",
-      type: "symbol",
-      source: "cruise-data-future",
-      filter: ["==", ["geometry-type"], "Point"],
-      layout: {
-        "icon-image": [
-          "case",
-          ["has", "flagId"],
-          ["concat", "flag-circle-", ["get", "flagId"]],
-          "",
-        ],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
-      },
-    });
-
-    // Ferries
+    // Ferries (4px translucent wake + 2px beaded dots)
     map.addSource("ferries-data", {
       type: "geojson",
       data: ferriesGeoJSON,
     });
 
-    // Ferry Lines (Tighter, thinner beaded dots — no wake halo)
+    map.addLayer({
+      id: "ferry-wake",
+      type: "line",
+      source: "ferries-data",
+      filter: ["==", ["geometry-type"], "LineString"],
+      layout: WATER_LINE_LAYOUT,
+      paint: {
+        "line-color": STATUS_COLOR,
+        "line-width": 4,
+        "line-opacity": 0.05,
+      },
+    });
+
     map.addLayer({
       id: "ferry-route-lines",
       type: "line",
       source: "ferries-data",
       filter: ["==", ["geometry-type"], "LineString"],
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
+      layout: WATER_LINE_LAYOUT,
       paint: {
-        "line-color": [
-          "match",
-          ["get", "status"],
-          "future",
-          "#ffd700",
-          "#c0c0c0",
-        ],
-        "line-opacity": 0.9,
-        "line-dasharray": [0.1, 1.8],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.5, 12, 3],
+        "line-color": STATUS_COLOR,
+        "line-width": 2,
+        "line-opacity": 1,
+        "line-dasharray": [0.1, 2.2],
       },
     });
 
-    // Ferry Terminals (Dots)
-    map.addLayer({
-      id: "ferry-terminals",
-      type: "circle",
-      source: "ferries-data",
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
-        "circle-color": [
-          "match",
-          ["get", "status"],
-          "future",
-          "#ffd700",
-          "#c0c0c0",
-        ],
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
+    addFlagPinLayers("ferry-terminals", "ferries-data", STATUS_COLOR, [
+      "==",
+      ["geometry-type"],
+      "Point",
+    ]);
 
-    // Ferry Terminals (Flags)
-    map.addLayer({
-      id: "ferry-terminals-flags",
-      type: "symbol",
-      source: "ferries-data",
-      filter: ["==", ["geometry-type"], "Point"],
-      layout: {
-        "icon-image": [
-          "case",
-          ["has", "flagId"],
-          ["concat", "flag-circle-", ["get", "flagId"]],
-          "",
-        ],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
-      },
-    });
-
-    // Flights
+    // Flights (count-scaled solid lines)
     map.addSource("flight-routes-past", {
       type: "geojson",
       data: { type: "FeatureCollection", features: pastFeatures },
@@ -873,6 +716,16 @@ permalink: /travel
       data: { type: "FeatureCollection", features: airportFeatures },
     });
 
+    const FLIGHT_WIDTH = [
+      "interpolate",
+      ["linear"],
+      ["get", "totalCount"],
+      1,
+      2,
+      10,
+      10,
+    ];
+
     map.addLayer({
       id: "route-lines-past",
       type: "line",
@@ -880,15 +733,7 @@ permalink: /travel
       paint: {
         "line-color": "#c0c0c0",
         "line-opacity": 1,
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "totalCount"],
-          1,
-          1,
-          10,
-          10,
-        ],
+        "line-width": FLIGHT_WIDTH,
       },
     });
 
@@ -900,15 +745,7 @@ permalink: /travel
       paint: {
         "line-color": "#ffd700",
         "line-opacity": 1,
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "totalCount"],
-          1,
-          1,
-          10,
-          10,
-        ],
+        "line-width": FLIGHT_WIDTH,
       },
     });
 
@@ -921,51 +758,14 @@ permalink: /travel
         "line-color": "#ffd700",
         "line-opacity": 1,
         "line-dasharray": [10, 10],
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["get", "totalCount"],
-          1,
-          1,
-          10,
-          10,
-        ],
+        "line-width": FLIGHT_WIDTH,
       },
     });
 
-    // Base Gold/Silver Airport Dots
-    map.addLayer({
-      id: "airport-points",
-      type: "circle",
-      source: "airport-nodes",
-      paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 12, 15],
-        "circle-color": ["case", ["get", "isFutureOnly"], "#ffd700", "#c0c0c0"],
-        "circle-stroke-color": "white",
-        "circle-stroke-width": 1.25,
-      },
-    });
-
-    // Airport Flags Layer
-    map.addLayer({
-      id: "airport-points-flags",
-      type: "symbol",
-      source: "airport-nodes",
-      layout: {
-        "icon-image": [
-          "case",
-          ["has", "flagId"],
-          ["concat", "flag-circle-", ["get", "flagId"]],
-          "",
-        ],
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 12, 0.9],
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
-      },
-    });
+    addFlagPinLayers("airport-points", "airport-nodes", STATUS_COLOR);
   });
 
-  // Updated Interactive Layers
+  // --- Interactive Popups & Cursor ---
   const interactiveLayers = [
     "places-dots",
     "places-icons",
@@ -974,13 +774,12 @@ permalink: /travel
     "route-lines-past",
     "route-lines-future-solid",
     "route-lines-future-dashed",
-    "cruise-route-lines-past",
-    "cruise-route-lines-future-solid",
-    "cruise-route-lines-future-dashed",
-    "cruise-ports-past",
-    "cruise-ports-future",
-    "cruise-ports-flags-past",
-    "cruise-ports-flags-future",
+    "cruise-wake",
+    "cruise-route-lines",
+    "cruise-route-lines-overlap",
+    "cruise-ports",
+    "cruise-ports-flags",
+    "ferry-wake",
     "ferry-route-lines",
     "ferry-terminals",
     "ferry-terminals-flags",
@@ -992,26 +791,24 @@ permalink: /travel
   map.on("click", interactiveLayers, function (e) {
     const feature = e.features[0];
     const layerId = feature.layer.id;
+    const props = feature.properties;
     let html = "";
     let coordinates = e.lngLat;
 
     if (layerId === "places-dots" || layerId === "places-icons") {
-      coordinates = feature.geometry.coordinates;
+      coordinates = getPointCoords(feature, e.lngLat);
       html = '<div class="text-center" style="color: #000;">';
-      html += '<h6 class="mb-1">' + feature.properties.name + "</h6>";
-      if (
-        feature.properties.address &&
-        feature.properties.name != feature.properties.address
-      ) {
+      html += '<h6 class="mb-1">' + props.name + "</h6>";
+      if (props.address && props.name != props.address) {
         html +=
           '<p class="mb-1" style="line-height: 1.25em;">' +
-          JSON.parse(feature.properties.address).join("<br>") +
+          JSON.parse(props.address).join("<br>") +
           "</p>";
       }
-      if (feature.properties.id) {
+      if (props.id) {
         html +=
           ' <a href="https://foursquare.com/v/' +
-          feature.properties.id +
+          props.id +
           '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #ffa633;"><img src="/node_modules/simple-icons/icons/swarm.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a>';
       }
       html +=
@@ -1020,7 +817,7 @@ permalink: /travel
         "," +
         coordinates[0] +
         "&q=" +
-        feature.properties.name +
+        props.name +
         '" class="rounded-circle" style="width: 40px; height: 40px; padding-top: 10px; display:inline-block; vertical-align:top; text-align:center; background-color: #999999;"><img src="/node_modules/simple-icons/icons/apple.svg" style="filter: invert(1); width: 20px; height: 20px; vertical-align: top;"></a> ';
       html +=
         ' <a href="https://www.google.com/maps/search/?api=1&query=' +
@@ -1033,32 +830,13 @@ permalink: /travel
       layerId === "airport-points" ||
       layerId === "airport-points-flags"
     ) {
-      coordinates = feature.geometry.coordinates.slice();
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      const airportName = feature.properties.name;
-      const flagId = feature.properties.flagId;
-
-      let flagImg = "";
-      if (flagId) {
-        if (flagId === "us-dc") {
-          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else if (flagId.startsWith("us-")) {
-          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else {
-          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        }
-      }
-
+      coordinates = getPointCoords(feature, e.lngLat);
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${airportName} ${flagImg}</h6>
-          <p class="m-0">${feature.properties.count} ${feature.properties.count === 1 ? "visit" : "visits"}</p>
+          <h6 class="mb-0">${props.name} ${renderFlagImg(props.flagId)}</h6>
+          <p class="m-0">${props.count} ${props.count === 1 ? "visit" : "visits"}</p>
         </div>`;
     } else if (layerId.startsWith("route-lines")) {
-      const props = feature.properties;
       const pastCount = layerId.includes("future")
         ? props.pastCount || 0
         : props.count;
@@ -1066,7 +844,7 @@ permalink: /travel
         ? props.count
         : props.futureCount || 0;
 
-      let textParts = [];
+      const textParts = [];
       if (pastCount > 0) {
         textParts.push(
           `${pastCount} past ${pastCount === 1 ? "flight" : "flights"}`,
@@ -1084,107 +862,63 @@ permalink: /travel
           <p class="m-0">${textParts.join("<br>")}</p>
         </div>`;
     } else if (layerId.startsWith("cruise-ports")) {
-      coordinates = feature.geometry.coordinates.slice();
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      const portName = feature.properties.port;
-      const flagId = feature.properties.flagId;
-      const count = feature.properties.count;
-
-      let flagImg = "";
-      if (flagId) {
-        if (flagId === "us-dc") {
-          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else if (flagId.startsWith("us-")) {
-          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else {
-          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        }
-      }
-
+      coordinates = getPointCoords(feature, e.lngLat);
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${portName} ${flagImg}</h6>
-          <p class="m-0">${count} ${count === 1 ? "visit" : "visits"}</p>
+          <h6 class="mb-0">${props.port} ${renderFlagImg(props.flagId)}</h6>
+          <p class="m-0">${props.count} ${props.count === 1 ? "visit" : "visits"}</p>
         </div>`;
-    } else if (layerId.startsWith("cruise-route-lines")) {
-      const count = feature.properties.count;
-      const type = layerId.includes("future") ? "upcoming" : "past";
+    } else if (
+      layerId.startsWith("cruise-route-lines") ||
+      layerId === "cruise-wake"
+    ) {
+      const textParts = [];
+      if (props.pastCount > 0) {
+        textParts.push(
+          `${props.pastCount} past ${props.pastCount === 1 ? "voyage" : "voyages"}`,
+        );
+      }
+      if (props.futureCount > 0) {
+        textParts.push(
+          `${props.futureCount} upcoming ${props.futureCount === 1 ? "voyage" : "voyages"}`,
+        );
+      }
+
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${feature.properties.origin_port} ↔ ${feature.properties.destination_port}</h6>
-          <p class="m-0">${count} ${type} ${count === 1 ? "voyage" : "voyages"}</p>
+          <h6 class="mb-0">${props.origin_port} ↔ ${props.destination_port}</h6>
+          <p class="m-0">${textParts.join("<br>")}</p>
         </div>`;
     } else if (layerId === "rail-lines-base") {
-      // --- Rail Popup ---
-      const operator = feature.properties.operator || "Rail";
-      const route = feature.properties.route || "Unknown Route";
-
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${operator}</h6>
-          <p class="m-0">${route}</p>
+          <h6 class="mb-0">${props.operator || "Rail"}</h6>
+          <p class="m-0">${props.route || "Unknown Route"}</p>
         </div>`;
     } else if (
       layerId === "rail-stations" ||
       layerId === "rail-stations-flags"
     ) {
-      // --- Station Popup ---
-      const stationName = feature.properties.name || "Unknown Station";
-      const stationCode = feature.properties.code || "";
-      const flagId = feature.properties.flagId;
-
-      let flagImg = "";
-      if (flagId) {
-        if (flagId === "us-dc") {
-          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else if (flagId.startsWith("us-")) {
-          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else {
-          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        }
-      }
-
+      coordinates = getPointCoords(feature, e.lngLat);
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${stationName} ${flagImg}</h6>
-          ${stationCode ? `<p class="m-0 text-muted" style="font-size: 0.85em;">${stationCode}</p>` : ""}
+          <h6 class="mb-0">${props.name || "Unknown Station"} ${renderFlagImg(props.flagId)}</h6>
+          ${props.code ? `<p class="m-0 text-muted" style="font-size: 0.85em;">${props.code}</p>` : ""}
         </div>`;
-    } else if (layerId === "ferry-route-lines") {
-      const operator = feature.properties.operator || "Ferry";
-      const route = feature.properties.route || "Unknown Route";
+    } else if (layerId === "ferry-route-lines" || layerId === "ferry-wake") {
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${operator}</h6>
-          <p class="m-0">${route}</p>
+          <h6 class="mb-0">${props.operator || "Ferry"}</h6>
+          <p class="m-0">${props.route || "Unknown Route"}</p>
         </div>`;
     } else if (
       layerId === "ferry-terminals" ||
       layerId === "ferry-terminals-flags"
     ) {
-      coordinates = feature.geometry.coordinates.slice();
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      const terminalName = feature.properties.name || "Ferry Terminal";
-      const flagId = feature.properties.flagId;
-      let flagImg = "";
-      if (flagId) {
-        if (flagId === "us-dc") {
-          flagImg = `<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else if (flagId.startsWith("us-")) {
-          flagImg = `<img src="https://flagcdn.com/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        } else {
-          flagImg = `<img src="/node_modules/circle-flags/flags/${flagId}.svg" style="height: 1em; width: 1em; object-fit: cover; border-radius: 50%; position: relative; top: -2px; vertical-align: bottom; margin-left: 4px;">`;
-        }
-      }
-
+      coordinates = getPointCoords(feature, e.lngLat);
       html = `
         <div class="text-center" style="color: #000;">
-          <h6 class="mb-0">${terminalName} ${flagImg}</h6>
+          <h6 class="mb-0">${props.name || "Ferry Terminal"} ${renderFlagImg(props.flagId)}</h6>
         </div>`;
     }
 
@@ -1206,75 +940,49 @@ permalink: /travel
     map.getCanvas().style.cursor = "";
   });
 
-  document.getElementById("toggle-places").addEventListener("change", (e) => {
-    const visibility = e.target.checked ? "visible" : "none";
-    if (map.getLayer("places-dots"))
-      map.setLayoutProperty("places-dots", "visibility", visibility);
-    if (map.getLayer("places-icons"))
-      map.setLayoutProperty("places-icons", "visibility", visibility);
-  });
-
-  document.getElementById("toggle-flights").addEventListener("change", (e) => {
-    const visibility = e.target.checked ? "visible" : "none";
-    if (map.getLayer("route-lines-past"))
-      map.setLayoutProperty("route-lines-past", "visibility", visibility);
-    if (map.getLayer("route-lines-future-solid"))
-      map.setLayoutProperty(
-        "route-lines-future-solid",
-        "visibility",
-        visibility,
-      );
-    if (map.getLayer("route-lines-future-dashed"))
-      map.setLayoutProperty(
-        "route-lines-future-dashed",
-        "visibility",
-        visibility,
-      );
-    if (map.getLayer("airport-points"))
-      map.setLayoutProperty("airport-points", "visibility", visibility);
-    if (map.getLayer("airport-points-flags"))
-      map.setLayoutProperty("airport-points-flags", "visibility", visibility);
-  });
-
-  document.getElementById("toggle-cruises").addEventListener("change", (e) => {
-    const visibility = e.target.checked ? "visible" : "none";
-
-    const layers = [
-      "cruise-route-lines-past",
-      "cruise-route-lines-future-solid",
-      "cruise-route-lines-future-dashed",
-      "cruise-ports-past",
-      "cruise-ports-future",
-      "cruise-ports-flags-past",
-      "cruise-ports-flags-future",
+  // --- Layer & Projection Toggles ---
+  const TOGGLE_GROUPS = {
+    "toggle-places": ["places-dots", "places-icons"],
+    "toggle-flights": [
+      "route-lines-past",
+      "route-lines-future-solid",
+      "route-lines-future-dashed",
+      "airport-points",
+      "airport-points-flags",
+    ],
+    "toggle-cruises": [
+      "cruise-wake",
+      "cruise-route-lines",
+      "cruise-route-lines-overlap",
+      "cruise-ports",
+      "cruise-ports-flags",
+      "ferry-wake",
       "ferry-route-lines",
       "ferry-terminals",
       "ferry-terminals-flags",
-    ];
+    ],
+    "toggle-trains": [
+      "rail-lines-base",
+      "rail-lines-ties",
+      "rail-stations",
+      "rail-stations-flags",
+    ],
+  };
 
-    layers.forEach((layer) => {
-      if (map.getLayer(layer))
-        map.setLayoutProperty(layer, "visibility", visibility);
+  Object.entries(TOGGLE_GROUPS).forEach(([id, layers]) => {
+    document.getElementById(id).addEventListener("change", (e) => {
+      const visibility = e.target.checked ? "visible" : "none";
+      layers.forEach((layer) => {
+        if (map.getLayer(layer)) {
+          map.setLayoutProperty(layer, "visibility", visibility);
+        }
+      });
     });
-  });
-
-  document.getElementById("toggle-trains").addEventListener("change", (e) => {
-    const visibility = e.target.checked ? "visible" : "none";
-
-    if (map.getLayer("rail-lines-base"))
-      map.setLayoutProperty("rail-lines-base", "visibility", visibility);
-    if (map.getLayer("rail-lines-ties"))
-      map.setLayoutProperty("rail-lines-ties", "visibility", visibility);
-    if (map.getLayer("rail-stations"))
-      map.setLayoutProperty("rail-stations", "visibility", visibility);
-    if (map.getLayer("rail-stations-flags"))
-      map.setLayoutProperty("rail-stations-flags", "visibility", visibility);
   });
 
   document
     .getElementById("toggle-projection")
     .addEventListener("change", (e) => {
-      const projection = e.target.checked ? "globe" : "mercator";
-      map.setProjection(projection);
+      map.setProjection(e.target.checked ? "globe" : "mercator");
     });
 </script>
